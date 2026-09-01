@@ -220,8 +220,8 @@ npm run preview
 This repository is configured with [`vercel.json`](./vercel.json) to handle single-page application (SPA) client-side rewrites automatically.
 
 #### Live Vercel URLs:
-* 🌐 **Main Public Website**: `https://lata-tea.vercel.app/`
-* 🛠️ **Administrative CMS Portal**: `https://lata-tea.vercel.app/cms` *(or `https://lata-tea.vercel.app/#cms`)*
+* 🌐 **Main Public Website**: [https://latatea.vercel.app/](https://latatea.vercel.app/)
+* 🛠️ **Administrative CMS Portal**: [https://latatea.vercel.app/cms](https://latatea.vercel.app/cms) *(or [https://latatea.vercel.app/#cms](https://latatea.vercel.app/#cms))*
 
 #### Deploying to Vercel:
 1. **Via Vercel CLI**:
