@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useCMS } from '../../context/CMSContext';
 import { Navbar } from '../public/Navbar';
 import { Hero } from '../public/Hero';
+import { BrandTicker } from '../common/BrandTicker';
 import { BrandStory } from '../public/BrandStory';
 import { ProductCatalog } from '../public/ProductCatalog';
 import { ApplicationsSection } from '../public/ApplicationsSection';
@@ -63,7 +64,12 @@ export const PreviewModal: React.FC<PreviewModalProps> = ({
   const renderSectionByKey = (key: string) => {
     switch (key) {
       case 'hero':
-        return <Hero key="hero" onOpenInquiry={() => {}} isDraftPreview={true} />;
+        return (
+          <React.Fragment key="hero-preview-group">
+            <Hero onOpenInquiry={() => {}} isDraftPreview={true} />
+            <BrandTicker />
+          </React.Fragment>
+        );
       case 'about':
         return <BrandStory key="about" isDraftPreview={true} />;
       case 'products':

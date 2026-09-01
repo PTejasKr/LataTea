@@ -9,6 +9,7 @@ import {
   ShieldCheck,
   CheckCircle2
 } from 'lucide-react';
+import { TeaLeafIcon } from '../common/TeaLeafIcon';
 
 const iconMap: Record<string, React.ReactNode> = {
   Leaf: <Leaf className="w-6 h-6 text-lataleaf-500" />,
@@ -28,6 +29,7 @@ export const BrandStory: React.FC<BrandStoryProps> = ({ isDraftPreview = false }
   const state = isDraftPreview ? draftState : publishedState;
   const about = state.content.about;
   const aboutImg = resolveSlotImage('ABOUT_IMAGE_PRIMARY', false, isDraftPreview);
+  const imgUrl = aboutImg.url || '/assets/images/royal_tea_bowl.jpg';
 
   return (
     <section id="about" className="py-24 bg-[#FAF6EE] relative overflow-hidden">
@@ -35,8 +37,9 @@ export const BrandStory: React.FC<BrandStoryProps> = ({ isDraftPreview = false }
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <span className="inline-block text-xs md:text-sm font-bold uppercase tracking-widest text-lataamber-600 mb-2 font-sans">
-            {about.tagline || 'WHY CHOOSE LATA?'}
+          <span className="inline-flex items-center gap-1.5 text-xs md:text-sm font-bold uppercase tracking-widest text-lataamber-600 mb-2 font-sans">
+            <TeaLeafIcon className="w-4 h-4" />
+            <span>{about.tagline || 'WHY CHOOSE LATA?'}</span>
           </span>
           <h2 className="font-rajwada text-3xl sm:text-4xl md:text-5xl font-black text-[#1E3F20] tracking-tight">
             {about.heading}
@@ -85,21 +88,17 @@ export const BrandStory: React.FC<BrandStoryProps> = ({ isDraftPreview = false }
           {/* Authentic Copper Bowl Image Card */}
           <div className="lg:col-span-6">
             <div className="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white bg-[#1E3F20] group">
-              <div className="aspect-[4/3] w-full overflow-hidden">
-                {aboutImg.url ? (
-                  <img
-                    src={aboutImg.url}
-                    alt={aboutImg.alt || 'Antique copper bowl with real tea leaves & whole spices'}
-                    style={aboutImg.style}
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                  />
-                ) : (
-                  <img
-                    src="/assets/images/royal_tea_bowl.jpg"
-                    alt="Authentic Tea Blend"
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                  />
-                )}
+              <div className="aspect-square w-full overflow-hidden">
+                <img
+                  src={imgUrl}
+                  alt={aboutImg.alt || 'Antique carved copper bowl with spoon pouring master tea blend'}
+                  loading="lazy"
+                  decoding="async"
+                  onError={(e) => {
+                    e.currentTarget.src = '/assets/images/royal_tea_bowl.jpg';
+                  }}
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                />
               </div>
               <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-[#163018] via-[#163018]/85 to-transparent p-6 text-white">
                 <div className="font-rajwada font-bold text-2xl text-amber-300">

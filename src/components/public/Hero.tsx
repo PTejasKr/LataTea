@@ -2,6 +2,7 @@ import React from 'react';
 import { useCMS } from '../../context/CMSContext';
 import { ArrowRight, ShieldCheck, Clock, Award, ShoppingBag, Truck } from 'lucide-react';
 import { TeaLeafIcon } from '../common/TeaLeafIcon';
+import { TextTransition } from '../common/TextTransition';
 
 interface HeroProps {
   onOpenInquiry: (productName?: string) => void;
@@ -15,6 +16,13 @@ export const Hero: React.FC<HeroProps> = ({ isDraftPreview = false }) => {
   
   const heroBg = resolveSlotImage('HOME_HERO_PRIMARY', false, isDraftPreview);
   const heroImgUrl = heroBg.url || '/assets/images/hero_tea_panoramic.png';
+
+  const cyclingHeadlines = [
+    'Authentic Taste. Consistent Quality.',
+    'Royal Rajwada Heritage Tea.',
+    'Pure Organic Jaggery Goodness.',
+    'Traditional Basundi Chai in 3 Mins.'
+  ];
 
   return (
     <section id="hero" className="relative min-h-[92vh] flex items-center justify-center pt-28 pb-20 overflow-hidden bg-[#1A1108]">
@@ -40,10 +48,12 @@ export const Hero: React.FC<HeroProps> = ({ isDraftPreview = false }) => {
           <span>{hero.tagline || 'AUTHENTIC TASTE • CONSISTENT QUALITY • INSTANT CONVENIENCE'}</span>
         </div>
 
-        {/* Grand Rajwada Headline */}
-        <h1 className="font-rajwada text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black tracking-tight leading-[1.08] text-white drop-shadow-[0_6px_20px_rgba(0,0,0,0.9)] max-w-5xl mx-auto">
-          {hero.headline}
-        </h1>
+        {/* Grand Rajwada Headline with CCL Products Dynamic Text Transition */}
+        <div className="min-h-[120px] sm:min-h-[170px] md:min-h-[220px] flex items-center justify-center">
+          <h1 className="font-rajwada text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black tracking-tight leading-[1.08] text-white drop-shadow-[0_6px_20px_rgba(0,0,0,0.9)] max-w-5xl mx-auto">
+            <TextTransition phrases={cyclingHeadlines} intervalMs={3400} />
+          </h1>
+        </div>
 
         {/* Royal Ornate Gold Divider */}
         <div className="flex items-center justify-center gap-3 my-6">
@@ -58,7 +68,7 @@ export const Hero: React.FC<HeroProps> = ({ isDraftPreview = false }) => {
         </p>
 
         {/* Action CTAs */}
-        <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
+        <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4 font-sans">
           <a
             href="#products"
             className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-9 py-4 rounded-full text-xs sm:text-sm font-bold uppercase tracking-widest bg-lataamber-500 hover:bg-lataamber-600 text-white shadow-2xl hover:scale-105 transition-all duration-200"

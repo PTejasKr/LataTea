@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useCMS } from '../../context/CMSContext';
 import { Navbar } from './Navbar';
 import { Hero } from './Hero';
+import { BrandTicker } from '../common/BrandTicker';
 import { BrandStory } from './BrandStory';
 import { ProductCatalog } from './ProductCatalog';
 import { ApplicationsSection } from './ApplicationsSection';
@@ -38,7 +39,12 @@ export const PublicWebsite: React.FC<PublicWebsiteProps> = ({ isDraftPreview = f
   const renderSectionByKey = (key: string) => {
     switch (key) {
       case 'hero':
-        return <Hero key="hero" onOpenInquiry={handleOpenInquiry} isDraftPreview={isDraftPreview} />;
+        return (
+          <React.Fragment key="hero-group">
+            <Hero onOpenInquiry={handleOpenInquiry} isDraftPreview={isDraftPreview} />
+            <BrandTicker />
+          </React.Fragment>
+        );
       case 'about':
         return <BrandStory key="about" isDraftPreview={isDraftPreview} />;
       case 'products':
