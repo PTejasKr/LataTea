@@ -1,4 +1,4 @@
-import { CMSState, MediaSlot, ProductItem, SolutionItem, SectionConfig, NavigationItem } from '../types/cms';
+import { CMSState, MediaSlot, ProductItem, SolutionItem, DomainItem, SectionConfig, NavigationItem } from '../types/cms';
 import { DEFAULT_MEDIA_ITEMS } from './defaultMediaAssets';
 
 export const DEFAULT_MEDIA_SLOTS: Record<string, MediaSlot> = {
@@ -433,6 +433,46 @@ export const DEFAULT_NAVIGATION: NavigationItem[] = [
   { id: 'nav_contact', label: 'Contact', url: '/contact', isExternal: false, isButton: false, isEnabled: true, order: 7 }
 ];
 
+export const DEFAULT_DOMAINS: DomainItem[] = [
+  {
+    id: 'dom_1',
+    hostname: 'latatea.com',
+    type: 'primary',
+    status: 'ACTIVE',
+    isPrimary: true,
+    redirectToPrimary: false,
+    sslStatus: 'ACTIVE',
+    registrar: 'GoDaddy',
+    hostingProvider: 'Hostinger',
+    targetDestination: 'cname.hostinger.com',
+    dnsRecords: [
+      { type: 'A', name: '@', value: '185.199.108.153', status: 'matched', ttl: '3600' },
+      { type: 'CNAME', name: 'www', value: 'latatea.com', status: 'matched', ttl: '3600' }
+    ],
+    lastVerifiedAt: new Date().toISOString(),
+    createdAt: new Date(Date.now() - 30 * 86400000).toISOString(),
+    updatedAt: new Date().toISOString()
+  },
+  {
+    id: 'dom_2',
+    hostname: 'www.latatea.com',
+    type: 'redirect',
+    status: 'ACTIVE',
+    isPrimary: false,
+    redirectToPrimary: true,
+    sslStatus: 'ACTIVE',
+    registrar: 'GoDaddy',
+    hostingProvider: 'Hostinger',
+    targetDestination: 'latatea.com',
+    dnsRecords: [
+      { type: 'CNAME', name: 'www', value: 'latatea.com', status: 'matched', ttl: '3600' }
+    ],
+    lastVerifiedAt: new Date().toISOString(),
+    createdAt: new Date(Date.now() - 30 * 86400000).toISOString(),
+    updatedAt: new Date().toISOString()
+  }
+];
+
 export const INITIAL_CMS_STATE: CMSState = {
   version: 2,
   status: 'published',
@@ -455,6 +495,7 @@ export const INITIAL_CMS_STATE: CMSState = {
   navigation: DEFAULT_NAVIGATION,
   products: DEFAULT_PRODUCTS,
   solutions: DEFAULT_SOLUTIONS,
+  domains: DEFAULT_DOMAINS,
   mediaLibrary: DEFAULT_MEDIA_ITEMS,
   mediaSlots: DEFAULT_MEDIA_SLOTS,
   content: {

@@ -14,7 +14,8 @@ import {
   Clock, 
   Activity,
   Crosshair,
-  Type
+  Type,
+  Globe
 } from 'lucide-react';
 import { AdminTab } from './AdminLayout';
 
@@ -152,7 +153,7 @@ export const DashboardView: React.FC<DashboardViewProps> = ({ onSelectTab, onOpe
       </div>
 
       {/* Quick Access Action Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
         
         {/* Card 1: Image Position Editor */}
         <div 
@@ -202,6 +203,23 @@ export const DashboardView: React.FC<DashboardViewProps> = ({ onSelectTab, onOpe
           </h3>
           <p className="text-xs text-slate-400 mt-2 leading-relaxed">
             Configure pack sizes (16g, 160g, 1kg), brochure rates (₹3.5 - ₹180), descriptions, and visibility.
+          </p>
+        </div>
+
+        {/* Card 4: Domain Management */}
+        <div 
+          onClick={() => onSelectTab('domains')}
+          className="p-6 rounded-3xl bg-[#1E293B] border border-slate-700/80 hover:border-amber-500/50 transition-all cursor-pointer group shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+        >
+          <div className="w-12 h-12 rounded-2xl bg-amber-500/10 text-amber-400 flex items-center justify-center mb-4 group-hover:scale-110 group-hover:bg-amber-500 group-hover:text-slate-950 transition-all">
+            <Globe className="w-6 h-6" />
+          </div>
+          <h3 className="font-bold text-lg text-white group-hover:text-amber-400 transition-colors flex items-center justify-between">
+            <span>Domain & DNS Setup</span>
+            <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity" />
+          </h3>
+          <p className="text-xs text-slate-400 mt-2 leading-relaxed">
+            Connect GoDaddy / Hostinger domains, manage CNAME/A records, and verify canonical routing.
           </p>
         </div>
 

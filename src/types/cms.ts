@@ -260,6 +260,45 @@ export interface WebsiteContent {
   };
 }
 
+export type DomainType = 'primary' | 'secondary' | 'redirect';
+
+export type DomainStatus = 
+  | 'PENDING'
+  | 'DNS_CONFIGURATION_REQUIRED'
+  | 'VERIFYING'
+  | 'VERIFIED'
+  | 'SSL_PROVISIONING'
+  | 'ACTIVE'
+  | 'ERROR';
+
+export type SSLStatus = 'ACTIVE' | 'PENDING' | 'PROVISIONING' | 'ERROR';
+
+export interface DNSRecord {
+  type: 'A' | 'CNAME' | 'TXT';
+  name: string;
+  value: string;
+  ttl?: string;
+  status?: 'matched' | 'pending' | 'mismatched';
+}
+
+export interface DomainItem {
+  id: string;
+  hostname: string;
+  type: DomainType;
+  status: DomainStatus;
+  isPrimary: boolean;
+  redirectToPrimary?: boolean;
+  sslStatus: SSLStatus;
+  dnsRecords: DNSRecord[];
+  registrar?: string;
+  hostingProvider?: string;
+  targetDestination: string;
+  lastVerifiedAt?: string;
+  errorMessage?: string;
+  createdAt: string;
+  updatedAt: string;
+}
+
 export interface CMSState {
   version: number;
   status: 'published' | 'draft';
@@ -269,6 +308,7 @@ export interface CMSState {
   navigation: NavigationItem[];
   products: ProductItem[];
   solutions: SolutionItem[];
+  domains: DomainItem[];
   mediaLibrary: MediaItem[];
   mediaSlots: Record<string, MediaSlot>;
   content: WebsiteContent;
@@ -284,3 +324,4 @@ export interface ValidationIssue {
   message: string;
   fieldId?: string;
 }
+

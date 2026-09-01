@@ -11,6 +11,7 @@ import { SectionManagerView } from './SectionManagerView';
 import { BrandSettingsView } from './BrandSettingsView';
 import { ContactManagerView } from './ContactManagerView';
 import { SeoManagerView } from './SeoManagerView';
+import { DomainManagerView } from './DomainManagerView';
 import { PublishModal } from './PublishModal';
 import { PreviewModal } from './PreviewModal';
 import { CmsLoginView } from './CmsLoginView';
@@ -42,6 +43,7 @@ export const AdminView: React.FC = () => {
         {activeTab === 'navigation' && <NavManagerView />}
         {activeTab === 'products' && <ProductManagerView />}
         {activeTab === 'solutions' && <SolutionManagerView />}
+        {activeTab === 'domains' && <DomainManagerView />}
         {activeTab === 'image-position' && <ImagePositionEditorView />}
         {activeTab === 'media-library' && <MediaLibraryView />}
         {activeTab === 'sections' && <SectionManagerView />}

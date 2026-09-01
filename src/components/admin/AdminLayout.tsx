@@ -28,6 +28,7 @@ export type AdminTab =
   | 'navigation'
   | 'products'
   | 'solutions'
+  | 'domains'
   | 'media-library'
   | 'image-position'
   | 'sections'
@@ -65,6 +66,7 @@ export const AdminLayout: React.FC<AdminLayoutProps> = ({
     { id: 'navigation', label: 'Navigation Manager', icon: <MenuIcon className="w-4 h-4" /> },
     { id: 'products', label: 'Product Manager', icon: <ShoppingBag className="w-4 h-4" />, badge: `${draftState.products.length}` },
     { id: 'solutions', label: 'B2B Solutions', icon: <Building2 className="w-4 h-4 text-emerald-400" />, badge: `${draftState.solutions ? draftState.solutions.length : 6}` },
+    { id: 'domains', label: 'Domain Management', icon: <Globe className="w-4 h-4 text-amber-400" />, badge: `${(draftState.domains || []).length}` },
     { id: 'image-position', label: 'Image Position Editor', icon: <Crosshair className="w-4 h-4 text-amber-400" />, badge: 'Featured' },
     { id: 'media-library', label: 'Media Library', icon: <ImageIcon className="w-4 h-4" /> },
     { id: 'sections', label: 'Section Manager', icon: <Layers className="w-4 h-4" /> },

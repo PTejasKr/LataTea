@@ -45,7 +45,7 @@ export const PublicWebsite: React.FC<PublicWebsiteProps> = ({ isDraftPreview = f
     if (path === '/about') {
       return <AboutPage />;
     }
-    if (path === '/our-story') {
+    if (path === '/our-story' || path === '/story') {
       return <OurStoryPage />;
     }
 
@@ -87,8 +87,28 @@ export const PublicWebsite: React.FC<PublicWebsiteProps> = ({ isDraftPreview = f
     }
 
     // 7. Contact & Samples
-    if (path === '/contact') {
+    if (path === '/contact' || path === '/samples') {
       return <ContactPage />;
+    }
+
+    // 8. Legal & Terms
+    if (path === '/privacy' || path === '/terms') {
+      return (
+        <div className="pt-32 pb-24 max-w-4xl mx-auto px-4 sm:px-6">
+          <div className="bg-white p-8 sm:p-12 rounded-3xl border border-amber-200 shadow-xl space-y-6">
+            <h1 className="font-rajwada text-3xl sm:text-4xl font-bold text-[#1E3F20]">
+              {path === '/privacy' ? 'Privacy Policy & Data Protection' : 'Terms & Conditions of Commercial Sale'}
+            </h1>
+            <div className="h-0.5 w-16 bg-lataamber-500" />
+            <p className="text-sm text-slate-700 leading-relaxed font-sans">
+              Purple Bean Agro Industries Private Limited is committed to upholding the highest standards of food safety (FSSAI Lic: 11525996000709), customer privacy, and transparent commercial transactions.
+            </p>
+            <p className="text-xs text-slate-500 font-sans">
+              Registered Office: Office 12, Business Avenue, Aundh, Pune, Maharashtra 411012. For inquiries, contact info@latatea.com.
+            </p>
+          </div>
+        </div>
+      );
     }
 
     // Default fallback to HomePage

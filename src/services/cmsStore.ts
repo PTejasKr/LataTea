@@ -64,6 +64,9 @@ function mergeWithInitialState(parsed: Partial<CMSState> | null): CMSState {
     solutions: (parsed.solutions && parsed.solutions.length > 0)
       ? parsed.solutions
       : INITIAL_CMS_STATE.solutions,
+    domains: (parsed.domains && parsed.domains.length > 0)
+      ? parsed.domains
+      : INITIAL_CMS_STATE.domains,
     navigation: (parsed.navigation && parsed.navigation.length > 0 && parsed.navigation.some((n: any) => n.children))
       ? parsed.navigation
       : INITIAL_CMS_STATE.navigation,
