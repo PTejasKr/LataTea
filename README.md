@@ -19,7 +19,7 @@
 6. [Design System & Typography](#-design-system--typography)
 7. [Statutory & Compliance Details](#-statutory--compliance-details)
 8. [Local Development & Build](#-local-development--build)
-9. [Deployment & GitHub Actions](#-deployment--github-actions)
+9. [Deployment (Vercel & GitHub Pages)](#-deployment-vercel--github-pages)
 
 ---
 
@@ -214,11 +214,37 @@ npm run preview
 
 ---
 
-## 🚀 Deployment & GitHub Actions
+## 🚀 Deployment (Vercel & GitHub Pages)
 
+### 1. Vercel Cloud Deployment (Recommended)
+This repository is configured with [`vercel.json`](./vercel.json) to handle single-page application (SPA) client-side rewrites automatically.
+
+#### Live Vercel URLs:
+* 🌐 **Main Public Website**: `https://lata-tea.vercel.app/`
+* 🛠️ **Administrative CMS Portal**: `https://lata-tea.vercel.app/cms` *(or `https://lata-tea.vercel.app/#cms`)*
+
+#### Deploying to Vercel:
+1. **Via Vercel CLI**:
+   ```bash
+   # Login and link project
+   vercel login
+   
+   # Deploy to production
+   vercel --prod
+   ```
+2. **Via Vercel Web Dashboard / GitHub Integration**:
+   - Go to [vercel.com/new](https://vercel.com/new) and import `https://github.com/PTejasKr/LataTea`.
+   - Framework Preset: **Vite**
+   - Root Directory: `./`
+   - Build Command: `npm run build`
+   - Output Directory: `dist`
+   - Click **Deploy**.
+
+---
+
+### 2. GitHub Pages Deployment (Automated CI/CD)
 This repository includes an automated CI/CD workflow located at [`.github/workflows/deploy.yml`](.github/workflows/deploy.yml).
 
-### Enabling GitHub Pages:
 1. Go to repository settings: [**https://github.com/PTejasKr/LataTea/settings/pages**](https://github.com/PTejasKr/LataTea/settings/pages)
 2. Under **"Build and deployment"** ➔ **"Source"**, choose **`GitHub Actions`**.
 3. Every commit pushed to `main` will automatically build and publish to:
