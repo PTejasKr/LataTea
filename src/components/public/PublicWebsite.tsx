@@ -1,20 +1,22 @@
 import React, { useState } from 'react';
 import { useCMS } from '../../context/CMSContext';
+import { useRouter } from '../../router/Router';
 import { Navbar } from './Navbar';
-import { Hero } from './Hero';
-import { BrandTicker } from '../common/BrandTicker';
-import { BrandStory } from './BrandStory';
-import { ProductCatalog } from './ProductCatalog';
-import { ApplicationsSection } from './ApplicationsSection';
-import { PreparationGuide } from './PreparationGuide';
-import { OrderingRoadmap } from './OrderingRoadmap';
-import { OrderTrackingSection } from './OrderTrackingSection';
-import { RegistrationAndContact } from './RegistrationAndContact';
-import { CtaSection } from './CtaSection';
 import { Footer } from './Footer';
 import { InquiryModal } from './InquiryModal';
 import { CartDrawer } from './CartDrawer';
 import { CheckoutModal } from './CheckoutModal';
+
+// Pages
+import { HomePage } from '../../pages/HomePage';
+import { AboutPage } from '../../pages/AboutPage';
+import { OurStoryPage } from '../../pages/OurStoryPage';
+import { ProductsPage } from '../../pages/ProductsPage';
+import { ProductDetailPage } from '../../pages/ProductDetailPage';
+import { SolutionDetailPage } from '../../pages/SolutionDetailPage';
+import { PreparationPage } from '../../pages/PreparationPage';
+import { ContactPage } from '../../pages/ContactPage';
+import { TrackPage } from '../../pages/TrackPage';
 
 interface PublicWebsiteProps {
   isDraftPreview?: boolean;
@@ -23,6 +25,7 @@ interface PublicWebsiteProps {
 export const PublicWebsite: React.FC<PublicWebsiteProps> = ({ isDraftPreview = false }) => {
   const { publishedState, draftState } = useCMS();
   const state = isDraftPreview ? draftState : publishedState;
+  const { path } = useRouter();
 
   const [inquiryOpen, setInquiryOpen] = useState(false);
   const [selectedProductForInquiry, setSelectedProductForInquiry] = useState<string | undefined>(undefined);
@@ -32,59 +35,86 @@ export const PublicWebsite: React.FC<PublicWebsiteProps> = ({ isDraftPreview = f
     setInquiryOpen(true);
   };
 
-  const sections = [...state.sections]
-    .filter(s => s.isEnabled)
-    .sort((a, b) => a.order - b.order);
-
-  const renderSectionByKey = (key: string) => {
-    switch (key) {
-      case 'hero':
-        return (
-          <React.Fragment key="hero-group">
-            <Hero onOpenInquiry={handleOpenInquiry} isDraftPreview={isDraftPreview} />
-            <BrandTicker />
-          </React.Fragment>
-        );
-      case 'about':
-        return <BrandStory key="about" isDraftPreview={isDraftPreview} />;
-      case 'products':
-        return <ProductCatalog key="products" onOpenInquiry={handleOpenInquiry} isDraftPreview={isDraftPreview} />;
-      case 'applications':
-        return <ApplicationsSection key="applications" onOpenInquiry={handleOpenInquiry} isDraftPreview={isDraftPreview} />;
-      case 'preparation':
-        return <PreparationGuide key="preparation" isDraftPreview={isDraftPreview} />;
-      case 'ordering':
-        return <OrderingRoadmap key="ordering" onOpenInquiry={() => handleOpenInquiry()} isDraftPreview={isDraftPreview} />;
-      case 'track':
-        return <OrderTrackingSection key="track" />;
-      case 'cta':
-        return <CtaSection key="cta" onOpenInquiry={() => handleOpenInquiry()} isDraftPreview={isDraftPreview} />;
-      case 'contact':
-        return <RegistrationAndContact key="contact" isDraftPreview={isDraftPreview} />;
-      case 'footer':
-        return <Footer key="footer" isDraftPreview={isDraftPreview} />;
-      default:
-        return null;
+  const renderActivePage = () => {
+    // 1. Home
+    if (path === '/' || path === '') {
+      return <HomePage onOpenInquiry={handleOpenInquiry} isDraftPreview={isDraftPreview} />;
     }
+
+    // 2. About & Story
+    if (path === '/about') {
+      return <AboutPage />;
+    }
+    if (path === '/our-story') {
+      return <OurStoryPage />;
+    }
+
+    // 3. Category & Product Routes
+    if (path === '/products/gud-tea') {
+      return <ProductsPage initialCategory="gud" onOpenInquiry={handleOpenInquiry} />;
+    }
+    if (path === '/products/sugar-tea') {
+      return <ProductsPage initialCategory="sugar" onOpenInquiry={handleOpenInquiry} />;
+    }
+    if (path === '/products/premixes') {
+      return <ProductsPage initialCategory="vending" onOpenInquiry={handleOpenInquiry} />;
+    }
+    if (path === '/products') {
+      return <ProductsPage initialCategory="all" onOpenInquiry={handleOpenInquiry} />;
+    }
+    if (path.startsWith('/products/')) {
+      const slug = path.replace('/products/', '');
+      return <ProductDetailPage slug={slug} onOpenInquiry={handleOpenInquiry} />;
+    }
+
+    // 4. Solutions Routes
+    if (path.startsWith('/solutions/')) {
+      const slug = path.replace('/solutions/', '');
+      return <SolutionDetailPage slug={slug} onOpenInquiry={handleOpenInquiry} />;
+    }
+    if (path === '/solutions') {
+      return <SolutionDetailPage slug="corporate" onOpenInquiry={handleOpenInquiry} />;
+    }
+
+    // 5. Preparation & Roadmap
+    if (path === '/preparation') {
+      return <PreparationPage onOpenInquiry={() => handleOpenInquiry()} />;
+    }
+
+    // 6. Track Consignment
+    if (path === '/track') {
+      return <TrackPage onOpenInquiry={() => handleOpenInquiry()} />;
+    }
+
+    // 7. Contact & Samples
+    if (path === '/contact') {
+      return <ContactPage />;
+    }
+
+    // Default fallback to HomePage
+    return <HomePage onOpenInquiry={handleOpenInquiry} isDraftPreview={isDraftPreview} />;
   };
 
   return (
     <div className="min-h-screen bg-[#FAF6EE] text-[#1A2416] flex flex-col font-sans selection:bg-lataamber-500 selection:text-white">
-      {/* Sticky Navigation Header */}
+      {/* Sticky Primary Navigation */}
       <Navbar onOpenInquiry={handleOpenInquiry} isDraftPreview={isDraftPreview} />
 
-      {/* Main Homepage Dynamic Sections */}
+      {/* Main Page Body */}
       <main className="flex-grow">
-        {sections.map(section => renderSectionByKey(section.key))}
+        {renderActivePage()}
       </main>
+
+      {/* Corporate Compliance Footer */}
+      <Footer isDraftPreview={isDraftPreview} />
 
       {/* Interactive Cart Drawer */}
       <CartDrawer />
 
-      {/* Complete Checkout Modal */}
+      {/* Checkout Modal */}
       <CheckoutModal />
 
-      {/* Wholesale & Sample Inquiry Modal */}
+      {/* Sample & Quote Inquiry Modal */}
       <InquiryModal
         isOpen={inquiryOpen}
         onClose={() => setInquiryOpen(false)}

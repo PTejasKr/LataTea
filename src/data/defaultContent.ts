@@ -1,55 +1,28 @@
-import { CMSState, MediaSlot, NavigationItem, ProductItem, SectionConfig } from '../types/cms';
+import { CMSState, MediaSlot, ProductItem, SolutionItem, SectionConfig, NavigationItem } from '../types/cms';
 import { DEFAULT_MEDIA_ITEMS } from './defaultMediaAssets';
 
 export const DEFAULT_MEDIA_SLOTS: Record<string, MediaSlot> = {
-  BRAND_LOGO_PRIMARY: {
-    id: 'slot_logo_primary',
-    slotKey: 'BRAND_LOGO_PRIMARY',
-    label: 'Brand Crest Logo (Primary)',
-    description: 'Main logo shown in the navbar, header, and official crest cards.',
-    category: 'brand',
-    desktopImageId: 'media_logo_primary',
-    mobileImageId: 'media_logo_primary',
-    focalX: 50,
-    focalY: 50,
-    mobileFocalX: 50,
-    mobileFocalY: 50,
-    objectFit: 'contain',
-    aspectRatioHint: '16:9'
-  },
-  BRAND_LOGO_LIGHT: {
-    id: 'slot_logo_light',
-    slotKey: 'BRAND_LOGO_LIGHT',
-    label: 'Brand Logo (Light Monochrome)',
-    description: 'Clean monochrome/light variant for saturated dark backgrounds.',
-    category: 'brand',
-    desktopImageId: 'media_logo_light',
-    focalX: 50,
-    focalY: 50,
-    objectFit: 'contain',
-    aspectRatioHint: '16:9'
-  },
   HOME_HERO_PRIMARY: {
     id: 'slot_hero_primary',
     slotKey: 'HOME_HERO_PRIMARY',
-    label: 'Homepage Hero Backdrop (Royal Heritage)',
-    description: 'Main panoramic backdrop featuring copper ware, fresh tea leaves, and spices.',
+    label: 'Hero Panoramic Background',
+    description: 'High-definition heritage photograph of copper bowl, tea spices, and brass cup',
     category: 'hero',
     desktopImageId: 'media_royal_panoramic',
+    mobileImageId: 'media_royal_panoramic',
     focalX: 50,
     focalY: 50,
-    mobileFocalX: 50,
-    mobileFocalY: 50,
     objectFit: 'cover',
     aspectRatioHint: '21:9'
   },
   ABOUT_IMAGE_PRIMARY: {
     id: 'slot_about_primary',
     slotKey: 'ABOUT_IMAGE_PRIMARY',
-    label: 'About / Heritage Tea Bowl Visual',
-    description: 'Ornate antique copper bowl with master blend tea and aromatics.',
+    label: 'About Showcase Copper Bowl & Spoon',
+    description: 'Carved antique copper bowl with spoon pouring master tea mix',
     category: 'about',
     desktopImageId: 'media_royal_bowl',
+    mobileImageId: 'media_royal_bowl',
     focalX: 50,
     focalY: 45,
     objectFit: 'cover',
@@ -58,319 +31,542 @@ export const DEFAULT_MEDIA_SLOTS: Record<string, MediaSlot> = {
   CTA_BACKGROUND: {
     id: 'slot_cta_bg',
     slotKey: 'CTA_BACKGROUND',
-    label: 'Call to Action Banner Background',
-    description: 'Panoramic tea & spice backdrop for bottom wholesale inquiry banner.',
+    label: 'CTA Section Backdrop',
+    description: 'Panoramic tea spices and ambient royal lighting',
     category: 'cta',
     desktopImageId: 'media_royal_panoramic',
+    mobileImageId: 'media_royal_panoramic',
     focalX: 50,
-    focalY: 55,
+    focalY: 60,
     objectFit: 'cover',
-    aspectRatioHint: '21:9'
+    aspectRatioHint: '16:9'
+  },
+  BRAND_LOGO_PRIMARY: {
+    id: 'slot_brand_logo_pri',
+    slotKey: 'BRAND_LOGO_PRIMARY',
+    label: 'Brand Logo (Primary Crest)',
+    description: 'Main royal green and gold Lata Tea crest logo',
+    category: 'brand',
+    desktopImageId: 'media_logo_primary',
+    focalX: 50,
+    focalY: 50,
+    objectFit: 'contain',
+    aspectRatioHint: '16:9'
+  },
+  BRAND_LOGO_LIGHT: {
+    id: 'slot_brand_logo_light',
+    slotKey: 'BRAND_LOGO_LIGHT',
+    label: 'Brand Logo (Light/Footer)',
+    description: 'Light tinted version for dark backgrounds',
+    category: 'brand',
+    desktopImageId: 'media_logo_light',
+    focalX: 50,
+    focalY: 50,
+    objectFit: 'contain',
+    aspectRatioHint: '16:9'
   }
 };
 
-export const DEFAULT_NAVIGATION: NavigationItem[] = [
-  { id: 'nav_home', label: 'HOME', url: '#hero', isExternal: false, isButton: false, isEnabled: true, order: 1 },
-  { id: 'nav_about', label: 'ABOUT US', url: '#about', isExternal: false, isButton: false, isEnabled: true, order: 2 },
-  { id: 'nav_products', label: 'PRODUCTS & PRICING', url: '#products', isExternal: false, isButton: false, isEnabled: true, order: 3 },
-  { id: 'nav_applications', label: 'APPLICATIONS', url: '#applications', isExternal: false, isButton: false, isEnabled: true, order: 4 },
-  { id: 'nav_preparation', label: 'PREPARATION', url: '#preparation', isExternal: false, isButton: false, isEnabled: true, order: 5 },
-  { id: 'nav_ordering', label: 'ORDERING', url: '#ordering', isExternal: false, isButton: false, isEnabled: true, order: 6 },
-  { id: 'nav_track', label: 'TRACK ORDER', url: '#track-order', isExternal: false, isButton: false, isEnabled: true, order: 7 },
-  { id: 'nav_contact', label: 'CONTACT US', url: '#contact', isExternal: false, isButton: false, isEnabled: true, order: 8 }
-];
-
-export const DEFAULT_SECTIONS: SectionConfig[] = [
-  { id: 'sec_hero', key: 'hero', name: 'Hero Royal Showcase', description: 'Headline, heritage tea backdrop, and CTAs', isEnabled: true, order: 1, bgType: 'green' },
-  { id: 'sec_about', key: 'about', name: 'Brand Story & Rajwada Heritage', description: 'Brewing Tea As You Like It narrative & quality highlights', isEnabled: true, order: 2, bgType: 'cream' },
-  { id: 'sec_products', key: 'products', name: 'Product Catalog & Pricing Matrix', description: 'Single consolidated showcase for Gud, Sugar, and Vending ranges', isEnabled: true, order: 3, bgType: 'white' },
-  { id: 'sec_applications', key: 'applications', name: 'Ideal Applications (HoReCa & Retail)', description: 'Offices, Hotels, Restaurants, Cafes, Retail, Vending', isEnabled: true, order: 4, bgType: 'cream' },
-  { id: 'sec_preparation', key: 'preparation', name: '6-Step Preparation Recipe', description: 'Illustrated step-by-step brewing guide with exact measures', isEnabled: true, order: 5, bgType: 'white' },
-  { id: 'sec_ordering', key: 'ordering', name: '7-Step Ordering Roadmap', description: 'Large intuitive process tabs from inquiry to after-sales care', isEnabled: true, order: 6, bgType: 'cream' },
-  { id: 'sec_track', key: 'track', name: 'Universal Order Tracking', description: 'Live tracking portal for domestic & institutional consignments', isEnabled: true, order: 7, bgType: 'white' },
-  { id: 'sec_cta', key: 'cta', name: 'Wholesale & Sample CTA', description: 'High-conversion banner with quick quote modal', isEnabled: true, order: 8, bgType: 'green' },
-  { id: 'sec_contact', key: 'contact', name: 'Contact & Registration Info', description: 'Address, phone, GST, FSSAI, banking (only displays if set)', isEnabled: true, order: 9, bgType: 'cream' },
-  { id: 'sec_footer', key: 'footer', name: 'Footer', description: 'Navigation links, legal disclaimers, and copyright', isEnabled: true, order: 10, bgType: 'green' }
-];
-
 export const DEFAULT_PRODUCTS: ProductItem[] = [
-  // --- Gud Tea Range ---
+  // 1. Gud Tea Range (Organic Jaggery)
   {
     id: 'prod_gud_basundi',
-    name: 'Gud Basundi Tea',
+    slug: 'gud-basundi-tea',
+    name: 'Gud Basundi Tea (Spiced Jaggery)',
     category: 'gud',
     categoryName: 'Gud Tea Range',
-    shortDescription: 'Rich traditional tea infused with pure organic jaggery and basundi richness.',
-    fullDescription: 'Crafted with premium tea leaves and natural jaggery sweetness, Lata Gud Basundi Tea offers authentic warmth and immunity-boosting taste with zero refined sugar.',
+    shortDescription: 'Signature blend sweetened with pure organic jaggery and rich basundi spices.',
+    fullDescription: 'Crafted for connoisseurs seeking the authentic warmth of traditional Indian jaggery tea. Infused with cardamom, mace, nutmeg, and ginger, our signature Gud Basundi Tea dissolves completely in hot water and milk for a velvety, immunity-boosting cup.',
     imageSlotId: 'ABOUT_IMAGE_PRIMARY',
     packSizes: [
-      { size: '16g Sachet', price: 3.5, inStock: true },
-      { size: '160g Pack', price: 25.0, inStock: true },
-      { size: '1kg Pack', price: 150.0, inStock: true }
+      { size: '16g Single Sachet', price: 15, inStock: true },
+      { size: '160g Pouch (10 Cups)', price: 135, inStock: true },
+      { size: '1kg Bulk HoReCa Pack', price: 780, inStock: true }
     ],
-    applications: ['Offices', 'Hotels', 'Restaurants', 'Cafés', 'Retail Stores'],
+    applications: ['Corporate Pantries', 'Traditional Chai Outlets', 'Hotels & Banquets', 'Retail Kitchens'],
+    features: ['100% Pure Organic Jaggery', 'No Refined Sugar', 'Rich Cardamom & Nutmeg Infusion', 'Ready in 2–3 Minutes'],
+    ingredients: ['Assam CTC Tea Extract', 'Pure Jaggery (Gud) Powder', 'Cardamom', 'Ginger Root', 'Nutmeg', 'Mace'],
+    preparationNote: 'Boil 400ml water and 400ml milk, add 160g mix (or 16g per single cup), simmer for 2 mins and serve.',
     displayOrder: 1,
     isFeatured: true,
     isVisible: true,
-    badgeText: 'Natural Jaggery',
-    ingredients: ['CTC Tea Leaf Extract', 'Organic Jaggery Powder', 'Dairy Solid Extracts', 'Cardamom Essence']
+    badgeText: '★ Best Seller',
+    seoTitle: 'Gud Basundi Tea Mix — Natural Organic Jaggery Chai | LataTea',
+    seoDescription: 'Experience rich, creamy Gud Basundi Chai sweetened with 100% organic jaggery and royal spices. Fast dissolving, zero refined sugar.'
   },
   {
-    id: 'prod_gud_elaichi_basundi',
-    name: 'Gud Elaichi Basundi',
+    id: 'prod_gud_plain',
+    slug: 'gud-plain-tea',
+    name: 'Gud Plain Chai (Classic Jaggery)',
     category: 'gud',
     categoryName: 'Gud Tea Range',
-    shortDescription: 'Aromatic green cardamom paired with wholesome organic jaggery goodness.',
-    fullDescription: 'The royal flavor of fragrant Malabar cardamom blended seamlessly with sweet creamy jaggery basundi notes for an exquisite cup.',
+    shortDescription: 'Pure jaggery sweetness balanced with bold Assam tea leaves without added spice aromatics.',
+    fullDescription: 'A wholesome everyday cup for purists who love the unadulterated taste of country jaggery and robust Assam CTC tea. Delivers deep amber color, smooth sweetness, and comforting warmth without curdling milk.',
     imageSlotId: 'ABOUT_IMAGE_PRIMARY',
     packSizes: [
-      { size: '16g Sachet', price: 3.75, inStock: true },
-      { size: '160g Pack', price: 26.5, inStock: true },
-      { size: '1kg Pack', price: 160.0, inStock: true }
+      { size: '16g Single Sachet', price: 14, inStock: true },
+      { size: '160g Pouch (10 Cups)', price: 125, inStock: true },
+      { size: '1kg Bulk HoReCa Pack', price: 720, inStock: true }
     ],
-    applications: ['Cafés', 'Restaurants', 'Retail Stores', 'Offices'],
+    applications: ['Daily Home Brewing', 'Office Pantries', 'Cafés'],
+    features: ['Mild Natural Sweetness', 'Zero Preservatives', 'Rich Assam CTC Profile'],
+    ingredients: ['Assam CTC Tea Extract', 'Natural Desi Jaggery Powder'],
     displayOrder: 2,
     isFeatured: false,
     isVisible: true,
-    badgeText: 'Cardamom Infused',
-    ingredients: ['Premium Tea Extract', 'Natural Jaggery', 'Crushed Green Cardamom', 'Milk Solids']
+    badgeText: 'Pure Jaggery',
+    seoTitle: 'Gud Plain Chai Mix — Traditional Jaggery Tea | LataTea',
+    seoDescription: 'Wholesome everyday chai with pure country jaggery and robust Assam tea leaves.'
   },
   {
-    id: 'prod_gud_kadak_basundi',
-    name: 'Gud Kadak Basundi',
+    id: 'prod_gud_ginger',
+    slug: 'gud-ginger-adrak-tea',
+    name: 'Gud Ginger Adrak Special',
     category: 'gud',
     categoryName: 'Gud Tea Range',
-    shortDescription: 'Strong, robust tea blend with the bold energy of natural jaggery.',
-    fullDescription: 'For chai lovers who demand an extra-strong kick without sacrificing the health benefits of authentic Indian gud.',
+    shortDescription: 'Invigorating Sunthi dried ginger extract blended with organic jaggery.',
+    fullDescription: 'Packed with the zest of natural Sunthi ginger, this blend cuts through cold days and boosts digestive vitality. The sharp, spicy ginger note harmonizes exquisitely with the rich sweetness of jaggery.',
     imageSlotId: 'ABOUT_IMAGE_PRIMARY',
     packSizes: [
-      { size: '16g Sachet', price: 3.8, inStock: true },
-      { size: '160g Pack', price: 28.0, inStock: true },
-      { size: '1kg Pack', price: 170.0, inStock: true }
+      { size: '16g Single Sachet', price: 15, inStock: true },
+      { size: '160g Pouch (10 Cups)', price: 135, inStock: true },
+      { size: '1kg Bulk HoReCa Pack', price: 790, inStock: true }
     ],
-    applications: ['Offices', 'HoReCa', 'Vending'],
+    applications: ['Winter Specials', 'Highway Chai Lounges', 'Hospitality'],
+    features: ['Zesty Sunthi Ginger', 'Natural Throat Soother', 'Immunity Formulation'],
+    ingredients: ['Assam CTC Tea Extract', 'Jaggery Powder', 'Dried Ginger (Sunthi)', 'Black Pepper'],
     displayOrder: 3,
     isFeatured: true,
     isVisible: true,
-    badgeText: 'Strong Brew',
-    ingredients: ['Extra Strong Assam Tea Blend', 'Pure Jaggery Extract', 'Dairy Solids']
+    badgeText: 'Immunity Boost',
+    seoTitle: 'Gud Ginger Adrak Chai — Spiced Jaggery Tea | LataTea',
+    seoDescription: 'Zesty natural ginger blended with organic jaggery for soothing digestion and immunity.'
   },
+
+  // 2. Sugar Tea Range
   {
-    id: 'prod_gud_elaichi_kadak_basundi',
-    name: 'Gud Elaichi Kadak Basundi',
-    category: 'gud',
-    categoryName: 'Gud Tea Range',
-    shortDescription: 'The ultimate signature combination of strong brew, fragrant cardamom, and jaggery.',
-    fullDescription: 'Our master blend marrying bold brisk tea, fragrant cardamom aromas, and velvety natural jaggery richness.',
+    id: 'prod_sugar_basundi',
+    slug: 'sugar-basundi-tea',
+    name: 'Sugar Basundi Royal Chai',
+    category: 'sugar',
+    categoryName: 'Sugar Tea Range',
+    shortDescription: 'Creamy condensed basundi milk profile with cardamom, saffron notes, and refined sweetness.',
+    fullDescription: 'The pride of festive Maharashtrian hospitality. Our Sugar Basundi formulation captures the slow-simmered, thickened milk richness of authentic Rabdi/Basundi combined with prime high-grown tea leaves and aromatic green cardamom.',
     imageSlotId: 'ABOUT_IMAGE_PRIMARY',
     packSizes: [
-      { size: '16g Sachet', price: 4.0, inStock: true },
-      { size: '160g Pack', price: 29.5, inStock: true },
-      { size: '1kg Pack', price: 180.0, inStock: true }
+      { size: '14g Single Sachet', price: 14, inStock: true },
+      { size: '140g Pouch (10 Cups)', price: 130, inStock: true },
+      { size: '1kg HoReCa Pack', price: 760, inStock: true }
     ],
-    applications: ['Restaurants', 'Hotels', 'Retail', 'Cafés'],
+    applications: ['Weddings & Banquets', 'Sweet Shops', 'Upscale Restaurants', 'Gift Hampers'],
+    features: ['Thick Creamy Mouthfeel', 'Royal Green Cardamom & Saffron Notes', 'Instant Hot Dispense'],
+    ingredients: ['Tea Solids', 'Fine Cane Sugar', 'Dairy Cream Solids', 'Green Cardamom', 'Natural Basundi Flavour', 'Saffron Notes'],
     displayOrder: 4,
     isFeatured: true,
     isVisible: true,
-    badgeText: 'Master Blend',
-    ingredients: ['Assam CTC Granules', 'Royal Cardamom Pods', 'Organic Jaggery Powder', 'Whole Milk Essence']
+    badgeText: 'Royal Choice',
+    seoTitle: 'Sugar Basundi Royal Chai — Creamy Cardamom Tea | LataTea',
+    seoDescription: 'Thick, creamy royal basundi chai formulated for weddings, banquets, and tea lounges.'
   },
-
-  // --- Sugar Tea Range ---
   {
-    id: 'prod_sugar_basundi',
-    name: 'Sugar Basundi Tea',
+    id: 'prod_sugar_masala',
+    slug: 'sugar-kadak-masala-tea',
+    name: 'Sugar Kadak Masala Chai',
     category: 'sugar',
     categoryName: 'Sugar Tea Range',
-    shortDescription: 'Classic creamy basundi tea crafted for everyday perfection and instant joy.',
-    fullDescription: 'Traditional Indian chai taste loved by millions, formulated with refined cane sugar and rich basundi body for smooth satisfaction.',
+    shortDescription: 'The classic Indian 5-spice blend of clove, cardamom, cinnamon, black pepper, and ginger.',
+    fullDescription: 'Bold, robust, and unmistakably authentic. Designed for high-volume tea counters and chai enthusiasts who demand a fiery, aromatic kick in every sip.',
     imageSlotId: 'ABOUT_IMAGE_PRIMARY',
     packSizes: [
-      { size: '16g Sachet', price: 3.5, inStock: true },
-      { size: '160g Pack', price: 25.0, inStock: true },
-      { size: '1kg Pack', price: 150.0, inStock: true }
+      { size: '14g Single Sachet', price: 12, inStock: true },
+      { size: '140g Pouch (10 Cups)', price: 115, inStock: true },
+      { size: '1kg HoReCa Pack', price: 690, inStock: true }
     ],
-    applications: ['Offices', 'Hotels', 'Restaurants', 'Retail Stores'],
+    applications: ['QSR Outlets', 'Office Pantries', 'Canteens', 'Railway Lounges'],
+    features: ['Authentic 5-Spice Bouquet', 'High-Grown Kadak Assam Base', 'Consistent Flavor Ratio'],
+    ingredients: ['CTC Tea Extract', 'Sugar', 'Clove', 'Cardamom', 'Cinnamon', 'Black Pepper', 'Ginger'],
     displayOrder: 5,
     isFeatured: false,
     isVisible: true,
-    badgeText: 'Classic Choice',
-    ingredients: ['Tea Solids', 'Pure Sugar', 'Milk Solids']
+    badgeText: 'Kadak 5-Spice',
+    seoTitle: 'Sugar Kadak Masala Chai — Authentic Indian Spiced Tea | LataTea',
+    seoDescription: 'Bold Assam tea with 5 whole ground spices and balanced sweetness for high-volume service.'
   },
+
+  // 3. Vending Premixes
   {
-    id: 'prod_sugar_elaichi_basundi',
-    name: 'Sugar Elaichi Basundi',
-    category: 'sugar',
-    categoryName: 'Sugar Tea Range',
-    shortDescription: 'Fragrant elaichi chai with balanced sweetness and silky texture.',
-    fullDescription: 'Every sip delivers the comforting aroma of handpicked cardamom and silky tea creaminess.',
+    id: 'prod_vending_gud',
+    slug: 'vending-gud-tea-premix',
+    name: 'Vending Premix — Gud Basundi Chai (3-in-1)',
+    category: 'vending',
+    categoryName: 'Vending Premixes',
+    shortDescription: 'Free-flowing instant 3-in-1 premix (Tea + Milk + Gud) for automatic vending machines.',
+    fullDescription: 'Specially engineered granular formulation with anti-caking properties for seamless flow in all standard automatic tea/coffee vending dispensers. Delivers velvety jaggery basundi chai in under 10 seconds per cup.',
     imageSlotId: 'ABOUT_IMAGE_PRIMARY',
     packSizes: [
-      { size: '16g Sachet', price: 3.75, inStock: true },
-      { size: '160g Pack', price: 26.5, inStock: true },
-      { size: '1kg Pack', price: 160.0, inStock: true }
+      { size: '1kg Vending Foil Pack', price: 420, inStock: true },
+      { size: '10kg Commercial Carton (10x1kg)', price: 4000, inStock: true }
     ],
-    applications: ['Cafés', 'Hotels', 'Offices'],
+    applications: ['Corporate Pantries', 'Vending Operators', 'Hospitals', 'Airports & Transit Hubs'],
+    features: ['Anti-Caking Granules', 'Instant 10-Second Dispense', 'Zero Boiler Residue', 'No Curdling'],
+    ingredients: ['Micro-Granulated CTC Tea', 'Dairy Creamer', 'Organic Jaggery Solids', 'Basundi Aromatics'],
     displayOrder: 6,
-    isFeatured: false,
+    isFeatured: true,
     isVisible: true,
-    badgeText: 'Popular',
-    ingredients: ['Tea Extract', 'Fine Sugar', 'Natural Elaichi Flavor', 'Dairy Solids']
+    badgeText: '3-in-1 Vending',
+    seoTitle: 'Automatic Vending Gud Chai Premix — Fast Dispense | LataTea',
+    seoDescription: 'Free-flowing 3-in-1 jaggery tea premix for automatic vending machines in corporate offices and transit hubs.'
   },
   {
-    id: 'prod_sugar_kadak_basundi',
-    name: 'Sugar Kadak Basundi',
-    category: 'sugar',
-    categoryName: 'Sugar Tea Range',
-    shortDescription: 'Deep amber, brisk tea brew packed with energizing kadak flavor.',
-    fullDescription: 'Engineered for high energy breaks at work and hospitality lounges, delivering heavy body and invigorating flavor.',
+    id: 'prod_vending_masala',
+    slug: 'vending-masala-chai-premix',
+    name: 'Vending Premix — Cardamom Masala Chai (3-in-1)',
+    category: 'vending',
+    categoryName: 'Vending Premixes',
+    shortDescription: 'Instant machine-ready spiced tea premix with real dairy and fragrant green cardamom.',
+    fullDescription: 'A favorite for corporate cafeterias and B2B workplaces. Gives employees and visitors a refreshing, consistent cup of spiced kadak chai without manual brewing effort or mess.',
     imageSlotId: 'ABOUT_IMAGE_PRIMARY',
     packSizes: [
-      { size: '16g Sachet', price: 3.8, inStock: true },
-      { size: '160g Pack', price: 28.0, inStock: true },
-      { size: '1kg Pack', price: 170.0, inStock: true }
+      { size: '1kg Vending Foil Pack', price: 390, inStock: true },
+      { size: '10kg Commercial Carton (10x1kg)', price: 3750, inStock: true }
     ],
-    applications: ['Offices', 'Vending', 'HoReCa'],
+    applications: ['Offices', 'Manufacturing Plants', 'Co-working Hubs'],
+    features: ['Standardized Flavor Across Batches', 'Fast Dissolving', 'Low Waste'],
+    ingredients: ['Tea Extract', 'Dairy Creamer', 'Sugar', 'Green Cardamom Extracts', 'Ginger Extract'],
     displayOrder: 7,
     isFeatured: false,
     isVisible: true,
-    badgeText: 'Kadak Chai',
-    ingredients: ['Selected CTC Tea', 'Sugar', 'Milk Solids']
-  },
-  {
-    id: 'prod_sugar_elaichi_kadak_basundi',
-    name: 'Sugar Elaichi Kadak Basundi',
-    category: 'sugar',
-    categoryName: 'Sugar Tea Range',
-    shortDescription: 'Robust briskness infused with authentic cardamom spice and smooth sweetness.',
-    fullDescription: 'The perfect harmony of strong tea punch, aromatic spice bouquet, and comforting sweetness.',
-    imageSlotId: 'ABOUT_IMAGE_PRIMARY',
-    packSizes: [
-      { size: '16g Sachet', price: 4.0, inStock: true },
-      { size: '160g Pack', price: 29.5, inStock: true },
-      { size: '1kg Pack', price: 180.0, inStock: true }
-    ],
-    applications: ['Restaurants', 'Retail Stores', 'Hotels'],
-    displayOrder: 8,
-    isFeatured: true,
-    isVisible: true,
-    badgeText: 'Specialty',
-    ingredients: ['Strong Tea Extract', 'Elaichi Powder', 'Cane Sugar', 'Creamer']
-  },
-
-  // --- Vending Premix Range ---
-  {
-    id: 'prod_masala_premix',
-    name: 'Masala Tea Premix',
-    category: 'vending',
-    categoryName: 'Vending Machine Premix',
-    shortDescription: 'Instant authentic masala chai premix optimized for automatic vending dispensers.',
-    fullDescription: 'Formulated with ginger, cinnamon, clove, and black pepper notes for rapid, lump-free dispensing in modern vending equipment.',
-    imageSlotId: 'ABOUT_IMAGE_PRIMARY',
-    packSizes: [
-      { size: '14g Sachet', price: 3.4, inStock: true },
-      { size: '140g Pack', price: 22.0, inStock: true },
-      { size: '1kg Pack', price: 170.0, inStock: true }
-    ],
-    applications: ['Offices', 'Vending Machines', 'Cafés', 'Hotels'],
-    displayOrder: 9,
-    isFeatured: true,
-    isVisible: true,
     badgeText: 'Vending Ready',
-    ingredients: ['Soluble Tea Powder', 'Spice Blend (Ginger, Cinnamon, Clove)', 'Milk Solids', 'Sugar']
-  },
-  {
-    id: 'prod_elaichi_premix',
-    name: 'Elaichi Tea Premix',
-    category: 'vending',
-    categoryName: 'Vending Machine Premix',
-    shortDescription: 'Instant aromatic elaichi tea premix for single-touch refreshment.',
-    fullDescription: 'Instant flow formula that produces a frothy, fragrant cardamom tea in seconds through automatic machines or manual hot water stir.',
-    imageSlotId: 'ABOUT_IMAGE_PRIMARY',
-    packSizes: [
-      { size: '14g Sachet', price: 3.4, inStock: true },
-      { size: '140g Pack', price: 22.0, inStock: true },
-      { size: '1kg Pack', price: 170.0, inStock: true }
-    ],
-    applications: ['Vending Machines', 'Corporate Offices', 'Transit Hubs'],
-    displayOrder: 10,
-    isFeatured: false,
-    isVisible: true,
-    badgeText: 'Vending Ready',
-    ingredients: ['Instant Tea', 'Cardamom Extract', 'Dairy Solids', 'Sugar']
-  },
-  {
-    id: 'prod_ginger_premix',
-    name: 'Ginger Tea Premix',
-    category: 'vending',
-    categoryName: 'Vending Machine Premix',
-    shortDescription: 'Zesty adrak chai premix with soothing throat warmth and sharp aroma.',
-    fullDescription: 'Real dried ginger extract combined with rich tea solids for a soothing, revitalizing hot beverage.',
-    imageSlotId: 'ABOUT_IMAGE_PRIMARY',
-    packSizes: [
-      { size: '14g Sachet', price: 3.4, inStock: true },
-      { size: '140g Pack', price: 22.0, inStock: true },
-      { size: '1kg Pack', price: 170.0, inStock: true }
-    ],
-    applications: ['Offices', 'Hotels', 'Vending Machines'],
-    displayOrder: 11,
-    isFeatured: false,
-    isVisible: true,
-    badgeText: 'Adrak Special',
-    ingredients: ['Natural Ginger Powder', 'Instant Tea', 'Dairy Creamer', 'Sugar']
-  },
-  {
-    id: 'prod_latte_premix',
-    name: 'Latte Coffee Premix',
-    category: 'vending',
-    categoryName: 'Vending Machine Premix',
-    shortDescription: 'Smooth, creamy instant latte with balanced roast notes and velvet foam.',
-    fullDescription: 'Premium coffee extract blended with rich milk powders for a European style café latte experience at office speed.',
-    imageSlotId: 'ABOUT_IMAGE_PRIMARY',
-    packSizes: [
-      { size: '14g Sachet', price: 3.4, inStock: true },
-      { size: '140g Pack', price: 22.0, inStock: true },
-      { size: '1kg Pack', price: 170.0, inStock: true }
-    ],
-    applications: ['Offices', 'Cafés', 'Vending Machines', 'Hotels'],
-    displayOrder: 12,
-    isFeatured: false,
-    isVisible: true,
-    badgeText: 'Café Quality',
-    ingredients: ['Microground Coffee', 'Spray Dried Dairy Base', 'Sugar']
-  },
-  {
-    id: 'prod_cappuccino_premix',
-    name: 'Cappuccino Coffee Premix',
-    category: 'vending',
-    categoryName: 'Vending Machine Premix',
-    shortDescription: 'Frothy, full-bodied Italian-style cappuccino premix with rich cocoa undertones.',
-    fullDescription: 'Dense frothy head, aromatic roasted coffee notes, and indulgent creaminess in every single dispense.',
-    imageSlotId: 'ABOUT_IMAGE_PRIMARY',
-    packSizes: [
-      { size: '14g Sachet', price: 3.4, inStock: true },
-      { size: '140g Pack', price: 22.0, inStock: true },
-      { size: '1kg Pack', price: 170.0, inStock: true }
-    ],
-    applications: ['Vending Machines', 'Offices', 'Hotels', 'Lounges'],
-    displayOrder: 13,
-    isFeatured: true,
-    isVisible: true,
-    badgeText: 'Rich Foam',
-    ingredients: ['Roasted Coffee Extract', 'Frothing Dairy Solids', 'Fine Cane Sugar']
+    seoTitle: 'Cardamom Masala Vending Premix — 3-in-1 Chai | LataTea',
+    seoDescription: 'Commercial grade 3-in-1 cardamom spiced tea premix for high-volume automatic vending dispensers.'
   }
+];
+
+export const DEFAULT_SOLUTIONS: SolutionItem[] = [
+  {
+    id: 'sol_corporate',
+    slug: 'corporate',
+    title: 'Corporate Offices & IT Parks',
+    subtitle: 'Boost workplace productivity with instant, hygienic, authentic chai on tap.',
+    tagline: 'HIGH-VOLUME PANTRY PERFECTION',
+    targetAudience: 'Facilities Managers, HR Teams, Corporate Caterers',
+    problemStatement: 'Offices lose hours of productivity with unpredictable canteen chai, messy manual tea preparation, and employee dissatisfaction with watery machine beverages.',
+    lataSolution: 'LataTea delivers standard-defining Gud Basundi & Masala premixes that dispense in seconds through automatic vending or quick pantry kettles, maintaining consistent royal flavor across 1,000+ daily cups.',
+    benefits: [
+      { title: 'Zero Preparation Mess', description: 'No boiling leaves, no strained sieves, and no burnt milk crust in pantry kettles.', icon: 'ShieldCheck' },
+      { title: 'Healthier Energy', description: 'Organic Jaggery (Gud) options give staff sustained energy without refined sugar crashes.', icon: 'Leaf' },
+      { title: 'Cost Predictability', description: 'Standardized per-cup costing of under ₹6–₹12 per serving with zero ingredient pilferage.', icon: 'Award' }
+    ],
+    recommendedProductIds: ['prod_vending_gud', 'prod_gud_basundi', 'prod_vending_masala'],
+    bannerSlotId: 'HOME_HERO_PRIMARY',
+    applicationSteps: [
+      { stepNumber: 1, title: 'Fill Hopper or Pantry Dispenser', instruction: 'Load the 1kg foil pack directly into your automatic machine canister.' },
+      { stepNumber: 2, title: 'Calibrate Water Flow', instruction: 'Set single-press ratio (14g mix to 90ml hot water 85°C).' },
+      { stepNumber: 3, title: 'Enjoy Instant Cup', instruction: 'Dispense velvety, aromatic chai with rich crema in under 8 seconds.' }
+    ],
+    icon: 'Building2',
+    isEnabled: true,
+    displayOrder: 1
+  },
+  {
+    id: 'sol_hotels',
+    slug: 'hotels',
+    title: 'Hotels & Banquets',
+    subtitle: 'Deliver authentic royal Indian hospitality with heritage Basundi Chai at weddings & breakfast buffets.',
+    tagline: 'LUXURY HOSPITALITY & BANQUET SOLUTIONS',
+    targetAudience: 'Executive Chefs, F&B Directors, Banquet Managers',
+    problemStatement: 'High-end banquets struggle to serve authentic, thick spiced chai to 500+ guests simultaneously during morning conferences or wedding muhurats without taste variation.',
+    lataSolution: 'Our 1kg HoReCa master packs allow banquet teams to brew 50–100 liters of luxurious, thickened Basundi chai in minutes, ensuring the 500th guest enjoys the exact same rich, fragrant cup as the first.',
+    benefits: [
+      { title: 'Mass Scalability', description: 'Prepare 100 liters of festive chai in under 15 minutes with complete batch consistency.', icon: 'Users' },
+      { title: 'Signature Heritage Touch', description: 'Real cardamom, saffron notes, and pure jaggery impress discerning destination wedding guests.', icon: 'Award' },
+      { title: 'Reduced Chef Dependency', description: 'Any banquet staff member can follow the 1:1 recipe with foolproof results.', icon: 'CheckCircle2' }
+    ],
+    recommendedProductIds: ['prod_sugar_basundi', 'prod_gud_basundi'],
+    bannerSlotId: 'HOME_HERO_PRIMARY',
+    applicationSteps: [
+      { stepNumber: 1, title: 'Batch Boiling', instruction: 'Boil equal parts milk and water in your large banquet samovar or kettle.' },
+      { stepNumber: 2, title: 'Stir in Lata Mix', instruction: 'Whisk in 160g mix per liter of liquid for 2 minutes.' },
+      { stepNumber: 3, title: 'Serve Hot in Kulhads', instruction: 'Pour into earthen clay kulhads for an authentic royal banquet presentation.' }
+    ],
+    icon: 'Hotel',
+    isEnabled: true,
+    displayOrder: 2
+  },
+  {
+    id: 'sol_restaurants',
+    slug: 'restaurants',
+    title: 'Fine Dining & Quick Service Restaurants',
+    subtitle: 'Elevate your beverage menu with high-margin signature regional chai blends.',
+    tagline: 'PREMIUM MENU DIFFERENTIATION',
+    targetAudience: 'Restaurateurs, QSR Franchise Operators, Cloud Kitchens',
+    problemStatement: 'Restaurants often treat chai as an afterthought, losing beverage revenue and dessert-pairing opportunities to specialty coffee chains.',
+    lataSolution: 'LataTea transforms chai into a premium destination item. Feature "Desi Gud Basundi Chai" or "Kadak Malabar Masala" on your beverage and dessert menus with over 75% gross profit margins.',
+    benefits: [
+      { title: 'High Margin Category', description: 'Serve premium ₹60–₹120 artisanal chai cups at an ingredient cost of ₹8–₹15.', icon: 'TrendingUp' },
+      { title: 'Speed of Service', description: 'Fulfill dine-in and delivery tea orders in under 3 minutes without keeping milk boiling constantly.', icon: 'Clock' },
+      { title: 'Zero Curdling Risk', description: 'Proprietary non-acidic jaggery formulation guarantees milk never curdles.', icon: 'ShieldCheck' }
+    ],
+    recommendedProductIds: ['prod_gud_basundi', 'prod_sugar_basundi', 'prod_gud_ginger'],
+    bannerSlotId: 'ABOUT_IMAGE_PRIMARY',
+    applicationSteps: [
+      { stepNumber: 1, title: 'Steam or Boil Milk', instruction: 'Use espresso steam wand or small induction pan with milk & water.' },
+      { stepNumber: 2, title: 'Add Single Sachet', instruction: 'Stir one 16g sachet directly into 120ml hot liquid.' },
+      { stepNumber: 3, title: 'Garnish & Serve', instruction: 'Top with slivered pistachios or crushed cardamom for gourmet presentation.' }
+    ],
+    icon: 'Utensils',
+    isEnabled: true,
+    displayOrder: 3
+  },
+  {
+    id: 'sol_cafes',
+    slug: 'cafes',
+    title: 'Modern Cafés & Tea Lounges',
+    subtitle: 'Add artisanal Indian craft chai to attract modern wellness-conscious consumers.',
+    tagline: 'CONTEMPORARY CHAI CULTURE',
+    targetAudience: 'Café Owners, Specialty Coffee & Tea Shops, Co-working Lounges',
+    problemStatement: 'Modern café patrons are seeking alternatives to sugary syrups and artificial powders, demanding authentic unrefined jaggery and real spice infusions.',
+    lataSolution: 'LataTea bridges heritage Indian chai and modern café culture with clean-label organic jaggery formulation, perfect for hot cups, iced chai lattes, and artisanal chai frappes.',
+    benefits: [
+      { title: 'Clean Label Story', description: 'No artificial flavors, unrefined jaggery, and traceable Assam CTC tea origin.', icon: 'Leaf' },
+      { title: 'Versatile Drink Creations', description: 'Ideal base for Iced Gud Chai, Oat Milk Spiced Lattes, and Chai affogatos.', icon: 'Sparkles' },
+      { title: 'Fast Barista Workflow', description: 'Instant dissolve texture speeds up drink queue times during peak morning rush.', icon: 'Clock' }
+    ],
+    recommendedProductIds: ['prod_gud_basundi', 'prod_gud_ginger', 'prod_sugar_masala'],
+    bannerSlotId: 'ABOUT_IMAGE_PRIMARY',
+    applicationSteps: [
+      { stepNumber: 1, title: 'Dine-In Hot Cup', instruction: 'Steam with milk of choice (dairy or oat) and serve in glass tulip mugs.' },
+      { stepNumber: 2, title: 'Iced Chai Latte', instruction: 'Dissolve in 40ml hot water, pour over ice, top with cold foamed milk.' }
+    ],
+    icon: 'Coffee',
+    isEnabled: true,
+    displayOrder: 4
+  },
+  {
+    id: 'sol_retail',
+    slug: 'retail',
+    title: 'Retail & Supermarket Distribution',
+    subtitle: 'Eye-catching royal packaging with high shelf velocity and repeat consumer loyalty.',
+    tagline: 'FAST-MOVING CONSUMER PACKS',
+    targetAudience: 'FMCG Distributors, Supermarket Chains, Kirana Networks',
+    problemStatement: 'Retail shelves are saturated with generic plain tea powders, leaving consumers hungry for convenient, authentic premixes with genuine jaggery and basundi heritage.',
+    lataSolution: 'LataTea 160g stand-up zipper pouches and 16g hanging sachet strips offer standout royal emerald and gold shelf appeal, driving high trial rates and repeat weekly purchases.',
+    benefits: [
+      { title: 'High Shelf Turnover', description: 'Fast adoption due to the revolutionary 3-minute home basundi promise.', icon: 'ShoppingBag' },
+      { title: 'Robust Margin Structure', description: 'Attractive retail distributor margins and point-of-sale display collaterals.', icon: 'Award' },
+      { title: 'Tamper-Proof Packaging', description: 'Multi-layer nitrogen-flushed barrier pouches ensure 12 months fresh shelf life.', icon: 'ShieldCheck' }
+    ],
+    recommendedProductIds: ['prod_gud_basundi', 'prod_gud_plain', 'prod_sugar_basundi'],
+    bannerSlotId: 'HOME_HERO_PRIMARY',
+    applicationSteps: [
+      { stepNumber: 1, title: 'End-Cap Shelf Placement', instruction: 'Position near traditional tea and breakfast staple aisles.' },
+      { stepNumber: 2, title: 'In-Store Live Sampling', instruction: 'Run quick 3-minute kettle sampling to convert 8 out of 10 shoppers.' }
+    ],
+    icon: 'Store',
+    isEnabled: true,
+    displayOrder: 5
+  },
+  {
+    id: 'sol_vending',
+    slug: 'vending',
+    title: 'Vending Machine Operators',
+    subtitle: 'High-yield, zero-choke premixes designed for 24/7 automated hot beverage vending.',
+    tagline: 'MACHINE-OPTIMIZED FORMULATION',
+    targetAudience: 'Vending Route Operators, Canteen Concessionaires, Transit Hub Managers',
+    problemStatement: 'Vending operators suffer high machine maintenance costs from gummy premixes that clog dispensing nozzles and trigger service calls.',
+    lataSolution: 'LataTea vending formulations use micro-granulation with strict moisture control under 2.5%, ensuring smooth free-fall discharge, zero hopper clogs, and high cup yield per kilogram.',
+    benefits: [
+      { title: 'Zero Nozzle Clogging', description: 'Free-flowing granules dissolve instantly without clinging to mixing bowls.', icon: 'Cpu' },
+      { title: 'High Yield per Kg', description: 'Yields 70–80 cups per 1kg pack, maximizing operator profitability per refill.', icon: 'TrendingUp' },
+      { title: 'Long Hopper Stability', description: 'Resists ambient humidity inside machines in hot and humid regional climates.', icon: 'ShieldCheck' }
+    ],
+    recommendedProductIds: ['prod_vending_gud', 'prod_vending_masala'],
+    bannerSlotId: 'HOME_HERO_PRIMARY',
+    applicationSteps: [
+      { stepNumber: 1, title: 'Canister Refill', instruction: 'Pour directly into dry vending canister without breaking granules.' },
+      { stepNumber: 2, title: 'Set Throw Grammage', instruction: 'Calibrate throw to 13.5g per 90ml cup.' },
+      { stepNumber: 3, title: 'Routine Flush', instruction: 'Standard end-of-day hot water rinse keeps lines pristine.' }
+    ],
+    icon: 'Cpu',
+    isEnabled: true,
+    displayOrder: 6
+  }
+];
+
+export const DEFAULT_NAVIGATION: NavigationItem[] = [
+  { id: 'nav_home', label: 'Home', url: '/', isExternal: false, isButton: false, isEnabled: true, order: 1 },
+  { id: 'nav_about', label: 'About', url: '/about', isExternal: false, isButton: false, isEnabled: true, order: 2 },
+  {
+    id: 'nav_products',
+    label: 'Products',
+    url: '/products',
+    isExternal: false,
+    isButton: false,
+    isEnabled: true,
+    order: 3,
+    children: [
+      { label: 'Gud Tea Range', url: '/products/gud-tea', description: 'Sweetened with 100% pure organic jaggery', badge: 'Natural Gud' },
+      { label: 'Sugar Tea Range', url: '/products/sugar-tea', description: 'Royal Basundi & Kadak Masala blends', badge: 'Royal Rich' },
+      { label: 'Vending Premixes', url: '/products/premixes', description: '3-in-1 machine-ready instant tea granules', badge: 'Vending' },
+      { label: 'View All Products', url: '/products', description: 'Explore complete catalogue with direct order options' }
+    ]
+  },
+  {
+    id: 'nav_solutions',
+    label: 'Solutions',
+    url: '/solutions',
+    isExternal: false,
+    isButton: false,
+    isEnabled: true,
+    order: 4,
+    children: [
+      { label: 'Corporate Offices', url: '/solutions/corporate', description: 'Pantry & automated vending for workspaces' },
+      { label: 'Hotels & Banquets', url: '/solutions/hotels', description: 'High-volume luxury hospitality brewing' },
+      { label: 'Restaurants & QSR', url: '/solutions/restaurants', description: 'High-margin artisanal tea menu integration' },
+      { label: 'Modern Cafés', url: '/solutions/cafes', description: 'Craft Indian chai culture & iced blends' },
+      { label: 'Retail & Supermarkets', url: '/solutions/retail', description: 'Consumer pouches & distributor packs' },
+      { label: 'Vending Operators', url: '/solutions/vending', description: 'Zero-clog 3-in-1 commercial premixes' }
+    ]
+  },
+  { id: 'nav_prep', label: 'Preparation', url: '/preparation', isExternal: false, isButton: false, isEnabled: true, order: 5 },
+  { id: 'nav_story', label: 'Our Story', url: '/our-story', isExternal: false, isButton: false, isEnabled: true, order: 6 },
+  { id: 'nav_contact', label: 'Contact', url: '/contact', isExternal: false, isButton: false, isEnabled: true, order: 7 }
 ];
 
 export const INITIAL_CMS_STATE: CMSState = {
   version: 2,
   status: 'published',
-  lastPublishedAt: '2026-09-01T01:00:00.000Z',
-  lastSavedAt: '2026-09-01T01:00:00.000Z',
-  sections: DEFAULT_SECTIONS,
+  lastPublishedAt: new Date().toISOString(),
+  lastSavedAt: new Date().toISOString(),
+  sections: [
+    { id: 'sec_hero', key: 'hero', name: 'Hero Showcase', description: 'Hero banner with 3-minute proposition & panoramic tea visual', isEnabled: true, order: 1, bgType: 'green' },
+    { id: 'sec_promise', key: 'promise', name: 'The Lata Promise', description: 'Brand core philosophy & quality pillars', isEnabled: true, order: 2, bgType: 'cream' },
+    { id: 'sec_about', key: 'about', name: 'Why Choose Lata', description: 'Key differentiators & cleanroom manufacturing', isEnabled: true, order: 3, bgType: 'cream' },
+    { id: 'sec_worlds', key: 'worlds', name: 'Product Worlds', description: 'Large editorial showcases for Gud, Sugar, and Vending ranges', isEnabled: true, order: 4, bgType: 'white' },
+    { id: 'sec_products', key: 'products', name: 'Signature Products', description: 'Curated hero products catalogue and pack selection', isEnabled: true, order: 5, bgType: 'cream' },
+    { id: 'sec_solutions', key: 'solutions', name: 'Business Solutions', description: 'HoReCa & Commercial industry solutions overview', isEnabled: true, order: 6, bgType: 'white' },
+    { id: 'sec_preparation', key: 'preparation', name: '3-Minute Preparation', description: 'Visual brewing steps & master 160g recipe', isEnabled: true, order: 7, bgType: 'cream' },
+    { id: 'sec_story_teaser', key: 'story_teaser', name: 'Our Story Teaser', description: 'Visual bridge to the heritage story', isEnabled: true, order: 8, bgType: 'green' },
+    { id: 'sec_track', key: 'track', name: 'Consignment Tracking', description: 'Universal order & delivery tracking portal', isEnabled: true, order: 9, bgType: 'white' },
+    { id: 'sec_cta', key: 'cta', name: 'Conversion & Sample Request', description: 'B2B Wholesale & Free Sample request call-to-action', isEnabled: true, order: 10, bgType: 'green' },
+    { id: 'sec_contact', key: 'contact', name: 'Registration & Contact', description: 'Official corporate addresses and statutory credentials', isEnabled: true, order: 11, bgType: 'cream' },
+    { id: 'sec_footer', key: 'footer', name: 'Corporate Footer', description: 'Footer legal links and credentials', isEnabled: true, order: 12, bgType: 'green' }
+  ],
   navigation: DEFAULT_NAVIGATION,
   products: DEFAULT_PRODUCTS,
+  solutions: DEFAULT_SOLUTIONS,
   mediaLibrary: DEFAULT_MEDIA_ITEMS,
   mediaSlots: DEFAULT_MEDIA_SLOTS,
+  content: {
+    hero: {
+      headline: 'Authentic Taste. Consistent Quality.',
+      subheadline: 'Traditional Basundi Chai in 3 Minutes. Crafted with pure organic jaggery and royal spices for chai lovers everywhere.',
+      tagline: 'AUTHENTIC TASTE • CONSISTENT QUALITY • INSTANT CONVENIENCE',
+      ctaPrimaryText: 'Explore Products',
+      ctaPrimaryLink: '/products',
+      ctaSecondaryText: 'Request Free Samples',
+      ctaSecondaryLink: '/contact',
+      badgeText: '★ 100% PURE JAGGERY (GUD)'
+    },
+    promise: {
+      tagline: 'THE LATA PROMISE',
+      heading: 'Heritage Flavor Meets Modern Scientific Consistency',
+      subheading: 'We reimagined traditional Indian chai brewing to solve every problem of uneven sweetness, curdling milk, and lengthy boiling times.',
+      pillars: [
+        { title: '100% Pure Organic Jaggery', description: 'Natural unrefined desi gud with zero chemical bleach, high iron content, and guaranteed non-curdling formula.', metric: '100% Desi Gud' },
+        { title: 'Assam Master Harvest', description: 'Selective orthodox & CTC black tea leaves sourced directly from high-elevation Assam estates for robust liquor.', metric: 'Grade-A Leaves' },
+        { title: '3-Minute Ready Convenience', description: 'Pre-blended precision measures save 70% preparation time across home kitchens and busy commercial pantries.', metric: 'Under 3 Mins' }
+      ]
+    },
+    about: {
+      tagline: 'WHY CHOOSE LATA?',
+      heading: 'A Masterclass in Indian Tea Craftsmanship',
+      subheading: 'Born from a deep passion for the authentic, slow-simmered basundi chai of Maharashtra and the royal spiced brews of India.',
+      storyParagraphs: [
+        'For generations, preparing authentic spiced basundi chai meant boiling milk for hours, carefully grinding fresh cardamom and spices, and balancing country jaggery without letting the brew curdle.',
+        'At LataTea, we modernized this beloved ritual. By micro-homogenizing real Assam tea extracts with certified organic jaggery and authentic Malabar spices in an ISO-certified cleanroom facility, we created a blend that dissolves flawlessly in minutes.'
+      ],
+      highlights: [
+        { id: 'h1', title: '100% Pure Jaggery (Gud)', description: 'Rich in natural minerals with a warm caramel undertone that never curdles boiling milk.', icon: 'Leaf' },
+        { id: 'h2', title: 'Velvety Basundi Richness', description: 'Captures the nostalgic texture of traditional slow-thickened milk without artificial stabilizers.', icon: 'Award' },
+        { id: 'h3', title: '3-Minute Instant Preparation', description: 'Saves labor, energy, and preparation time with complete batch consistency.', icon: 'Clock' },
+        { id: 'h4', title: 'Retail & HoReCa Ready', description: 'Available in 16g single sachets, 160g consumer pouches, and 1kg commercial packs.', icon: 'Store' },
+        { id: 'h5', title: 'Automatic Vending Compatible', description: 'Free-flowing granules deliver high-yield cups with zero nozzle clogs.', icon: 'Cpu' },
+        { id: 'h6', title: 'Hygienic Cleanroom Packing', description: 'Formulated in ISO & FSSAI certified climate-controlled cleanrooms.', icon: 'ShieldCheck' }
+      ]
+    },
+    applications: {
+      tagline: 'VERSATILE HOSPITALITY & RETAIL SOLUTIONS',
+      heading: 'DESIGNED FOR EVERY SETTING',
+      subheading: 'Whether for corporate tea breaks, luxury hotel dining, or convenient on-the-go vending.',
+      items: [
+        { id: 'app1', title: 'Corporate Offices', description: 'High-speed pantries and vending setups.', imageSlotId: 'ABOUT_IMAGE_PRIMARY', icon: 'Building2' },
+        { id: 'app2', title: 'Hotels & Banquets', description: 'Royal Indian hospitality at weddings.', imageSlotId: 'ABOUT_IMAGE_PRIMARY', icon: 'Hotel' },
+        { id: 'app3', title: 'Restaurants & QSR', description: 'High-margin signature chai brews.', imageSlotId: 'ABOUT_IMAGE_PRIMARY', icon: 'UtensilsCrossed' }
+      ]
+    },
+    ourStory: {
+      heroTitle: 'From the Spice Gardens to the Royal Cup',
+      heroSubtitle: 'The journey of LataTea: Honoring Indian tea heritage through uncompromising purity and modern innovation.',
+      origins: 'The story of LataTea began with a simple question: Why should authentic, velvety spiced jaggery chai be limited to hours of slow boiling at traditional festivals? We set out to capture the authentic, comforting taste of homemade Basundi Chai in an instant, pure form that any tea lover, café, or workplace can brew in minutes.',
+      philosophy: 'We believe true luxury in tea is rooted in natural purity. In an era dominated by synthetic essences and bleached sugars, LataTea champions unrefined Indian jaggery (Gud), sun-dried Malabar ginger, and fragrant green cardamom sourced directly from trusted grower collectives.',
+      craftAndSpices: 'Every batch of LataTea begins with premium Assam CTC tea leaves, renowned for their deep amber color and full-bodied malt profile. We gently combine these with whole ground spices in precise ratios to ensure the spices elevate rather than overpower the tea.',
+      modernStandards: 'Our formulation is manufactured in an ISO and FSSAI certified cleanroom facility with automated nitrogen-flush multi-layer packaging. This ensures every grain retains its fresh aroma for 12 months with zero chemical preservatives.'
+    },
+    preparation: {
+      tagline: 'PREPARATION MADE SIMPLE',
+      heading: 'Master 160g Recipe — 10 Perfect Cups in 3 Minutes',
+      subheading: 'Follow our simple 1:1 water-milk ratio for the most velvety, aromatic Basundi Chai experience.',
+      yieldText: 'Yields 10 cups (approx 75–80ml each)',
+      ingredients: [
+        { name: 'Fresh Water', quantity: '400 ml', icon: 'Droplets' },
+        { name: 'Fresh Milk', quantity: '400 ml', icon: 'Milk' },
+        { name: 'Lata Tea Mix', quantity: '160 g (or 16g per cup)', icon: 'Sparkles' }
+      ],
+      steps: [
+        { stepNumber: 1, title: 'Combine Water & Milk', instruction: 'Take 400ml fresh water and 400ml fresh milk in a clean tea saucepan.', imageSlotId: 'ABOUT_IMAGE_PRIMARY' },
+        { stepNumber: 2, title: 'Heat to Light Simmer', instruction: 'Place the pot on medium flame and bring the liquid to a gentle first simmer.', imageSlotId: 'ABOUT_IMAGE_PRIMARY' },
+        { stepNumber: 3, title: 'Add Lata Tea Mix', instruction: 'Pour in the complete 160g pouch (or 16g single sachet for 1 cup).', imageSlotId: 'ABOUT_IMAGE_PRIMARY' },
+        { stepNumber: 4, title: 'Stir Continuously', instruction: 'Whisk gently for 2 to 3 minutes as the mix completely dissolves and the aroma blooms.', imageSlotId: 'ABOUT_IMAGE_PRIMARY' },
+        { stepNumber: 5, title: 'Bring to Full Boil', instruction: 'Allow the chai to rise to a rich rolling boil, creating a golden velvety crema on top.', imageSlotId: 'ABOUT_IMAGE_PRIMARY' },
+        { stepNumber: 6, title: 'Serve Hot & Enjoy', instruction: 'Strain if desired (or pour directly) into warm cups or earthen kulhads.', imageSlotId: 'ABOUT_IMAGE_PRIMARY' }
+      ],
+      footerNote: 'Pro Tip: For single-cup brewing, use 80ml water + 80ml milk + 16g Lata Tea Mix (1 single sachet).'
+    },
+    ordering: {
+      tagline: 'HOW TO GET LATA TEA',
+      heading: '7-Step Seamless Ordering & Distribution Process',
+      subheading: 'From wholesale sample tasting to rapid dispatched delivery and after-sales support.',
+      steps: [
+        { stepNumber: 1, title: 'Inquire & Request Samples', description: 'Reach out via phone, WhatsApp, or our online portal to request trial samples.', icon: 'PhoneCall' },
+        { stepNumber: 2, title: 'Select Product Range', description: 'Choose your desired combination of Gud, Sugar, and Vending pack sizes.', icon: 'PackageCheck' },
+        { stepNumber: 3, title: 'Confirm & Proforma Invoice', description: 'Receive commercial quotation with volume tiered pricing and GST invoicing.', icon: 'Receipt' },
+        { stepNumber: 4, title: 'Secure Banking Settlement', description: 'Transfer funds securely to our official IDFC First Bank corporate account.', icon: 'CreditCard' },
+        { stepNumber: 5, title: 'Dispatched in 24–48 Hours', description: 'Your order is packed in tamper-proof cartons and dispatched via express logistics.', icon: 'Truck' },
+        { stepNumber: 6, title: 'Live Universal Tracking', description: 'Track your consignment in real time using your unique Order Tracking ID.', icon: 'Search' },
+        { stepNumber: 7, title: 'Dedicated After-Sales Care', description: 'Get ongoing replenishment support and machine calibration assistance.', icon: 'HeartHandshake' }
+      ],
+      footerNote: 'Wholesale consignments are dispatched from Pune, Maharashtra to over 500+ pin codes nationwide.'
+    },
+    cta: {
+      headline: 'Bring the Authentic LataTea Experience to Your Business',
+      subheadline: 'Join over 250+ corporate offices, hotels, restaurants, and retail stores serving unforgettable Basundi Chai every single day.',
+      primaryButtonText: 'Request Free Sample Kit',
+      primaryButtonLink: '/contact',
+      secondaryButtonText: 'Explore Complete Catalogue',
+      secondaryButtonLink: '/products',
+      backgroundImageSlotId: 'CTA_BACKGROUND'
+    },
+    footer: {
+      aboutText: 'LataTea is a premier Indian tea brand manufactured by Purple Bean Agro Industries Private Limited. Committed to delivering unadulterated jaggery tea, royal basundi blends, and high-efficiency vending premixes.',
+      copyrightText: '© 2026 LataTea (Purple Bean Agro Industries Pvt. Ltd.). All rights reserved.',
+      legalLinks: [
+        { label: 'Privacy Policy', url: '/privacy' },
+        { label: 'Terms of Service', url: '/terms' },
+        { label: 'FSSAI & Regulatory Compliance', url: '/compliance' }
+      ]
+    }
+  },
   brand: {
     primaryColor: '#1E3F20',
     secondaryColor: '#8DB843',
@@ -379,171 +575,47 @@ export const INITIAL_CMS_STATE: CMSState = {
     textColor: '#1A2416',
     logoSlotId: 'BRAND_LOGO_PRIMARY',
     lightLogoSlotId: 'BRAND_LOGO_LIGHT',
-    faviconSlotId: 'BRAND_LOGO_PRIMARY',
-    fontHeading: "'Rozha One', 'Cinzel', serif",
-    fontBody: "'Plus Jakarta Sans', 'Inter', sans-serif"
-  },
-  content: {
-    hero: {
-      headline: 'Authentic Taste. Consistent Quality.',
-      subheadline: 'Rajwada Royal Chai Heritage & Instant Basundi Convenience',
-      tagline: 'AUTHENTIC TASTE • CONSISTENT QUALITY • INSTANT CONVENIENCE',
-      ctaPrimaryText: 'Explore Tea Range',
-      ctaPrimaryLink: '#products',
-      ctaSecondaryText: 'Order Online / Samples',
-      ctaSecondaryLink: '#products',
-      badgeText: '100% Traditional Goodness'
-    },
-    about: {
-      tagline: 'WHY CHOOSE LATA?',
-      heading: 'BREWING TEA AS YOU LIKE IT!',
-      subheading: 'Crafted with masterfully blended Assam tea leaves, natural organic jaggery (Gud), crushed green cardamom, and rich basundi body.',
-      storyParagraphs: [
-        'Lata Tea represents the pinnacle of Indian royal tea tradition. Every blend is formulated with selected whole-spice aromatics, authentic jaggery goodness, and rich creamy textures to deliver an unmatched culinary tea experience.',
-        'With precision recipes manufactured in state-of-the-art cleanroom facilities, Lata guarantees the same golden, frothy, comforting cup in every household, corporate office, and luxury hotel lounge.'
-      ],
-      highlights: [
-        { id: 'h1', title: 'Premium Quality Ingredients', description: 'Assam CTC tea leaves, natural organic jaggery, and royal Malabar spices.', icon: 'Leaf' },
-        { id: 'h2', title: 'Consistent Taste in Every Cup', description: 'Precision formulation guarantees identical rich aroma and mouthfeel daily.', icon: 'Award' },
-        { id: 'h3', title: 'Easy & Quick Preparation', description: 'Brew a velvety, steaming batch in under 3 minutes with zero guesswork.', icon: 'Clock' },
-        { id: 'h4', title: 'Ideal for Retail & HoReCa', description: 'Versatile packaging for countertop sachets, consumer packs, and bulk catering.', icon: 'Store' },
-        { id: 'h5', title: 'Suitable for Vending', description: 'Free-flowing premix dissolves instantly without residue or clogging.', icon: 'Cpu' },
-        { id: 'h6', title: 'Hygienically Manufactured', description: 'Packaged in ISO & FSSAI certified cleanroom facilities for absolute purity.', icon: 'ShieldCheck' }
-      ]
-    },
-    applications: {
-      tagline: 'VERSATILE HOSPITALITY & RETAIL SOLUTIONS',
-      heading: 'DESIGNED FOR EVERY SETTING',
-      subheading: 'Whether for daily corporate tea breaks, luxury hotel dining, or convenient on-the-go vending.',
-      items: [
-        { id: 'app_offices', title: 'Corporate Offices', description: 'Boost team productivity with quick, delicious tea and coffee in breakrooms.', imageSlotId: 'HOME_HERO_PRIMARY', icon: 'Building2' },
-        { id: 'app_hotels', title: 'Hotels & Banquets', description: 'Deliver consistent high-end beverage service for morning buffets and room service.', imageSlotId: 'HOME_HERO_PRIMARY', icon: 'Hotel' },
-        { id: 'app_restaurants', title: 'Fine Restaurants', description: 'Pair traditional Indian meals with rich Gud Basundi and spice tea desserts.', imageSlotId: 'HOME_HERO_PRIMARY', icon: 'UtensilsCrossed' },
-        { id: 'app_cafes', title: 'Modern Cafés', description: 'Expand your artisan menu with authentic regional jaggery chai recipes.', imageSlotId: 'HOME_HERO_PRIMARY', icon: 'Coffee' },
-        { id: 'app_retail', title: 'Retail & Supermarkets', description: 'Eye-catching standee pouches and consumer sachets with high margin velocity.', imageSlotId: 'ABOUT_IMAGE_PRIMARY', icon: 'ShoppingBag' },
-        { id: 'app_vending', title: 'Vending Operators', description: 'High-yield, moisture-resistant powders tailored for 2-lane to 4-lane machines.', imageSlotId: 'HOME_HERO_PRIMARY', icon: 'Zap' }
-      ]
-    },
-    preparation: {
-      tagline: 'PERFECT PREPARATION GUIDE',
-      heading: 'HOW TO BREW LATA TEA MIX',
-      subheading: 'Master the authentic taste with our proven 160g batch recipe for family gatherings or office groups.',
-      yieldText: 'Batch: 160g Tea Mix • Yields: 6-8 Generous Servings',
-      ingredients: [
-        { name: 'Pure Water', quantity: '400 ml', icon: 'Droplets' },
-        { name: 'Fresh Milk', quantity: '400 ml', icon: 'Milk' },
-        { name: 'Lata Tea Mix', quantity: '160 g', icon: 'Sparkles' }
-      ],
-      steps: [
-        { stepNumber: 1, title: 'Boil Water', instruction: 'Boil 400 ml of fresh drinking water in a stainless steel saucepan.', imageSlotId: 'HOME_HERO_PRIMARY' },
-        { stepNumber: 2, title: 'Add Milk', instruction: 'Pour in 400 ml of fresh milk and bring the mixture to a gentle boil.', imageSlotId: 'HOME_HERO_PRIMARY' },
-        { stepNumber: 3, title: 'Add Lata Mix', instruction: 'Add 160g of your chosen Lata Tea Mix powder directly into the pot.', imageSlotId: 'ABOUT_IMAGE_PRIMARY' },
-        { stepNumber: 4, title: 'Stir Well', instruction: 'Stir thoroughly with a whisk or ladle to dissolve the rich aromatics evenly.', imageSlotId: 'HOME_HERO_PRIMARY' },
-        { stepNumber: 5, title: 'Simmer 2-3 Mins', instruction: 'Allow the chai to boil and simmer on medium flame for 2 to 3 minutes until frothy.', imageSlotId: 'ABOUT_IMAGE_PRIMARY' },
-        { stepNumber: 6, title: 'Pour & Serve', instruction: 'Strain and pour into traditional cups or glasses and serve hot with snacks.', imageSlotId: 'ABOUT_IMAGE_PRIMARY' }
-      ],
-      footerNote: 'Tea Mix — Chai For Every Moment!'
-    },
-    ordering: {
-      tagline: 'SEAMLESS SUPPLY CHAIN',
-      heading: 'OUR ORDERING PROCEDURE',
-      subheading: 'Simplified 7-step roadmap designed for smooth, crystal-clear ordering and reliable doorstep delivery.',
-      steps: [
-        { stepNumber: 1, title: 'CALL & INQUIRE', description: 'Share your requirements with us via phone, WhatsApp, or instant web cart.', icon: 'PhoneCall' },
-        { stepNumber: 2, title: 'SELECT RANGE', description: 'Choose preferred flavours and pack sizes (16g Sachets, 160g Packs, or 1kg Bags).', icon: 'CheckSquare' },
-        { stepNumber: 3, title: 'CONFIRM ORDER', description: 'We review your quotation, confirm batch freshness, and process your dispatch schedule.', icon: 'FileCheck' },
-        { stepNumber: 4, title: 'MAKE PAYMENT', description: 'Complete payment securely via UPI, NetBanking, RTGS, Cards, or Trade Accounts.', icon: 'CreditCard' },
-        { stepNumber: 5, title: 'FAST DISPATCH', description: 'We pack and ship your order with live transit tracking ID and courier updates.', icon: 'Truck' },
-        { stepNumber: 6, title: 'LIVE SUPPORT', description: 'Our dedicated customer success team assists you with fulfillment and scheduling.', icon: 'Headphones' },
-        { stepNumber: 7, title: 'AFTER-SALES CARE', description: 'Full replenishment support, guaranteed batch quality, returns, and exchange care.', icon: 'HeartHandshake' }
-      ],
-      footerNote: 'Tea Mix — Tradition, Quality & Your Satisfaction'
-    },
-    cta: {
-      headline: 'Experience Royal Rajwada Chai in Your Business',
-      subheadline: 'Join hundreds of corporate pantries, restaurants, luxury hotels, and retail stores serving authentic LataTea.',
-      primaryButtonText: 'Request Sample Box',
-      primaryButtonLink: '#inquire-modal',
-      secondaryButtonText: 'Order Online',
-      secondaryButtonLink: '#products',
-      backgroundImageSlotId: 'CTA_BACKGROUND'
-    },
-    footer: {
-      aboutText: 'LataTea represents the finest heritage of Indian tea craft, combining pure organic jaggery, handpicked whole spices, and modern manufacturing convenience.',
-      copyrightText: '© 2026 LataTea. All rights reserved.',
-      legalLinks: [
-        { label: 'Privacy Policy', url: '#privacy' },
-        { label: 'Terms of Use', url: '#terms' },
-        { label: 'Disclaimer', url: '#disclaimer' }
-      ]
-    }
+    fontHeading: 'Playfair Display',
+    fontBody: 'Plus Jakarta Sans'
   },
   contact: {
-    companyName: '',
-    address: '',
-    email: '',
-    phone1: '',
-    phone2: '',
-    phone3: '',
-    whatsapp: '',
-    website: '',
-    googleMapsUrl: '',
+    companyName: 'Purple Bean Agro Industries Private Limited',
+    address: 'Office 12, Business Avenue, Aundh, Pune, Maharashtra 411012',
+    email: 'info@latatea.com',
+    phone1: '+91 7666953873',
+    phone2: '+91 8483067383',
+    phone3: '+91 9595333976',
+    whatsapp: '+91 7666953873',
+    website: 'https://latatea.com',
+    googleMapsUrl: 'https://maps.google.com/?q=Aundh+Pune',
     socials: {
-      instagram: '',
-      facebook: '',
-      linkedin: '',
-      youtube: '',
-      twitter: ''
+      instagram: 'https://instagram.com/latatea_official',
+      facebook: 'https://facebook.com/latatea',
+      linkedin: 'https://linkedin.com/company/latatea',
+      whatsapp: 'https://wa.me/917666953873'
     },
     registration: {
-      fssai: '',
-      iec: '',
-      gst: ''
+      fssai: '11525996000709',
+      iec: 'AAPCP3820M',
+      gst: '27AAPCP3820M1ZX'
     },
     payment: {
-      accountName: '',
-      bankName: '',
-      accountNumber: '',
-      ifscCode: ''
+      accountName: 'Purple Bean Agro Industries Private Limited',
+      bankName: 'IDFC First Bank',
+      accountNumber: '10227953860',
+      ifscCode: 'IDFB0041438'
     }
   },
   seo: {
-    seoTitle: 'LataTea — Rajwada Heritage Tea & Jaggery Basundi Chai',
-    metaDescription: 'Discover LataTea premium Gud Basundi, Sugar Basundi, and Vending Premixes. Authentic taste, consistent quality, instant convenience.',
-    ogTitle: 'LataTea — Authentic Rajwada Taste & Instant Convenience',
-    ogDescription: 'Experience natural sweetness and traditional goodness with LataTea Gud and Basundi Chai mixes.',
+    seoTitle: 'LataTea — Authentic Indian Jaggery Chai, Royal Basundi & Vending Premixes',
+    metaDescription: 'Discover LataTea premium Gud Basundi, Sugar Basundi, and Vending Premixes. 100% natural organic jaggery, pure spices, 3-minute brewing.',
+    ogTitle: 'LataTea — Royal Heritage Tea & Basundi Premixes',
+    ogDescription: 'Experience authentic Indian jaggery tea and basundi chai ready in 3 minutes. Perfect for retail, corporate pantries, and HoReCa.',
     ogImageSlotId: 'HOME_HERO_PRIMARY',
     canonicalUrl: 'https://latatea.com',
     robots: 'index, follow'
   }
 };
 
-export const BROCHURE_CONTACT_PRESET = {
-  companyName: 'Purple Bean Agro Industries Private Limited',
-  address: 'Office 12, Business Avenue, Aundh, Pune, Maharashtra 411012',
-  email: 'info@latatea.com',
-  phone1: '+91 7666953873',
-  phone2: '+91 8483067383',
-  phone3: '+91 9595333976',
-  whatsapp: '+91 7666953873',
-  website: 'https://latatea.com',
-  googleMapsUrl: 'https://maps.google.com/?q=Aundh+Pune',
-  socials: {
-    instagram: 'https://instagram.com/latateaofficial',
-    facebook: 'https://facebook.com/latateaofficial',
-    linkedin: 'https://linkedin.com/company/latatea',
-    youtube: 'https://youtube.com/@latatea',
-    twitter: 'https://twitter.com/latatea'
-  },
-  registration: {
-    fssai: '11525996000709',
-    iec: 'AAPCP3820M',
-    gst: '27AAPCP3820M1ZX'
-  },
-  payment: {
-    accountName: 'Purple Bean Agro Industries Private Limited',
-    bankName: 'IDFC First Bank',
-    accountNumber: '10227953860',
-    ifscCode: 'IDFB0041438'
-  }
-};
+export const BROCHURE_CONTACT_PRESET = INITIAL_CMS_STATE.contact;
+

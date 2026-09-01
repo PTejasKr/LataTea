@@ -1,5 +1,6 @@
 import React from 'react';
 import { CMSProvider, useCMS } from './context/CMSContext';
+import { RouterProvider } from './router/Router';
 import { PublicWebsite } from './components/public/PublicWebsite';
 import { AdminView } from './components/admin/AdminView';
 
@@ -15,9 +16,11 @@ const AppContent: React.FC = () => {
 
 export function App() {
   return (
-    <CMSProvider>
-      <AppContent />
-    </CMSProvider>
+    <RouterProvider>
+      <CMSProvider>
+        <AppContent />
+      </CMSProvider>
+    </RouterProvider>
   );
 }
 

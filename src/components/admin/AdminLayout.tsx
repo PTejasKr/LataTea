@@ -18,7 +18,8 @@ import {
   ChevronLeft, 
   ChevronRight,
   LogOut,
-  UserCheck
+  UserCheck,
+  Building2
 } from 'lucide-react';
 
 export type AdminTab = 
@@ -26,6 +27,7 @@ export type AdminTab =
   | 'text'
   | 'navigation'
   | 'products'
+  | 'solutions'
   | 'media-library'
   | 'image-position'
   | 'sections'
@@ -62,6 +64,7 @@ export const AdminLayout: React.FC<AdminLayoutProps> = ({
     { id: 'text', label: 'Website Text', icon: <Type className="w-4 h-4" /> },
     { id: 'navigation', label: 'Navigation Manager', icon: <MenuIcon className="w-4 h-4" /> },
     { id: 'products', label: 'Product Manager', icon: <ShoppingBag className="w-4 h-4" />, badge: `${draftState.products.length}` },
+    { id: 'solutions', label: 'B2B Solutions', icon: <Building2 className="w-4 h-4 text-emerald-400" />, badge: `${draftState.solutions ? draftState.solutions.length : 6}` },
     { id: 'image-position', label: 'Image Position Editor', icon: <Crosshair className="w-4 h-4 text-amber-400" />, badge: 'Featured' },
     { id: 'media-library', label: 'Media Library', icon: <ImageIcon className="w-4 h-4" /> },
     { id: 'sections', label: 'Section Manager', icon: <Layers className="w-4 h-4" /> },

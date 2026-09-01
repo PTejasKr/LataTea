@@ -13,10 +13,14 @@ export interface MediaItem {
   filename: string;
   url: string;
   alt: string;
+  caption?: string;
   dimensions?: { width: number; height: number };
   fileSize?: string;
   mediaType: 'image/png' | 'image/jpeg' | 'image/webp' | 'image/svg+xml';
   uploadedAt: string;
+  sourceWebsite?: string;
+  photographer?: string;
+  license?: string;
 }
 
 export interface MediaSlot {
@@ -24,7 +28,7 @@ export interface MediaSlot {
   slotKey: string;
   label: string;
   description: string;
-  category: 'brand' | 'hero' | 'about' | 'products' | 'applications' | 'story' | 'preparation' | 'cta' | 'footer';
+  category: 'brand' | 'hero' | 'about' | 'products' | 'solutions' | 'story' | 'preparation' | 'cta' | 'footer';
   desktopImageId: string;
   mobileImageId?: string;
   focalX: number; // 0 to 100
@@ -32,7 +36,7 @@ export interface MediaSlot {
   mobileFocalX?: number; // 0 to 100
   mobileFocalY?: number; // 0 to 100
   objectFit: ObjectFitMode;
-  aspectRatioHint?: string; // e.g. "16:9", "1:1", "4:3"
+  aspectRatioHint?: string; // e.g. "16:9", "1:1", "4:3", "21:9"
 }
 
 export interface NavigationItem {
@@ -43,10 +47,12 @@ export interface NavigationItem {
   isButton: boolean;
   isEnabled: boolean;
   order: number;
+  children?: { label: string; url: string; description?: string; badge?: string }[];
 }
 
 export interface ProductItem {
   id: string;
+  slug: string; // e.g. "gud-basundi-tea"
   name: string;
   category: ProductCategory;
   categoryName: string;
@@ -56,11 +62,33 @@ export interface ProductItem {
   alternateImageSlotIds?: string[];
   packSizes: PackSizePrice[];
   applications: string[];
+  features?: string[];
+  ingredients?: string[];
+  preparationNote?: string;
   displayOrder: number;
   isFeatured: boolean;
   isVisible: boolean;
   badgeText?: string;
-  ingredients?: string[];
+  seoTitle?: string;
+  seoDescription?: string;
+}
+
+export interface SolutionItem {
+  id: string;
+  slug: string; // e.g. "corporate", "hotels", "restaurants", "cafes", "retail", "vending"
+  title: string;
+  subtitle: string;
+  tagline: string;
+  targetAudience: string;
+  problemStatement: string;
+  lataSolution: string;
+  benefits: { title: string; description: string; icon: string }[];
+  recommendedProductIds: string[];
+  bannerSlotId: string;
+  applicationSteps: { stepNumber: number; title: string; instruction: string }[];
+  icon: string;
+  isEnabled: boolean;
+  displayOrder: number;
 }
 
 export interface SectionConfig {
@@ -173,6 +201,12 @@ export interface WebsiteContent {
     ctaSecondaryLink: string;
     badgeText: string;
   };
+  promise: {
+    tagline: string;
+    heading: string;
+    subheading: string;
+    pillars: { title: string; description: string; metric?: string }[];
+  };
   about: {
     tagline: string;
     heading: string;
@@ -185,6 +219,14 @@ export interface WebsiteContent {
     heading: string;
     subheading: string;
     items: ApplicationItem[];
+  };
+  ourStory: {
+    heroTitle: string;
+    heroSubtitle: string;
+    origins: string;
+    philosophy: string;
+    craftAndSpices: string;
+    modernStandards: string;
   };
   preparation: {
     tagline: string;
@@ -226,6 +268,7 @@ export interface CMSState {
   sections: SectionConfig[];
   navigation: NavigationItem[];
   products: ProductItem[];
+  solutions: SolutionItem[];
   mediaLibrary: MediaItem[];
   mediaSlots: Record<string, MediaSlot>;
   content: WebsiteContent;

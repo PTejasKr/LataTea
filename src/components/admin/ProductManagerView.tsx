@@ -34,16 +34,17 @@ export const ProductManagerView: React.FC = () => {
   const handleOpenCreate = () => {
     const newProd: ProductItem = {
       id: `prod_${Date.now()}`,
+      slug: `tea-blend-${Date.now().toString().slice(-4)}`,
       name: '',
       category: 'gud',
       categoryName: 'Gud Tea Range',
       shortDescription: '',
       fullDescription: '',
-      imageSlotId: 'PRODUCT_GUD_BASUNDI',
+      imageSlotId: 'ABOUT_IMAGE_PRIMARY',
       packSizes: [
-        { size: '16g Sachet', price: 3.5, inStock: true },
-        { size: '160g Pack', price: 25.0, inStock: true },
-        { size: '1kg Pack', price: 150.0, inStock: true }
+        { size: '16g Sachet', price: 15, inStock: true },
+        { size: '160g Pouch', price: 135, inStock: true },
+        { size: '1kg Pack', price: 780, inStock: true }
       ],
       applications: ['Offices', 'HoReCa', 'Retail Stores'],
       displayOrder: products.length + 1,
@@ -59,14 +60,19 @@ export const ProductManagerView: React.FC = () => {
     e.preventDefault();
     if (!editingProduct || !editingProduct.name.trim()) return;
 
-    // sync category name
+    // sync category name and slug
     const categoryNameMap: Record<ProductCategory, string> = {
       gud: 'Gud Tea Range',
       sugar: 'Sugar Tea Range',
       vending: 'Vending Machine Premix'
     };
+    const finalSlug = editingProduct.slug && editingProduct.slug.trim()
+      ? editingProduct.slug.trim().toLowerCase().replace(/[^a-z0-9-]+/g, '-')
+      : editingProduct.name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+
     const finalProduct: ProductItem = {
       ...editingProduct,
+      slug: finalSlug,
       categoryName: categoryNameMap[editingProduct.category] || 'Specialty Tea'
     };
 

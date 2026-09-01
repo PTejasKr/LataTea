@@ -4,6 +4,7 @@ import { DashboardView } from './DashboardView';
 import { TextView } from './TextView';
 import { NavManagerView } from './NavManagerView';
 import { ProductManagerView } from './ProductManagerView';
+import { SolutionManagerView } from './SolutionManagerView';
 import { ImagePositionEditorView } from './ImagePositionEditorView';
 import { MediaLibraryView } from './MediaLibraryView';
 import { SectionManagerView } from './SectionManagerView';
@@ -40,6 +41,7 @@ export const AdminView: React.FC = () => {
         {activeTab === 'text' && <TextView />}
         {activeTab === 'navigation' && <NavManagerView />}
         {activeTab === 'products' && <ProductManagerView />}
+        {activeTab === 'solutions' && <SolutionManagerView />}
         {activeTab === 'image-position' && <ImagePositionEditorView />}
         {activeTab === 'media-library' && <MediaLibraryView />}
         {activeTab === 'sections' && <SectionManagerView />}
