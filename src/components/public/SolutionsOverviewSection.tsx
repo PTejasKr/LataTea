@@ -19,7 +19,7 @@ interface SolutionsOverviewSectionProps {
 
 export const SolutionsOverviewSection: React.FC<SolutionsOverviewSectionProps> = ({ onOpenInquiry }) => {
   const { publishedState } = useCMS();
-  const solutions = publishedState.solutions.filter(s => s.isEnabled);
+  const solutions = (publishedState.solutions || []).filter(s => s.isEnabled);
 
   const iconMap: Record<string, React.ReactNode> = {
     corporate: <Building2 className="w-6 h-6 text-lataamber-500" />,

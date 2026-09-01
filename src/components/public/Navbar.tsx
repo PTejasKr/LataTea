@@ -227,7 +227,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenInquiry, isDraftPreview = 
                   </div>
 
                   <div className="grid grid-cols-2 gap-1.5">
-                    {state.solutions.filter(s => s.isEnabled).map(sol => (
+                    {(state.solutions || []).filter(s => s.isEnabled).map(sol => (
                       <Link
                         key={sol.id}
                         to={`/solutions/${sol.slug}`}
@@ -418,7 +418,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenInquiry, isDraftPreview = 
               <div className="px-4 text-xs font-bold text-amber-400 uppercase tracking-widest mb-2">
                 Industry Solutions
               </div>
-              {state.solutions.map(sol => (
+              {(state.solutions || []).map(sol => (
                 <Link
                   key={sol.id}
                   to={`/solutions/${sol.slug}`}
