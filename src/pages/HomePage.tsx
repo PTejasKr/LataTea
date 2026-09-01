@@ -10,7 +10,6 @@ import { PreparationGuide } from '../components/public/PreparationGuide';
 import { StoryTeaserSection } from '../components/public/StoryTeaserSection';
 import { OrderTrackingSection } from '../components/public/OrderTrackingSection';
 import { CtaSection } from '../components/public/CtaSection';
-import { RegistrationAndContact } from '../components/public/RegistrationAndContact';
 
 interface HomePageProps {
   onOpenInquiry: (productName?: string) => void;
@@ -52,9 +51,6 @@ export const HomePage: React.FC<HomePageProps> = ({ onOpenInquiry, isDraftPrevie
 
       {/* 10 — Conversion & Sample Request Banner */}
       <CtaSection onOpenInquiry={() => onOpenInquiry()} isDraftPreview={isDraftPreview} />
-
-      {/* 11 — Official Registration & Banking Credentials */}
-      <RegistrationAndContact isDraftPreview={isDraftPreview} />
     </div>
   );
 };

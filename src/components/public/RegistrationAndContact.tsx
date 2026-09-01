@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useCMS } from '../../context/CMSContext';
 import { 
   Building2, 
@@ -7,9 +7,11 @@ import {
   Phone, 
   Globe, 
   ShieldCheck, 
-  FileText, 
   CreditCard,
-  CheckCircle2
+  CheckCircle2,
+  Copy,
+  Check,
+  MessageCircle
 } from 'lucide-react';
 
 interface RegistrationAndContactProps {
@@ -20,29 +22,20 @@ export const RegistrationAndContact: React.FC<RegistrationAndContactProps> = ({ 
   const { publishedState, draftState } = useCMS();
   const state = isDraftPreview ? draftState : publishedState;
   const contact = state.contact;
+  const [copiedBank, setCopiedBank] = useState(false);
 
-  const hasAnyContact = Boolean(
-    contact.companyName ||
-    contact.address ||
-    contact.email ||
-    contact.phone1 ||
-    contact.phone2 ||
-    contact.phone3 ||
-    contact.whatsapp ||
-    contact.website ||
-    contact.registration.fssai ||
-    contact.registration.iec ||
-    contact.registration.gst ||
-    contact.payment.accountName ||
-    contact.payment.bankName
-  );
+  const handleCopyBank = () => {
+    const text = `Purple Bean Agro Industries Private Limited\nBank: IDFC First Bank\nA/C No: 10227953860\nIFSC: IDFB0041438`;
+    navigator.clipboard.writeText(text);
+    setCopiedBank(true);
+    setTimeout(() => setCopiedBank(false), 2000);
+  };
 
-  if (!hasAnyContact) {
-    return null;
-  }
+  const whatsappNumber = contact.whatsapp?.replace(/[^0-9]/g, '') || '917666953873';
+  const whatsappUrl = `https://wa.me/${whatsappNumber}?text=Hi%20LataTea%2C%20I%20would%20like%20to%20inquire%20about%20your%20tea%20products%20and%20request%20samples.`;
 
   return (
-    <section id="contact" className="py-24 bg-[#FAF6EE] relative border-t border-amber-900/10">
+    <section id="contact" className="py-20 bg-[#FAF6EE] relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
@@ -63,176 +56,191 @@ export const RegistrationAndContact: React.FC<RegistrationAndContactProps> = ({ 
           </p>
         </div>
 
-        {/* 3 Main Informational Cards */}
+        {/* 3 Clean Statutory Cards Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           
-          {/* Card 1: Corporate HQ & Contact Channels */}
-          {(contact.companyName || contact.address || contact.email || contact.phone1) && (
-            <div className="bg-white rounded-3xl p-8 border border-amber-200 shadow-md space-y-6 flex flex-col justify-between">
-              <div className="space-y-4">
-                <div className="w-12 h-12 rounded-2xl bg-latagreen-50 flex items-center justify-center text-[#1E3F20] border border-latagreen-200">
-                  <Building2 className="w-6 h-6 text-[#1E3F20]" />
-                </div>
-                
-                <h3 className="font-rajwada font-bold text-2xl text-[#1E3F20]">
-                  Corporate Office
-                </h3>
+          {/* Card 1: Corporate Office */}
+          <div className="bg-white rounded-3xl p-8 border border-amber-200/80 shadow-lg flex flex-col justify-between space-y-6">
+            <div className="space-y-4">
+              <div className="w-12 h-12 rounded-2xl bg-latagreen-50 flex items-center justify-center text-[#1E3F20] border border-latagreen-200">
+                <Building2 className="w-6 h-6 text-[#1E3F20]" />
+              </div>
+              
+              <h3 className="font-rajwada font-bold text-2xl text-[#1E3F20]">
+                Corporate Office
+              </h3>
 
-                {contact.companyName && (
-                  <div className="font-sans font-bold text-sm text-slate-800">
-                    {contact.companyName}
-                  </div>
-                )}
-
-                {contact.address && (
-                  <div className="flex items-start gap-3 text-xs sm:text-sm text-slate-600 font-sans">
-                    <MapPin className="w-4 h-4 text-lataamber-600 shrink-0 mt-0.5" />
-                    <span>{contact.address}</span>
-                  </div>
-                )}
-
-                {contact.email && (
-                  <div className="flex items-center gap-3 text-xs sm:text-sm font-sans">
-                    <Mail className="w-4 h-4 text-lataamber-600 shrink-0" />
-                    <a href={`mailto:${contact.email}`} className="text-slate-800 hover:text-lataamber-600 font-semibold break-all">
-                      {contact.email}
-                    </a>
-                  </div>
-                )}
-
-                {(contact.phone1 || contact.phone2 || contact.phone3) && (
-                  <div className="space-y-1.5 pt-2 border-t border-slate-100 text-xs sm:text-sm font-sans">
-                    <div className="text-[11px] uppercase font-bold text-slate-400">Direct Inquiries:</div>
-                    {contact.phone1 && (
-                      <div className="flex items-center gap-2">
-                        <Phone className="w-3.5 h-3.5 text-lataleaf-600 shrink-0" />
-                        <a href={`tel:${contact.phone1}`} className="text-slate-800 hover:text-lataamber-600 font-medium">{contact.phone1}</a>
-                      </div>
-                    )}
-                    {contact.phone2 && (
-                      <div className="flex items-center gap-2">
-                        <Phone className="w-3.5 h-3.5 text-lataleaf-600 shrink-0" />
-                        <a href={`tel:${contact.phone2}`} className="text-slate-800 hover:text-lataamber-600 font-medium">{contact.phone2}</a>
-                      </div>
-                    )}
-                    {contact.phone3 && (
-                      <div className="flex items-center gap-2">
-                        <Phone className="w-3.5 h-3.5 text-lataleaf-600 shrink-0" />
-                        <a href={`tel:${contact.phone3}`} className="text-slate-800 hover:text-lataamber-600 font-medium">{contact.phone3}</a>
-                      </div>
-                    )}
-                  </div>
-                )}
+              <div className="font-sans font-bold text-sm text-slate-800">
+                {contact.companyName || 'Purple Bean Agro Industries Private Limited'}
               </div>
 
-              {contact.website && (
-                <div className="pt-4 border-t border-slate-100 flex items-center gap-2 text-xs font-semibold text-lataamber-700 font-sans">
-                  <Globe className="w-4 h-4" />
-                  <a href={contact.website} target="_blank" rel="noreferrer" className="hover:underline">
-                    {contact.website}
-                  </a>
-                </div>
-              )}
-            </div>
-          )}
-
-          {/* Card 2: Legal & Statutory Registrations */}
-          {(contact.registration.fssai || contact.registration.iec || contact.registration.gst) && (
-            <div className="bg-white rounded-3xl p-8 border border-amber-200 shadow-md space-y-6 flex flex-col justify-between">
-              <div className="space-y-4">
-                <div className="w-12 h-12 rounded-2xl bg-lataamber-50 flex items-center justify-center text-lataamber-600 border border-lataamber-200">
-                  <ShieldCheck className="w-6 h-6 text-lataamber-600" />
-                </div>
-                
-                <h3 className="font-rajwada font-bold text-2xl text-[#1E3F20]">
-                  Certifications & Compliance
-                </h3>
-                <p className="text-xs text-slate-500 font-sans">
-                  Manufactured under strict ISO & FSSAI food hygiene parameters.
-                </p>
-
-                <div className="space-y-4 pt-2 font-sans">
-                  {contact.registration.fssai && (
-                    <div className="p-3.5 rounded-xl bg-latacream-100 border border-amber-200/60">
-                      <span className="text-[10px] uppercase font-bold text-slate-500 block">FSSAI License No.</span>
-                      <span className="font-mono font-bold text-sm text-[#1E3F20] tracking-wider">{contact.registration.fssai}</span>
-                    </div>
-                  )}
-
-                  {contact.registration.gst && (
-                    <div className="p-3.5 rounded-xl bg-latacream-100 border border-amber-200/60">
-                      <span className="text-[10px] uppercase font-bold text-slate-500 block">GST Identification No. (GSTIN)</span>
-                      <span className="font-mono font-bold text-sm text-[#1E3F20] tracking-wider">{contact.registration.gst}</span>
-                    </div>
-                  )}
-
-                  {contact.registration.iec && (
-                    <div className="p-3.5 rounded-xl bg-latacream-100 border border-amber-200/60">
-                      <span className="text-[10px] uppercase font-bold text-slate-500 block">Importer-Exporter Code (IEC)</span>
-                      <span className="font-mono font-bold text-sm text-[#1E3F20] tracking-wider">{contact.registration.iec}</span>
-                    </div>
-                  )}
-                </div>
+              <div className="flex items-start gap-3 text-xs sm:text-sm text-slate-600 font-sans">
+                <MapPin className="w-4 h-4 text-lataamber-600 shrink-0 mt-0.5" />
+                <span>{contact.address || 'Office 12, Business Avenue, Aundh, Pune, Maharashtra 411012'}</span>
               </div>
 
-              <div className="flex items-center gap-2 text-xs font-bold text-emerald-700 font-sans">
-                <CheckCircle2 className="w-4 h-4" />
-                <span>Verified Government Registration</span>
+              <div className="flex items-center gap-3 text-xs sm:text-sm font-sans">
+                <Mail className="w-4 h-4 text-lataamber-600 shrink-0" />
+                <a href={`mailto:${contact.email || 'info@latatea.com'}`} className="text-slate-800 hover:text-lataamber-600 font-semibold break-all">
+                  {contact.email || 'info@latatea.com'}
+                </a>
+              </div>
+
+              <div className="pt-2 border-t border-slate-100 space-y-1.5">
+                <span className="text-[11px] font-bold text-slate-400 uppercase tracking-wider block">
+                  Direct Inquiries:
+                </span>
+                <div className="flex items-center gap-2 text-xs font-semibold text-slate-800">
+                  <Phone className="w-3.5 h-3.5 text-lataleaf-500" />
+                  <a href="tel:+917666953873" className="hover:text-amber-600">+91 7666953873</a>
+                </div>
+                <div className="flex items-center gap-2 text-xs font-semibold text-slate-800">
+                  <Phone className="w-3.5 h-3.5 text-lataleaf-500" />
+                  <a href="tel:+918483067383" className="hover:text-amber-600">+91 8483067383</a>
+                </div>
+                <div className="flex items-center gap-2 text-xs font-semibold text-slate-800">
+                  <Phone className="w-3.5 h-3.5 text-lataleaf-500" />
+                  <a href="tel:+919595333976" className="hover:text-amber-600">+91 9595333976</a>
+                </div>
               </div>
             </div>
-          )}
 
-          {/* Card 3: Banking & Commercial Settlement */}
-          {(contact.payment.accountName || contact.payment.bankName) && (
-            <div className="bg-white rounded-3xl p-8 border border-amber-200 shadow-md space-y-6 flex flex-col justify-between">
-              <div className="space-y-4">
-                <div className="w-12 h-12 rounded-2xl bg-lataleaf-50 flex items-center justify-center text-lataleaf-600 border border-lataleaf-200">
-                  <CreditCard className="w-6 h-6 text-lataleaf-600" />
-                </div>
-                
-                <h3 className="font-rajwada font-bold text-2xl text-[#1E3F20]">
-                  Commercial Banking
-                </h3>
-                <p className="text-xs text-slate-500 font-sans">
-                  Official account for RTGS / NEFT commercial wholesale transactions.
-                </p>
+            {/* 1-Click WhatsApp Option & Website */}
+            <div className="space-y-3 pt-2">
+              <a
+                href={whatsappUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full py-3.5 px-4 rounded-2xl bg-[#25D366] hover:bg-[#20bd5a] text-white text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-2 shadow-md hover:shadow-lg transition-all hover:scale-102"
+              >
+                <MessageCircle className="w-4 h-4 fill-white" />
+                <span>1-Click WhatsApp Chat</span>
+              </a>
 
-                <div className="space-y-3 pt-2 text-xs font-sans">
-                  {contact.payment.accountName && (
-                    <div>
-                      <span className="text-slate-400 block text-[10px] uppercase font-bold">Beneficiary Name</span>
-                      <span className="font-semibold text-slate-800">{contact.payment.accountName}</span>
-                    </div>
-                  )}
+              <div className="flex items-center gap-2 text-xs font-semibold text-slate-600 justify-center">
+                <Globe className="w-3.5 h-3.5 text-slate-400" />
+                <a href="https://latatea.com" target="_blank" rel="noreferrer" className="hover:text-amber-600">
+                  https://latatea.com
+                </a>
+              </div>
+            </div>
+          </div>
 
-                  {contact.payment.bankName && (
-                    <div>
-                      <span className="text-slate-400 block text-[10px] uppercase font-bold">Bank Name</span>
-                      <span className="font-semibold text-slate-800">{contact.payment.bankName}</span>
-                    </div>
-                  )}
-
-                  {contact.payment.accountNumber && (
-                    <div>
-                      <span className="text-slate-400 block text-[10px] uppercase font-bold">Current Account Number</span>
-                      <span className="font-mono font-bold text-slate-900">{contact.payment.accountNumber}</span>
-                    </div>
-                  )}
-
-                  {contact.payment.ifscCode && (
-                    <div>
-                      <span className="text-slate-400 block text-[10px] uppercase font-bold">IFSC Code</span>
-                      <span className="font-mono font-bold text-slate-900">{contact.payment.ifscCode}</span>
-                    </div>
-                  )}
-                </div>
+          {/* Card 2: Certifications & Compliance */}
+          <div className="bg-white rounded-3xl p-8 border border-amber-200/80 shadow-lg flex flex-col justify-between space-y-6">
+            <div className="space-y-4">
+              <div className="w-12 h-12 rounded-2xl bg-amber-50 flex items-center justify-center text-amber-600 border border-amber-200">
+                <ShieldCheck className="w-6 h-6 text-lataamber-600" />
               </div>
 
-              <div className="p-3 rounded-xl bg-latacream-200 text-[11px] text-slate-600 font-sans">
+              <h3 className="font-rajwada font-bold text-2xl text-[#1E3F20]">
+                Certifications & Compliance
+              </h3>
+
+              <p className="text-xs text-slate-600 font-sans leading-relaxed font-light">
+                Manufactured under strict ISO & FSSAI food hygiene parameters.
+              </p>
+
+              <div className="space-y-3 pt-2">
+                <div className="p-3.5 rounded-2xl bg-amber-50/60 border border-amber-200/80">
+                  <div className="text-[10px] uppercase font-bold text-slate-400 tracking-wider">FSSAI LICENSE NO.</div>
+                  <div className="font-mono text-sm font-black text-[#1E3F20] tracking-wider mt-0.5">
+                    {contact.registration.fssai || '11525996000709'}
+                  </div>
+                </div>
+
+                <div className="p-3.5 rounded-2xl bg-amber-50/60 border border-amber-200/80">
+                  <div className="text-[10px] uppercase font-bold text-slate-400 tracking-wider">GST IDENTIFICATION NO. (GSTIN)</div>
+                  <div className="font-mono text-sm font-black text-[#1E3F20] tracking-wider mt-0.5">
+                    {contact.registration.gst || '27AAPCP3820M1ZX'}
+                  </div>
+                </div>
+
+                <div className="p-3.5 rounded-2xl bg-amber-50/60 border border-amber-200/80">
+                  <div className="text-[10px] uppercase font-bold text-slate-400 tracking-wider">IMPORTER-EXPORTER CODE (IEC)</div>
+                  <div className="font-mono text-sm font-black text-[#1E3F20] tracking-wider mt-0.5">
+                    {contact.registration.iec || 'AAPCP3820M'}
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="flex items-center gap-2 text-xs font-semibold text-lataleaf-600 pt-2">
+              <CheckCircle2 className="w-4 h-4 text-lataleaf-500" />
+              <span>Verified Government Registration</span>
+            </div>
+          </div>
+
+          {/* Card 3: Commercial Banking */}
+          <div className="bg-white rounded-3xl p-8 border border-amber-200/80 shadow-lg flex flex-col justify-between space-y-6">
+            <div className="space-y-4">
+              <div className="w-12 h-12 rounded-2xl bg-slate-100 flex items-center justify-center text-slate-700 border border-slate-200">
+                <CreditCard className="w-6 h-6 text-slate-700" />
+              </div>
+
+              <h3 className="font-rajwada font-bold text-2xl text-[#1E3F20]">
+                Commercial Banking
+              </h3>
+
+              <p className="text-xs text-slate-600 font-sans leading-relaxed font-light">
+                Official account for RTGS / NEFT commercial wholesale transactions.
+              </p>
+
+              <div className="space-y-3 pt-2">
+                <div>
+                  <div className="text-[10px] uppercase font-bold text-slate-400">BENEFICIARY NAME</div>
+                  <div className="text-xs font-bold text-slate-900 mt-0.5">
+                    {contact.payment.accountName || 'Purple Bean Agro Industries Private Limited'}
+                  </div>
+                </div>
+
+                <div>
+                  <div className="text-[10px] uppercase font-bold text-slate-400">BANK NAME</div>
+                  <div className="text-xs font-bold text-slate-900 mt-0.5">
+                    {contact.payment.bankName || 'IDFC First Bank'}
+                  </div>
+                </div>
+
+                <div>
+                  <div className="text-[10px] uppercase font-bold text-slate-400">CURRENT ACCOUNT NUMBER</div>
+                  <div className="font-mono text-sm font-black text-slate-900 mt-0.5 tracking-wider">
+                    {contact.payment.accountNumber || '10227953860'}
+                  </div>
+                </div>
+
+                <div>
+                  <div className="text-[10px] uppercase font-bold text-slate-400">IFSC CODE</div>
+                  <div className="font-mono text-sm font-black text-slate-900 mt-0.5 tracking-wider">
+                    {contact.payment.ifscCode || 'IDFB0041438'}
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="space-y-3 pt-2">
+              <button
+                type="button"
+                onClick={handleCopyBank}
+                className="w-full py-2.5 px-4 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-800 text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-2 border border-slate-300 transition-all"
+              >
+                {copiedBank ? (
+                  <>
+                    <Check className="w-3.5 h-3.5 text-lataleaf-600" />
+                    <span>Copied to Clipboard!</span>
+                  </>
+                ) : (
+                  <>
+                    <Copy className="w-3.5 h-3.5" />
+                    <span>Copy Bank Details</span>
+                  </>
+                )}
+              </button>
+
+              <div className="p-3 rounded-xl bg-amber-50/60 border border-amber-200/60 text-[11px] text-slate-500 text-center font-sans">
                 Please attach payment screenshot when submitting quotation confirmations.
               </div>
             </div>
-          )}
+          </div>
 
         </div>
 
