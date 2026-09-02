@@ -412,7 +412,7 @@ export const DEFAULT_STORY_CONTENT: EditorialStoryContent = {
   // 01 HERO
   hero: {
     tagline: {
-      en: 'LATA TEA • PUNE',
+      en: 'Lata Teamixmix • PUNE',
       mr: 'लता टी • पुणे'
     },
     headline: {
@@ -442,7 +442,7 @@ export const DEFAULT_STORY_CONTENT: EditorialStoryContent = {
   // 02 THE STORY
   story: {
     tagline: {
-      en: 'ABOUT LATA TEA',
+      en: 'ABOUT Lata Teamixmix',
       mr: 'आमच्याबद्दल'
     },
     heading: {
@@ -454,7 +454,7 @@ export const DEFAULT_STORY_CONTENT: EditorialStoryContent = {
       mr: 'पर्पल बीन अ‍ॅग्रो इंडस्ट्रीज प्रायव्हेट लिमिटेड, पुणे.'
     },
     introduction: {
-      en: 'Most everyday tea relies on refined white sugar. We built Lata Tea to give families and businesses an easy way to brew traditional jaggery chai without milk curdling or burnt notes.',
+      en: 'Most everyday tea relies on refined white sugar. We built Lata Teamixmix to give families and businesses an easy way to brew traditional jaggery chai without milk curdling or burnt notes.',
       mr: 'रोजच्या चहात पांढऱ्या साखरेचा वापर जास्त होतो. दूध न फाटता घरच्या घरी गुळाचा चहा बनवता यावा यासाठी आम्ही लता टी ची सुरुवात केली.'
     },
     paragraphs: [
@@ -575,7 +575,7 @@ export const DEFAULT_STORY_CONTENT: EditorialStoryContent = {
         tagline: { en: '04 — BREW', mr: '०४ — उकळी' },
         title: { en: '3-Minute Simmer', mr: '३ मिनिटे उकळणे' },
         description: {
-          en: 'Mix equal parts water and milk, add Lata Tea, and boil for 2 to 3 minutes.',
+          en: 'Mix equal parts water and milk, add Lata Teamixmix, and boil for 2 to 3 minutes.',
           mr: 'समान पाणी आणि दूध घ्या, लता टी घाला आणि २ ते ३ मिनिटे उकळा.'
         },
         imageSlotId: 'CRAFT_STAGE_4'
@@ -628,7 +628,7 @@ export const DEFAULT_STORY_CONTENT: EditorialStoryContent = {
     imageSlotId: 'STORY_IMAGE_PRIMARY'
   },
 
-  // 08 WHY LATA TEA
+  // 08 WHY Lata Teamixmix
   whyLata: {
     tagline: {
       en: 'KEY FACTS',
@@ -693,7 +693,7 @@ export const DEFAULT_STORY_CONTENT: EditorialStoryContent = {
       mr: 'पर्पल बीन अ‍ॅग्रो इंडस्ट्रीज प्रायव्हेट लिमिटेड — पुणे, महाराष्ट्र'
     },
     author: {
-      en: 'Lata Tea',
+      en: 'Lata Teamixmix',
       mr: 'लता टी'
     }
   },
@@ -721,7 +721,7 @@ export const DEFAULT_STORY_CONTENT: EditorialStoryContent = {
   // FOOTER
   footer: {
     aboutText: {
-      en: 'Lata Tea is manufactured by Purple Bean Agro Industries Private Limited in Pune, Maharashtra. Natural jaggery tea and basundi premixes.',
+      en: 'Lata Teamixmix is manufactured by Purple Bean Agro Industries Private Limited in Pune, Maharashtra. Natural jaggery tea and basundi premixes.',
       mr: 'पर्पल बीन अ‍ॅग्रो इंडस्ट्रीज प्रायव्हेट लिमिटेड, पुणे. नैसर्गिक गूळ चहा आणि बासुंदी प्रीमिक्स.'
     },
     copyrightText: {
@@ -804,7 +804,7 @@ export const INITIAL_CMS_STATE: CMSState = {
   },
   seo: {
     seoTitle: {
-      en: 'Lata Tea — Pure Jaggery Basundi Chai',
+      en: 'Lata Teamixmix — Pure Jaggery Basundi Chai',
       mr: 'लता टी — अस्सल गूळ बासुंदी चहा'
     },
     metaDescription: {
@@ -812,7 +812,7 @@ export const INITIAL_CMS_STATE: CMSState = {
       mr: 'आसाम चहा आणि शुद्ध गूळ. ३ मिनिटांत तयार. पर्पल बीन अ‍ॅग्रो इंडस्ट्रीज, पुणे.'
     },
     ogTitle: {
-      en: 'Lata Tea — Jaggery Basundi Chai',
+      en: 'Lata Teamixmix — Jaggery Basundi Chai',
       mr: 'लता टी — गूळ बासुंदी चहा'
     },
     ogDescription: {

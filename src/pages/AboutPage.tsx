@@ -14,7 +14,7 @@ export const AboutPage: React.FC = () => {
       <section className="py-14 bg-brand-primary-dark text-white text-center">
         <div className="max-w-4xl mx-auto px-4 sm:px-6">
           <span className="text-[11px] font-sans font-semibold tracking-widest text-brand-accent uppercase block mb-1">
-            ABOUT LATA TEA
+            ABOUT LATA TEAMIX
           </span>
           <h1 className="font-rajwada text-3xl sm:text-5xl font-bold text-white tracking-tight">
             Indian Tea & Jaggery Blends
@@ -37,7 +37,7 @@ export const AboutPage: React.FC = () => {
               Unadulterated Tea in Every Boiling Cup
             </h2>
             <p className="text-xs sm:text-sm text-brand-primary leading-relaxed font-sans">
-              Lata Tea was established to solve an everyday challenge: giving families, cafés, and corporate workplaces access to authentic jaggery chai without curdling milk or burning sweetness.
+              Lata Teamix was established to solve an everyday challenge: giving families, cafés, and corporate workplaces access to authentic jaggery chai without curdling milk or burning sweetness.
             </p>
             <p className="text-xs sm:text-sm text-brand-text-muted leading-relaxed font-sans">
               Blended in a cleanroom in Pune, our products deliver consistent taste and aroma across homes, pantries, and vending machines.
@@ -59,7 +59,7 @@ export const AboutPage: React.FC = () => {
             <div className="rounded-xl overflow-hidden border border-brand-border aspect-[4/3] bg-brand-surface shadow-xs">
               <img
                 src="/assets/images/royal_tea_bowl.jpg"
-                alt="Lata Tea Blends"
+                alt="Lata Teamix Blends"
                 className="w-full h-full object-cover"
               />
             </div>

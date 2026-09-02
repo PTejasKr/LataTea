@@ -86,7 +86,7 @@ export const OrderingRoadmap: React.FC = () => {
           <div className="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-white via-transparent to-transparent"></div>
           <div className="relative p-8 sm:p-12 text-center flex flex-col items-center">
             <h3 className="font-rajwada text-2xl sm:text-3xl font-bold text-white mb-4">
-              {language === 'mr' ? 'लता टीमिक्स सोबत भागीदारी करा' : 'Partner with Lata Tea'}
+              {language === 'mr' ? 'लता टीमिक्स सोबत भागीदारी करा' : 'Partner with Lata Teamix'}
             </h3>
             <p className="text-slate-200 text-sm sm:text-base font-sans max-w-2xl mx-auto mb-8 opacity-90">
               {language === 'mr' 

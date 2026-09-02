@@ -37,11 +37,11 @@ export const EditorialHero: React.FC<EditorialHeroProps> = ({ isDraftPreview = f
           {t(hero.tagline)}
         </span>
 
-        <h1 className="font-rajwada text-4xl sm:text-5xl md:text-7xl font-bold tracking-tight text-white leading-[1.1] drop-shadow-lg mb-6">
+        <h1 className="font-rajwada text-fluid-5xl font-bold tracking-tight text-white leading-[1.1] drop-shadow-lg mb-6">
           {t(hero.headline)}
         </h1>
 
-        <p className="mt-4 text-sm sm:text-base md:text-lg text-slate-200 max-w-2xl font-sans font-medium leading-relaxed drop-shadow-md">
+        <p className="mt-4 text-fluid-lg text-slate-200 max-w-2xl font-sans font-medium leading-relaxed drop-shadow-md">
           {t(hero.subheadline)}
         </p>
 

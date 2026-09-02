@@ -1,6 +1,6 @@
 import React from 'react';
 import { useCMS } from '../../context/CMSContext';
-import { TeaLeafIcon } from '../common/TeaLeafIcon';
+import { BrandLogo } from '../common/BrandLogo';
 import { Link } from '../../router/Router';
 
 export const Footer: React.FC = () => {
@@ -17,18 +17,13 @@ export const Footer: React.FC = () => {
           
           {/* Brand Identity & Mission */}
           <div className="lg:col-span-5 space-y-3">
-            <Link to="/" className="flex items-center gap-2.5 inline-flex">
-              <div className="w-8 h-8 rounded-lg bg-brand-accent flex items-center justify-center p-1.5 shadow-xs">
-                <TeaLeafIcon className="w-full h-full text-white" />
-              </div>
-              <span className="font-rajwada text-xl font-bold tracking-wider text-white">
-                LATA TEA
-              </span>
+            <Link to="/" className="inline-block">
+              <BrandLogo className="h-10 sm:h-12 w-auto" />
             </Link>
 
             <p className="text-xs text-slate-300 font-sans leading-relaxed max-w-sm">
               {language === 'en' 
-                ? 'Lata Tea is manufactured by Purple Bean Agro Industries Private Limited in Pune, Maharashtra. Natural jaggery tea and basundi premixes.' 
+                ? 'Lata Teamix is manufactured by Purple Bean Agro Industries Private Limited in Pune, Maharashtra. Natural jaggery tea and basundi premixes.' 
                 : 'पर्पल बीन अ‍ॅग्रो इंडस्ट्रीज प्रायव्हेट लिमिटेड, पुणे. नैसर्गिक गूळ चहा आणि बासुंदी प्रीमिक्स.'}
             </p>
 

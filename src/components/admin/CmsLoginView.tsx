@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useCMS } from '../../context/CMSContext';
+import { BrandLogo } from '../common/BrandLogo';
 import { Lock, ShieldCheck, User, KeyRound, AlertCircle, ArrowRight, Sparkles } from 'lucide-react';
 
 export const CmsLoginView: React.FC = () => {
@@ -26,7 +27,7 @@ export const CmsLoginView: React.FC = () => {
   return (
     <div className="min-h-screen bg-[#090E17] text-white flex items-center justify-center p-4 relative overflow-hidden font-sans">
       {/* Background Decorative Lighting */}
-      <div className="absolute -top-40 -right-40 w-96 h-96 rounded-full bg-latagreen-700/20 blur-3xl pointer-events-none" />
+      <div className="absolute -top-40 -right-40 w-96 h-96 rounded-full bg-amber-700/20 blur-3xl pointer-events-none" />
       <div className="absolute -bottom-40 -left-40 w-96 h-96 rounded-full bg-lataamber-500/10 blur-3xl pointer-events-none" />
 
       <div className="w-full max-w-md bg-[#162032] border border-slate-700/80 rounded-3xl p-8 shadow-2xl relative z-10 space-y-6">
@@ -116,7 +117,7 @@ export const CmsLoginView: React.FC = () => {
             }}
             className="text-xs text-slate-400 hover:text-amber-300 transition-colors"
           >
-            ← Return to Public LataTea Website
+            ← Return to Public Lata Teamix Website
           </button>
         </div>
 

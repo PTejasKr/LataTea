@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useCMS } from '../../context/CMSContext';
 import { useRouter, Link } from '../../router/Router';
-import { TeaLeafIcon } from '../common/TeaLeafIcon';
+import { BrandLogo } from '../common/BrandLogo';
 import { Menu as MenuIcon, X } from 'lucide-react';
 
 interface NavbarProps {
@@ -48,19 +48,9 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenInquiry, isDraftPreview = 
           <Link
             to="/"
             onClick={() => setMobileMenuOpen(false)}
-            className="flex items-center gap-2.5"
+            className="flex items-center"
           >
-            <div className="w-8 h-8 rounded-lg bg-brand-accent flex items-center justify-center p-1.5 text-white">
-              <TeaLeafIcon className="w-full h-full text-white" />
-            </div>
-            <div className="flex flex-col">
-              <span className="font-rajwada text-xl font-bold tracking-wider text-brand-primary-dark">
-                LATA TEA
-              </span>
-              <span className="text-[9px] font-sans uppercase tracking-[0.2em] text-brand-text-muted -mt-1">
-                {language === 'mr' ? 'अस्सल गूळ चहा' : 'Pure Jaggery Chai'}
-              </span>
-            </div>
+            <BrandLogo className="h-10 sm:h-12 w-auto" />
           </Link>
 
           {/* Desktop Navigation */}

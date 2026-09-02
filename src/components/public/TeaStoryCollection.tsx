@@ -92,7 +92,7 @@ export const TeaStoryCollection: React.FC<TeaStoryCollectionProps> = ({
                 <div className="p-2 sm:p-3 flex-1 flex flex-col justify-between">
                   <div>
                     <span className="text-[9px] font-bold uppercase tracking-wider text-brand-text-muted block">
-                      LATA TEA
+                      LATA TEAMIX
                     </span>
                     <h3 className="font-bold text-xs sm:text-sm text-brand-primary-dark group-hover:text-brand-accent transition-colors truncate mt-0.5">
                       {t(tea.name)}

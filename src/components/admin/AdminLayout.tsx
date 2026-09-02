@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { BrandLogo } from '../common/BrandLogo';
 import { useCMS } from '../../context/CMSContext';
 import { 
   LayoutDashboard, 

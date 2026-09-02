@@ -2,7 +2,7 @@ import { MediaItem } from '../types/cms';
 
 export const ROYAL_PANORAMIC_IMG = '/assets/images/hero_tea_panoramic.png';
 export const ROYAL_BOWL_IMG = '/assets/images/royal_tea_bowl.jpg';
-export const TEA_LEAF_IMG = '/assets/images/tea_leaf_icon.png';
+export const TEA_LEAF_IMG = '/assets/images/logo-teamix.png';
 
 export const LOGO_PRIMARY_SVG = `data:image/svg+xml;utf8,${encodeURIComponent(`
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 240" width="100%" height="100%">
@@ -90,7 +90,7 @@ export const DEFAULT_MEDIA_ITEMS: MediaItem[] = [
     id: 'media_royal_bowl',
     filename: 'royal_tea_bowl.jpg',
     url: ROYAL_BOWL_IMG,
-    alt: 'Carved Antique Copper Bowl with Premium Ground Lata Tea and Whole Spices',
+    alt: 'Carved Antique Copper Bowl with Premium Ground Lata Teamix and Whole Spices',
     dimensions: { width: 1024, height: 1024 },
     fileSize: '540 KB',
     mediaType: 'image/jpeg',
@@ -98,7 +98,7 @@ export const DEFAULT_MEDIA_ITEMS: MediaItem[] = [
   },
   {
     id: 'media_tea_leaf',
-    filename: 'tea_leaf_icon.png',
+    filename: 'logo-teamix.png',
     url: TEA_LEAF_IMG,
     alt: 'Authentic Fresh Green Tea Leaf',
     dimensions: { width: 512, height: 512 },
@@ -110,7 +110,7 @@ export const DEFAULT_MEDIA_ITEMS: MediaItem[] = [
     id: 'media_logo_primary',
     filename: 'lata-tea-logo-primary.svg',
     url: LOGO_PRIMARY_SVG,
-    alt: 'Lata Tea Royal Rajwada Crest Logo',
+    alt: 'Lata Teamix Royal Rajwada Crest Logo',
     dimensions: { width: 400, height: 240 },
     fileSize: '4.2 KB',
     mediaType: 'image/svg+xml',
@@ -120,7 +120,7 @@ export const DEFAULT_MEDIA_ITEMS: MediaItem[] = [
     id: 'media_logo_light',
     filename: 'lata-tea-logo-light.svg',
     url: LOGO_LIGHT_SVG,
-    alt: 'Lata Tea Light Crest Logo',
+    alt: 'Lata Teamix Light Crest Logo',
     dimensions: { width: 400, height: 240 },
     fileSize: '3.8 KB',
     mediaType: 'image/svg+xml',

@@ -20,7 +20,7 @@ export const ProductsPage: React.FC<ProductsPageProps> = ({ onOpenInquiry }) => 
             {language === 'mr' ? 'उत्पादन कॅटलॉग' : 'PRODUCT CATALOGUE'}
           </span>
           <h1 className="font-rajwada text-3xl sm:text-5xl font-bold text-white tracking-tight">
-            {language === 'mr' ? 'लता टी चहा प्रकार' : 'Explore All Lata Teas'}
+            {language === 'mr' ? 'लता टी चहा प्रकार' : 'Explore All Lata Teamixs'}
           </h1>
           <p className="mt-2 text-xs sm:text-sm text-slate-200 font-sans max-w-xl mx-auto">
             {language === 'mr'

@@ -57,7 +57,7 @@ export const DashboardView: React.FC<DashboardViewProps> = ({ onSelectTab, onOpe
 
             <div className="flex items-center gap-3">
               <h2 className="text-2xl sm:text-3xl font-bold font-serif text-white">
-                Lata Tea Sovereign Platform
+                Lata Teamix Sovereign Platform
               </h2>
               <span className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider ${
                 hasDraftChanges 

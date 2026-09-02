@@ -192,7 +192,7 @@ export const CMSProvider: React.FC<{ children: React.ReactNode }> = ({ children 
     if (!slot) {
       return {
         url: '/assets/images/hero_tea_panoramic.png',
-        alt: 'Lata Tea Imagery',
+        alt: 'Lata Teamix Imagery',
         style: { objectFit: 'cover' as const, objectPosition: 'center center' },
         slot: null
       };

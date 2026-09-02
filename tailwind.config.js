@@ -7,37 +7,17 @@ export default {
   theme: {
     extend: {
       colors: {
-        // Sole UI accent color: #F89E22 + Clean White + Dark Neutral Text
         brand: {
-          accent: '#F89E22',           // Core UI accent color (#F89E22)
-          'accent-hover': '#E08A15',   // Hover state
-          'accent-pale': '#FFF8ED',    // Soft pale tint for backgrounds
-          primary: '#1A1A1A',          // Dark neutral for main text
-          'primary-dark': '#000000',   // Black
-          surface: '#FFFFFF',          // Clean white surface
-          background: '#FFFFFF',       // Clean white background
-          text: '#1A1A1A',             // Crisp dark text
-          'text-muted': '#666666',     // Muted readable text
-          border: '#E5E5E5',           // Soft neutral border
-        },
-        // Kept for backward compatibility
-        latagreen: {
-          50: '#f2f8f2',
-          100: '#e1efe1',
-          200: '#c4e0c4',
-          300: '#99cb99',
-          400: '#67af68',
-          500: '#3e8f40',
-          600: '#2b732d',
-          700: '#235c25',
-          800: '#1e3f20',
-          900: '#163018',
-          950: '#0c1a0d'
-        },
-        lataleaf: {
-          400: '#a3cb58',
-          500: '#8db843',
-          600: '#779f34'
+          accent: '#F89E22',
+          'accent-hover': '#E08A15',
+          'accent-pale': '#FFF8ED',
+          primary: '#1A1A1A',
+          'primary-dark': '#000000',
+          surface: '#FFFFFF',
+          background: '#FFFFFF',
+          text: '#1A1A1A',
+          'text-muted': '#666666',
+          border: '#E5E5E5',
         }
       },
       keyframes: {
@@ -60,10 +40,20 @@ export default {
         'slow-scale': 'slow-scale 20s ease-out forwards',
       },
       fontFamily: {
-        rajwada: ['"Rozha One"', '"Cinzel"', 'serif'],
-        serif: ['"Playfair Display"', 'Georgia', 'serif'],
-        sans: ['"Plus Jakarta Sans"', '"Inter"', 'system-ui', 'sans-serif'],
-        marathi: ['"Noto Serif Devanagari"', '"Rozha One"', '"Mukta"', 'serif']
+        rajwada: ['"Playfair Display"', 'serif'],
+        serif: ['"Playfair Display"', 'serif'],
+        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+        marathi: ['"Noto Serif Devanagari"', 'serif']
+      },
+      fontSize: {
+        'fluid-sm': 'clamp(0.875rem, 0.8vw + 0.6rem, 1rem)',
+        'fluid-base': 'clamp(1rem, 1vw + 0.75rem, 1.125rem)',
+        'fluid-lg': 'clamp(1.125rem, 1.5vw + 0.75rem, 1.25rem)',
+        'fluid-xl': 'clamp(1.25rem, 2vw + 0.8rem, 1.5rem)',
+        'fluid-2xl': 'clamp(1.5rem, 2.5vw + 1rem, 2rem)',
+        'fluid-3xl': 'clamp(1.75rem, 3.5vw + 1rem, 2.5rem)',
+        'fluid-4xl': 'clamp(2rem, 5vw + 1rem, 3.5rem)',
+        'fluid-5xl': 'clamp(2.5rem, 6vw + 1rem, 4.5rem)',
       }
     },
   },
