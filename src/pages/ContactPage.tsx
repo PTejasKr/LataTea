@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+﻿import React, { useState } from 'react';
 import { useCMS } from '../context/CMSContext';
 import { RegistrationAndContact } from '../components/public/RegistrationAndContact';
 import { TeaLeafIcon } from '../components/common/TeaLeafIcon';
@@ -123,7 +123,7 @@ export const ContactPage: React.FC = () => {
                     <option>Corporate Office / IT Park</option>
                     <option>Hotel / Banquet Hall</option>
                     <option>Restaurant / QSR Franchise</option>
-                    <option>Café / Tea Bar</option>
+                    <option>CafÃ© / Tea Bar</option>
                     <option>Retail Supermarket / Distributor</option>
                     <option>Vending Machine Operator</option>
                     <option>Other / Personal Purchase</option>
@@ -143,7 +143,7 @@ export const ContactPage: React.FC = () => {
 
                 <button
                   type="submit"
-                  className="w-full py-3 rounded-lg text-xs font-bold uppercase tracking-wider bg-[#2E7D32] hover:bg-[#1B4332] text-white shadow-xs transition-colors flex items-center justify-center gap-2 cursor-pointer"
+                  className="w-full py-3 rounded-lg text-xs font-bold uppercase tracking-wider bg-[#F89E22] hover:bg-[#1B4332] text-white shadow-xs transition-colors flex items-center justify-center gap-2 cursor-pointer"
                 >
                   <Send className="w-4 h-4" />
                   <span>Submit Sample & Pricing Request</span>
@@ -196,3 +196,4 @@ export const ContactPage: React.FC = () => {
     </div>
   );
 };
+

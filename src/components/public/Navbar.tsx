@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+﻿import React, { useState, useEffect } from 'react';
 import { useCMS } from '../../context/CMSContext';
 import { useRouter, Link } from '../../router/Router';
 import { TeaLeafIcon } from '../common/TeaLeafIcon';
@@ -28,7 +28,8 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenInquiry, isDraftPreview = 
   const navLinks = [
     { label: { en: 'Home', mr: 'मुख्य पृष्ठ' }, url: '/' },
     { label: { en: 'About Us', mr: 'आमच्याबद्दल' }, url: '/about' },
-    { label: { en: 'Product List', mr: 'उत्पादने' }, url: '/products' },
+    { label: { en: 'Tea Catalogue', mr: 'चहा कॅटलॉग' }, url: '/products' },
+    { label: { en: 'Process', mr: 'प्रक्रिया' }, url: '/process' },
     { label: { en: 'Contact Us', mr: 'संपर्क' }, url: '/contact' }
   ];
 
@@ -49,7 +50,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenInquiry, isDraftPreview = 
             onClick={() => setMobileMenuOpen(false)}
             className="flex items-center gap-2.5"
           >
-            <div className="w-8 h-8 rounded-lg bg-[#4CAF50] flex items-center justify-center p-1.5 text-white">
+            <div className="w-8 h-8 rounded-lg bg-[#F89E22] flex items-center justify-center p-1.5 text-white">
               <TeaLeafIcon className="w-full h-full text-white" />
             </div>
             <div className="flex flex-col">
@@ -57,7 +58,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenInquiry, isDraftPreview = 
                 LATA TEA
               </span>
               <span className="text-[9px] font-sans uppercase tracking-[0.2em] text-[#A5D6A7] -mt-1">
-                {language === 'mr' ? 'अस्सल गूळ चहा' : 'Pure Jaggery Chai'}
+                {language === 'mr' ? 'à¤…à¤¸à¥à¤¸à¤² à¤—à¥‚à¤³ à¤šà¤¹à¤¾' : 'Pure Jaggery Chai'}
               </span>
             </div>
           </Link>
@@ -72,7 +73,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenInquiry, isDraftPreview = 
                   to={item.url}
                   className={`text-xs font-medium tracking-wide uppercase transition-colors py-1 ${
                     isActive
-                      ? 'text-[#81C784] font-bold border-b-2 border-[#81C784]'
+                      ? 'text-[#F89E22] font-bold border-b-2 border-[#F89E22]'
                       : 'text-slate-200 hover:text-white'
                   }`}
                 >
@@ -85,14 +86,14 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenInquiry, isDraftPreview = 
           {/* Right Controls: Language & Sample Request */}
           <div className="flex items-center gap-3">
             
-            {/* Language Switcher (EN | मराठी) */}
+            {/* Language Switcher (EN | à¤®à¤°à¤¾à¤ à¥€) */}
             <div className="inline-flex items-center p-0.5 rounded-md bg-[#133023] border border-[#2D6A4F] text-xs">
               <button
                 type="button"
                 onClick={() => setLanguage('en')}
                 className={`px-2 py-0.5 rounded text-[11px] font-medium transition-colors ${
                   language === 'en'
-                    ? 'bg-[#4CAF50] text-white font-bold'
+                    ? 'bg-[#F89E22] text-white font-bold'
                     : 'text-slate-300 hover:text-white'
                 }`}
               >
@@ -103,11 +104,11 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenInquiry, isDraftPreview = 
                 onClick={() => setLanguage('mr')}
                 className={`px-2 py-0.5 rounded text-[11px] font-medium transition-colors ${
                   language === 'mr'
-                    ? 'bg-[#4CAF50] text-white font-bold'
+                    ? 'bg-[#F89E22] text-white font-bold'
                     : 'text-slate-300 hover:text-white'
                 }`}
               >
-                मराठी
+                à¤®à¤°à¤¾à¤ à¥€
               </button>
             </div>
 
@@ -115,9 +116,9 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenInquiry, isDraftPreview = 
             <button
               type="button"
               onClick={() => onOpenInquiry?.()}
-              className="hidden sm:inline-flex items-center px-4 py-1.5 rounded-md text-xs font-semibold uppercase tracking-wider bg-[#4CAF50] hover:bg-[#43A047] text-white transition-colors"
+              className="hidden sm:inline-flex items-center px-4 py-1.5 rounded-md text-xs font-semibold uppercase tracking-wider bg-[#F89E22] hover:bg-[#E58A1F] text-white transition-colors"
             >
-              {language === 'mr' ? 'नमुना मागवा' : 'Request Samples'}
+              {language === 'mr' ? 'à¤¨à¤®à¥à¤¨à¤¾ à¤®à¤¾à¤—à¤µà¤¾' : 'Request Samples'}
             </button>
 
             {/* Mobile Hamburger Toggle */}
@@ -156,9 +157,9 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenInquiry, isDraftPreview = 
                 setMobileMenuOpen(false);
                 onOpenInquiry?.();
               }}
-              className="w-full py-2 rounded-md bg-[#4CAF50] text-white text-xs font-bold uppercase tracking-wider text-center"
+              className="w-full py-2 rounded-md bg-[#F89E22] text-white text-xs font-bold uppercase tracking-wider text-center"
             >
-              {language === 'mr' ? 'नमुना चहा मागवा' : 'Request Samples'}
+              {language === 'mr' ? 'à¤¨à¤®à¥à¤¨à¤¾ à¤šà¤¹à¤¾ à¤®à¤¾à¤—à¤µà¤¾' : 'Request Samples'}
             </button>
           </div>
         </div>
@@ -166,3 +167,4 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenInquiry, isDraftPreview = 
     </header>
   );
 };
+

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+﻿import React, { useState } from 'react';
 import { useCMS } from '../../context/CMSContext';
 import { ArrowRight, Sparkles } from 'lucide-react';
 import { Link } from '../../router/Router';
@@ -23,10 +23,10 @@ export const TeaStoryCollection: React.FC<TeaStoryCollectionProps> = ({
     : teas.filter(item => item.category === activeCategory);
 
   const categories = [
-    { id: 'all', label: { en: 'All', mr: 'सर्व' } },
-    { id: 'gud', label: { en: 'Jaggery Blends', mr: 'गूळ चहा' } },
-    { id: 'sugar', label: { en: 'Basundi', mr: 'बासुंदी' } },
-    { id: 'premixes', label: { en: 'Premixes', mr: 'प्रीमिक्स' } }
+    { id: 'all', label: { en: 'All', mr: 'à¤¸à¤°à¥à¤µ' } },
+    { id: 'gud', label: { en: 'Jaggery Blends', mr: 'à¤—à¥‚à¤³ à¤šà¤¹à¤¾' } },
+    { id: 'sugar', label: { en: 'Basundi', mr: 'à¤¬à¤¾à¤¸à¥à¤‚à¤¦à¥€' } },
+    { id: 'premixes', label: { en: 'Premixes', mr: 'à¤ªà¥à¤°à¥€à¤®à¤¿à¤•à¥à¤¸' } }
   ];
 
   return (
@@ -37,10 +37,10 @@ export const TeaStoryCollection: React.FC<TeaStoryCollectionProps> = ({
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-6 pb-3 border-b border-[#E2ECE3]">
           <div>
             <h2 className="text-lg sm:text-xl font-bold text-[#1B4332] font-rajwada">
-              {language === 'mr' ? 'चहा उत्पादने (४ प्रकार)' : 'Our Teas (4 Blends)'}
+              {language === 'mr' ? 'à¤šà¤¹à¤¾ à¤‰à¤¤à¥à¤ªà¤¾à¤¦à¤¨à¥‡ (à¥ª à¤ªà¥à¤°à¤•à¤¾à¤°)' : 'Our Teas (4 Blends)'}
             </h2>
             <p className="text-[11px] sm:text-xs text-[#5A6B5C]">
-              {language === 'mr' ? 'कमीत कमी स्क्रोलमध्ये सर्व उत्पादने पहा' : 'Browse products with quick details & samples'}
+              {language === 'mr' ? 'à¤•à¤®à¥€à¤¤ à¤•à¤®à¥€ à¤¸à¥à¤•à¥à¤°à¥‹à¤²à¤®à¤§à¥à¤¯à¥‡ à¤¸à¤°à¥à¤µ à¤‰à¤¤à¥à¤ªà¤¾à¤¦à¤¨à¥‡ à¤ªà¤¹à¤¾' : 'Browse products with quick details & samples'}
             </p>
           </div>
 
@@ -53,7 +53,7 @@ export const TeaStoryCollection: React.FC<TeaStoryCollectionProps> = ({
                 onClick={() => setActiveCategory(cat.id as any)}
                 className={`px-3 py-1 rounded-full text-xs font-medium transition-colors cursor-pointer whitespace-nowrap ${
                   activeCategory === cat.id
-                    ? 'bg-[#2E7D32] text-white font-semibold shadow-xs'
+                    ? 'bg-[#F89E22] text-white font-semibold shadow-xs'
                     : 'bg-[#F8FAF8] text-[#5A6B5C] hover:bg-[#EBF5EC] border border-[#E2ECE3]'
                 }`}
               >
@@ -71,7 +71,7 @@ export const TeaStoryCollection: React.FC<TeaStoryCollectionProps> = ({
             return (
               <div
                 key={tea.id}
-                className="bg-white rounded-lg border border-[#E2ECE3] hover:border-[#2E7D32] hover:shadow-md transition-all flex flex-col justify-between overflow-hidden group"
+                className="bg-white rounded-lg border border-[#E2ECE3] hover:border-[#F89E22] hover:shadow-md transition-all flex flex-col justify-between overflow-hidden group"
               >
                 {/* Product Image (Compact 1:1 Aspect Ratio like Myntra) */}
                 <Link to={`/tea/${tea.slug}`} className="block relative aspect-square bg-[#F8FAF8] overflow-hidden">
@@ -83,7 +83,7 @@ export const TeaStoryCollection: React.FC<TeaStoryCollectionProps> = ({
                     loading="lazy"
                   />
                   {/* Subtle Category Pill on Image */}
-                  <span className="absolute top-1.5 left-1.5 px-1.5 py-0.5 rounded bg-white/95 text-[9px] font-bold uppercase text-[#2E7D32] shadow-xs">
+                  <span className="absolute top-1.5 left-1.5 px-1.5 py-0.5 rounded bg-white/95 text-[9px] font-bold uppercase text-[#F89E22] shadow-xs">
                     {t(tea.categoryName)}
                   </span>
                 </Link>
@@ -91,10 +91,10 @@ export const TeaStoryCollection: React.FC<TeaStoryCollectionProps> = ({
                 {/* Compact Info Block (Title, Brand, 1-Line Info) */}
                 <div className="p-2 sm:p-3 flex-1 flex flex-col justify-between">
                   <div>
-                    <span className="text-[9px] font-bold uppercase tracking-wider text-[#2E7D32] block">
+                    <span className="text-[9px] font-bold uppercase tracking-wider text-[#F89E22] block">
                       LATA TEA
                     </span>
-                    <h3 className="font-bold text-xs sm:text-sm text-[#1A291B] group-hover:text-[#2E7D32] transition-colors truncate mt-0.5">
+                    <h3 className="font-bold text-xs sm:text-sm text-[#1A291B] group-hover:text-[#F89E22] transition-colors truncate mt-0.5">
                       {t(tea.name)}
                     </h3>
                     <p className="text-[10px] sm:text-[11px] text-[#5A6B5C] truncate mt-0.5">
@@ -106,9 +106,9 @@ export const TeaStoryCollection: React.FC<TeaStoryCollectionProps> = ({
                   <div className="mt-2.5 pt-2 border-t border-[#F0F4F1] flex items-center justify-between gap-1">
                     <Link
                       to={`/tea/${tea.slug}`}
-                      className="text-[11px] font-bold text-[#2E7D32] hover:text-[#1B4332] inline-flex items-center gap-0.5"
+                      className="text-[11px] font-bold text-[#F89E22] hover:text-[#1B4332] inline-flex items-center gap-0.5"
                     >
-                      <span>{language === 'mr' ? 'माहिती' : 'Details'}</span>
+                      <span>{language === 'mr' ? 'à¤®à¤¾à¤¹à¤¿à¤¤à¥€' : 'Details'}</span>
                       <ArrowRight className="w-3 h-3" />
                     </Link>
 
@@ -117,7 +117,7 @@ export const TeaStoryCollection: React.FC<TeaStoryCollectionProps> = ({
                       onClick={() => onOpenInquiry?.(tea.name.en)}
                       className="px-2 py-0.5 rounded bg-[#EBF5EC] hover:bg-[#D7EBD9] text-[10px] font-bold text-[#1B4332] cursor-pointer"
                     >
-                      {language === 'mr' ? 'नमुना' : 'Sample'}
+                      {language === 'mr' ? 'à¤¨à¤®à¥à¤¨à¤¾' : 'Sample'}
                     </button>
                   </div>
                 </div>
@@ -130,3 +130,4 @@ export const TeaStoryCollection: React.FC<TeaStoryCollectionProps> = ({
     </section>
   );
 };
+

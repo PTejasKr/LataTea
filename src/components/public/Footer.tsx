@@ -1,4 +1,4 @@
-import React from 'react';
+﻿import React from 'react';
 import { useCMS } from '../../context/CMSContext';
 import { TeaLeafIcon } from '../common/TeaLeafIcon';
 import { Link } from '../../router/Router';
@@ -18,7 +18,7 @@ export const Footer: React.FC = () => {
           {/* Brand Identity & Mission */}
           <div className="lg:col-span-5 space-y-3">
             <Link to="/" className="flex items-center gap-2.5 inline-flex">
-              <div className="w-8 h-8 rounded-lg bg-[#4CAF50] flex items-center justify-center p-1.5 shadow-xs">
+              <div className="w-8 h-8 rounded-lg bg-[#F89E22] flex items-center justify-center p-1.5 shadow-xs">
                 <TeaLeafIcon className="w-full h-full text-white" />
               </div>
               <span className="font-rajwada text-xl font-bold tracking-wider text-white">
@@ -38,7 +38,7 @@ export const Footer: React.FC = () => {
                 onClick={() => setLanguage('en')}
                 className={`px-2.5 py-0.5 rounded text-xs transition-colors ${
                   language === 'en'
-                    ? 'bg-[#4CAF50] text-white font-bold'
+                    ? 'bg-[#F89E22] text-white font-bold'
                     : 'bg-[#1B4332] text-slate-300 hover:text-white border border-[#2D6A4F]'
                 }`}
               >
@@ -49,11 +49,11 @@ export const Footer: React.FC = () => {
                 onClick={() => setLanguage('mr')}
                 className={`px-2.5 py-0.5 rounded text-xs transition-colors ${
                   language === 'mr'
-                    ? 'bg-[#4CAF50] text-white font-bold'
+                    ? 'bg-[#F89E22] text-white font-bold'
                     : 'bg-[#1B4332] text-slate-300 hover:text-white border border-[#2D6A4F]'
                 }`}
               >
-                मराठी
+                à¤®à¤°à¤¾à¤ à¥€
               </button>
             </div>
           </div>
@@ -61,27 +61,26 @@ export const Footer: React.FC = () => {
           {/* Quick Links */}
           <div className="lg:col-span-3 space-y-2">
             <h4 className="font-rajwada text-sm font-bold uppercase tracking-wider text-[#A5D6A7]">
-              {language === 'mr' ? 'दुवे' : 'Navigation'}
+              {language === 'mr' ? 'à¤¦à¥à¤µà¥‡' : 'Navigation'}
             </h4>
             <ul className="space-y-1.5 text-xs font-sans">
               <li>
                 <Link to="/" className="text-slate-300 hover:text-white transition-colors">
-                  {language === 'mr' ? 'मुख्य पृष्ठ' : 'Home'}
+                  {language === 'mr' ? 'à¤®à¥à¤–à¥à¤¯ à¤ªà¥ƒà¤·à¥à¤ ' : 'Home'}
                 </Link>
               </li>
               <li>
                 <Link to="/about" className="text-slate-300 hover:text-white transition-colors">
-                  {language === 'mr' ? 'आमच्याबद्दल' : 'About Us'}
+                  {language === 'mr' ? 'à¤†à¤®à¤šà¥à¤¯à¤¾à¤¬à¤¦à¥à¤¦à¤²' : 'About Us'}
                 </Link>
               </li>
               <li>
                 <Link to="/products" className="text-slate-300 hover:text-white transition-colors">
-                  {language === 'mr' ? 'उत्पादने' : 'Product List'}
+                  {language === 'mr' ? 'à¤‰à¤¤à¥à¤ªà¤¾à¤¦à¤¨à¥‡' : 'Tea Catalogue'}
                 </Link>
               </li>
-              <li>
-                <Link to="/contact" className="text-slate-300 hover:text-white transition-colors">
-                  {language === 'mr' ? 'संपर्क' : 'Contact Us'}
+              <li><Link to="/process" className="text-slate-300 hover:text-white transition-colors">{language === 'mr' ? 'प्रक्रिया' : 'Process'}</Link></li><li><Link to="/contact" className="text-slate-300 hover:text-white transition-colors">
+                  {language === 'mr' ? 'à¤¸à¤‚à¤ªà¤°à¥à¤•' : 'Contact Us'}
                 </Link>
               </li>
             </ul>
@@ -90,7 +89,7 @@ export const Footer: React.FC = () => {
           {/* Corporate Office */}
           <div className="lg:col-span-4 space-y-2 text-xs font-sans">
             <h4 className="font-rajwada text-sm font-bold uppercase tracking-wider text-[#A5D6A7]">
-              {language === 'mr' ? 'नोंदणीकृत कार्यालय' : 'Registered Office'}
+              {language === 'mr' ? 'à¤¨à¥‹à¤‚à¤¦à¤£à¥€à¤•à¥ƒà¤¤ à¤•à¤¾à¤°à¥à¤¯à¤¾à¤²à¤¯' : 'Head Office'}
             </h4>
             
             <p className="text-slate-300 leading-relaxed">
@@ -100,12 +99,10 @@ export const Footer: React.FC = () => {
 
             <div className="space-y-1 text-slate-300 pt-1">
               <div>Email: <a href={`mailto:${contact.email}`} className="text-[#A5D6A7] hover:underline">{contact.email}</a></div>
-              <div>Phone: <span className="text-white">{contact.phone1}</span> • <span className="text-white">{contact.phone2}</span></div>
+              <div>Phone: <span className="text-white">{contact.phone1}</span> â€¢ <span className="text-white">{contact.phone2}</span></div>
             </div>
 
-            <div className="pt-1 font-mono text-[11px] text-slate-400">
-              FSSAI: {contact.registration.fssai} | GST: {contact.registration.gst}
-            </div>
+            
           </div>
 
         </div>
@@ -130,3 +127,4 @@ export const Footer: React.FC = () => {
     </footer>
   );
 };
+

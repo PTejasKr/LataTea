@@ -1,4 +1,4 @@
-import React from 'react';
+﻿import React from 'react';
 import { useCMS } from '../context/CMSContext';
 import { Link } from '../router/Router';
 import { 
@@ -24,8 +24,8 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({ slug, onOp
     return (
       <div className="pt-32 pb-20 max-w-4xl mx-auto px-4 text-center">
         <h2 className="text-xl font-bold text-[#1B4332]">Product Not Found</h2>
-        <Link to="/tea" className="mt-3 inline-block text-[#2E7D32] font-semibold text-xs">
-          ← Back to Catalogue
+        <Link to="/tea" className="mt-3 inline-block text-[#F89E22] font-semibold text-xs">
+          â† Back to Catalogue
         </Link>
       </div>
     );
@@ -42,10 +42,10 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({ slug, onOp
         <div className="mb-6">
           <Link
             to="/tea"
-            className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#5A6B5C] hover:text-[#2E7D32] transition-colors"
+            className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#5A6B5C] hover:text-[#F89E22] transition-colors"
           >
             <ArrowLeft className="w-3.5 h-3.5" />
-            <span>{language === 'mr' ? 'सर्व उत्पादने' : 'Back to Catalogue'}</span>
+            <span>{language === 'mr' ? 'à¤¸à¤°à¥à¤µ à¤‰à¤¤à¥à¤ªà¤¾à¤¦à¤¨à¥‡' : 'Back to Catalogue'}</span>
           </Link>
         </div>
 
@@ -70,7 +70,7 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({ slug, onOp
             
             {/* Header: Product Name & Short Descriptor */}
             <div>
-              <span className="text-[11px] font-mono uppercase tracking-wider text-[#2E7D32] font-semibold block mb-1">
+              <span className="text-[11px] font-mono uppercase tracking-wider text-[#F89E22] font-semibold block mb-1">
                 {t(tea.categoryName)}
               </span>
               <h1 className="font-rajwada text-2xl sm:text-3xl font-bold text-[#1B4332]">
@@ -84,7 +84,7 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({ slug, onOp
             {/* About this blend (Very short paragraph) */}
             <div className="p-4 rounded-xl bg-white border border-[#E2ECE3] space-y-1.5">
               <h2 className="text-xs font-bold uppercase tracking-wider text-[#1B4332]">
-                {language === 'mr' ? 'उत्पादनाबद्दल' : 'About This Blend'}
+                {language === 'mr' ? 'à¤‰à¤¤à¥à¤ªà¤¾à¤¦à¤¨à¤¾à¤¬à¤¦à¥à¤¦à¤²' : 'About This Blend'}
               </h2>
               <p className="text-xs sm:text-sm text-[#1A291B] font-sans leading-relaxed">
                 {t(tea.editorialStory)}
@@ -95,12 +95,12 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({ slug, onOp
             {tea.tastingNotes && tea.tastingNotes.length > 0 && (
               <div className="p-4 rounded-xl bg-white border border-[#E2ECE3] space-y-2">
                 <h3 className="text-xs font-bold uppercase tracking-wider text-[#1B4332]">
-                  {language === 'mr' ? 'मुख्य वैशिष्ट्ये' : 'Key Characteristics'}
+                  {language === 'mr' ? 'à¤®à¥à¤–à¥à¤¯ à¤µà¥ˆà¤¶à¤¿à¤·à¥à¤Ÿà¥à¤¯à¥‡' : 'Key Characteristics'}
                 </h3>
                 <ul className="space-y-1 text-xs text-[#1A291B]">
                   {tea.tastingNotes.map((note, idx) => (
                     <li key={idx} className="flex items-center gap-2">
-                      <CheckCircle className="w-3.5 h-3.5 text-[#2E7D32] shrink-0" />
+                      <CheckCircle className="w-3.5 h-3.5 text-[#F89E22] shrink-0" />
                       <span>{t(note)}</span>
                     </li>
                   ))}
@@ -111,9 +111,9 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({ slug, onOp
             {/* How it is used (Visual / concise info) */}
             <div className="grid grid-cols-2 gap-3">
               <div className="p-3 rounded-lg bg-white border border-[#E2ECE3] space-y-0.5">
-                <div className="flex items-center gap-1.5 text-[11px] font-semibold text-[#2E7D32]">
+                <div className="flex items-center gap-1.5 text-[11px] font-semibold text-[#F89E22]">
                   <Clock className="w-3.5 h-3.5" />
-                  <span>{language === 'mr' ? 'तयारी' : 'Preparation'}</span>
+                  <span>{language === 'mr' ? 'à¤¤à¤¯à¤¾à¤°à¥€' : 'Preparation'}</span>
                 </div>
                 <p className="text-xs text-[#1A291B]">
                   {t(tea.servingRitual)}
@@ -121,9 +121,9 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({ slug, onOp
               </div>
 
               <div className="p-3 rounded-lg bg-white border border-[#E2ECE3] space-y-0.5">
-                <div className="flex items-center gap-1.5 text-[11px] font-semibold text-[#2E7D32]">
+                <div className="flex items-center gap-1.5 text-[11px] font-semibold text-[#F89E22]">
                   <MapPin className="w-3.5 h-3.5" />
-                  <span>{language === 'mr' ? 'उगम' : 'Origin'}</span>
+                  <span>{language === 'mr' ? 'à¤‰à¤—à¤®' : 'Origin'}</span>
                 </div>
                 <p className="text-xs text-[#1A291B]">
                   {t(tea.origin)}
@@ -136,9 +136,9 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({ slug, onOp
               <button
                 type="button"
                 onClick={() => onOpenInquiry(tea.name.en)}
-                className="w-full sm:w-auto px-6 py-2.5 rounded-lg bg-[#2E7D32] hover:bg-[#1B4332] text-white text-xs font-bold uppercase tracking-wider transition-colors cursor-pointer"
+                className="w-full sm:w-auto px-6 py-2.5 rounded-lg bg-[#F89E22] hover:bg-[#1B4332] text-white text-xs font-bold uppercase tracking-wider transition-colors cursor-pointer"
               >
-                {language === 'mr' ? 'व्यावसायिक चौकशी / नमुना मागवा' : 'Request Samples / Enquire'}
+                {language === 'mr' ? 'à¤µà¥à¤¯à¤¾à¤µà¤¸à¤¾à¤¯à¤¿à¤• à¤šà¥Œà¤•à¤¶à¥€ / à¤¨à¤®à¥à¤¨à¤¾ à¤®à¤¾à¤—à¤µà¤¾' : 'Request Samples / Enquire'}
               </button>
 
               <a
@@ -148,7 +148,7 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({ slug, onOp
                 className="w-full sm:w-auto px-5 py-2.5 rounded-lg bg-[#25D366] hover:bg-[#20bd5a] text-white text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-1.5 transition-colors"
               >
                 <MessageCircle className="w-4 h-4 fill-white" />
-                <span>{language === 'mr' ? 'व्हॉट्सॲप चौकशी' : 'WhatsApp Inquiry'}</span>
+                <span>{language === 'mr' ? 'à¤µà¥à¤¹à¥‰à¤Ÿà¥à¤¸à¥²à¤ª à¤šà¥Œà¤•à¤¶à¥€' : 'WhatsApp Inquiry'}</span>
               </a>
             </div>
 
@@ -160,3 +160,4 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({ slug, onOp
     </div>
   );
 };
+

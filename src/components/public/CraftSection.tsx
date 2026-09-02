@@ -1,4 +1,4 @@
-import React from 'react';
+﻿import React from 'react';
 import { useCMS } from '../../context/CMSContext';
 
 interface CraftSectionProps {
@@ -16,7 +16,7 @@ export const CraftSection: React.FC<CraftSectionProps> = ({ isDraftPreview = fal
         
         {/* Section Header */}
         <div className="max-w-xl mb-10">
-          <span className="text-[11px] font-sans font-semibold tracking-widest text-[#2E7D32] uppercase block mb-1">
+          <span className="text-[11px] font-sans font-semibold tracking-widest text-[#F89E22] uppercase block mb-1">
             {t(craft.tagline)}
           </span>
           <h2 className="font-rajwada text-2xl sm:text-3xl font-bold text-[#1B4332] tracking-tight">
@@ -48,7 +48,7 @@ export const CraftSection: React.FC<CraftSectionProps> = ({ isDraftPreview = fal
                     />
                   </div>
 
-                  <span className="text-[10px] font-mono text-[#2E7D32] font-bold uppercase block mb-1">
+                  <span className="text-[10px] font-mono text-[#F89E22] font-bold uppercase block mb-1">
                     {t(stage.tagline)}
                   </span>
                   
@@ -69,3 +69,4 @@ export const CraftSection: React.FC<CraftSectionProps> = ({ isDraftPreview = fal
     </section>
   );
 };
+

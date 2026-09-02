@@ -1,4 +1,4 @@
-import React from 'react';
+﻿import React from 'react';
 import { useCMS } from '../context/CMSContext';
 import { Link } from '../router/Router';
 import { ShieldCheck, Award, Leaf } from 'lucide-react';
@@ -30,14 +30,14 @@ export const AboutPage: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-10 items-center">
           
           <div className="md:col-span-7 space-y-3">
-            <span className="text-[11px] font-bold tracking-widest text-[#2E7D32] uppercase font-sans">
+            <span className="text-[11px] font-bold tracking-widest text-[#F89E22] uppercase font-sans">
               PURPOSE & STANDARDS
             </span>
             <h2 className="font-rajwada text-2xl sm:text-3xl font-bold text-[#1B4332] leading-snug">
               Unadulterated Tea in Every Boiling Cup
             </h2>
             <p className="text-xs sm:text-sm text-[#1A291B] leading-relaxed font-sans">
-              Lata Tea was established to solve an everyday challenge: giving families, cafés, and corporate workplaces access to authentic jaggery chai without curdling milk or burning sweetness.
+              Lata Tea was established to solve an everyday challenge: giving families, cafÃ©s, and corporate workplaces access to authentic jaggery chai without curdling milk or burning sweetness.
             </p>
             <p className="text-xs sm:text-sm text-[#5A6B5C] leading-relaxed font-sans">
               Blended in a certified cleanroom in Pune, our products deliver consistent taste and aroma across homes, pantries, and vending machines.
@@ -72,7 +72,7 @@ export const AboutPage: React.FC = () => {
       <section className="py-14 bg-white border-y border-[#E2ECE3]">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-xl mb-10">
-            <span className="text-[11px] font-sans font-semibold tracking-widest text-[#2E7D32] uppercase block mb-1">
+            <span className="text-[11px] font-sans font-semibold tracking-widest text-[#F89E22] uppercase block mb-1">
               HYGIENE & STANDARDS
             </span>
             <h2 className="font-rajwada text-2xl sm:text-3xl font-bold text-[#1B4332]">
@@ -82,7 +82,7 @@ export const AboutPage: React.FC = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
             <div className="p-5 rounded-xl bg-[#F8FAF8] border border-[#E2ECE3] space-y-2">
-              <div className="w-8 h-8 rounded-lg bg-[#EBF5EC] text-[#2E7D32] flex items-center justify-center">
+              <div className="w-8 h-8 rounded-lg bg-[#EBF5EC] text-[#F89E22] flex items-center justify-center">
                 <ShieldCheck className="w-5 h-5" />
               </div>
               <h3 className="font-rajwada text-base font-bold text-[#1B4332]">
@@ -94,7 +94,7 @@ export const AboutPage: React.FC = () => {
             </div>
 
             <div className="p-5 rounded-xl bg-[#F8FAF8] border border-[#E2ECE3] space-y-2">
-              <div className="w-8 h-8 rounded-lg bg-[#EBF5EC] text-[#2E7D32] flex items-center justify-center">
+              <div className="w-8 h-8 rounded-lg bg-[#EBF5EC] text-[#F89E22] flex items-center justify-center">
                 <Award className="w-5 h-5" />
               </div>
               <h3 className="font-rajwada text-base font-bold text-[#1B4332]">
@@ -106,7 +106,7 @@ export const AboutPage: React.FC = () => {
             </div>
 
             <div className="p-5 rounded-xl bg-[#F8FAF8] border border-[#E2ECE3] space-y-2">
-              <div className="w-8 h-8 rounded-lg bg-[#EBF5EC] text-[#2E7D32] flex items-center justify-center">
+              <div className="w-8 h-8 rounded-lg bg-[#EBF5EC] text-[#F89E22] flex items-center justify-center">
                 <Leaf className="w-5 h-5" />
               </div>
               <h3 className="font-rajwada text-base font-bold text-[#1B4332]">
@@ -129,7 +129,7 @@ export const AboutPage: React.FC = () => {
             </div>
             <Link
               to="/contact"
-              className="px-5 py-2 rounded-md text-xs font-bold uppercase tracking-wider bg-[#4CAF50] hover:bg-[#43A047] text-white transition-colors shrink-0"
+              className="px-5 py-2 rounded-md text-xs font-bold uppercase tracking-wider bg-[#F89E22] hover:bg-[#E58A1F] text-white transition-colors shrink-0"
             >
               Contact Sales
             </Link>
@@ -140,3 +140,4 @@ export const AboutPage: React.FC = () => {
     </div>
   );
 };
+

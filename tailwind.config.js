@@ -7,17 +7,18 @@ export default {
   theme: {
     extend: {
       colors: {
-        // Simplified Brand Design Tokens: Light Green + White + Clean Neutrals
+        // Sole UI accent color: #F89E22 + Clean White + Deep Forest Green
         brand: {
-          primary: '#2E7D32',        // Clean brand green
-          'primary-light': '#4CAF50',  // Light Green accent / hover
-          'primary-pale': '#EBF5EC',   // Soft light green tint
-          'primary-dark': '#1B4332',   // Deep forest green for text & dark headers
+          accent: '#F89E22',           // Core UI accent color (#F89E22)
+          'accent-hover': '#E08A15',   // Hover state
+          'accent-pale': '#FFF8ED',    // Soft amber/gold tint
+          primary: '#1B4332',          // Deep forest green
+          'primary-dark': '#0F261C',   // Darker forest green
           surface: '#FFFFFF',          // Clean white surface
-          background: '#F8FAF8',       // Subtle off-white clean background
+          background: '#FFFFFF',       // Clean white background
           text: '#1A291B',             // Crisp dark text
           'text-muted': '#5A6B5C',     // Muted readable text
-          border: '#E2ECE3',           // Soft neutral border
+          border: '#E8EBE8',           // Soft neutral border
         },
         // Kept for backward compatibility
         latagreen: {

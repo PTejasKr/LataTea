@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+﻿import React, { useState } from 'react';
 import { useCMS } from '../../context/CMSContext';
 import { useRouter } from '../../router/Router';
 import { Navbar } from './Navbar';
@@ -11,6 +11,7 @@ import { AboutPage } from '../../pages/AboutPage';
 import { ProductsPage } from '../../pages/ProductsPage';
 import { ProductDetailPage } from '../../pages/ProductDetailPage';
 import { ContactPage } from '../../pages/ContactPage';
+import { ProcessPage } from '../../pages/ProcessPage';
 
 interface PublicWebsiteProps {
   isDraftPreview?: boolean;
@@ -38,6 +39,11 @@ export const PublicWebsite: React.FC<PublicWebsiteProps> = ({ isDraftPreview = f
       return <AboutPage />;
     }
 
+    // 3. Process
+    if (path === '/process') {
+      return <ProcessPage />;
+    }
+
     // 3. Tea Collection & Stories
     if (path === '/products' || path === '/tea' || path === '/collection') {
       return <ProductsPage onOpenInquiry={handleOpenInquiry} />;
@@ -60,7 +66,7 @@ export const PublicWebsite: React.FC<PublicWebsiteProps> = ({ isDraftPreview = f
             <h1 className="font-rajwada text-2xl sm:text-3xl font-bold text-[#1B4332]">
               {path === '/privacy' ? 'Privacy Policy & Data Protection' : 'Terms & Conditions'}
             </h1>
-            <div className="h-0.5 w-12 bg-[#2E7D32]" />
+            <div className="h-0.5 w-12 bg-[#F89E22]" />
             <p className="text-sm text-slate-700 leading-relaxed font-sans">
               Purple Bean Agro Industries Private Limited operates under strict compliance with Indian food safety laws (FSSAI Lic: 11525996000709), fair trade, and corporate data confidentiality.
             </p>
@@ -98,3 +104,4 @@ export const PublicWebsite: React.FC<PublicWebsiteProps> = ({ isDraftPreview = f
     </div>
   );
 };
+

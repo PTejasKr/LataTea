@@ -1,4 +1,4 @@
-import React from 'react';
+﻿import React from 'react';
 import { useCMS } from '../../context/CMSContext';
 
 interface BrandStorySectionProps {
@@ -34,7 +34,7 @@ export const BrandStorySection: React.FC<BrandStorySectionProps> = ({ isDraftPre
 
           {/* Narrative: 2-3 short, clear blocks */}
           <div className="md:col-span-7 space-y-3">
-            <span className="text-[11px] font-bold tracking-widest text-[#2E7D32] uppercase font-sans">
+            <span className="text-[11px] font-bold tracking-widest text-[#F89E22] uppercase font-sans">
               {t(story.tagline)}
             </span>
 
@@ -53,7 +53,7 @@ export const BrandStorySection: React.FC<BrandStorySectionProps> = ({ isDraftPre
             </div>
 
             <div className="pt-3 border-t border-[#E2ECE3]">
-              <p className="text-xs sm:text-sm text-[#2E7D32] font-semibold italic">
+              <p className="text-xs sm:text-sm text-[#F89E22] font-semibold italic">
                 {t(story.quote)}
               </p>
             </div>
@@ -65,3 +65,4 @@ export const BrandStorySection: React.FC<BrandStorySectionProps> = ({ isDraftPre
     </section>
   );
 };
+

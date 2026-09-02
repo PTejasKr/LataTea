@@ -151,12 +151,21 @@ export const DEFAULT_NAVIGATION: NavigationItem[] = [
   },
   { 
     id: 'nav_products', 
-    label: { en: 'Product List', mr: 'उत्पादने' }, 
+    label: { en: 'Tea Catalogue', mr: 'चहा कॅटलॉग' }, 
     url: '/products', 
     isExternal: false, 
     isButton: false, 
     isEnabled: true, 
     order: 3 
+  },
+  { 
+    id: 'nav_process', 
+    label: { en: 'Process', mr: 'प्रक्रिया' }, 
+    url: '/process', 
+    isExternal: false, 
+    isButton: false, 
+    isEnabled: true, 
+    order: 4 
   },
   { 
     id: 'nav_contact', 
@@ -165,7 +174,7 @@ export const DEFAULT_NAVIGATION: NavigationItem[] = [
     isExternal: false, 
     isButton: false, 
     isEnabled: true, 
-    order: 4 
+    order: 5 
   }
 ];
 
