@@ -55,6 +55,14 @@ export interface MilestoneItem {
   imageSlotId?: string;
 }
 
+export interface ProcessStepItem {
+  id: number;
+  titleEn: string;
+  titleMr: string;
+  descEn: string;
+  descMr: string;
+}
+
 export interface CraftStageItem {
   stageNumber: number; // 1 to 5
   tagline: LocalizedString; // e.g. "01 — SOURCE" / "०१ — स्त्रोत"
@@ -198,19 +206,6 @@ export interface SocialLinks {
   whatsapp?: string;
 }
 
-export interface RegistrationDetails {
-  fssai?: string;
-  iec?: string;
-  gst?: string;
-}
-
-export interface PaymentDetails {
-  accountName?: string;
-  bankName?: string;
-  accountNumber?: string;
-  ifscCode?: string;
-}
-
 export interface ContactInfo {
   companyName: string;
   address: string;
@@ -222,8 +217,6 @@ export interface ContactInfo {
   website: string;
   googleMapsUrl: string;
   socials: SocialLinks;
-  registration: RegistrationDetails;
-  payment: PaymentDetails;
 }
 
 export interface SeoConfig {
@@ -284,6 +277,7 @@ export interface CMSState {
   sections: SectionConfig[];
   navigation: NavigationItem[];
   teaStories: TeaStoryItem[];
+  processSteps?: ProcessStepItem[];
   categories?: ProductCategoryItem[];
   domains: DomainItem[];
   mediaLibrary: MediaItem[];
@@ -304,3 +298,5 @@ export interface ValidationIssue {
   message: string;
   fieldId?: string;
 }
+
+

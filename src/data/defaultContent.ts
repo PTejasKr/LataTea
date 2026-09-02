@@ -142,21 +142,12 @@ export const DEFAULT_NAVIGATION: NavigationItem[] = [
   },
   { 
     id: 'nav_about', 
-    label: { en: 'About Us', mr: 'आमच्याबद्दल' }, 
+    label: { en: 'Our Story', mr: 'आमची कथा' }, 
     url: '/about', 
     isExternal: false, 
     isButton: false, 
     isEnabled: true, 
     order: 2 
-  },
-  { 
-    id: 'nav_products', 
-    label: { en: 'Tea Catalogue', mr: 'चहा कॅटलॉग' }, 
-    url: '/products', 
-    isExternal: false, 
-    isButton: false, 
-    isEnabled: true, 
-    order: 3 
   },
   { 
     id: 'nav_process', 
@@ -165,11 +156,20 @@ export const DEFAULT_NAVIGATION: NavigationItem[] = [
     isExternal: false, 
     isButton: false, 
     isEnabled: true, 
+    order: 3 
+  },
+  { 
+    id: 'nav_products', 
+    label: { en: 'Tea Catalogue', mr: 'चहा कॅटलॉग' }, 
+    url: '/products', 
+    isExternal: false, 
+    isButton: false, 
+    isEnabled: true, 
     order: 4 
   },
   { 
     id: 'nav_contact', 
-    label: { en: 'Contact Us', mr: 'संपर्क' }, 
+    label: { en: 'Contact', mr: 'संपर्क' }, 
     url: '/contact', 
     isExternal: false, 
     isButton: false, 
@@ -315,7 +315,7 @@ export const DEFAULT_TEA_STORIES: TeaStoryItem[] = [
       mr: 'दुधात ३ मिनिटे उकळा.'
     },
     imageSlotId: 'STORY_IMAGE_PRIMARY',
-    displayOrder: 3,
+    displayOrder: 4,
     isFeatured: true,
     isVisible: true
   },
@@ -362,7 +362,7 @@ export const DEFAULT_TEA_STORIES: TeaStoryItem[] = [
       mr: '८० मिली गरम पाण्यात १४ ग्रॅम घालून ढवळा.'
     },
     imageSlotId: 'STORY_IMAGE_PRIMARY',
-    displayOrder: 4,
+    displayOrder: 5,
     isFeatured: true,
     isVisible: true
   }
@@ -731,7 +731,7 @@ export const DEFAULT_STORY_CONTENT: EditorialStoryContent = {
     legalLinks: [
       { label: { en: 'Privacy Policy', mr: 'गोपनीयता धोरण' }, url: '/privacy' },
       { label: { en: 'Terms of Service', mr: 'नियम व अटी' }, url: '/terms' },
-      { label: { en: 'FSSAI: 11525996000709', mr: 'एफएसएसएआय: ११५२५९९६०००७०९' }, url: '/contact' }
+      
     ]
   }
 };
@@ -745,8 +745,8 @@ export const INITIAL_CMS_STATE: CMSState = {
   sections: [
     { id: 'sec_hero', key: 'hero', name: 'Hero', description: 'Hero statement and links', isEnabled: true, order: 1, bgType: 'green' },
     { id: 'sec_story', key: 'story', name: 'Our Story', description: 'Brand background and jaggery approach', isEnabled: true, order: 2, bgType: 'cream' },
-    { id: 'sec_heritage', key: 'heritage', name: 'Heritage', description: 'Assam tea and Maharashtra jaggery roots', isEnabled: true, order: 3, bgType: 'cream' },
-    { id: 'sec_craft', key: 'craft', name: 'The Process', description: '5 stages of tea preparation', isEnabled: true, order: 4, bgType: 'white' },
+    { id: 'sec_heritage', key: 'heritage', name: 'Heritage', description: 'Assam tea and Maharashtra jaggery roots', isEnabled: true, order: 4, bgType: 'cream' },
+    { id: 'sec_craft', key: 'craft', name: 'The Process', description: '5 stages of tea preparation', isEnabled: true, order: 5, bgType: 'white' },
     { id: 'sec_tea', key: 'tea', name: 'Tea Collection', description: 'Signature tea blends', isEnabled: true, order: 5, bgType: 'cream' },
     { id: 'sec_experience', key: 'experience', name: 'Experience', description: 'Tasting notes and aroma', isEnabled: true, order: 6, bgType: 'white' },
     { id: 'sec_why', key: 'why', name: 'Key Facts', description: 'Standards and differentiators', isEnabled: true, order: 7, bgType: 'cream' },
@@ -755,11 +755,20 @@ export const INITIAL_CMS_STATE: CMSState = {
   ],
   navigation: DEFAULT_NAVIGATION,
   teaStories: DEFAULT_TEA_STORIES,
+  processSteps: [
+    { id: 1, titleEn: 'Enquire', titleMr: 'चौकशी करा', descEn: 'Connect with our team for bulk pricing.', descMr: 'घाऊक दरांसाठी आमच्या टीमशी संपर्क साधा.' },
+    { id: 2, titleEn: 'Select Products', titleMr: 'उत्पादने निवडा', descEn: 'Choose from our range of tea blends.', descMr: 'आमच्या चहाच्या श्रेणीमधून निवड करा.' },
+    { id: 3, titleEn: 'Confirm Order', titleMr: 'ऑर्डर निश्चित करा', descEn: 'Finalize quantities and place order.', descMr: 'प्रमाण निश्चित करा आणि ऑर्डर द्या.' },
+    { id: 4, titleEn: 'Processing', titleMr: 'प्रक्रिया', descEn: 'Fresh blending under quality control.', descMr: 'गुणवत्ता नियंत्रणाखाली ताजे मिश्रण.' },
+    { id: 5, titleEn: 'Packing', titleMr: 'पॅकिंग', descEn: 'Secure packaging to preserve freshness.', descMr: 'ताजेपणा टिकवण्यासाठी सुरक्षित पॅकेजिंग.' },
+    { id: 6, titleEn: 'Dispatch', titleMr: 'पाठवणे', descEn: 'Careful loading and transit.', descMr: 'काळजीपूर्वक लोडिंग आणि वाहतूक.' },
+    { id: 7, titleEn: 'Delivery', titleMr: 'वितरण', descEn: 'Timely delivery to your location.', descMr: 'तुमच्या स्थानावर वेळेवर वितरण.' }
+  ],
   categories: [
     { id: 'cat_all', slug: 'all', name: { en: 'All Teas', mr: 'सर्व चहा' }, order: 1, isVisible: true },
     { id: 'cat_gud', slug: 'gud', name: { en: 'Jaggery Blends', mr: 'गूळ चहा' }, order: 2, isVisible: true },
-    { id: 'cat_sugar', slug: 'sugar', name: { en: 'Basundi Series', mr: 'बासुंदी चहा' }, order: 3, isVisible: true },
-    { id: 'cat_premixes', slug: 'premixes', name: { en: 'Premixes', mr: 'प्रीमिक्स' }, order: 4, isVisible: true }
+    { id: 'cat_sugar', slug: 'sugar', name: { en: 'Basundi Series', mr: 'बासुंदी चहा' }, order: 4, isVisible: true },
+    { id: 'cat_premixes', slug: 'premixes', name: { en: 'Premixes', mr: 'प्रीमिक्स' }, order: 5, isVisible: true }
   ],
   domains: DEFAULT_DOMAINS,
   mediaLibrary: DEFAULT_MEDIA_ITEMS,
@@ -791,17 +800,6 @@ export const INITIAL_CMS_STATE: CMSState = {
       facebook: 'https://facebook.com/latatea',
       linkedin: 'https://linkedin.com/company/latatea',
       whatsapp: 'https://wa.me/917666953873'
-    },
-    registration: {
-      fssai: '11525996000709',
-      iec: 'AAPCP3820M',
-      gst: '27AAPCP3820M1ZX'
-    },
-    payment: {
-      accountName: 'Purple Bean Agro Industries Private Limited',
-      bankName: 'IDFC First Bank',
-      accountNumber: '10227953860',
-      ifscCode: 'IDFB0041438'
     }
   },
   seo: {

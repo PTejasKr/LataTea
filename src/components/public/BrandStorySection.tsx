@@ -1,4 +1,4 @@
-﻿import React from 'react';
+import React from 'react';
 import { useCMS } from '../../context/CMSContext';
 
 interface BrandStorySectionProps {
@@ -13,14 +13,14 @@ export const BrandStorySection: React.FC<BrandStorySectionProps> = ({ isDraftPre
   const bowlImage = resolveSlotImage(story.imageSlotId || 'STORY_IMAGE_PRIMARY', false, isDraftPreview);
 
   return (
-    <section id="story" className="py-14 sm:py-20 bg-[#F8FAF8] text-[#1A291B]">
+    <section id="story" className="py-14 sm:py-20 bg-brand-background text-brand-primary">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 items-center">
           
           {/* Visual: Antique Copper Bowl / Spices */}
           <div className="md:col-span-5">
-            <div className="rounded-xl overflow-hidden shadow-sm border border-[#E2ECE3] aspect-[4/3] bg-white">
+            <div className="rounded-xl overflow-hidden shadow-sm border border-brand-border aspect-[4/3] bg-brand-surface">
               <img
                 src={bowlImage.url}
                 alt={bowlImage.alt}
@@ -34,26 +34,26 @@ export const BrandStorySection: React.FC<BrandStorySectionProps> = ({ isDraftPre
 
           {/* Narrative: 2-3 short, clear blocks */}
           <div className="md:col-span-7 space-y-3">
-            <span className="text-[11px] font-bold tracking-widest text-[#F89E22] uppercase font-sans">
+            <span className="text-[11px] font-bold tracking-widest text-brand-accent uppercase font-sans">
               {t(story.tagline)}
             </span>
 
-            <h2 className="font-rajwada text-2xl sm:text-3xl font-bold text-[#1B4332] leading-snug">
+            <h2 className="font-rajwada text-2xl sm:text-3xl font-bold text-brand-primary-dark leading-snug">
               {t(story.heading)}
             </h2>
 
-            <p className="text-sm sm:text-base text-[#1A291B] font-medium leading-relaxed">
+            <p className="text-sm sm:text-base text-brand-primary font-medium leading-relaxed">
               {t(story.introduction)}
             </p>
 
-            <div className="space-y-2 text-xs sm:text-sm text-[#5A6B5C] font-sans leading-relaxed">
+            <div className="space-y-2 text-xs sm:text-sm text-brand-text-muted font-sans leading-relaxed">
               {(story.paragraphs || []).map((p, idx) => (
                 <p key={idx}>{t(p)}</p>
               ))}
             </div>
 
-            <div className="pt-3 border-t border-[#E2ECE3]">
-              <p className="text-xs sm:text-sm text-[#F89E22] font-semibold italic">
+            <div className="pt-3 border-t border-brand-border">
+              <p className="text-xs sm:text-sm text-brand-accent font-semibold italic">
                 {t(story.quote)}
               </p>
             </div>
@@ -65,4 +65,3 @@ export const BrandStorySection: React.FC<BrandStorySectionProps> = ({ isDraftPre
     </section>
   );
 };
-

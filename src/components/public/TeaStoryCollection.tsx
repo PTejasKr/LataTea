@@ -1,6 +1,6 @@
-﻿import React, { useState } from 'react';
+import React, { useState } from 'react';
 import { useCMS } from '../../context/CMSContext';
-import { ArrowRight, Sparkles } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import { Link } from '../../router/Router';
 
 interface TeaStoryCollectionProps {
@@ -23,24 +23,24 @@ export const TeaStoryCollection: React.FC<TeaStoryCollectionProps> = ({
     : teas.filter(item => item.category === activeCategory);
 
   const categories = [
-    { id: 'all', label: { en: 'All', mr: 'à¤¸à¤°à¥à¤µ' } },
-    { id: 'gud', label: { en: 'Jaggery Blends', mr: 'à¤—à¥‚à¤³ à¤šà¤¹à¤¾' } },
-    { id: 'sugar', label: { en: 'Basundi', mr: 'à¤¬à¤¾à¤¸à¥à¤‚à¤¦à¥€' } },
-    { id: 'premixes', label: { en: 'Premixes', mr: 'à¤ªà¥à¤°à¥€à¤®à¤¿à¤•à¥à¤¸' } }
+    { id: 'all', label: { en: 'All', mr: 'सर्व' } },
+    { id: 'gud', label: { en: 'Jaggery Blends', mr: 'गूळ मिश्रणे' } },
+    { id: 'sugar', label: { en: 'Basundi', mr: 'बासुंदी' } },
+    { id: 'premixes', label: { en: 'Premixes', mr: 'प्रीमिक्स' } }
   ];
 
   return (
-    <section id="tea" className="py-8 sm:py-12 bg-white text-[#1A291B]">
+    <section id="tea" className="py-8 sm:py-12 bg-brand-surface text-brand-primary">
       <div className="max-w-6xl mx-auto px-3 sm:px-6 lg:px-8">
         
         {/* Compact Catalogue Header & Category Filter Bar */}
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-6 pb-3 border-b border-[#E2ECE3]">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-6 pb-3 border-b border-brand-border">
           <div>
-            <h2 className="text-lg sm:text-xl font-bold text-[#1B4332] font-rajwada">
-              {language === 'mr' ? 'à¤šà¤¹à¤¾ à¤‰à¤¤à¥à¤ªà¤¾à¤¦à¤¨à¥‡ (à¥ª à¤ªà¥à¤°à¤•à¤¾à¤°)' : 'Our Teas (4 Blends)'}
+            <h2 className="text-lg sm:text-xl font-bold text-brand-primary-dark font-rajwada">
+              {language === 'mr' ? 'चहा कॅटलॉग' : 'Tea Catalogue'}
             </h2>
-            <p className="text-[11px] sm:text-xs text-[#5A6B5C]">
-              {language === 'mr' ? 'à¤•à¤®à¥€à¤¤ à¤•à¤®à¥€ à¤¸à¥à¤•à¥à¤°à¥‹à¤²à¤®à¤§à¥à¤¯à¥‡ à¤¸à¤°à¥à¤µ à¤‰à¤¤à¥à¤ªà¤¾à¤¦à¤¨à¥‡ à¤ªà¤¹à¤¾' : 'Browse products with quick details & samples'}
+            <p className="text-[11px] sm:text-xs text-brand-text-muted">
+              {language === 'mr' ? 'तपशील आणि नमुने पहा' : 'Browse products with quick details & samples'}
             </p>
           </div>
 
@@ -53,8 +53,8 @@ export const TeaStoryCollection: React.FC<TeaStoryCollectionProps> = ({
                 onClick={() => setActiveCategory(cat.id as any)}
                 className={`px-3 py-1 rounded-full text-xs font-medium transition-colors cursor-pointer whitespace-nowrap ${
                   activeCategory === cat.id
-                    ? 'bg-[#F89E22] text-white font-semibold shadow-xs'
-                    : 'bg-[#F8FAF8] text-[#5A6B5C] hover:bg-[#EBF5EC] border border-[#E2ECE3]'
+                    ? 'bg-brand-accent text-white font-semibold shadow-xs'
+                    : 'bg-brand-background text-brand-text-muted hover:bg-brand-accent-pale border border-brand-border'
                 }`}
               >
                 {t(cat.label)}
@@ -71,53 +71,53 @@ export const TeaStoryCollection: React.FC<TeaStoryCollectionProps> = ({
             return (
               <div
                 key={tea.id}
-                className="bg-white rounded-lg border border-[#E2ECE3] hover:border-[#F89E22] hover:shadow-md transition-all flex flex-col justify-between overflow-hidden group"
+                className="bg-brand-surface rounded-lg border border-brand-border hover:border-brand-accent hover:shadow-md transition-all flex flex-col justify-between overflow-hidden group"
               >
-                {/* Product Image (Compact 1:1 Aspect Ratio like Myntra) */}
-                <Link to={`/tea/${tea.slug}`} className="block relative aspect-square bg-[#F8FAF8] overflow-hidden">
+                {/* Product Image */}
+                <Link to={`/tea/${tea.slug}`} className="block relative aspect-[4/5] bg-brand-background overflow-hidden">
                   <img
                     src={teaImage.url}
                     alt={teaImage.alt}
                     style={teaImage.style}
-                    className="w-full h-full object-cover group-hover:scale-103 transition-transform duration-200"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                     loading="lazy"
                   />
                   {/* Subtle Category Pill on Image */}
-                  <span className="absolute top-1.5 left-1.5 px-1.5 py-0.5 rounded bg-white/95 text-[9px] font-bold uppercase text-[#F89E22] shadow-xs">
+                  <span className="absolute top-2 left-2 px-1.5 py-0.5 rounded bg-white/95 text-[9px] font-bold uppercase text-brand-accent shadow-xs">
                     {t(tea.categoryName)}
                   </span>
                 </Link>
 
-                {/* Compact Info Block (Title, Brand, 1-Line Info) */}
+                {/* Compact Info Block */}
                 <div className="p-2 sm:p-3 flex-1 flex flex-col justify-between">
                   <div>
-                    <span className="text-[9px] font-bold uppercase tracking-wider text-[#F89E22] block">
+                    <span className="text-[9px] font-bold uppercase tracking-wider text-brand-text-muted block">
                       LATA TEA
                     </span>
-                    <h3 className="font-bold text-xs sm:text-sm text-[#1A291B] group-hover:text-[#F89E22] transition-colors truncate mt-0.5">
+                    <h3 className="font-bold text-xs sm:text-sm text-brand-primary-dark group-hover:text-brand-accent transition-colors truncate mt-0.5">
                       {t(tea.name)}
                     </h3>
-                    <p className="text-[10px] sm:text-[11px] text-[#5A6B5C] truncate mt-0.5">
+                    <p className="text-[10px] sm:text-[11px] text-brand-text-muted line-clamp-1 mt-0.5">
                       {t(tea.shortDescription)}
                     </p>
                   </div>
 
-                  {/* Compact Actions (View Details & Sample) */}
-                  <div className="mt-2.5 pt-2 border-t border-[#F0F4F1] flex items-center justify-between gap-1">
+                  {/* Compact Actions */}
+                  <div className="mt-2.5 pt-2 border-t border-brand-border flex items-center justify-between gap-1">
                     <Link
                       to={`/tea/${tea.slug}`}
-                      className="text-[11px] font-bold text-[#F89E22] hover:text-[#1B4332] inline-flex items-center gap-0.5"
+                      className="text-[11px] font-bold text-brand-accent hover:text-brand-accent-hover inline-flex items-center gap-0.5"
                     >
-                      <span>{language === 'mr' ? 'à¤®à¤¾à¤¹à¤¿à¤¤à¥€' : 'Details'}</span>
+                      <span>{language === 'mr' ? 'तपशील' : 'Details'}</span>
                       <ArrowRight className="w-3 h-3" />
                     </Link>
 
                     <button
                       type="button"
                       onClick={() => onOpenInquiry?.(tea.name.en)}
-                      className="px-2 py-0.5 rounded bg-[#EBF5EC] hover:bg-[#D7EBD9] text-[10px] font-bold text-[#1B4332] cursor-pointer"
+                      className="px-2 py-0.5 rounded bg-brand-background hover:bg-brand-accent-pale text-[10px] font-bold text-brand-primary cursor-pointer border border-brand-border"
                     >
-                      {language === 'mr' ? 'à¤¨à¤®à¥à¤¨à¤¾' : 'Sample'}
+                      {language === 'mr' ? 'नमुना मागवा' : 'Sample'}
                     </button>
                   </div>
                 </div>
@@ -130,4 +130,3 @@ export const TeaStoryCollection: React.FC<TeaStoryCollectionProps> = ({
     </section>
   );
 };
-

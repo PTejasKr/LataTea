@@ -7,18 +7,18 @@ export default {
   theme: {
     extend: {
       colors: {
-        // Sole UI accent color: #F89E22 + Clean White + Deep Forest Green
+        // Sole UI accent color: #F89E22 + Clean White + Dark Neutral Text
         brand: {
           accent: '#F89E22',           // Core UI accent color (#F89E22)
           'accent-hover': '#E08A15',   // Hover state
-          'accent-pale': '#FFF8ED',    // Soft amber/gold tint
-          primary: '#1B4332',          // Deep forest green
-          'primary-dark': '#0F261C',   // Darker forest green
+          'accent-pale': '#FFF8ED',    // Soft pale tint for backgrounds
+          primary: '#1A1A1A',          // Dark neutral for main text
+          'primary-dark': '#000000',   // Black
           surface: '#FFFFFF',          // Clean white surface
           background: '#FFFFFF',       // Clean white background
-          text: '#1A291B',             // Crisp dark text
-          'text-muted': '#5A6B5C',     // Muted readable text
-          border: '#E8EBE8',           // Soft neutral border
+          text: '#1A1A1A',             // Crisp dark text
+          'text-muted': '#666666',     // Muted readable text
+          border: '#E5E5E5',           // Soft neutral border
         },
         // Kept for backward compatibility
         latagreen: {
@@ -39,6 +39,25 @@ export default {
           500: '#8db843',
           600: '#779f34'
         }
+      },
+      keyframes: {
+        'fade-in': {
+          '0%': { opacity: '0' },
+          '100%': { opacity: '1' },
+        },
+        'fade-in-up': {
+          '0%': { opacity: '0', transform: 'translateY(20px)' },
+          '100%': { opacity: '1', transform: 'translateY(0)' },
+        },
+        'slow-scale': {
+          '0%': { transform: 'scale(1)' },
+          '100%': { transform: 'scale(1.08)' },
+        }
+      },
+      animation: {
+        'fade-in': 'fade-in 0.5s ease-out forwards',
+        'fade-in-up': 'fade-in-up 0.8s ease-out forwards',
+        'slow-scale': 'slow-scale 20s ease-out forwards',
       },
       fontFamily: {
         rajwada: ['"Rozha One"', '"Cinzel"', 'serif'],

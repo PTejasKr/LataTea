@@ -31,76 +31,46 @@ export const ContactManagerView: React.FC = () => {
     }));
   };
 
-  const handleRegChange = (key: keyof ContactInfo['registration'], val: string) => {
-    updateDraft(prev => ({
-      ...prev,
-      contact: {
-        ...prev.contact,
-        registration: {
-          ...prev.contact.registration,
-          [key]: val
-        }
-      }
-    }));
-  };
-
-  const handlePaymentChange = (key: keyof ContactInfo['payment'], val: string) => {
-    updateDraft(prev => ({
-      ...prev,
-      contact: {
-        ...prev.contact,
-        payment: {
-          ...prev.contact.payment,
-          [key]: val
-        }
-      }
-    }));
-  };
-
   const handleLoadBrochurePreset = () => {
-    updateDraft(prev => ({
-      ...prev,
-      contact: JSON.parse(JSON.stringify(BROCHURE_CONTACT_PRESET))
-    }));
+    if (window.confirm('This will overwrite all contact fields with the corporate brochure defaults. Continue?')) {
+      updateDraft(prev => ({
+        ...prev,
+        contact: BROCHURE_CONTACT_PRESET
+      }));
+    }
   };
 
   const handleClearAll = () => {
-    if (window.confirm('Clear all contact, registration, and banking fields? (They will be hidden on public site)')) {
+    if (window.confirm('Are you sure you want to clear all contact and statutory fields?')) {
       updateDraft(prev => ({
         ...prev,
         contact: {
           companyName: '',
           address: '',
-          email: '',
           phone1: '',
           phone2: '',
           phone3: '',
           whatsapp: '',
-          website: '',
-          googleMapsUrl: '',
-          socials: { instagram: '', facebook: '', linkedin: '', youtube: '', twitter: '' },
-          registration: { fssai: '', iec: '', gst: '' },
-          payment: { accountName: '', bankName: '', accountNumber: '', ifscCode: '' }
+          email: '',
+          socials: { instagram: '', facebook: '', linkedin: '', youtube: '' }, website: '', googleMapsUrl: ''
         }
       }));
     }
   };
 
   return (
-    <div className="space-y-6 animate-in fade-in duration-150">
+    <div className="space-y-6 max-w-7xl mx-auto">
       {/* Header */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-slate-700">
+      <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
         <div>
-          <h2 className="text-xl font-bold text-white flex items-center gap-2">
-            <Phone className="w-5 h-5 text-amber-400" />
-            <span>Contact, Company & Registration Manager</span>
+          <h2 className="text-xl sm:text-2xl font-bold text-white font-rajwada">
+            Contact Details
           </h2>
-          <p className="text-xs text-slate-400 mt-1">
-            Empty fields are cleanly hidden on the public site. Fill details here to publish live.
+          <p className="text-sm text-slate-400 mt-1 max-w-2xl">
+            Update the Head Office information, phone numbers, and social media handles displayed across the website.
           </p>
         </div>
-
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-3">
           <button
             onClick={handleLoadBrochurePreset}
             className="px-3.5 py-2 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold uppercase tracking-wider text-xs flex items-center gap-1.5 shadow-md"
@@ -144,7 +114,7 @@ export const ContactManagerView: React.FC = () => {
 
           <div>
             <label className="block font-bold uppercase tracking-wider text-slate-300 mb-1">
-              Registered Office Address
+              Head Office Address
             </label>
             <textarea
               rows={2}
@@ -281,119 +251,6 @@ export const ContactManagerView: React.FC = () => {
                 onChange={e => handleSocialChange('youtube', e.target.value)}
                 className="w-full px-3.5 py-2 rounded-xl border border-slate-700 bg-slate-900 text-white font-sans text-xs"
               />
-            </div>
-          </div>
-        </div>
-
-        {/* Card 3: Statutory Registration Details (FSSAI, IEC, GST) */}
-        <div className="p-6 sm:p-8 rounded-3xl bg-[#1E293B] border border-slate-700/80 shadow-lg space-y-4 text-xs">
-          <h3 className="text-sm font-bold text-white mb-2 flex items-center gap-2">
-            <CheckCircle2 className="w-4 h-4 text-emerald-400" />
-            <span>Statutory Registrations (PDF Page 8)</span>
-          </h3>
-
-          <div className="space-y-3">
-            <div>
-              <label className="block font-bold uppercase tracking-wider text-slate-300 mb-1">
-                FSSAI License Number
-              </label>
-              <input
-                type="text"
-                placeholder="e.g. 11525996000709"
-                value={contact.registration.fssai || ''}
-                onChange={e => handleRegChange('fssai', e.target.value)}
-                className="w-full px-3.5 py-2 rounded-xl border border-slate-700 bg-slate-900 text-white font-mono text-xs"
-              />
-            </div>
-
-            <div>
-              <label className="block font-bold uppercase tracking-wider text-slate-300 mb-1">
-                IEC (Import Export Code)
-              </label>
-              <input
-                type="text"
-                placeholder="e.g. AAPCP3820M"
-                value={contact.registration.iec || ''}
-                onChange={e => handleRegChange('iec', e.target.value)}
-                className="w-full px-3.5 py-2 rounded-xl border border-slate-700 bg-slate-900 text-white font-mono text-xs"
-              />
-            </div>
-
-            <div>
-              <label className="block font-bold uppercase tracking-wider text-slate-300 mb-1">
-                GST Number
-              </label>
-              <input
-                type="text"
-                placeholder="e.g. 27AAPCP3820M1ZX"
-                value={contact.registration.gst || ''}
-                onChange={e => handleRegChange('gst', e.target.value)}
-                className="w-full px-3.5 py-2 rounded-xl border border-slate-700 bg-slate-900 text-white font-mono text-xs"
-              />
-            </div>
-          </div>
-        </div>
-
-        {/* Card 4: Payment Details */}
-        <div className="p-6 sm:p-8 rounded-3xl bg-[#1E293B] border border-slate-700/80 shadow-lg space-y-4 text-xs">
-          <h3 className="text-sm font-bold text-white mb-2 flex items-center gap-2">
-            <Building2 className="w-4 h-4 text-amber-400" />
-            <span>Bank & Payment Details (Brochure Page 6)</span>
-          </h3>
-
-          <div className="space-y-3">
-            <div>
-              <label className="block font-bold uppercase tracking-wider text-slate-300 mb-1">
-                Beneficiary Account Name
-              </label>
-              <input
-                type="text"
-                placeholder="Purple Bean Agro Industries Private Limited"
-                value={contact.payment.accountName || ''}
-                onChange={e => handlePaymentChange('accountName', e.target.value)}
-                className="w-full px-3.5 py-2 rounded-xl border border-slate-700 bg-slate-900 text-white font-sans text-xs"
-              />
-            </div>
-
-            <div>
-              <label className="block font-bold uppercase tracking-wider text-slate-300 mb-1">
-                Bank Name
-              </label>
-              <input
-                type="text"
-                placeholder="IDFC First Bank"
-                value={contact.payment.bankName || ''}
-                onChange={e => handlePaymentChange('bankName', e.target.value)}
-                className="w-full px-3.5 py-2 rounded-xl border border-slate-700 bg-slate-900 text-white font-sans text-xs"
-              />
-            </div>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-              <div>
-                <label className="block font-bold uppercase tracking-wider text-slate-300 mb-1">
-                  Account Number
-                </label>
-                <input
-                  type="text"
-                  placeholder="10227953860"
-                  value={contact.payment.accountNumber || ''}
-                  onChange={e => handlePaymentChange('accountNumber', e.target.value)}
-                  className="w-full px-3.5 py-2 rounded-xl border border-slate-700 bg-slate-900 text-white font-mono text-xs"
-                />
-              </div>
-
-              <div>
-                <label className="block font-bold uppercase tracking-wider text-slate-300 mb-1">
-                  IFSC Code
-                </label>
-                <input
-                  type="text"
-                  placeholder="IDFB0041438"
-                  value={contact.payment.ifscCode || ''}
-                  onChange={e => handlePaymentChange('ifscCode', e.target.value)}
-                  className="w-full px-3.5 py-2 rounded-xl border border-slate-700 bg-slate-900 text-white font-mono text-xs"
-                />
-              </div>
             </div>
           </div>
         </div>
