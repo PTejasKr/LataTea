@@ -1,7 +1,8 @@
-import React, { createContext, useContext, useEffect, useState, useMemo } from 'react';
+import React, { createContext, useContext, useEffect, useState, useMemo, useRef } from 'react';
 import { CMSState, LanguageCode, LocalizedString, MediaItem, MediaSlot, ValidationIssue } from '../types/cms';
 import { cmsStore } from '../services/cmsStore';
 import { UI_TRANSLATIONS } from '../data/translations';
+import { AlertCircle, Save, X, LogOut } from 'lucide-react';
 
 const CMS_AUTH_KEY = 'latatea_cms_auth_session';
 const LANG_STORAGE_KEY = 'latatea_preferred_lang';
@@ -30,9 +31,11 @@ interface CMSContextValue {
 
   hasDraftChanges: boolean;
   updateDraft: (updater: (prev: CMSState) => CMSState) => void;
-  publish: () => { success: boolean; issues: ValidationIssue[] };
+  publish: () => Promise<{ success: boolean; issues: ValidationIssue[] }>;
   discardDraft: () => void;
   resetToFactory: () => void;
+  exitCms: () => void;
+  isPublishing: boolean;
   resolveSlotImage: (
     slotKey: string,
     isMobile?: boolean,
@@ -108,6 +111,36 @@ export const CMSProvider: React.FC<{ children: React.ReactNode }> = ({ children 
 
   const [activeView, setActiveView] = useState<'public' | 'admin'>(() => (isCmsRoute() ? 'admin' : 'public'));
   
+  const [sessionInitialState, setSessionInitialState] = useState<CMSState | null>(null);
+  const [isDirty, setIsDirty] = useState(false);
+  const [isPublishing, setIsPublishing] = useState(false);
+  const [showExitModal, setShowExitModal] = useState(false);
+  const [pendingExitCallback, setPendingExitCallback] = useState<(() => void) | null>(null);
+
+  // Refs for popstate handler
+  const stateRefs = useRef({ activeView, isDirty, isPublishing });
+  useEffect(() => {
+    stateRefs.current = { activeView, isDirty, isPublishing };
+  }, [activeView, isDirty, isPublishing]);
+
+  useEffect(() => {
+    if (activeView === 'admin') {
+      setSessionInitialState(cmsStore.getDraftState());
+      setIsDirty(false);
+    }
+  }, [activeView]);
+
+  useEffect(() => {
+    const handleBeforeUnload = (e: BeforeUnloadEvent) => {
+      if (stateRefs.current.isDirty || stateRefs.current.isPublishing) {
+        e.preventDefault();
+        e.returnValue = '';
+      }
+    };
+    window.addEventListener('beforeunload', handleBeforeUnload);
+    return () => window.removeEventListener('beforeunload', handleBeforeUnload);
+  }, []);
+  
   const [isCmsAuthenticated, setIsCmsAuthenticated] = useState<boolean>(() => {
     return sessionStorage.getItem(CMS_AUTH_KEY) === 'true';
   });
@@ -120,10 +153,27 @@ export const CMSProvider: React.FC<{ children: React.ReactNode }> = ({ children 
   // Listen for browser navigation changes
   useEffect(() => {
     const handlePopState = () => {
-      if (isCmsRoute()) {
+      const isNowAdmin = isCmsRoute();
+      const { activeView: currentView, isDirty: currentDirty, isPublishing: currentPub } = stateRefs.current;
+      
+      if (currentView === 'admin' && !isNowAdmin) {
+        if (currentDirty || currentPub) {
+          window.history.pushState(null, '', '/#cms');
+          if (!currentPub) {
+            setPendingExitCallback(() => {
+              setActiveView('public');
+              window.location.hash = '';
+              setIsDirty(false);
+              setSessionInitialState(null);
+            });
+            setShowExitModal(true);
+          }
+        } else {
+          setActiveView('public');
+          setSessionInitialState(null);
+        }
+      } else if (currentView === 'public' && isNowAdmin) {
         setActiveView('admin');
-      } else {
-        setActiveView('public');
       }
     };
     window.addEventListener('popstate', handlePopState);
@@ -152,10 +202,39 @@ export const CMSProvider: React.FC<{ children: React.ReactNode }> = ({ children 
     return false;
   };
 
+  const exitCms = () => {
+    const doExit = () => {
+      setActiveView('public');
+      window.location.hash = '';
+      setIsDirty(false);
+      setSessionInitialState(null);
+    };
+
+    if (isPublishing) return;
+    if (isDirty) {
+      setPendingExitCallback(() => doExit);
+      setShowExitModal(true);
+    } else {
+      doExit();
+    }
+  };
+
   const logoutCms = () => {
-    sessionStorage.removeItem(CMS_AUTH_KEY);
-    setIsCmsAuthenticated(false);
-    setActiveView('public');
+    const doLogout = () => {
+      sessionStorage.removeItem(CMS_AUTH_KEY);
+      setIsCmsAuthenticated(false);
+      setActiveView('public');
+      setIsDirty(false);
+      setSessionInitialState(null);
+    };
+
+    if (isPublishing) return;
+    if (isDirty) {
+      setPendingExitCallback(() => doLogout);
+      setShowExitModal(true);
+    } else {
+      doLogout();
+    }
   };
 
   const hasDraftChanges = useMemo(() => {
@@ -163,6 +242,7 @@ export const CMSProvider: React.FC<{ children: React.ReactNode }> = ({ children 
   }, [draftState, publishedState]);
 
   const updateDraft = (updater: (prev: CMSState) => CMSState) => {
+    setIsDirty(true);
     setDraftState(prev => {
       const next = updater(prev);
       cmsStore.saveDraftState(next);
@@ -170,24 +250,30 @@ export const CMSProvider: React.FC<{ children: React.ReactNode }> = ({ children 
     });
   };
 
-  const publish = () => {
+  const publish = async () => {
+    setIsPublishing(true);
+    await new Promise(r => setTimeout(r, 600)); // Simulate save operation
     const res = cmsStore.publishDraft();
     if (res.success) {
       setPublishedState(cmsStore.getPublishedState());
       setDraftState(cmsStore.getDraftState());
+      setIsDirty(false);
     }
+    setIsPublishing(false);
     return res;
   };
 
   const discardDraft = () => {
     cmsStore.discardDraft();
     setDraftState(cmsStore.getDraftState());
+    setIsDirty(false);
   };
 
   const resetToFactory = () => {
     cmsStore.resetToFactory();
     setPublishedState(cmsStore.getPublishedState());
     setDraftState(cmsStore.getDraftState());
+    setIsDirty(false);
   };
 
   const getMediaItem = (mediaId: string, useDraft = false): MediaItem | undefined => {
@@ -251,11 +337,82 @@ export const CMSProvider: React.FC<{ children: React.ReactNode }> = ({ children 
         publish,
         discardDraft,
         resetToFactory,
+        exitCms,
+        isPublishing,
         resolveSlotImage,
         getMediaItem
       }}
     >
       {children}
+      
+      {/* Session Publishing Overlay */}
+      {isPublishing && activeView === 'admin' && (
+        <div className="fixed inset-0 z-[100] bg-slate-950/80 backdrop-blur-sm flex flex-col items-center justify-center">
+          <div className="w-12 h-12 border-4 border-amber-500/30 border-t-amber-500 rounded-full animate-spin mb-4" />
+          <p className="text-amber-400 font-mono font-bold tracking-widest uppercase">Saving your changes...</p>
+        </div>
+      )}
+
+      {/* Exit Confirmation Modal */}
+      {showExitModal && (
+        <div className="fixed inset-0 z-[110] bg-slate-950/80 backdrop-blur-sm flex items-center justify-center p-4">
+          <div className="bg-[#162032] border border-slate-700 w-full max-w-md rounded-2xl p-6 shadow-2xl relative">
+            <h2 className="text-xl font-bold text-white mb-2 flex items-center gap-2">
+              <AlertCircle className="w-6 h-6 text-amber-500" />
+              Unsaved changes
+            </h2>
+            <p className="text-slate-300 text-sm mb-6">
+              You have changes that haven't been saved yet. What would you like to do?
+            </p>
+            
+            <div className="space-y-3">
+              <button
+                onClick={async () => {
+                  setShowExitModal(false);
+                  setIsPublishing(true);
+                  await new Promise(r => setTimeout(r, 600)); // Simulate save
+                  setIsPublishing(false);
+                  setIsDirty(false); 
+                  if (pendingExitCallback) pendingExitCallback();
+                  setPendingExitCallback(null);
+                }}
+                className="w-full py-3 px-4 bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold rounded-xl flex items-center justify-center gap-2 transition-colors cursor-pointer"
+              >
+                <Save className="w-5 h-5" />
+                SAVE & EXIT
+              </button>
+              
+              <button
+                onClick={() => {
+                  if (sessionInitialState) {
+                    cmsStore.saveDraftState(sessionInitialState);
+                    setDraftState(sessionInitialState);
+                  }
+                  setShowExitModal(false);
+                  setIsDirty(false);
+                  if (pendingExitCallback) pendingExitCallback();
+                  setPendingExitCallback(null);
+                }}
+                className="w-full py-3 px-4 bg-rose-500/20 hover:bg-rose-500/30 text-rose-300 font-bold rounded-xl border border-rose-500/30 flex items-center justify-center gap-2 transition-colors cursor-pointer"
+              >
+                <LogOut className="w-5 h-5" />
+                EXIT WITHOUT SAVING
+              </button>
+
+              <button
+                onClick={() => {
+                  setShowExitModal(false);
+                  setPendingExitCallback(null);
+                }}
+                className="w-full py-3 px-4 bg-slate-800 hover:bg-slate-700 text-slate-300 font-bold rounded-xl border border-slate-600 flex items-center justify-center gap-2 transition-colors cursor-pointer"
+              >
+                <X className="w-5 h-5" />
+                CANCEL
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </CMSContext.Provider>
   );
 };

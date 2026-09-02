@@ -28,8 +28,8 @@ export const PublishModal: React.FC<PublishModalProps> = ({ isOpen, onClose }) =
   const errors = issues.filter(i => i.type === 'error');
   const warnings = issues.filter(i => i.type === 'warning');
 
-  const handleConfirmPublish = () => {
-    const res = publish();
+  const handleConfirmPublish = async () => {
+    const res = await publish();
     if (res.success) {
       setPublishSuccess(true);
       setTimeout(() => {

@@ -55,7 +55,7 @@ export const AdminLayout: React.FC<AdminLayoutProps> = ({
   const { 
     draftState, 
     hasDraftChanges, 
-    setActiveView, 
+    exitCms, 
     setShowPreviewModal, 
     discardDraft,
     logoutCms
@@ -163,7 +163,7 @@ export const AdminLayout: React.FC<AdminLayoutProps> = ({
 
           <button
             type="button"
-            onClick={() => setActiveView('public')}
+            onClick={exitCms}
             className="hidden lg:flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold text-slate-300 hover:text-white bg-slate-800 hover:bg-slate-700 border border-slate-600 cursor-pointer"
           >
             <span>Exit to Site</span>
