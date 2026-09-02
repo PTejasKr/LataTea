@@ -7,7 +7,7 @@ interface RegistrationAndContactProps {
 }
 
 export const RegistrationAndContact: React.FC<RegistrationAndContactProps> = ({ isDraftPreview = false }) => {
-  const { publishedState, draftState, language } = useCMS();
+  const { publishedState, draftState, language, t } = useCMS();
   const state = isDraftPreview ? draftState : publishedState;
   const contact = state.contact;
 
@@ -21,15 +21,13 @@ export const RegistrationAndContact: React.FC<RegistrationAndContactProps> = ({ 
         {/* Section Header */}
         <div className="max-w-xl mb-10">
           <span className="text-[11px] font-sans font-semibold tracking-widest text-brand-accent uppercase block mb-1">
-            {language === 'mr' ? 'संपर्क साधा' : 'GET IN TOUCH'}
+            {t('GET IN TOUCH')}
           </span>
           <h2 className="font-rajwada text-2xl sm:text-3xl font-bold text-brand-primary tracking-tight">
-            {language === 'mr' ? 'व्यावसायिक चौकशी' : 'Business Inquiries'}
+            {t('Business Inquiries')}
           </h2>
           <p className="mt-1 text-xs sm:text-sm text-brand-text-muted font-sans">
-            {language === 'mr'
-              ? 'मुख्य कार्यालय आणि थेट संवाद.'
-              : 'Head office and direct communication channels.'}
+            {t('Head office and direct communication channels.')}
           </p>
         </div>
 
@@ -43,12 +41,12 @@ export const RegistrationAndContact: React.FC<RegistrationAndContactProps> = ({ 
               </div>
 
               <h3 className="font-rajwada font-bold text-lg text-brand-primary">
-                {language === 'mr' ? 'मुख्य कार्यालय' : 'Head Office'}
+                {t('Head Office')}
               </h3>
               
               <div className="pt-2 border-t border-brand-border space-y-1">
                 <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">
-                  {language === 'mr' ? 'पत्ता:' : 'Address:'}
+                  {t('Address:')}
                 </span>
                 <p className="text-xs text-brand-text-muted font-sans leading-relaxed font-medium">
                   <strong className="text-brand-primary block mb-0.5">{contact.companyName || 'Purple Bean Agro Industries Pvt Ltd'}</strong>
@@ -58,7 +56,7 @@ export const RegistrationAndContact: React.FC<RegistrationAndContactProps> = ({ 
 
               <div className="pt-2 border-t border-brand-border space-y-1">
                 <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">
-                  {language === 'mr' ? 'ईमेल:' : 'Email:'}
+                  {t('Email:')}
                 </span>
                 <a href={`mailto:${contact.email || 'info@latatea.com'}`} className="text-brand-primary hover:text-brand-accent font-medium text-xs">
                   {contact.email || 'info@latatea.com'}
@@ -67,7 +65,7 @@ export const RegistrationAndContact: React.FC<RegistrationAndContactProps> = ({ 
 
               <div className="pt-2 border-t border-brand-border space-y-1">
                 <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">
-                  {language === 'mr' ? 'थेट फोन:' : 'Direct Phone:'}
+                  {t('Direct Phone:')}
                 </span>
                 <div className="flex items-center gap-2 text-xs font-medium text-brand-primary">
                   <Phone className="w-3 h-3 text-brand-accent" />
@@ -89,7 +87,7 @@ export const RegistrationAndContact: React.FC<RegistrationAndContactProps> = ({ 
                 className="w-full py-2.5 px-3 rounded-lg bg-brand-accent hover:bg-brand-accent-hover text-white text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-2 transition-colors"
               >
                 <MessageCircle className="w-4 h-4 fill-white" />
-                <span>{language === 'mr' ? '१-क्लिक व्हॉट्सॲप चॅट' : '1-Click WhatsApp Chat'}</span>
+                <span>{t('1-Click WhatsApp Chat')}</span>
               </a>
             </div>
           </div>

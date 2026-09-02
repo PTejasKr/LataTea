@@ -45,7 +45,7 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({ slug, onOp
             className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#5A6B5C] hover:text-[#F89E22] transition-colors"
           >
             <ArrowLeft className="w-3.5 h-3.5" />
-            <span>{language === 'mr' ? 'à¤¸à¤°à¥à¤µ à¤‰à¤¤à¥à¤ªà¤¾à¤¦à¤¨à¥‡' : 'Back to Catalogue'}</span>
+            <span>{t('Back to Catalogue')}</span>
           </Link>
         </div>
 
@@ -84,7 +84,7 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({ slug, onOp
             {/* About this blend (Very short paragraph) */}
             <div className="p-4 rounded-xl bg-white border border-[#E2ECE3] space-y-1.5">
               <h2 className="text-xs font-bold uppercase tracking-wider text-[#1B4332]">
-                {language === 'mr' ? 'à¤‰à¤¤à¥à¤ªà¤¾à¤¦à¤¨à¤¾à¤¬à¤¦à¥à¤¦à¤²' : 'About This Blend'}
+                {t('About This Blend')}
               </h2>
               <p className="text-xs sm:text-sm text-[#1A291B] font-sans leading-relaxed">
                 {t(tea.editorialStory)}
@@ -95,7 +95,7 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({ slug, onOp
             {tea.tastingNotes && tea.tastingNotes.length > 0 && (
               <div className="p-4 rounded-xl bg-white border border-[#E2ECE3] space-y-2">
                 <h3 className="text-xs font-bold uppercase tracking-wider text-[#1B4332]">
-                  {language === 'mr' ? 'à¤®à¥à¤–à¥à¤¯ à¤µà¥ˆà¤¶à¤¿à¤·à¥à¤Ÿà¥à¤¯à¥‡' : 'Key Characteristics'}
+                  {t('Key Characteristics')}
                 </h3>
                 <ul className="space-y-1 text-xs text-[#1A291B]">
                   {tea.tastingNotes.map((note, idx) => (
@@ -113,7 +113,7 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({ slug, onOp
               <div className="p-3 rounded-lg bg-white border border-[#E2ECE3] space-y-0.5">
                 <div className="flex items-center gap-1.5 text-[11px] font-semibold text-[#F89E22]">
                   <Clock className="w-3.5 h-3.5" />
-                  <span>{language === 'mr' ? 'à¤¤à¤¯à¤¾à¤°à¥€' : 'Preparation'}</span>
+                  <span>{t('Preparation')}</span>
                 </div>
                 <p className="text-xs text-[#1A291B]">
                   {t(tea.servingRitual)}
@@ -123,7 +123,7 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({ slug, onOp
               <div className="p-3 rounded-lg bg-white border border-[#E2ECE3] space-y-0.5">
                 <div className="flex items-center gap-1.5 text-[11px] font-semibold text-[#F89E22]">
                   <MapPin className="w-3.5 h-3.5" />
-                  <span>{language === 'mr' ? 'à¤‰à¤—à¤®' : 'Origin'}</span>
+                  <span>{t('Origin')}</span>
                 </div>
                 <p className="text-xs text-[#1A291B]">
                   {t(tea.origin)}
@@ -138,7 +138,7 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({ slug, onOp
                 onClick={() => onOpenInquiry(tea.name.en)}
                 className="w-full sm:w-auto px-6 py-2.5 rounded-lg bg-[#F89E22] hover:bg-[#1B4332] text-white text-xs font-bold uppercase tracking-wider transition-colors cursor-pointer"
               >
-                {language === 'mr' ? 'à¤µà¥à¤¯à¤¾à¤µà¤¸à¤¾à¤¯à¤¿à¤• à¤šà¥Œà¤•à¤¶à¥€ / à¤¨à¤®à¥à¤¨à¤¾ à¤®à¤¾à¤—à¤µà¤¾' : 'Request Samples / Enquire'}
+                {t('Request Samples / Enquire')}
               </button>
 
               <a
@@ -148,7 +148,7 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({ slug, onOp
                 className="w-full sm:w-auto px-5 py-2.5 rounded-lg bg-[#25D366] hover:bg-[#20bd5a] text-white text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-1.5 transition-colors"
               >
                 <MessageCircle className="w-4 h-4 fill-white" />
-                <span>{language === 'mr' ? 'à¤µà¥à¤¹à¥‰à¤Ÿà¥à¤¸à¥²à¤ª à¤šà¥Œà¤•à¤¶à¥€' : 'WhatsApp Inquiry'}</span>
+                <span>{t('WhatsApp Inquiry')}</span>
               </a>
             </div>
 

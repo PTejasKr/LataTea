@@ -50,13 +50,13 @@ export const EditorialHero: React.FC<EditorialHeroProps> = ({ isDraftPreview = f
             to="/products"
             className="w-full sm:w-auto px-8 py-3.5 rounded-sm bg-brand-accent hover:bg-brand-accent-hover text-white text-sm font-bold uppercase tracking-wider transition-all shadow-md inline-flex items-center justify-center gap-2"
           >
-            <span>{language === 'mr' ? 'चहा कॅटलॉग पहा' : 'Explore Tea Catalogue'}</span>
+            <span>{t('Explore Tea Catalogue')}</span>
           </Link>
           <a
             href="#story"
             className="w-full sm:w-auto px-8 py-3.5 rounded-sm bg-transparent border-2 border-white hover:bg-white hover:text-brand-primary text-white text-sm font-bold uppercase tracking-wider transition-all inline-flex items-center justify-center gap-2"
           >
-            <span>{language === 'mr' ? 'आमची कथा' : 'Our Story'}</span>
+            <span>{t('Our Story')}</span>
             <ArrowDown className="w-4 h-4" />
           </a>
         </div>

@@ -26,11 +26,11 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenInquiry, isDraftPreview = 
   }, []);
 
   const navLinks = [
-    { label: { en: 'Home', mr: 'मुख्य पृष्ठ' }, url: '/' },
-    { label: { en: 'Our Story', mr: 'आमची कथा' }, url: '/about' },
-    { label: { en: 'Process', mr: 'प्रक्रिया' }, url: '/process' },
-    { label: { en: 'Tea Catalogue', mr: 'चहा कॅटलॉग' }, url: '/products' },
-    { label: { en: 'Contact', mr: 'संपर्क' }, url: '/contact' }
+    { label: 'Home', url: '/' },
+    { label: 'Our Story', url: '/about' },
+    { label: 'Process', url: '/process' },
+    { label: 'Tea Catalogue', url: '/products' },
+    { label: 'Contact', url: '/contact' }
   ];
 
   return (
@@ -81,8 +81,8 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenInquiry, isDraftPreview = 
                 onClick={() => setLanguage('en')}
                 className={`px-2 py-0.5 rounded text-[11px] font-medium transition-colors ${
                   language === 'en'
-                    ? 'bg-brand-accent text-white font-bold'
-                    : 'text-white/80 hover:text-white'
+                    ? 'bg-brand-accent text-white shadow-xs'
+                    : 'text-white/70 hover:text-white'
                 }`}
               >
                 EN
@@ -92,8 +92,8 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenInquiry, isDraftPreview = 
                 onClick={() => setLanguage('mr')}
                 className={`px-2 py-0.5 rounded text-[11px] font-medium transition-colors ${
                   language === 'mr'
-                    ? 'bg-brand-accent text-white font-bold'
-                    : 'text-white/80 hover:text-white'
+                    ? 'bg-brand-accent text-white shadow-xs'
+                    : 'text-white/70 hover:text-white'
                 }`}
               >
                 मराठी
@@ -106,7 +106,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenInquiry, isDraftPreview = 
               onClick={() => onOpenInquiry?.()}
               className="hidden sm:inline-flex items-center px-4 py-1.5 rounded-md text-xs font-semibold uppercase tracking-wider bg-brand-accent hover:bg-brand-accent-hover text-white transition-colors"
             >
-              {language === 'mr' ? 'नमुना मागवा' : 'Request Samples'}
+              {t('Request Samples')}
             </button>
 
             {/* Mobile Hamburger Toggle */}
@@ -147,7 +147,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenInquiry, isDraftPreview = 
               }}
               className="w-full py-2 rounded-md bg-brand-accent hover:bg-brand-accent-hover text-white text-xs font-bold uppercase tracking-wider text-center"
             >
-              {language === 'mr' ? 'नमुना मागवा' : 'Request Samples'}
+              {t('Request Samples')}
             </button>
           </div>
         </div>

@@ -58,31 +58,31 @@ export const Footer: React.FC = () => {
           {/* Quick Links */}
           <div className="lg:col-span-3 space-y-2">
             <h4 className="font-rajwada text-sm font-bold uppercase tracking-wider text-brand-accent">
-              {language === 'mr' ? 'नेव्हिगेशन' : 'Navigation'}
+              {t('Navigation')}
             </h4>
             <ul className="space-y-1.5 text-xs font-sans">
               <li>
                 <Link to="/" className="text-slate-300 hover:text-white transition-colors">
-                  {language === 'mr' ? 'मुख्य पृष्ठ' : 'Home'}
+                  {t('Home')}
                 </Link>
               </li>
               <li>
                 <Link to="/about" className="text-slate-300 hover:text-white transition-colors">
-                  {language === 'mr' ? 'आमची कथा' : 'Our Story'}
+                  {t('Our Story')}
                 </Link>
               </li>
               <li>
                 <Link to="/process" className="text-slate-300 hover:text-white transition-colors">
-                  {language === 'mr' ? 'प्रक्रिया' : 'Process'}
+                  {t('Process')}
                 </Link>
               </li>
               <li>
                 <Link to="/products" className="text-slate-300 hover:text-white transition-colors">
-                  {language === 'mr' ? 'चहा कॅटलॉग' : 'Tea Catalogue'}
+                  {t('Tea Catalogue')}
                 </Link>
               </li>
               <li><Link to="/contact" className="text-slate-300 hover:text-white transition-colors">
-                  {language === 'mr' ? 'संपर्क' : 'Contact'}
+                  {t('Contact')}
                 </Link>
               </li>
             </ul>
@@ -91,7 +91,7 @@ export const Footer: React.FC = () => {
           {/* Head Office */}
           <div className="lg:col-span-4 space-y-2 text-xs font-sans">
             <h4 className="font-rajwada text-sm font-bold uppercase tracking-wider text-brand-accent">
-              {language === 'mr' ? 'मुख्य कार्यालय' : 'Head Office'}
+              {t('Head Office')}
             </h4>
             
             <p className="text-slate-300 leading-relaxed">
@@ -119,10 +119,10 @@ export const Footer: React.FC = () => {
 
           <div className="flex items-center gap-5">
             <Link to="/privacy" className="hover:text-white transition-colors">
-              {language === 'en' ? 'Privacy Policy' : 'गोपनीयता धोरण'}
+              {t('Privacy Policy')}
             </Link>
             <Link to="/terms" className="hover:text-white transition-colors">
-              {language === 'en' ? 'Terms of Service' : 'सेवा अटी'}
+              {t('Terms of Service')}
             </Link>
             <Link to="/cms" className="text-slate-500 hover:text-brand-accent transition-colors">
               CMS Portal

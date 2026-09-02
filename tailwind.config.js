@@ -40,9 +40,9 @@ export default {
         'slow-scale': 'slow-scale 20s ease-out forwards',
       },
       fontFamily: {
-        rajwada: ['"Playfair Display"', 'serif'],
-        serif: ['"Playfair Display"', 'serif'],
-        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+        rajwada: ['"Playfair Display"', '"Noto Serif Devanagari"', 'serif'],
+        serif: ['"Playfair Display"', '"Noto Serif Devanagari"', 'serif'],
+        sans: ['"Plus Jakarta Sans"', '"Noto Serif Devanagari"', 'sans-serif'],
         marathi: ['"Noto Serif Devanagari"', 'serif']
       },
       fontSize: {

@@ -737,7 +737,7 @@ export const DEFAULT_STORY_CONTENT: EditorialStoryContent = {
 };
 
 export const INITIAL_CMS_STATE: CMSState = {
-  version: 5,
+  version: 6,
   status: 'published',
   lastPublishedAt: new Date().toISOString(),
   lastSavedAt: new Date().toISOString(),
@@ -757,17 +757,17 @@ export const INITIAL_CMS_STATE: CMSState = {
   teaStories: DEFAULT_TEA_STORIES,
   processSteps: [
     { id: 1, titleEn: 'Enquire', titleMr: 'चौकशी करा', descEn: 'Connect with our team.', descMr: 'आमच्या टीमशी संपर्क साधा.' },
-    { id: 2, titleEn: 'Select Products', titleMr: 'उत्पादने निवडा', descEn: 'Choose your tea blend.', descMr: 'तुमचा चहा निवडा.' },
-    { id: 3, titleEn: 'Confirm Order', titleMr: 'ऑर्डर निश्चित करा', descEn: 'Confirm quantity.', descMr: 'प्रमाण निश्चित करा.' },
-    { id: 4, titleEn: 'Processing', titleMr: 'प्रक्रिया', descEn: 'Fresh blending.', descMr: 'ताजे मिश्रण.' },
-    { id: 5, titleEn: 'Packing', titleMr: 'पॅकिंग', descEn: 'Packed for freshness.', descMr: 'ताज्या चहाचे पॅकिंग.' },
-    { id: 6, titleEn: 'Dispatch', titleMr: 'पाठवणे', descEn: 'Careful loading.', descMr: 'काळजीपूर्वक लोडिंग.' },
+    { id: 2, titleEn: 'Select Products', titleMr: 'उत्पादने निवडा', descEn: 'Choose your tea blend.', descMr: 'तुमचा चहा ब्लेंड निवडा.' },
+    { id: 3, titleEn: 'Confirm Order', titleMr: 'ऑर्डर निश्चित करा', descEn: 'Confirm quantity.', descMr: 'ऑर्डर निश्चित करा.' },
+    { id: 4, titleEn: 'Processing', titleMr: 'प्रक्रिया', descEn: 'Fresh blending.', descMr: 'ताजे ब्लेंडिंग.' },
+    { id: 5, titleEn: 'Packing', titleMr: 'पॅकिंग', descEn: 'Packed for freshness.', descMr: 'ताजेपणासाठी पॅकिंग.' },
+    { id: 6, titleEn: 'Dispatch', titleMr: 'डिस्पॅच', descEn: 'Careful loading.', descMr: 'काळजीपूर्वक लोडिंग.' },
     { id: 7, titleEn: 'Delivery', titleMr: 'वितरण', descEn: 'Delivered to your location.', descMr: 'तुमच्या स्थानावर वितरण.' }
   ],
   categories: [
     { id: 'cat_all', slug: 'all', name: { en: 'All Teas', mr: 'सर्व चहा' }, order: 1, isVisible: true },
-    { id: 'cat_gud', slug: 'gud', name: { en: 'Jaggery Blends', mr: 'गूळ चहा' }, order: 2, isVisible: true },
-    { id: 'cat_sugar', slug: 'sugar', name: { en: 'Basundi Series', mr: 'बासुंदी चहा' }, order: 4, isVisible: true },
+    { id: 'cat_gud', slug: 'gud', name: { en: 'Jaggery Blends', mr: 'गुळाचे ब्लेंड्स' }, order: 2, isVisible: true },
+    { id: 'cat_sugar', slug: 'sugar', name: { en: 'Basundi Series', mr: 'बासुंदी सिरीज' }, order: 4, isVisible: true },
     { id: 'cat_premixes', slug: 'premixes', name: { en: 'Premixes', mr: 'प्रीमिक्स' }, order: 5, isVisible: true }
   ],
   domains: DEFAULT_DOMAINS,

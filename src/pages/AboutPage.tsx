@@ -4,7 +4,7 @@ import { Link } from '../router/Router';
 import { ShieldCheck, Award, Leaf } from 'lucide-react';
 
 export const AboutPage: React.FC = () => {
-  const { publishedState } = useCMS();
+  const { publishedState, t } = useCMS();
   const contact = publishedState.contact;
 
   return (
@@ -14,13 +14,13 @@ export const AboutPage: React.FC = () => {
       <section className="py-14 bg-brand-primary-dark text-white text-center">
         <div className="max-w-4xl mx-auto px-4 sm:px-6">
           <span className="text-[11px] font-sans font-semibold tracking-widest text-brand-accent uppercase block mb-1">
-            ABOUT LATA TEAMIX
+            {t('ABOUT LATA TEAMIX')}
           </span>
           <h1 className="font-rajwada text-3xl sm:text-5xl font-bold text-white tracking-tight">
-            Indian Tea & Jaggery Blends
+            {t('Indian Tea & Jaggery Blends')}
           </h1>
           <p className="mt-2 text-xs sm:text-sm text-slate-200 font-sans max-w-xl mx-auto">
-            Manufactured with pride by Purple Bean Agro Industries Private Limited in Pune, Maharashtra.
+            {t('Manufactured with pride by Purple Bean Agro Industries Private Limited in Pune, Maharashtra.')}
           </p>
         </div>
       </section>
@@ -31,26 +31,26 @@ export const AboutPage: React.FC = () => {
           
           <div className="md:col-span-7 space-y-3">
             <span className="text-[11px] font-bold tracking-widest text-brand-accent uppercase font-sans">
-              PURPOSE & STANDARDS
+              {t('PURPOSE & STANDARDS')}
             </span>
             <h2 className="font-rajwada text-2xl sm:text-3xl font-bold text-brand-primary-dark leading-snug">
-              Unadulterated Tea in Every Boiling Cup
+              {t('Unadulterated Tea in Every Boiling Cup')}
             </h2>
             <p className="text-xs sm:text-sm text-brand-primary leading-relaxed font-sans">
               Lata Teamix was established to solve an everyday challenge: giving families, cafés, and corporate workplaces access to authentic jaggery chai without curdling milk or burning sweetness.
             </p>
             <p className="text-xs sm:text-sm text-brand-text-muted leading-relaxed font-sans">
-              Blended in a cleanroom in Pune, our products deliver consistent taste and aroma across homes, pantries, and vending machines.
+              {t('Blended in a cleanroom in Pune, our products deliver consistent taste and aroma across homes, pantries, and vending machines.')}
             </p>
 
             <div className="pt-3 border-t border-brand-border grid grid-cols-2 gap-3">
               <div className="p-3 rounded-lg bg-brand-surface border border-brand-border shadow-xs">
                 <div className="text-xl font-bold font-rajwada text-brand-primary-dark">500+</div>
-                <div className="text-[11px] text-brand-text-muted font-sans">Retail & Pantry Partners</div>
+                <div className="text-[11px] text-brand-text-muted font-sans">{t('Retail & Pantry Partners')}</div>
               </div>
               <div className="p-3 rounded-lg bg-brand-surface border border-brand-border shadow-xs">
-                <div className="text-xl font-bold font-rajwada text-brand-primary-dark">100%</div>
-                <div className="text-[11px] text-brand-text-muted font-sans">Pure Cane Jaggery</div>
+                <div className="text-xl font-bold font-rajwada text-brand-primary-dark">{t('100%')}</div>
+                <div className="text-[11px] text-brand-text-muted font-sans">{t('Pure Cane Jaggery')}</div>
               </div>
             </div>
           </div>
@@ -73,10 +73,10 @@ export const AboutPage: React.FC = () => {
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-xl mb-10">
             <span className="text-[11px] font-sans font-semibold tracking-widest text-brand-accent uppercase block mb-1">
-              HYGIENE & STANDARDS
+              {t('HYGIENE & STANDARDS')}
             </span>
             <h2 className="font-rajwada text-2xl sm:text-3xl font-bold text-brand-primary-dark">
-              Controlled Production
+              {t('Controlled Production')}
             </h2>
           </div>
 
@@ -86,10 +86,10 @@ export const AboutPage: React.FC = () => {
                 <ShieldCheck className="w-5 h-5" />
               </div>
               <h3 className="font-rajwada text-base font-bold text-brand-primary-dark">
-                Controlled Cleanroom
+                {t('Controlled Cleanroom')}
               </h3>
               <p className="text-xs text-brand-text-muted leading-relaxed font-sans">
-                Formulated under humidity-controlled cleanroom conditions in Pune to protect spice essential oils.
+                {t('Formulated under humidity-controlled cleanroom conditions in Pune to protect spice essential oils.')}
               </p>
             </div>
 
@@ -98,10 +98,10 @@ export const AboutPage: React.FC = () => {
                 <Award className="w-5 h-5" />
               </div>
               <h3 className="font-rajwada text-base font-bold text-brand-primary-dark">
-                Barrier Packaging
+                {t('Barrier Packaging')}
               </h3>
               <p className="text-xs text-brand-text-muted leading-relaxed font-sans">
-                Food-grade barrier pouches preserve ambient freshness with zero chemical preservatives.
+                {t('Food-grade barrier pouches preserve ambient freshness with zero chemical preservatives.')}
               </p>
             </div>
 
@@ -110,10 +110,10 @@ export const AboutPage: React.FC = () => {
                 <Leaf className="w-5 h-5" />
               </div>
               <h3 className="font-rajwada text-base font-bold text-brand-primary-dark">
-                Direct Sourcing
+                {t('Direct Sourcing')}
               </h3>
               <p className="text-xs text-brand-text-muted leading-relaxed font-sans">
-                Direct partnerships with Kolhapur sugarcane jaggery crushers and Assam CTC estates.
+                {t('Direct partnerships with Kolhapur sugarcane jaggery crushers and Assam CTC estates.')}
               </p>
             </div>
           </div>
@@ -121,17 +121,17 @@ export const AboutPage: React.FC = () => {
           <div className="mt-10 p-6 rounded-xl bg-brand-primary-dark text-white flex flex-col sm:flex-row items-center justify-between gap-4">
             <div>
               <h4 className="font-rajwada text-lg font-bold text-white">
-                Request a Tasting Kit for Your Business
+                {t('Request a Tasting Kit for Your Business')}
               </h4>
               <p className="text-xs text-slate-200 mt-0.5 font-sans">
-                Trial sample kits available for office pantries, hotels, and distributors.
+                {t('Trial sample kits available for office pantries, hotels, and distributors.')}
               </p>
             </div>
             <Link
               to="/contact"
               className="px-5 py-2 rounded-md text-xs font-bold uppercase tracking-wider bg-brand-accent hover:bg-brand-accent-hover text-white transition-colors shrink-0"
             >
-              Contact Sales
+              {t('Contact Sales')}
             </Link>
           </div>
         </div>

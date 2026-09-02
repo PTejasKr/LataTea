@@ -41,10 +41,10 @@ export const WhyLataSection: React.FC<WhyLataSectionProps> = ({ isDraftPreview =
         {/* Section Header */}
         <div className="max-w-xl mb-10">
           <span className="text-[11px] font-sans font-semibold tracking-widest text-[#F89E22] uppercase block mb-1">
-            {language === 'mr' ? 'à¤µà¤¿à¤¶à¥à¤µà¤¾à¤¸à¤¾à¤°à¥à¤¹à¤¤à¤¾' : 'WHY LATA TEAMIX'}
+            {t('WHY LATA TEAMIX')}
           </span>
           <h2 className="font-rajwada text-2xl sm:text-3xl font-bold text-[#1B4332] tracking-tight">
-            {language === 'mr' ? 'à¤†à¤®à¤šà¥€ à¤—à¥à¤£à¤µà¤¤à¥à¤¤à¤¾ à¤®à¤¾à¤¨à¤•à¥‡' : 'Why Business & Families Choose Us'}
+            {t('Why Business & Families Choose Us')}
           </h2>
         </div>
 

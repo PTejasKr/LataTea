@@ -194,77 +194,71 @@ export const TeaStoriesManagerView: React.FC = () => {
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
               <div>
-                <label className="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1">
-                  Tea Name ({activeLang.toUpperCase()})
-                </label>
-                <input
-                  type="text"
-                  value={activeTea.name[activeLang] || ''}
-                  onChange={e => updateActiveTea('name', { [activeLang]: e.target.value })}
-                  className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-sm font-semibold text-slate-900"
-                />
+                <div>
+    <label className="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1">Tea Name (EN)</label>
+    <input type="text" value={activeTea.name.en || ''} onChange={e => updateActiveTea('name', { en: e.target.value })} className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-sm font-semibold text-slate-900" />
+  </div>
+  <div className="mt-3">
+    <label className="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1">Tea Name (MR)</label>
+    <input type="text" value={activeTea.name.mr || ''} onChange={e => updateActiveTea('name', { mr: e.target.value })} className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-sm font-semibold text-slate-900" />
+  </div>
               </div>
 
               <div>
-                <label className="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1">
-                  Tagline ({activeLang.toUpperCase()})
-                </label>
-                <input
-                  type="text"
-                  value={activeTea.tagline[activeLang] || ''}
-                  onChange={e => updateActiveTea('tagline', { [activeLang]: e.target.value })}
-                  className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-sm"
-                />
+                <div>
+    <label className="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1">Tagline (EN)</label>
+    <input type="text" value={activeTea.tagline.en || ''} onChange={e => updateActiveTea('tagline', { en: e.target.value })} className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-sm" />
+  </div>
+  <div className="mt-3">
+    <label className="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1">Tagline (MR)</label>
+    <input type="text" value={activeTea.tagline.mr || ''} onChange={e => updateActiveTea('tagline', { mr: e.target.value })} className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-sm" />
+  </div>
               </div>
             </div>
 
             <div>
-              <label className="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1">
-                Short Description ({activeLang.toUpperCase()})
-              </label>
-              <textarea
-                rows={2}
-                value={activeTea.shortDescription[activeLang] || ''}
-                onChange={e => updateActiveTea('shortDescription', { [activeLang]: e.target.value })}
-                className="w-full px-3.5 py-2 rounded-xl border border-slate-200 text-xs leading-relaxed"
-              />
+              <div>
+    <label className="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1">Short Description (EN)</label>
+    <textarea rows={2} value={activeTea.shortDescription.en || ''} onChange={e => updateActiveTea('shortDescription', { en: e.target.value })} className="w-full px-3.5 py-2 rounded-xl border border-slate-200 text-xs leading-relaxed" />
+  </div>
+  <div className="mt-3">
+    <label className="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1">Short Description (MR)</label>
+    <textarea rows={2} value={activeTea.shortDescription.mr || ''} onChange={e => updateActiveTea('shortDescription', { mr: e.target.value })} className="w-full px-3.5 py-2 rounded-xl border border-slate-200 text-xs leading-relaxed" />
+  </div>
             </div>
 
             <div>
-              <label className="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1">
-                Editorial Story Narrative ({activeLang.toUpperCase()})
-              </label>
-              <textarea
-                rows={4}
-                value={activeTea.editorialStory[activeLang] || ''}
-                onChange={e => updateActiveTea('editorialStory', { [activeLang]: e.target.value })}
-                className="w-full px-3.5 py-2 rounded-xl border border-slate-200 text-xs leading-relaxed"
-              />
+              <div>
+    <label className="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1">Editorial Story Narrative (EN)</label>
+    <textarea rows={4} value={activeTea.editorialStory.en || ''} onChange={e => updateActiveTea('editorialStory', { en: e.target.value })} className="w-full px-3.5 py-2 rounded-xl border border-slate-200 text-xs leading-relaxed" />
+  </div>
+  <div className="mt-3">
+    <label className="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1">Editorial Story Narrative (MR)</label>
+    <textarea rows={4} value={activeTea.editorialStory.mr || ''} onChange={e => updateActiveTea('editorialStory', { mr: e.target.value })} className="w-full px-3.5 py-2 rounded-xl border border-slate-200 text-xs leading-relaxed" />
+  </div>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-5 pt-2">
               <div>
-                <label className="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1">
-                  Origin & Harvest ({activeLang.toUpperCase()})
-                </label>
-                <input
-                  type="text"
-                  value={activeTea.origin[activeLang] || ''}
-                  onChange={e => updateActiveTea('origin', { [activeLang]: e.target.value })}
-                  className="w-full px-3.5 py-2 rounded-xl border border-slate-200 text-xs"
-                />
+                <div>
+    <label className="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1">Origin & Harvest (EN)</label>
+    <input type="text" value={activeTea.origin.en || ''} onChange={e => updateActiveTea('origin', { en: e.target.value })} className="w-full px-3.5 py-2 rounded-xl border border-slate-200 text-xs" />
+  </div>
+  <div className="mt-3">
+    <label className="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1">Origin & Harvest (MR)</label>
+    <input type="text" value={activeTea.origin.mr || ''} onChange={e => updateActiveTea('origin', { mr: e.target.value })} className="w-full px-3.5 py-2 rounded-xl border border-slate-200 text-xs" />
+  </div>
               </div>
 
               <div>
-                <label className="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1">
-                  Serving Ritual ({activeLang.toUpperCase()})
-                </label>
-                <input
-                  type="text"
-                  value={activeTea.servingRitual[activeLang] || ''}
-                  onChange={e => updateActiveTea('servingRitual', { [activeLang]: e.target.value })}
-                  className="w-full px-3.5 py-2 rounded-xl border border-slate-200 text-xs"
-                />
+                <div>
+    <label className="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1">Serving Ritual (EN)</label>
+    <input type="text" value={activeTea.servingRitual.en || ''} onChange={e => updateActiveTea('servingRitual', { en: e.target.value })} className="w-full px-3.5 py-2 rounded-xl border border-slate-200 text-xs" />
+  </div>
+  <div className="mt-3">
+    <label className="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1">Serving Ritual (MR)</label>
+    <input type="text" value={activeTea.servingRitual.mr || ''} onChange={e => updateActiveTea('servingRitual', { mr: e.target.value })} className="w-full px-3.5 py-2 rounded-xl border border-slate-200 text-xs" />
+  </div>
               </div>
             </div>
 

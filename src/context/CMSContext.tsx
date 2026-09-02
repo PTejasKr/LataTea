@@ -1,6 +1,7 @@
 import React, { createContext, useContext, useEffect, useState, useMemo } from 'react';
 import { CMSState, LanguageCode, LocalizedString, MediaItem, MediaSlot, ValidationIssue } from '../types/cms';
 import { cmsStore } from '../services/cmsStore';
+import { UI_TRANSLATIONS } from '../data/translations';
 
 const CMS_AUTH_KEY = 'latatea_cms_auth_session';
 const LANG_STORAGE_KEY = 'latatea_preferred_lang';
@@ -81,7 +82,16 @@ export const CMSProvider: React.FC<{ children: React.ReactNode }> = ({ children 
   // Translation helper function
   const t = (field: LocalizedString | string | undefined, fallback = ''): string => {
     if (!field) return fallback;
-    if (typeof field === 'string') return field;
+    
+    // Handle string inputs (check static dictionary)
+    if (typeof field === 'string') {
+      if (UI_TRANSLATIONS[field]) {
+        return language === 'mr' ? UI_TRANSLATIONS[field].mr : UI_TRANSLATIONS[field].en;
+      }
+      return field;
+    }
+    
+    // Handle LocalizedString objects
     if (language === 'mr' && field.mr && field.mr.trim() !== '') {
       return field.mr;
     }

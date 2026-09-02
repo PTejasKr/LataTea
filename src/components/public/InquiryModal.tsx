@@ -9,7 +9,7 @@ interface InquiryModalProps {
 }
 
 export const InquiryModal: React.FC<InquiryModalProps> = ({ isOpen, onClose, defaultProduct }) => {
-  const { publishedState } = useCMS();
+  const { publishedState, t } = useCMS();
   const [name, setName] = useState('');
   const [businessName, setBusinessName] = useState('');
   const [email, setEmail] = useState('');

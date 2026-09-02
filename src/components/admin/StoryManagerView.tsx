@@ -127,63 +127,58 @@ export const StoryManagerView: React.FC = () => {
 
         <div className="grid grid-cols-1 gap-5">
           <div>
-            <label className="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1.5">
-              Category Tagline ({activeLang.toUpperCase()})
-            </label>
-            <input
-              type="text"
-              value={story.tagline[activeLang] || ''}
-              onChange={e => updateStory('tagline', { [activeLang]: e.target.value })}
-              className="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:border-amber-500 focus:outline-none"
-            />
+            <div>
+    <label className="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1">Category Tagline (EN)</label>
+    <input type="text" value={story.tagline.en || ''} onChange={e => updateStory('tagline', { en: e.target.value })} className="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:border-amber-500 focus:outline-none" />
+  </div>
+  <div className="mt-3">
+    <label className="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1">Category Tagline (MR)</label>
+    <input type="text" value={story.tagline.mr || ''} onChange={e => updateStory('tagline', { mr: e.target.value })} className="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:border-amber-500 focus:outline-none" />
+  </div>
           </div>
 
           <div>
-            <label className="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1.5">
-              Headline ({activeLang.toUpperCase()})
-            </label>
-            <input
-              type="text"
-              value={story.heading[activeLang] || ''}
-              onChange={e => updateStory('heading', { [activeLang]: e.target.value })}
-              className="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:border-amber-500 focus:outline-none font-semibold text-slate-900"
-            />
+            <div>
+    <label className="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1">Headline (EN)</label>
+    <input type="text" value={story.heading.en || ''} onChange={e => updateStory('heading', { en: e.target.value })} className="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:border-amber-500 focus:outline-none font-semibold text-slate-900" />
+  </div>
+  <div className="mt-3">
+    <label className="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1">Headline (MR)</label>
+    <input type="text" value={story.heading.mr || ''} onChange={e => updateStory('heading', { mr: e.target.value })} className="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:border-amber-500 focus:outline-none font-semibold text-slate-900" />
+  </div>
           </div>
 
           <div>
-            <label className="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1.5">
-              Subheading Narrative ({activeLang.toUpperCase()})
-            </label>
-            <textarea
-              rows={2}
-              value={story.subheading[activeLang] || ''}
-              onChange={e => updateStory('subheading', { [activeLang]: e.target.value })}
-              className="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:border-amber-500 focus:outline-none leading-relaxed"
-            />
+            <div>
+    <label className="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1">Subheading Narrative (EN)</label>
+    <textarea rows={2} value={story.subheading.en || ''} onChange={e => updateStory('subheading', { en: e.target.value })} className="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:border-amber-500 focus:outline-none leading-relaxed" />
+  </div>
+  <div className="mt-3">
+    <label className="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1">Subheading Narrative (MR)</label>
+    <textarea rows={2} value={story.subheading.mr || ''} onChange={e => updateStory('subheading', { mr: e.target.value })} className="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:border-amber-500 focus:outline-none leading-relaxed" />
+  </div>
           </div>
 
           <div>
-            <label className="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1.5">
-              Introduction Paragraph ({activeLang.toUpperCase()})
-            </label>
-            <textarea
-              rows={3}
-              value={story.introduction[activeLang] || ''}
-              onChange={e => updateStory('introduction', { [activeLang]: e.target.value })}
-              className="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:border-amber-500 focus:outline-none leading-relaxed"
-            />
+            <div>
+    <label className="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1">Introduction Paragraph (EN)</label>
+    <textarea rows={3} value={story.introduction.en || ''} onChange={e => updateStory('introduction', { en: e.target.value })} className="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:border-amber-500 focus:outline-none leading-relaxed" />
+  </div>
+  <div className="mt-3">
+    <label className="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1">Introduction Paragraph (MR)</label>
+    <textarea rows={3} value={story.introduction.mr || ''} onChange={e => updateStory('introduction', { mr: e.target.value })} className="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:border-amber-500 focus:outline-none leading-relaxed" />
+  </div>
           </div>
 
           <div>
-            <label className="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1.5">
-              Pull Quote ({activeLang.toUpperCase()})
-            </label>
-            <textarea
-              rows={2}
-              value={story.quote[activeLang] || ''}
-              onChange={e => updateStory('quote', { [activeLang]: e.target.value })}
-              className="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:border-amber-500 focus:outline-none italic text-amber-900 bg-amber-50/50"
-            />
+            <div>
+    <label className="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1">Pull Quote (EN)</label>
+    <textarea rows={2} value={story.quote.en || ''} onChange={e => updateStory('quote', { en: e.target.value })} className="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:border-amber-500 focus:outline-none italic text-amber-900 bg-amber-50/50" />
+  </div>
+  <div className="mt-3">
+    <label className="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1">Pull Quote (MR)</label>
+    <textarea rows={2} value={story.quote.mr || ''} onChange={e => updateStory('quote', { mr: e.target.value })} className="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:border-amber-500 focus:outline-none italic text-amber-900 bg-amber-50/50" />
+  </div>
           </div>
         </div>
       </div>
@@ -208,27 +203,25 @@ export const StoryManagerView: React.FC = () => {
 
         <div className="grid grid-cols-1 gap-5">
           <div>
-            <label className="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1.5">
-              Heritage Headline ({activeLang.toUpperCase()})
-            </label>
-            <input
-              type="text"
-              value={heritage.heading[activeLang] || ''}
-              onChange={e => updateHeritage('heading', { [activeLang]: e.target.value })}
-              className="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:border-amber-500 focus:outline-none font-semibold text-slate-900"
-            />
+            <div>
+    <label className="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1">Heritage Headline (EN)</label>
+    <input type="text" value={heritage.heading.en || ''} onChange={e => updateHeritage('heading', { en: e.target.value })} className="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:border-amber-500 focus:outline-none font-semibold text-slate-900" />
+  </div>
+  <div className="mt-3">
+    <label className="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1">Heritage Headline (MR)</label>
+    <input type="text" value={heritage.heading.mr || ''} onChange={e => updateHeritage('heading', { mr: e.target.value })} className="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:border-amber-500 focus:outline-none font-semibold text-slate-900" />
+  </div>
           </div>
 
           <div>
-            <label className="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1.5">
-              Heritage Subheading ({activeLang.toUpperCase()})
-            </label>
-            <textarea
-              rows={2}
-              value={heritage.subheading[activeLang] || ''}
-              onChange={e => updateHeritage('subheading', { [activeLang]: e.target.value })}
-              className="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:border-amber-500 focus:outline-none"
-            />
+            <div>
+    <label className="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1">Heritage Subheading (EN)</label>
+    <textarea rows={2} value={heritage.subheading.en || ''} onChange={e => updateHeritage('subheading', { en: e.target.value })} className="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:border-amber-500 focus:outline-none" />
+  </div>
+  <div className="mt-3">
+    <label className="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1">Heritage Subheading (MR)</label>
+    <textarea rows={2} value={heritage.subheading.mr || ''} onChange={e => updateHeritage('subheading', { mr: e.target.value })} className="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:border-amber-500 focus:outline-none" />
+  </div>
           </div>
         </div>
 

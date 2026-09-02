@@ -4,7 +4,7 @@ import { Mail, MapPin, Phone, Send, CheckCircle2 } from 'lucide-react';
 import { RegistrationAndContact } from '../components/public/RegistrationAndContact';
 
 export const ContactPage: React.FC = () => {
-  const { publishedState } = useCMS();
+  const { publishedState, t } = useCMS();
   const contact = publishedState.contact;
   const [formSubmitted, setFormSubmitted] = useState(false);
   const [formData, setFormData] = useState({
@@ -66,7 +66,7 @@ export const ContactPage: React.FC = () => {
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-xs font-bold text-brand-primary uppercase mb-1">Your Name *</label>
+                    <label className="block text-xs font-bold text-brand-primary uppercase mb-1">{t('Your Name')} *</label>
                     <input
                       required
                       type="text"
@@ -77,7 +77,7 @@ export const ContactPage: React.FC = () => {
                     />
                   </div>
                   <div>
-                    <label className="block text-xs font-bold text-brand-primary uppercase mb-1">Company / Establishment</label>
+                    <label className="block text-xs font-bold text-brand-primary uppercase mb-1">{t('Company / Establishment')}</label>
                     <input
                       type="text"
                       value={formData.company}
@@ -90,7 +90,7 @@ export const ContactPage: React.FC = () => {
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-xs font-bold text-brand-primary uppercase mb-1">Phone / WhatsApp *</label>
+                    <label className="block text-xs font-bold text-brand-primary uppercase mb-1">{t('Phone / WhatsApp')} *</label>
                     <input
                       required
                       type="tel"
@@ -101,7 +101,7 @@ export const ContactPage: React.FC = () => {
                     />
                   </div>
                   <div>
-                    <label className="block text-xs font-bold text-brand-primary uppercase mb-1">Email Address</label>
+                    <label className="block text-xs font-bold text-brand-primary uppercase mb-1">{t('Email Address')}</label>
                     <input
                       type="email"
                       value={formData.email}
@@ -113,7 +113,7 @@ export const ContactPage: React.FC = () => {
                 </div>
 
                 <div>
-                  <label className="block text-xs font-bold text-brand-primary uppercase mb-1">Business Sector</label>
+                  <label className="block text-xs font-bold text-brand-primary uppercase mb-1">{t('Business Sector')}</label>
                   <select
                     value={formData.sector}
                     onChange={e => setFormData({ ...formData, sector: e.target.value })}
@@ -130,7 +130,7 @@ export const ContactPage: React.FC = () => {
                 </div>
 
                 <div>
-                  <label className="block text-xs font-bold text-brand-primary uppercase mb-1">Requirements & Delivery Address</label>
+                  <label className="block text-xs font-bold text-brand-primary uppercase mb-1">{t('Requirements & Delivery Address')}</label>
                   <textarea
                     rows={4}
                     value={formData.message}
