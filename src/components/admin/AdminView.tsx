@@ -1,17 +1,17 @@
 import React, { useState } from 'react';
 import { AdminLayout, AdminTab } from './AdminLayout';
 import { DashboardView } from './DashboardView';
-import { TextView } from './TextView';
+import { StoryManagerView } from './StoryManagerView';
+import { CraftManagerView } from './CraftManagerView';
+import { TeaStoriesManagerView } from './TeaStoriesManagerView';
+import { LanguagesManagerView } from './LanguagesManagerView';
 import { NavManagerView } from './NavManagerView';
-import { ProductManagerView } from './ProductManagerView';
-import { SolutionManagerView } from './SolutionManagerView';
+import { DomainManagerView } from './DomainManagerView';
 import { ImagePositionEditorView } from './ImagePositionEditorView';
 import { MediaLibraryView } from './MediaLibraryView';
 import { SectionManagerView } from './SectionManagerView';
-import { BrandSettingsView } from './BrandSettingsView';
 import { ContactManagerView } from './ContactManagerView';
 import { SeoManagerView } from './SeoManagerView';
-import { DomainManagerView } from './DomainManagerView';
 import { PublishModal } from './PublishModal';
 import { PreviewModal } from './PreviewModal';
 import { CmsLoginView } from './CmsLoginView';
@@ -39,15 +39,15 @@ export const AdminView: React.FC = () => {
             onOpenPublishModal={() => setShowPublishModal(true)}
           />
         )}
-        {activeTab === 'text' && <TextView />}
+        {activeTab === 'story' && <StoryManagerView />}
+        {activeTab === 'craft' && <CraftManagerView />}
+        {activeTab === 'tea-stories' && <TeaStoriesManagerView />}
+        {activeTab === 'languages' && <LanguagesManagerView />}
         {activeTab === 'navigation' && <NavManagerView />}
-        {activeTab === 'products' && <ProductManagerView />}
-        {activeTab === 'solutions' && <SolutionManagerView />}
         {activeTab === 'domains' && <DomainManagerView />}
         {activeTab === 'image-position' && <ImagePositionEditorView />}
         {activeTab === 'media-library' && <MediaLibraryView />}
         {activeTab === 'sections' && <SectionManagerView />}
-        {activeTab === 'brand' && <BrandSettingsView />}
         {activeTab === 'contact' && <ContactManagerView />}
         {activeTab === 'seo' && <SeoManagerView />}
       </AdminLayout>
@@ -67,3 +67,5 @@ export const AdminView: React.FC = () => {
     </>
   );
 };
+
+export default AdminView;

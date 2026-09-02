@@ -19,7 +19,7 @@ interface RegistrationAndContactProps {
 }
 
 export const RegistrationAndContact: React.FC<RegistrationAndContactProps> = ({ isDraftPreview = false }) => {
-  const { publishedState, draftState } = useCMS();
+  const { publishedState, draftState, language, t } = useCMS();
   const state = isDraftPreview ? draftState : publishedState;
   const contact = state.contact;
   const [copiedBank, setCopiedBank] = useState(false);
@@ -35,24 +35,26 @@ export const RegistrationAndContact: React.FC<RegistrationAndContactProps> = ({ 
   const whatsappUrl = `https://wa.me/${whatsappNumber}?text=Hi%20LataTea%2C%20I%20would%20like%20to%20inquire%20about%20your%20tea%20products%20and%20request%20samples.`;
 
   return (
-    <section id="contact" className="py-20 bg-[#FAF6EE] relative">
+    <section id="contact" className="py-24 bg-[#FAF6EE] relative border-t border-amber-900/10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
           <span className="text-xs sm:text-sm font-bold uppercase tracking-widest text-lataamber-600 mb-2 block font-sans">
-            STATUTORY & CORPORATE DETAILS
+            {language === 'mr' ? 'कायदेशीर आणि कॉर्पोरेट माहिती' : 'STATUTORY & CORPORATE DETAILS'}
           </span>
-          <h2 className="font-rajwada text-3xl sm:text-4xl md:text-5xl font-black text-[#1E3F20] tracking-tight">
-            Official Registration & Contact
+          <h2 className="font-rajwada text-3xl sm:text-4xl md:text-5xl font-bold text-[#1E3F20] tracking-tight">
+            {language === 'mr' ? 'नोंदणीकृत तपशील आणि संपर्क' : 'Official Registration & Contact'}
           </h2>
           <div className="flex items-center justify-center gap-2 my-4">
             <div className="h-0.5 w-12 bg-lataamber-500" />
-            <div className="w-2 h-2 rounded-full bg-lataamber-500" />
+            <div className="w-2 h-2 rotate-45 bg-lataamber-500" />
             <div className="h-0.5 w-12 bg-lataamber-500" />
           </div>
-          <p className="text-base sm:text-lg text-slate-700 font-sans">
-            Verified corporate credentials, food safety registration, and official communication channels.
+          <p className="text-base sm:text-lg text-slate-700 font-sans font-light">
+            {language === 'mr'
+              ? 'प्रमाणित सरकारी परवाने, अन्न सुरक्षा प्रमाणपत्रे आणि अधिकृत संपर्क माध्यमे.'
+              : 'Verified corporate credentials, food safety registrations, and official communication channels.'}
           </p>
         </div>
 
@@ -62,12 +64,12 @@ export const RegistrationAndContact: React.FC<RegistrationAndContactProps> = ({ 
           {/* Card 1: Corporate Office */}
           <div className="bg-white rounded-3xl p-8 border border-amber-200/80 shadow-lg flex flex-col justify-between space-y-6">
             <div className="space-y-4">
-              <div className="w-12 h-12 rounded-2xl bg-latagreen-50 flex items-center justify-center text-[#1E3F20] border border-latagreen-200">
+              <div className="w-12 h-12 rounded-2xl bg-[#FAF6EE] flex items-center justify-center text-[#1E3F20] border border-amber-200">
                 <Building2 className="w-6 h-6 text-[#1E3F20]" />
               </div>
               
               <h3 className="font-rajwada font-bold text-2xl text-[#1E3F20]">
-                Corporate Office
+                {language === 'mr' ? 'कॉर्पोरेट कार्यालय' : 'Corporate Office'}
               </h3>
 
               <div className="font-sans font-bold text-sm text-slate-800">
@@ -88,18 +90,18 @@ export const RegistrationAndContact: React.FC<RegistrationAndContactProps> = ({ 
 
               <div className="pt-2 border-t border-slate-100 space-y-1.5">
                 <span className="text-[11px] font-bold text-slate-400 uppercase tracking-wider block">
-                  Direct Inquiries:
+                  {language === 'mr' ? 'थेट फोन संपर्क:' : 'Direct Inquiries:'}
                 </span>
                 <div className="flex items-center gap-2 text-xs font-semibold text-slate-800">
-                  <Phone className="w-3.5 h-3.5 text-lataleaf-500" />
+                  <Phone className="w-3.5 h-3.5 text-lataleaf-600" />
                   <a href="tel:+917666953873" className="hover:text-amber-600">+91 7666953873</a>
                 </div>
                 <div className="flex items-center gap-2 text-xs font-semibold text-slate-800">
-                  <Phone className="w-3.5 h-3.5 text-lataleaf-500" />
+                  <Phone className="w-3.5 h-3.5 text-lataleaf-600" />
                   <a href="tel:+918483067383" className="hover:text-amber-600">+91 8483067383</a>
                 </div>
                 <div className="flex items-center gap-2 text-xs font-semibold text-slate-800">
-                  <Phone className="w-3.5 h-3.5 text-lataleaf-500" />
+                  <Phone className="w-3.5 h-3.5 text-lataleaf-600" />
                   <a href="tel:+919595333976" className="hover:text-amber-600">+91 9595333976</a>
                 </div>
               </div>
@@ -114,7 +116,7 @@ export const RegistrationAndContact: React.FC<RegistrationAndContactProps> = ({ 
                 className="w-full py-3.5 px-4 rounded-2xl bg-[#25D366] hover:bg-[#20bd5a] text-white text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-2 shadow-md hover:shadow-lg transition-all hover:scale-102"
               >
                 <MessageCircle className="w-4 h-4 fill-white" />
-                <span>1-Click WhatsApp Chat</span>
+                <span>{language === 'mr' ? '१-क्लिक व्हॉट्सॲप चॅट' : '1-Click WhatsApp Chat'}</span>
               </a>
 
               <div className="flex items-center gap-2 text-xs font-semibold text-slate-600 justify-center">
@@ -134,30 +136,38 @@ export const RegistrationAndContact: React.FC<RegistrationAndContactProps> = ({ 
               </div>
 
               <h3 className="font-rajwada font-bold text-2xl text-[#1E3F20]">
-                Certifications & Compliance
+                {language === 'mr' ? 'प्रमाणपत्रे आणि अनुपालन' : 'Certifications & Compliance'}
               </h3>
 
               <p className="text-xs text-slate-600 font-sans leading-relaxed font-light">
-                Manufactured under strict ISO & FSSAI food hygiene parameters.
+                {language === 'mr' 
+                  ? 'अन्न स्वच्छता आणि सुरक्षेच्या कठोर मानकांनुसार प्रमाणित.'
+                  : 'Manufactured under strict ISO & FSSAI food hygiene parameters.'}
               </p>
 
               <div className="space-y-3 pt-2">
                 <div className="p-3.5 rounded-2xl bg-amber-50/60 border border-amber-200/80">
-                  <div className="text-[10px] uppercase font-bold text-slate-400 tracking-wider">FSSAI LICENSE NO.</div>
+                  <div className="text-[10px] uppercase font-bold text-slate-400 tracking-wider">
+                    {language === 'mr' ? 'एफएसएसएआय परवाना क्रमांक' : 'FSSAI LICENSE NO.'}
+                  </div>
                   <div className="font-mono text-sm font-black text-[#1E3F20] tracking-wider mt-0.5">
                     {contact.registration.fssai || '11525996000709'}
                   </div>
                 </div>
 
                 <div className="p-3.5 rounded-2xl bg-amber-50/60 border border-amber-200/80">
-                  <div className="text-[10px] uppercase font-bold text-slate-400 tracking-wider">GST IDENTIFICATION NO. (GSTIN)</div>
+                  <div className="text-[10px] uppercase font-bold text-slate-400 tracking-wider">
+                    {language === 'mr' ? 'जीएसटी क्रमांक (GSTIN)' : 'GST IDENTIFICATION NO. (GSTIN)'}
+                  </div>
                   <div className="font-mono text-sm font-black text-[#1E3F20] tracking-wider mt-0.5">
                     {contact.registration.gst || '27AAPCP3820M1ZX'}
                   </div>
                 </div>
 
                 <div className="p-3.5 rounded-2xl bg-amber-50/60 border border-amber-200/80">
-                  <div className="text-[10px] uppercase font-bold text-slate-400 tracking-wider">IMPORTER-EXPORTER CODE (IEC)</div>
+                  <div className="text-[10px] uppercase font-bold text-slate-400 tracking-wider">
+                    {language === 'mr' ? 'आयात-निर्यात कोड (IEC)' : 'IMPORTER-EXPORTER CODE (IEC)'}
+                  </div>
                   <div className="font-mono text-sm font-black text-[#1E3F20] tracking-wider mt-0.5">
                     {contact.registration.iec || 'AAPCP3820M'}
                   </div>
@@ -167,7 +177,7 @@ export const RegistrationAndContact: React.FC<RegistrationAndContactProps> = ({ 
 
             <div className="flex items-center gap-2 text-xs font-semibold text-lataleaf-600 pt-2">
               <CheckCircle2 className="w-4 h-4 text-lataleaf-500" />
-              <span>Verified Government Registration</span>
+              <span>{language === 'mr' ? 'प्रमाणित सरकारी नोंदणी' : 'Verified Government Registration'}</span>
             </div>
           </div>
 
@@ -179,37 +189,47 @@ export const RegistrationAndContact: React.FC<RegistrationAndContactProps> = ({ 
               </div>
 
               <h3 className="font-rajwada font-bold text-2xl text-[#1E3F20]">
-                Commercial Banking
+                {language === 'mr' ? 'व्यावसायिक बँक तपशील' : 'Commercial Banking'}
               </h3>
 
               <p className="text-xs text-slate-600 font-sans leading-relaxed font-light">
-                Official account for RTGS / NEFT commercial wholesale transactions.
+                {language === 'mr'
+                  ? 'घाऊक आणि संस्थात्मक व्यवहारांसाठी अधिकृत बँक खाते.'
+                  : 'Official account for RTGS / NEFT commercial wholesale transactions.'}
               </p>
 
               <div className="space-y-3 pt-2">
                 <div>
-                  <div className="text-[10px] uppercase font-bold text-slate-400">BENEFICIARY NAME</div>
+                  <div className="text-[10px] uppercase font-bold text-slate-400">
+                    {language === 'mr' ? 'खातेदाराचे नाव' : 'BENEFICIARY NAME'}
+                  </div>
                   <div className="text-xs font-bold text-slate-900 mt-0.5">
                     {contact.payment.accountName || 'Purple Bean Agro Industries Private Limited'}
                   </div>
                 </div>
 
                 <div>
-                  <div className="text-[10px] uppercase font-bold text-slate-400">BANK NAME</div>
+                  <div className="text-[10px] uppercase font-bold text-slate-400">
+                    {language === 'mr' ? 'बँकेचे नाव' : 'BANK NAME'}
+                  </div>
                   <div className="text-xs font-bold text-slate-900 mt-0.5">
                     {contact.payment.bankName || 'IDFC First Bank'}
                   </div>
                 </div>
 
                 <div>
-                  <div className="text-[10px] uppercase font-bold text-slate-400">CURRENT ACCOUNT NUMBER</div>
+                  <div className="text-[10px] uppercase font-bold text-slate-400">
+                    {language === 'mr' ? 'चालू खाते क्रमांक' : 'CURRENT ACCOUNT NUMBER'}
+                  </div>
                   <div className="font-mono text-sm font-black text-slate-900 mt-0.5 tracking-wider">
                     {contact.payment.accountNumber || '10227953860'}
                   </div>
                 </div>
 
                 <div>
-                  <div className="text-[10px] uppercase font-bold text-slate-400">IFSC CODE</div>
+                  <div className="text-[10px] uppercase font-bold text-slate-400">
+                    {language === 'mr' ? 'आयएफएससी कोड (IFSC)' : 'IFSC CODE'}
+                  </div>
                   <div className="font-mono text-sm font-black text-slate-900 mt-0.5 tracking-wider">
                     {contact.payment.ifscCode || 'IDFB0041438'}
                   </div>
@@ -221,24 +241,20 @@ export const RegistrationAndContact: React.FC<RegistrationAndContactProps> = ({ 
               <button
                 type="button"
                 onClick={handleCopyBank}
-                className="w-full py-2.5 px-4 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-800 text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-2 border border-slate-300 transition-all"
+                className="w-full py-2.5 px-4 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-800 text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-2 border border-slate-300 transition-all cursor-pointer"
               >
                 {copiedBank ? (
                   <>
                     <Check className="w-3.5 h-3.5 text-lataleaf-600" />
-                    <span>Copied to Clipboard!</span>
+                    <span>{language === 'mr' ? 'माहिती कॉपी झाली!' : 'Copied to Clipboard!'}</span>
                   </>
                 ) : (
                   <>
                     <Copy className="w-3.5 h-3.5" />
-                    <span>Copy Bank Details</span>
+                    <span>{language === 'mr' ? 'बँक तपशील कॉपी करा' : 'Copy Bank Details'}</span>
                   </>
                 )}
               </button>
-
-              <div className="p-3 rounded-xl bg-amber-50/60 border border-amber-200/60 text-[11px] text-slate-500 text-center font-sans">
-                Please attach payment screenshot when submitting quotation confirmations.
-              </div>
             </div>
           </div>
 

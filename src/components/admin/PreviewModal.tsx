@@ -1,16 +1,15 @@
 import React, { useState } from 'react';
 import { useCMS } from '../../context/CMSContext';
 import { Navbar } from '../public/Navbar';
-import { Hero } from '../public/Hero';
-import { BrandTicker } from '../common/BrandTicker';
-import { BrandStory } from '../public/BrandStory';
-import { ProductCatalog } from '../public/ProductCatalog';
-import { ApplicationsSection } from '../public/ApplicationsSection';
-import { PreparationGuide } from '../public/PreparationGuide';
-import { OrderingRoadmap } from '../public/OrderingRoadmap';
-import { OrderTrackingSection } from '../public/OrderTrackingSection';
+import { EditorialHero } from '../public/EditorialHero';
+import { BrandStorySection } from '../public/BrandStorySection';
+import { HeritageSection } from '../public/HeritageSection';
+import { CraftSection } from '../public/CraftSection';
+import { TeaStoryCollection } from '../public/TeaStoryCollection';
+import { TeaExperienceSection } from '../public/TeaExperienceSection';
+import { WhyLataSection } from '../public/WhyLataSection';
+import { BrandStatementSection } from '../public/BrandStatementSection';
 import { RegistrationAndContact } from '../public/RegistrationAndContact';
-import { CtaSection } from '../public/CtaSection';
 import { Footer } from '../public/Footer';
 import { 
   Monitor, 
@@ -19,7 +18,8 @@ import {
   X, 
   UploadCloud, 
   RefreshCw,
-  RotateCcw
+  RotateCcw,
+  Globe
 } from 'lucide-react';
 
 interface PreviewModalProps {
@@ -34,11 +34,12 @@ export const PreviewModal: React.FC<PreviewModalProps> = ({
   onOpenPublish
 }) => {
   const { 
-    draftState, 
     previewDevice, 
     setPreviewDevice, 
     hasDraftChanges,
-    discardDraft 
+    discardDraft,
+    language,
+    setLanguage 
   } = useCMS();
 
   const [refreshKey, setRefreshKey] = useState(0);
@@ -57,115 +58,100 @@ export const PreviewModal: React.FC<PreviewModalProps> = ({
     }
   };
 
-  const sections = [...draftState.sections]
-    .filter(s => s.isEnabled)
-    .sort((a, b) => a.order - b.order);
-
-  const renderSectionByKey = (key: string) => {
-    switch (key) {
-      case 'hero':
-        return (
-          <React.Fragment key="hero-preview-group">
-            <Hero onOpenInquiry={() => {}} isDraftPreview={true} />
-            <BrandTicker />
-          </React.Fragment>
-        );
-      case 'about':
-        return <BrandStory key="about" isDraftPreview={true} />;
-      case 'products':
-        return <ProductCatalog key="products" onOpenInquiry={() => {}} isDraftPreview={true} />;
-      case 'applications':
-        return <ApplicationsSection key="applications" onOpenInquiry={() => {}} isDraftPreview={true} />;
-      case 'preparation':
-        return <PreparationGuide key="preparation" isDraftPreview={true} />;
-      case 'ordering':
-        return <OrderingRoadmap key="ordering" onOpenInquiry={() => {}} isDraftPreview={true} />;
-      case 'track':
-        return <OrderTrackingSection key="track" />;
-      case 'cta':
-        return <CtaSection key="cta" onOpenInquiry={() => {}} isDraftPreview={true} />;
-      case 'contact':
-        return <RegistrationAndContact key="contact" isDraftPreview={true} />;
-      case 'footer':
-        return <Footer key="footer" isDraftPreview={true} />;
-      default:
-        return null;
-    }
-  };
-
   return (
     <div className="fixed inset-0 z-50 bg-slate-950/90 backdrop-blur-md flex flex-col font-sans">
       {/* Top Preview Control Bar */}
       <header className="h-16 bg-slate-900 border-b border-slate-800 px-6 flex items-center justify-between z-10 shrink-0">
         <div className="flex items-center gap-3">
-          <span className="font-bold text-sm text-white flex items-center gap-2">
-            <span>Multi-Device Draft Simulator</span>
-            {hasDraftChanges && (
-              <span className="text-[10px] font-bold px-2 py-0.5 rounded bg-amber-500/20 text-amber-300 border border-amber-500/30">
-                Draft Mode
-              </span>
-            )}
+          <div className="w-2.5 h-2.5 rounded-full bg-amber-400 animate-pulse" />
+          <h2 className="text-sm font-bold text-white tracking-wider font-serif">
+            Live Draft Preview Canvas
+          </h2>
+          <span className="text-[11px] font-mono text-slate-400 px-2.5 py-0.5 rounded-full bg-slate-800 border border-slate-700">
+            Unpublished Edits
           </span>
         </div>
 
-        {/* Viewport Selectors */}
-        <div className="flex items-center bg-slate-950 p-1 rounded-xl border border-slate-800">
-          <button
-            onClick={() => setPreviewDevice('desktop')}
-            className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold transition-all ${
-              previewDevice === 'desktop'
-                ? 'bg-amber-500 text-slate-950 shadow-sm'
-                : 'text-slate-400 hover:text-white'
-            }`}
-          >
-            <Monitor className="w-4 h-4" />
-            <span className="hidden sm:inline">Desktop</span>
-          </button>
-
-          <button
-            onClick={() => setPreviewDevice('tablet')}
-            className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold transition-all ${
-              previewDevice === 'tablet'
-                ? 'bg-amber-500 text-slate-950 shadow-sm'
-                : 'text-slate-400 hover:text-white'
-            }`}
-          >
-            <Tablet className="w-4 h-4" />
-            <span className="hidden sm:inline">Tablet</span>
-          </button>
-
-          <button
-            onClick={() => setPreviewDevice('mobile')}
-            className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold transition-all ${
-              previewDevice === 'mobile'
-                ? 'bg-amber-500 text-slate-950 shadow-sm'
-                : 'text-slate-400 hover:text-white'
-            }`}
-          >
-            <Smartphone className="w-4 h-4" />
-            <span className="hidden sm:inline">Mobile</span>
-          </button>
-        </div>
-
-        {/* Right Actions */}
+        {/* Device Switcher & Language Switcher */}
         <div className="flex items-center gap-3">
+          {/* Language Switcher */}
+          <div className="flex items-center p-0.5 rounded-xl bg-slate-800 border border-slate-700 text-xs">
+            <button
+              type="button"
+              onClick={() => setLanguage('en')}
+              className={`px-2.5 py-1 rounded-lg transition-all ${
+                language === 'en' ? 'bg-amber-500 text-slate-950 font-bold' : 'text-slate-400'
+              }`}
+            >
+              EN
+            </button>
+            <button
+              type="button"
+              onClick={() => setLanguage('mr')}
+              className={`px-2.5 py-1 rounded-lg transition-all ${
+                language === 'mr' ? 'bg-amber-500 text-slate-950 font-bold' : 'text-slate-400'
+              }`}
+            >
+              मराठी
+            </button>
+          </div>
+
+          {/* Device Toggles */}
+          <div className="flex items-center bg-slate-800 p-1 rounded-xl border border-slate-700 gap-1">
+            <button
+              type="button"
+              onClick={() => setPreviewDevice('desktop')}
+              className={`p-1.5 rounded-lg transition-colors ${
+                previewDevice === 'desktop' ? 'bg-slate-700 text-amber-300' : 'text-slate-400 hover:text-white'
+              }`}
+              title="Desktop View"
+            >
+              <Monitor className="w-4 h-4" />
+            </button>
+            <button
+              type="button"
+              onClick={() => setPreviewDevice('tablet')}
+              className={`p-1.5 rounded-lg transition-colors ${
+                previewDevice === 'tablet' ? 'bg-slate-700 text-amber-300' : 'text-slate-400 hover:text-white'
+              }`}
+              title="Tablet View (iPad)"
+            >
+              <Tablet className="w-4 h-4" />
+            </button>
+            <button
+              type="button"
+              onClick={() => setPreviewDevice('mobile')}
+              className={`p-1.5 rounded-lg transition-colors ${
+                previewDevice === 'mobile' ? 'bg-slate-700 text-amber-300' : 'text-slate-400 hover:text-white'
+              }`}
+              title="Mobile View (iPhone)"
+            >
+              <Smartphone className="w-4 h-4" />
+            </button>
+          </div>
+
           <button
-            onClick={() => setRefreshKey(k => k + 1)}
-            className="p-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 transition-colors"
-            title="Reload Preview"
+            type="button"
+            onClick={() => setRefreshKey(prev => prev + 1)}
+            className="p-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-400 hover:text-white border border-slate-700 transition-colors"
+            title="Force Re-render Canvas"
           >
             <RefreshCw className="w-4 h-4" />
           </button>
+        </div>
 
+        {/* Action Buttons */}
+        <div className="flex items-center gap-3">
           {hasDraftChanges && (
             <button
+              type="button"
               onClick={() => {
-                if (window.confirm('Discard draft modifications?')) {
+                if (window.confirm('Discard draft and exit preview?')) {
                   discardDraft();
                   onClose();
                 }
               }}
-              className="px-3 py-1.5 rounded-lg bg-rose-500/20 text-rose-300 hover:bg-rose-500/30 text-xs font-semibold border border-rose-500/30 transition-colors flex items-center gap-1"
+              className="px-3 py-1.5 rounded-lg text-xs font-semibold bg-rose-500/20 text-rose-300 border border-rose-500/30 flex items-center gap-1.5"
             >
               <RotateCcw className="w-3.5 h-3.5" />
               <span>Discard</span>
@@ -173,37 +159,53 @@ export const PreviewModal: React.FC<PreviewModalProps> = ({
           )}
 
           <button
+            type="button"
             onClick={() => {
               onClose();
               onOpenPublish();
             }}
-            className="px-4 py-1.5 rounded-lg bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold uppercase tracking-wider text-xs shadow-md transition-all flex items-center gap-1.5"
+            disabled={!hasDraftChanges}
+            className={`px-4 py-1.5 rounded-lg text-xs font-bold flex items-center gap-1.5 ${
+              hasDraftChanges
+                ? 'bg-amber-500 hover:bg-amber-600 text-slate-950'
+                : 'bg-slate-700 text-slate-400 cursor-not-allowed'
+            }`}
           >
-            <UploadCloud className="w-3.5 h-3.5" />
-            <span>Publish Live</span>
+            <UploadCloud className="w-4 h-4" />
+            <span>Publish Draft</span>
           </button>
 
           <button
+            type="button"
             onClick={onClose}
-            className="p-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white transition-colors"
+            className="p-1.5 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800 transition-colors"
           >
             <X className="w-5 h-5" />
           </button>
         </div>
       </header>
 
-      {/* Frame Container */}
+      {/* Main Sandbox Frame */}
       <div className="flex-1 overflow-auto p-4 sm:p-8 flex items-center justify-center bg-slate-950">
         <div
           key={refreshKey}
-          className={`${getContainerWidthClass()} bg-[#FAF6EE] text-[#1A2416] overflow-y-auto relative transition-all duration-300`}
+          className={`${getContainerWidthClass()} bg-[#FAF6EE] text-[#1A2416] overflow-y-auto relative transition-all duration-300 select-none`}
         >
-          {/* Mock Preview Content */}
-          <div className="min-h-full flex flex-col pointer-events-auto">
-            <Navbar onOpenInquiry={() => {}} isDraftPreview={true} />
-            <div className="flex-grow">
-              {sections.map(section => renderSectionByKey(section.key))}
-            </div>
+          {/* Mock Public Top Navigation */}
+          <Navbar isDraftPreview={true} />
+
+          {/* Sequential 11-Step Editorial Canvas */}
+          <div className="space-y-0">
+            <EditorialHero isDraftPreview={true} />
+            <BrandStorySection isDraftPreview={true} />
+            <HeritageSection isDraftPreview={true} />
+            <CraftSection isDraftPreview={true} />
+            <TeaStoryCollection isDraftPreview={true} />
+            <TeaExperienceSection isDraftPreview={true} />
+            <WhyLataSection isDraftPreview={true} />
+            <RegistrationAndContact isDraftPreview={true} />
+            <BrandStatementSection isDraftPreview={true} />
+            <Footer />
           </div>
         </div>
       </div>

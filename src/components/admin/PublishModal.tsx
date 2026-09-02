@@ -141,9 +141,9 @@ export const PublishModal: React.FC<PublishModalProps> = ({ isOpen, onClose }) =
               {/* Publication Scope Summary */}
               <div className="grid grid-cols-3 gap-3 text-center">
                 <div className="p-3 rounded-xl bg-slate-900 border border-slate-800">
-                  <div className="text-slate-400 text-[10px] uppercase font-bold">Active Products</div>
+                  <div className="text-slate-400 text-[10px] uppercase font-bold">Tea Stories</div>
                   <div className="text-lg font-bold text-white mt-0.5">
-                    {draftState.products.filter(p => p.isVisible).length}
+                    {(draftState.teaStories || []).filter(p => p.isVisible).length}
                   </div>
                 </div>
                 <div className="p-3 rounded-xl bg-slate-900 border border-slate-800">

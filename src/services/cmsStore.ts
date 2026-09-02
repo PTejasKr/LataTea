@@ -1,8 +1,8 @@
-import { CMSState, MediaItem, MediaSlot, ProductItem, SolutionItem, ValidationIssue } from '../types/cms';
+import { CMSState, MediaItem, MediaSlot, TeaStoryItem, ValidationIssue } from '../types/cms';
 import { INITIAL_CMS_STATE } from '../data/defaultContent';
 
-const STORAGE_KEY_PUBLISHED = 'latatea_cms_published_v2';
-const STORAGE_KEY_DRAFT = 'latatea_cms_draft_v2';
+const STORAGE_KEY_PUBLISHED = 'latatea_cms_story_v3_pub';
+const STORAGE_KEY_DRAFT = 'latatea_cms_story_v3_draft';
 
 type Listener = () => void;
 const listeners: Set<Listener> = new Set();
@@ -18,6 +18,7 @@ function mergeWithInitialState(parsed: Partial<CMSState> | null): CMSState {
     ...INITIAL_CMS_STATE,
     ...parsed,
     version: INITIAL_CMS_STATE.version,
+    defaultLanguage: parsed.defaultLanguage || 'en',
     content: {
       ...INITIAL_CMS_STATE.content,
       ...(parsed.content || {}),
@@ -25,49 +26,46 @@ function mergeWithInitialState(parsed: Partial<CMSState> | null): CMSState {
         ...INITIAL_CMS_STATE.content.hero,
         ...((parsed.content && parsed.content.hero) || {})
       },
-      promise: {
-        ...INITIAL_CMS_STATE.content.promise,
-        ...((parsed.content && parsed.content.promise) || {})
+      story: {
+        ...INITIAL_CMS_STATE.content.story,
+        ...((parsed.content && parsed.content.story) || {})
       },
-      about: {
-        ...INITIAL_CMS_STATE.content.about,
-        ...((parsed.content && parsed.content.about) || {})
+      heritage: {
+        ...INITIAL_CMS_STATE.content.heritage,
+        ...((parsed.content && parsed.content.heritage) || {})
       },
-      ourStory: {
-        ...INITIAL_CMS_STATE.content.ourStory,
-        ...((parsed.content && parsed.content.ourStory) || {})
+      craft: {
+        ...INITIAL_CMS_STATE.content.craft,
+        ...((parsed.content && parsed.content.craft) || {})
       },
-      applications: {
-        ...INITIAL_CMS_STATE.content.applications,
-        ...((parsed.content && parsed.content.applications) || {})
+      experience: {
+        ...INITIAL_CMS_STATE.content.experience,
+        ...((parsed.content && parsed.content.experience) || {})
       },
-      preparation: {
-        ...INITIAL_CMS_STATE.content.preparation,
-        ...((parsed.content && parsed.content.preparation) || {})
+      whyLata: {
+        ...INITIAL_CMS_STATE.content.whyLata,
+        ...((parsed.content && parsed.content.whyLata) || {})
       },
-      ordering: {
-        ...INITIAL_CMS_STATE.content.ordering,
-        ...((parsed.content && parsed.content.ordering) || {})
+      brandStatement: {
+        ...INITIAL_CMS_STATE.content.brandStatement,
+        ...((parsed.content && parsed.content.brandStatement) || {})
       },
-      cta: {
-        ...INITIAL_CMS_STATE.content.cta,
-        ...((parsed.content && parsed.content.cta) || {})
+      contact: {
+        ...INITIAL_CMS_STATE.content.contact,
+        ...((parsed.content && parsed.content.contact) || {})
       },
       footer: {
         ...INITIAL_CMS_STATE.content.footer,
         ...((parsed.content && parsed.content.footer) || {})
       }
     },
-    products: (parsed.products && parsed.products.length > 0 && parsed.products[0].slug)
-      ? parsed.products
-      : INITIAL_CMS_STATE.products,
-    solutions: (parsed.solutions && parsed.solutions.length > 0)
-      ? parsed.solutions
-      : INITIAL_CMS_STATE.solutions,
+    teaStories: (parsed.teaStories && parsed.teaStories.length > 0)
+      ? parsed.teaStories
+      : INITIAL_CMS_STATE.teaStories,
     domains: (parsed.domains && parsed.domains.length > 0)
       ? parsed.domains
       : INITIAL_CMS_STATE.domains,
-    navigation: (parsed.navigation && parsed.navigation.length > 0 && parsed.navigation.some((n: any) => n.children))
+    navigation: (parsed.navigation && parsed.navigation.length > 0)
       ? parsed.navigation
       : INITIAL_CMS_STATE.navigation,
     sections: (parsed.sections && parsed.sections.length > 0)
@@ -110,7 +108,6 @@ export const cmsStore = {
     } catch (e) {
       console.error('Error reading published CMS state:', e);
     }
-    // Initialize if not present
     this.savePublishedState(INITIAL_CMS_STATE);
     return INITIAL_CMS_STATE;
   },
@@ -174,7 +171,7 @@ export const cmsStore = {
       status: 'published',
       lastPublishedAt: new Date().toISOString(),
       lastSavedAt: new Date().toISOString(),
-      version: draft.version + 1
+      version: (draft.version || 3) + 1
     };
 
     this.savePublishedState(published);
@@ -225,14 +222,20 @@ export const cmsStore = {
     });
   },
 
-  calculateCompleteness(state: CMSState): { overall: number; contentScore: number; mediaScore: number; brandingScore: number } {
+  calculateCompleteness(state: CMSState): { 
+    overall: number; 
+    contentScore: number; 
+    mediaScore: number; 
+    languageScore: number;
+  } {
     let contentFilled = 0;
-    const contentTotal = 5;
-    if (state.content.hero.headline) contentFilled++;
-    if (state.content.about.heading) contentFilled++;
-    if (state.content.promise.heading) contentFilled++;
-    if (state.content.preparation.heading) contentFilled++;
-    if (state.content.cta.headline) contentFilled++;
+    const contentTotal = 6;
+    if (state.content.hero.headline.en) contentFilled++;
+    if (state.content.story.heading.en) contentFilled++;
+    if (state.content.heritage.heading.en) contentFilled++;
+    if (state.content.craft.heading.en) contentFilled++;
+    if (state.content.experience.heading.en) contentFilled++;
+    if (state.content.brandStatement.quote.en) contentFilled++;
 
     const contentScore = Math.round((contentFilled / contentTotal) * 100);
 
@@ -240,67 +243,61 @@ export const cmsStore = {
     const assignedSlots = Object.values(state.mediaSlots).filter(s => !!s.desktopImageId).length;
     const mediaScore = totalSlots > 0 ? Math.round((assignedSlots / totalSlots) * 100) : 100;
 
-    let brandingFilled = 0;
-    if (state.brand.primaryColor) brandingFilled++;
-    if (state.brand.logoSlotId) brandingFilled++;
-    const brandingScore = Math.round((brandingFilled / 2) * 100);
+    // Language Completeness (Marathi coverage)
+    let marathiFilled = 0;
+    let marathiTotal = 6;
+    if (state.content.hero.headline.mr) marathiFilled++;
+    if (state.content.story.heading.mr) marathiFilled++;
+    if (state.content.heritage.heading.mr) marathiFilled++;
+    if (state.content.craft.heading.mr) marathiFilled++;
+    if (state.content.experience.heading.mr) marathiFilled++;
+    if (state.content.brandStatement.quote.mr) marathiFilled++;
 
-    const overall = Math.round((contentScore + mediaScore + brandingScore) / 3);
+    const languageScore = Math.round((marathiFilled / marathiTotal) * 100);
+    const overall = Math.round((contentScore + mediaScore + languageScore) / 3);
 
-    return { overall, contentScore, mediaScore, brandingScore };
+    return { overall, contentScore, mediaScore, languageScore };
   },
 
   validateState(state: CMSState): ValidationIssue[] {
     const issues: ValidationIssue[] = [];
 
     // Check Hero text
-    if (!state.content.hero.headline || state.content.hero.headline.trim() === '') {
+    if (!state.content.hero.headline.en || state.content.hero.headline.en.trim() === '') {
       issues.push({
         id: 'hero_headline_empty',
         type: 'error',
         category: 'Hero Section',
-        message: 'Hero headline cannot be empty.',
+        message: 'Hero headline (English) cannot be empty.',
         fieldId: 'hero_headline'
       });
     }
 
-    // Check Products
-    if (!state.products || state.products.length === 0) {
+    // Check Tea Stories
+    if (!state.teaStories || state.teaStories.length === 0) {
       issues.push({
-        id: 'products_empty',
+        id: 'tea_stories_empty',
         type: 'warning',
-        category: 'Products',
-        message: 'No products are defined in the catalogue.'
+        category: 'Tea Stories',
+        message: 'No tea stories are present in the collection.'
       });
     }
 
-    state.products.forEach(p => {
-      if (!p.name || p.name.trim() === '') {
+    (state.teaStories || []).forEach(t => {
+      if (!t.name.en || t.name.en.trim() === '') {
         issues.push({
-          id: `product_${p.id}_name_empty`,
+          id: `tea_${t.id}_name_empty`,
           type: 'error',
-          category: 'Products',
-          message: `Product (ID: ${p.id}) must have a name.`
+          category: 'Tea Stories',
+          message: `Tea Story (ID: ${t.id}) must have an English name.`
         });
       }
-      if (!p.packSizes || p.packSizes.length === 0) {
+      if (!t.name.mr || t.name.mr.trim() === '') {
         issues.push({
-          id: `product_${p.id}_packs_empty`,
+          id: `tea_${t.id}_name_mr_empty`,
           type: 'warning',
-          category: 'Products',
-          message: `Product "${p.name}" has no pack sizes configured.`
-        });
-      }
-    });
-
-    // Check Media Slots
-    Object.values(state.mediaSlots).forEach(slot => {
-      if (!slot.desktopImageId) {
-        issues.push({
-          id: `slot_${slot.slotKey}_unassigned`,
-          type: 'warning',
-          category: 'Media Slots',
-          message: `Slot "${slot.label}" has no desktop image assigned.`
+          category: 'Tea Stories',
+          message: `Tea Story "${t.name.en}" is missing Marathi translation.`
         });
       }
     });

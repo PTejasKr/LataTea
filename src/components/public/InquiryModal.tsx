@@ -157,9 +157,9 @@ export const InquiryModal: React.FC<InquiryModalProps> = ({ isOpen, onClose, def
                   onChange={e => setSelectedProduct(e.target.value)}
                   className="w-full px-4 py-2.5 rounded-xl border border-amber-200 bg-white text-slate-900 focus:outline-none focus:ring-2 focus:ring-lataamber-500 font-sans text-sm"
                 >
-                  {publishedState.products.map(p => (
-                    <option key={p.id} value={p.name}>
-                      {p.name} ({p.categoryName})
+                  {(publishedState.teaStories || []).map(p => (
+                    <option key={p.id} value={p.name.en}>
+                      {p.name.en} ({p.categoryName.en})
                     </option>
                   ))}
                   <option value="Complete Range Sample Pack">Complete Range Sample Box (All Flavors)</option>

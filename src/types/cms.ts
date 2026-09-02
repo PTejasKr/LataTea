@@ -1,11 +1,10 @@
 export type ObjectFitMode = 'cover' | 'contain' | 'fill' | 'scale-down';
 
-export type ProductCategory = 'gud' | 'sugar' | 'vending';
+export type LanguageCode = 'en' | 'mr';
 
-export interface PackSizePrice {
-  size: string; // e.g. "16g Sachet", "160g Pack", "1kg Pack"
-  price: number; // e.g. 3.5, 25, 150
-  inStock: boolean;
+export interface LocalizedString {
+  en: string;
+  mr: string;
 }
 
 export interface MediaItem {
@@ -28,7 +27,7 @@ export interface MediaSlot {
   slotKey: string;
   label: string;
   description: string;
-  category: 'brand' | 'hero' | 'about' | 'products' | 'solutions' | 'story' | 'preparation' | 'cta' | 'footer';
+  category: 'brand' | 'hero' | 'story' | 'heritage' | 'craft' | 'tea' | 'experience' | 'contact' | 'footer';
   desktopImageId: string;
   mobileImageId?: string;
   focalX: number; // 0 to 100
@@ -41,54 +40,122 @@ export interface MediaSlot {
 
 export interface NavigationItem {
   id: string;
-  label: string;
+  label: LocalizedString;
   url: string;
   isExternal: boolean;
   isButton: boolean;
   isEnabled: boolean;
   order: number;
-  children?: { label: string; url: string; description?: string; badge?: string }[];
 }
 
-export interface ProductItem {
-  id: string;
-  slug: string; // e.g. "gud-basundi-tea"
-  name: string;
-  category: ProductCategory;
-  categoryName: string;
-  shortDescription: string;
-  fullDescription: string;
+export interface MilestoneItem {
+  year: string;
+  title: LocalizedString;
+  description: LocalizedString;
+  imageSlotId?: string;
+}
+
+export interface CraftStageItem {
+  stageNumber: number; // 1 to 5
+  tagline: LocalizedString; // e.g. "01 — SOURCE" / "०१ — स्त्रोत"
+  title: LocalizedString;
+  description: LocalizedString;
   imageSlotId: string;
-  alternateImageSlotIds?: string[];
-  packSizes: PackSizePrice[];
-  applications: string[];
-  features?: string[];
-  ingredients?: string[];
-  preparationNote?: string;
+  keyDetails?: LocalizedString[];
+}
+
+export interface TeaStoryItem {
+  id: string;
+  slug: string;
+  name: LocalizedString;
+  tagline: LocalizedString;
+  category: 'gud' | 'sugar' | 'premixes';
+  categoryName: LocalizedString;
+  shortDescription: LocalizedString;
+  editorialStory: LocalizedString;
+  tastingNotes: LocalizedString[];
+  ingredients: LocalizedString[];
+  origin: LocalizedString;
+  servingRitual: LocalizedString;
+  imageSlotId: string;
   displayOrder: number;
   isFeatured: boolean;
   isVisible: boolean;
-  badgeText?: string;
-  seoTitle?: string;
-  seoDescription?: string;
+  badgeText?: LocalizedString;
 }
 
-export interface SolutionItem {
-  id: string;
-  slug: string; // e.g. "corporate", "hotels", "restaurants", "cafes", "retail", "vending"
-  title: string;
-  subtitle: string;
-  tagline: string;
-  targetAudience: string;
-  problemStatement: string;
-  lataSolution: string;
-  benefits: { title: string; description: string; icon: string }[];
-  recommendedProductIds: string[];
-  bannerSlotId: string;
-  applicationSteps: { stepNumber: number; title: string; instruction: string }[];
-  icon: string;
-  isEnabled: boolean;
-  displayOrder: number;
+export interface WhyLataPillar {
+  title: LocalizedString;
+  description: LocalizedString;
+  metric?: string;
+  icon?: string;
+}
+
+export interface EditorialStoryContent {
+  hero: {
+    headline: LocalizedString;
+    subheadline: LocalizedString;
+    tagline: LocalizedString;
+    primaryCtaText: LocalizedString;
+    primaryCtaLink: string;
+    secondaryCtaText: LocalizedString;
+    secondaryCtaLink: string;
+    badgeText: LocalizedString;
+  };
+  story: {
+    tagline: LocalizedString;
+    heading: LocalizedString;
+    subheading: LocalizedString;
+    introduction: LocalizedString;
+    paragraphs: LocalizedString[];
+    quote: LocalizedString;
+    imageSlotId: string;
+  };
+  heritage: {
+    tagline: LocalizedString;
+    heading: LocalizedString;
+    subheading: LocalizedString;
+    narrative: LocalizedString;
+    milestones: MilestoneItem[];
+    imageSlotId: string;
+  };
+  craft: {
+    tagline: LocalizedString;
+    heading: LocalizedString;
+    subheading: LocalizedString;
+    introduction: LocalizedString;
+    stages: CraftStageItem[];
+  };
+  experience: {
+    tagline: LocalizedString;
+    heading: LocalizedString;
+    subheading: LocalizedString;
+    sensoryDescription: LocalizedString;
+    ritualSteps: { title: LocalizedString; note: LocalizedString }[];
+    imageSlotId: string;
+  };
+  whyLata: {
+    tagline: LocalizedString;
+    heading: LocalizedString;
+    subheading: LocalizedString;
+    pillars: WhyLataPillar[];
+  };
+  brandStatement: {
+    quote: LocalizedString;
+    subtext: LocalizedString;
+    author: LocalizedString;
+  };
+  contact: {
+    tagline: LocalizedString;
+    heading: LocalizedString;
+    subheading: LocalizedString;
+    enquiryNotice: LocalizedString;
+  };
+  footer: {
+    aboutText: LocalizedString;
+    copyrightText: LocalizedString;
+    legalLinks: { label: LocalizedString; url: string }[];
+  };
 }
 
 export interface SectionConfig {
@@ -152,112 +219,13 @@ export interface ContactInfo {
 }
 
 export interface SeoConfig {
-  seoTitle: string;
-  metaDescription: string;
-  ogTitle: string;
-  ogDescription: string;
+  seoTitle: LocalizedString;
+  metaDescription: LocalizedString;
+  ogTitle: LocalizedString;
+  ogDescription: LocalizedString;
   ogImageSlotId: string;
   canonicalUrl: string;
   robots: string;
-}
-
-export interface HighlightItem {
-  id: string;
-  title: string;
-  description: string;
-  icon: string;
-}
-
-export interface ApplicationItem {
-  id: string;
-  title: string;
-  description: string;
-  imageSlotId: string;
-  icon: string;
-}
-
-export interface PreparationStep {
-  stepNumber: number;
-  title: string;
-  instruction: string;
-  imageSlotId: string;
-}
-
-export interface OrderingStep {
-  stepNumber: number;
-  title: string;
-  description: string;
-  icon: string;
-}
-
-export interface WebsiteContent {
-  hero: {
-    headline: string;
-    subheadline: string;
-    tagline: string;
-    ctaPrimaryText: string;
-    ctaPrimaryLink: string;
-    ctaSecondaryText: string;
-    ctaSecondaryLink: string;
-    badgeText: string;
-  };
-  promise: {
-    tagline: string;
-    heading: string;
-    subheading: string;
-    pillars: { title: string; description: string; metric?: string }[];
-  };
-  about: {
-    tagline: string;
-    heading: string;
-    subheading: string;
-    storyParagraphs: string[];
-    highlights: HighlightItem[];
-  };
-  applications: {
-    tagline: string;
-    heading: string;
-    subheading: string;
-    items: ApplicationItem[];
-  };
-  ourStory: {
-    heroTitle: string;
-    heroSubtitle: string;
-    origins: string;
-    philosophy: string;
-    craftAndSpices: string;
-    modernStandards: string;
-  };
-  preparation: {
-    tagline: string;
-    heading: string;
-    subheading: string;
-    yieldText: string;
-    ingredients: { name: string; quantity: string; icon: string }[];
-    steps: PreparationStep[];
-    footerNote: string;
-  };
-  ordering: {
-    tagline: string;
-    heading: string;
-    subheading: string;
-    steps: OrderingStep[];
-    footerNote: string;
-  };
-  cta: {
-    headline: string;
-    subheadline: string;
-    primaryButtonText: string;
-    primaryButtonLink: string;
-    secondaryButtonText: string;
-    secondaryButtonLink: string;
-    backgroundImageSlotId: string;
-  };
-  footer: {
-    aboutText: string;
-    copyrightText: string;
-    legalLinks: { label: string; url: string }[];
-  };
 }
 
 export type DomainType = 'primary' | 'secondary' | 'redirect';
@@ -304,17 +272,20 @@ export interface CMSState {
   status: 'published' | 'draft';
   lastPublishedAt: string | null;
   lastSavedAt: string;
+  defaultLanguage: LanguageCode;
   sections: SectionConfig[];
   navigation: NavigationItem[];
-  products: ProductItem[];
-  solutions: SolutionItem[];
+  teaStories: TeaStoryItem[];
   domains: DomainItem[];
   mediaLibrary: MediaItem[];
   mediaSlots: Record<string, MediaSlot>;
-  content: WebsiteContent;
+  content: EditorialStoryContent;
   brand: BrandSettings;
   contact: ContactInfo;
   seo: SeoConfig;
+
+  // Backward compatibility aliases if needed
+  products?: TeaStoryItem[];
 }
 
 export interface ValidationIssue {
@@ -324,4 +295,3 @@ export interface ValidationIssue {
   message: string;
   fieldId?: string;
 }
-

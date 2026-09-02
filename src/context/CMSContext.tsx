@@ -1,9 +1,9 @@
 import React, { createContext, useContext, useEffect, useState, useMemo } from 'react';
-import { CMSState, MediaItem, MediaSlot, ValidationIssue } from '../types/cms';
+import { CMSState, LanguageCode, LocalizedString, MediaItem, MediaSlot, ValidationIssue } from '../types/cms';
 import { cmsStore } from '../services/cmsStore';
-import { CartItem, orderStore } from '../services/orderStore';
 
 const CMS_AUTH_KEY = 'latatea_cms_auth_session';
+const LANG_STORAGE_KEY = 'latatea_preferred_lang';
 
 interface CMSContextValue {
   publishedState: CMSState;
@@ -22,18 +22,10 @@ interface CMSContextValue {
   inquiryProduct: string | null;
   setInquiryProduct: (prod: string | null) => void;
   
-  // Cart state
-  cart: CartItem[];
-  addToCart: (item: Omit<CartItem, 'id'>) => void;
-  removeFromCart: (cartItemId: string) => void;
-  updateCartQty: (cartItemId: string, qty: number) => void;
-  clearCart: () => void;
-  isCartOpen: boolean;
-  setIsCartOpen: (open: boolean) => void;
-  isCheckoutOpen: boolean;
-  setIsCheckoutOpen: (open: boolean) => void;
-  cartSubtotal: number;
-  cartTotalCount: number;
+  // Bilingual Language System
+  language: LanguageCode;
+  setLanguage: (lang: LanguageCode) => void;
+  t: (field: LocalizedString | string | undefined, fallback?: string) => string;
 
   hasDraftChanges: boolean;
   updateDraft: (updater: (prev: CMSState) => CMSState) => void;
@@ -59,6 +51,43 @@ export const CMSProvider: React.FC<{ children: React.ReactNode }> = ({ children 
   const [publishedState, setPublishedState] = useState<CMSState>(() => cmsStore.getPublishedState());
   const [draftState, setDraftState] = useState<CMSState>(() => cmsStore.getDraftState());
   
+  // Language selection with local persistence (English is default)
+  const [language, setLanguageState] = useState<LanguageCode>(() => {
+    try {
+      const saved = localStorage.getItem(LANG_STORAGE_KEY);
+      if (saved === 'mr' || saved === 'en') {
+        return saved;
+      }
+    } catch (e) {
+      console.warn('Could not read saved language', e);
+    }
+    return 'en';
+  });
+
+  const setLanguage = (lang: LanguageCode) => {
+    setLanguageState(lang);
+    try {
+      localStorage.setItem(LANG_STORAGE_KEY, lang);
+      document.documentElement.lang = lang;
+    } catch (e) {
+      console.warn('Could not save language', e);
+    }
+  };
+
+  useEffect(() => {
+    document.documentElement.lang = language;
+  }, [language]);
+
+  // Translation helper function
+  const t = (field: LocalizedString | string | undefined, fallback = ''): string => {
+    if (!field) return fallback;
+    if (typeof field === 'string') return field;
+    if (language === 'mr' && field.mr && field.mr.trim() !== '') {
+      return field.mr;
+    }
+    return field.en || fallback;
+  };
+
   // URL routing check for /cms
   const isCmsRoute = () => {
     const path = window.location.pathname.toLowerCase();
@@ -78,11 +107,6 @@ export const CMSProvider: React.FC<{ children: React.ReactNode }> = ({ children 
   const [showInquiryModal, setShowInquiryModal] = useState<boolean>(false);
   const [inquiryProduct, setInquiryProduct] = useState<string | null>(null);
 
-  // Cart State
-  const [cart, setCart] = useState<CartItem[]>(() => orderStore.getCart());
-  const [isCartOpen, setIsCartOpen] = useState(false);
-  const [isCheckoutOpen, setIsCheckoutOpen] = useState(false);
-
   // Listen for browser navigation changes
   useEffect(() => {
     const handlePopState = () => {
@@ -100,12 +124,7 @@ export const CMSProvider: React.FC<{ children: React.ReactNode }> = ({ children 
     };
   }, []);
 
-  // Save cart changes
-  useEffect(() => {
-    orderStore.saveCart(cart);
-  }, [cart]);
-
-  // Sync with cmsStore updates
+  // Sync state from cmsStore
   useEffect(() => {
     const unsubscribe = cmsStore.subscribe(() => {
       setPublishedState(cmsStore.getPublishedState());
@@ -115,75 +134,30 @@ export const CMSProvider: React.FC<{ children: React.ReactNode }> = ({ children 
   }, []);
 
   const loginCms = (user: string, pass: string): boolean => {
-    if (user.trim() === 'Murjo Basu' && pass === 'Basu@123') {
-      setIsCmsAuthenticated(true);
+    if (user.trim() === 'Murjo Basu' && pass.trim() === 'Basu@123') {
       sessionStorage.setItem(CMS_AUTH_KEY, 'true');
+      setIsCmsAuthenticated(true);
       return true;
     }
     return false;
   };
 
   const logoutCms = () => {
-    setIsCmsAuthenticated(false);
     sessionStorage.removeItem(CMS_AUTH_KEY);
-    window.location.hash = '';
+    setIsCmsAuthenticated(false);
     setActiveView('public');
   };
 
-  const addToCart = (itemData: Omit<CartItem, 'id'>) => {
-    setCart(prev => {
-      const existingIdx = prev.findIndex(
-        i => i.productId === itemData.productId && i.packSize === itemData.packSize
-      );
-      if (existingIdx !== -1) {
-        const copy = [...prev];
-        copy[existingIdx].quantity += itemData.quantity;
-        return copy;
-      } else {
-        const newItem: CartItem = {
-          ...itemData,
-          id: `cart_${Date.now()}_${Math.random().toString(36).substr(2, 4)}`
-        };
-        return [...prev, newItem];
-      }
-    });
-    setIsCartOpen(true);
-  };
-
-  const removeFromCart = (cartItemId: string) => {
-    setCart(prev => prev.filter(item => item.id !== cartItemId));
-  };
-
-  const updateCartQty = (cartItemId: string, qty: number) => {
-    if (qty <= 0) {
-      removeFromCart(cartItemId);
-      return;
-    }
-    setCart(prev => prev.map(item => (item.id === cartItemId ? { ...item, quantity: qty } : item)));
-  };
-
-  const clearCart = () => {
-    setCart([]);
-  };
-
-  const cartSubtotal = useMemo(() => {
-    return cart.reduce((acc, item) => acc + item.unitPrice * item.quantity, 0);
-  }, [cart]);
-
-  const cartTotalCount = useMemo(() => {
-    return cart.reduce((acc, item) => acc + item.quantity, 0);
-  }, [cart]);
-
   const hasDraftChanges = useMemo(() => {
-    const cleanPub = { ...publishedState, lastSavedAt: '', status: '' };
-    const cleanDraft = { ...draftState, lastSavedAt: '', status: '' };
-    return JSON.stringify(cleanPub) !== JSON.stringify(cleanDraft);
-  }, [publishedState, draftState]);
+    return cmsStore.hasDraftChanges();
+  }, [draftState, publishedState]);
 
   const updateDraft = (updater: (prev: CMSState) => CMSState) => {
-    const updated = updater(draftState);
-    setDraftState(updated);
-    cmsStore.saveDraftState(updated);
+    setDraftState(prev => {
+      const next = updater(prev);
+      cmsStore.saveDraftState(next);
+      return next;
+    });
   };
 
   const publish = () => {
@@ -207,41 +181,36 @@ export const CMSProvider: React.FC<{ children: React.ReactNode }> = ({ children 
   };
 
   const getMediaItem = (mediaId: string, useDraft = false): MediaItem | undefined => {
-    const lib = useDraft ? draftState.mediaLibrary : publishedState.mediaLibrary;
-    return lib.find(m => m.id === mediaId);
+    const state = useDraft ? draftState : publishedState;
+    return state.mediaLibrary.find(m => m.id === mediaId);
   };
 
-  const resolveSlotImage = (
-    slotKey: string,
-    isMobile = false,
-    useDraft = false
-  ) => {
+  const resolveSlotImage = (slotKey: string, isMobile = false, useDraft = false) => {
     const state = useDraft ? draftState : publishedState;
     const slot = state.mediaSlots[slotKey] || null;
 
     if (!slot) {
       return {
-        url: '',
-        alt: 'Image not found',
+        url: '/assets/images/hero_tea_panoramic.png',
+        alt: 'Lata Tea Imagery',
         style: { objectFit: 'cover' as const, objectPosition: 'center center' },
         slot: null
       };
     }
 
     const imageId = (isMobile && slot.mobileImageId) ? slot.mobileImageId : slot.desktopImageId;
-    const mediaItem = getMediaItem(imageId, useDraft);
-    const focalX = (isMobile && slot.mobileFocalX !== undefined) ? slot.mobileFocalX : slot.focalX;
-    const focalY = (isMobile && slot.mobileFocalY !== undefined) ? slot.mobileFocalY : slot.focalY;
-
-    const style: React.CSSProperties = {
-      objectFit: slot.objectFit || 'cover',
-      objectPosition: `${focalX ?? 50}% ${focalY ?? 50}%`
-    };
+    const media = state.mediaLibrary.find(m => m.id === imageId);
+    
+    const posX = isMobile && slot.mobileFocalX !== undefined ? slot.mobileFocalX : slot.focalX;
+    const posY = isMobile && slot.mobileFocalY !== undefined ? slot.mobileFocalY : slot.focalY;
 
     return {
-      url: mediaItem?.url || '',
-      alt: mediaItem?.alt || slot.label,
-      style,
+      url: media ? media.url : '/assets/images/hero_tea_panoramic.png',
+      alt: media ? media.alt : slot.label,
+      style: {
+        objectFit: slot.objectFit,
+        objectPosition: `${posX}% ${posY}%`
+      },
       slot
     };
   };
@@ -264,17 +233,9 @@ export const CMSProvider: React.FC<{ children: React.ReactNode }> = ({ children 
         setShowInquiryModal,
         inquiryProduct,
         setInquiryProduct,
-        cart,
-        addToCart,
-        removeFromCart,
-        updateCartQty,
-        clearCart,
-        isCartOpen,
-        setIsCartOpen,
-        isCheckoutOpen,
-        setIsCheckoutOpen,
-        cartSubtotal,
-        cartTotalCount,
+        language,
+        setLanguage,
+        t,
         hasDraftChanges,
         updateDraft,
         publish,
@@ -289,7 +250,7 @@ export const CMSProvider: React.FC<{ children: React.ReactNode }> = ({ children 
   );
 };
 
-export const useCMS = () => {
+export const useCMS = (): CMSContextValue => {
   const context = useContext(CMSContext);
   if (!context) {
     throw new Error('useCMS must be used within a CMSProvider');

@@ -4,8 +4,8 @@ import { cmsStore } from '../../services/cmsStore';
 import { 
   CheckCircle2, 
   AlertTriangle, 
-  Layers, 
-  ShoppingBag, 
+  BookOpen, 
+  Coffee, 
   Image as ImageIcon, 
   Sparkles, 
   ArrowRight, 
@@ -13,9 +13,9 @@ import {
   Eye, 
   Clock, 
   Activity,
-  Crosshair,
-  Type,
-  Globe
+  Sliders,
+  Globe,
+  Network
 } from 'lucide-react';
 import { AdminTab } from './AdminLayout';
 
@@ -32,17 +32,17 @@ export const DashboardView: React.FC<DashboardViewProps> = ({ onSelectTab, onOpe
   const errors = issues.filter(i => i.type === 'error');
   const warnings = issues.filter(i => i.type === 'warning');
 
-  const activeProducts = draftState.products.filter(p => p.isVisible).length;
-  const totalSlots = Object.keys(draftState.mediaSlots).length;
-  const activeMedia = draftState.mediaLibrary.length;
+  const teaStoriesCount = (draftState.teaStories || []).length;
+  const activeMedia = (draftState.mediaLibrary || []).length;
+  const primaryDomain = (draftState.domains || []).find(d => d.isPrimary) || draftState.domains[0];
 
   const lastPublishedFormatted = draftState.lastPublishedAt 
     ? new Date(draftState.lastPublishedAt).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', month: 'short', day: 'numeric' })
     : 'Not published yet';
 
   return (
-    <div className="space-y-8 animate-in fade-in duration-150">
-      {/* Top Banner Card (PDF Spec 14) */}
+    <div className="space-y-8 animate-fade-in">
+      {/* Top Banner Card */}
       <div className="p-6 sm:p-8 rounded-3xl bg-gradient-to-br from-[#1E293B] to-[#0F172A] border border-slate-700/80 shadow-2xl relative overflow-hidden">
         <div className="absolute top-0 right-0 p-8 opacity-10 pointer-events-none">
           <Sparkles className="w-64 h-64 text-amber-400" />
@@ -52,12 +52,12 @@ export const DashboardView: React.FC<DashboardViewProps> = ({ onSelectTab, onOpe
           <div>
             <div className="flex items-center gap-2 text-xs font-bold tracking-widest text-amber-400 uppercase mb-2">
               <Activity className="w-4 h-4" />
-              <span>LATATEA WEBSITE STATUS</span>
+              <span>EDITORIAL STORYTELLING PLATFORM</span>
             </div>
 
             <div className="flex items-center gap-3">
-              <h2 className="text-2xl sm:text-3xl font-extrabold text-white">
-                Public Website
+              <h2 className="text-2xl sm:text-3xl font-bold font-serif text-white">
+                Lata Tea Sovereign Platform
               </h2>
               <span className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider ${
                 hasDraftChanges 
@@ -65,254 +65,180 @@ export const DashboardView: React.FC<DashboardViewProps> = ({ onSelectTab, onOpe
                   : 'bg-emerald-500/20 text-emerald-300 border border-emerald-500/40'
               }`}>
                 <span className={`w-2 h-2 rounded-full ${hasDraftChanges ? 'bg-amber-400' : 'bg-emerald-400'}`} />
-                {hasDraftChanges ? 'Draft Modifications Pending' : 'Live & Published'}
+                {hasDraftChanges ? 'Draft Edits Pending' : 'Live & Published'}
               </span>
             </div>
 
-            <p className="text-xs sm:text-sm text-slate-400 mt-2 max-w-xl">
-              All website text, navigation links, products, media slots, and brand settings are managed independently through this administrative interface.
-            </p>
+            <div className="flex items-center gap-4 text-xs text-slate-400 mt-2 font-mono">
+              <div className="flex items-center gap-1.5">
+                <Clock className="w-3.5 h-3.5 text-slate-500" />
+                <span>Last Published: {lastPublishedFormatted}</span>
+              </div>
+              <div className="flex items-center gap-1.5">
+                <Globe className="w-3.5 h-3.5 text-emerald-400" />
+                <span>Active Domain: {primaryDomain?.hostname || 'latatea.com'}</span>
+              </div>
+            </div>
           </div>
 
-          <div className="flex flex-wrap items-center gap-3 shrink-0">
+          <div className="flex items-center gap-3">
             <button
+              type="button"
               onClick={() => setShowPreviewModal(true)}
-              className="px-4 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-bold uppercase tracking-wider border border-slate-600 transition-all flex items-center gap-2 shadow-md"
+              className="px-5 py-3 rounded-2xl bg-white/10 hover:bg-white/15 text-white text-xs font-bold uppercase tracking-wider flex items-center gap-2 border border-white/20 transition-all cursor-pointer"
             >
-              <Eye className="w-4 h-4 text-sky-400" />
-              <span>Preview Website</span>
+              <Eye className="w-4 h-4 text-amber-300" />
+              <span>Live Preview</span>
             </button>
 
             <button
+              type="button"
               onClick={onOpenPublishModal}
-              className="px-5 py-2.5 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 text-xs font-bold uppercase tracking-wider transition-all flex items-center gap-2 shadow-lg hover:shadow-xl"
+              disabled={!hasDraftChanges}
+              className={`px-6 py-3 rounded-2xl text-xs font-bold uppercase tracking-wider flex items-center gap-2 shadow-lg transition-all cursor-pointer ${
+                hasDraftChanges
+                  ? 'bg-amber-500 hover:bg-amber-600 text-slate-950 shadow-amber-500/20 scale-102'
+                  : 'bg-slate-700 text-slate-400 cursor-not-allowed'
+              }`}
             >
               <UploadCloud className="w-4 h-4" />
-              <span>Publish Changes</span>
+              <span>{hasDraftChanges ? 'Publish Changes' : 'Published'}</span>
             </button>
           </div>
         </div>
-
-        {/* Progress Gauges Grid (PDF Spec 14) */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mt-8 pt-6 border-t border-slate-700/60">
-          
-          {/* Content Completeness */}
-          <div className="p-4 rounded-2xl bg-slate-900/60 border border-slate-800">
-            <div className="flex items-center justify-between mb-2">
-              <span className="text-xs font-semibold text-slate-400">Content Completeness</span>
-              <span className="text-xs font-bold text-amber-400">{completeness.contentScore}%</span>
-            </div>
-            <div className="w-full bg-slate-800 h-2.5 rounded-full overflow-hidden">
-              <div 
-                className="bg-gradient-to-r from-amber-500 to-amber-400 h-full rounded-full transition-all duration-500" 
-                style={{ width: `${completeness.contentScore}%` }} 
-              />
-            </div>
-          </div>
-
-          {/* Media Slots Completeness */}
-          <div className="p-4 rounded-2xl bg-slate-900/60 border border-slate-800">
-            <div className="flex items-center justify-between mb-2">
-              <span className="text-xs font-semibold text-slate-400">Media Completeness</span>
-              <span className="text-xs font-bold text-lataleaf-400">{completeness.mediaScore}%</span>
-            </div>
-            <div className="w-full bg-slate-800 h-2.5 rounded-full overflow-hidden">
-              <div 
-                className="bg-gradient-to-r from-lataleaf-500 to-lataleaf-400 h-full rounded-full transition-all duration-500" 
-                style={{ width: `${completeness.mediaScore}%` }} 
-              />
-            </div>
-          </div>
-
-          {/* Active Products Count */}
-          <div className="p-4 rounded-2xl bg-slate-900/60 border border-slate-800 flex items-center justify-between">
-            <div>
-              <div className="text-xs font-semibold text-slate-400">Active Products</div>
-              <div className="text-xl font-bold text-white mt-0.5">{activeProducts} Catalog Items</div>
-            </div>
-            <div className="p-2 rounded-xl bg-amber-500/10 text-amber-400">
-              <ShoppingBag className="w-5 h-5" />
-            </div>
-          </div>
-
-          {/* Last Published Timestamp */}
-          <div className="p-4 rounded-2xl bg-slate-900/60 border border-slate-800 flex items-center justify-between">
-            <div>
-              <div className="text-xs font-semibold text-slate-400">Last Published</div>
-              <div className="text-xs font-bold text-slate-200 mt-1 flex items-center gap-1">
-                <Clock className="w-3.5 h-3.5 text-slate-400" />
-                <span>{lastPublishedFormatted}</span>
-              </div>
-            </div>
-            <div className="p-2 rounded-xl bg-emerald-500/10 text-emerald-400">
-              <CheckCircle2 className="w-5 h-5" />
-            </div>
-          </div>
-
-        </div>
       </div>
 
-      {/* Quick Access Action Cards */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      {/* 4 Core Metrics Grid */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
         
-        {/* Card 1: Image Position Editor */}
-        <div 
-          onClick={() => onSelectTab('image-position')}
-          className="p-6 rounded-3xl bg-[#1E293B] border border-slate-700/80 hover:border-amber-500/50 transition-all cursor-pointer group shadow-lg hover:shadow-xl transform hover:-translate-y-1"
-        >
-          <div className="w-12 h-12 rounded-2xl bg-amber-500/10 text-amber-400 flex items-center justify-center mb-4 group-hover:scale-110 group-hover:bg-amber-500 group-hover:text-slate-950 transition-all">
-            <Crosshair className="w-6 h-6" />
+        {/* Metric 1: Story Completeness */}
+        <div className="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm space-y-3">
+          <div className="flex items-center justify-between text-slate-500">
+            <span className="text-xs font-bold uppercase tracking-wider">Editorial Completeness</span>
+            <BookOpen className="w-4 h-4 text-amber-600" />
           </div>
-          <h3 className="font-bold text-lg text-white group-hover:text-amber-400 transition-colors flex items-center justify-between">
-            <span>Image Position Editor</span>
-            <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity" />
-          </h3>
-          <p className="text-xs text-slate-400 mt-2 leading-relaxed">
-            Click-to-set focal coordinates (X, Y), object-fit, and multi-device viewport crop simulators for all {totalSlots} named media slots.
-          </p>
+          <div className="text-3xl font-black text-slate-900 font-serif">
+            {completeness.overall}%
+          </div>
+          <div className="w-full bg-slate-100 h-2 rounded-full overflow-hidden">
+            <div className="bg-amber-500 h-full rounded-full" style={{ width: `${completeness.overall}%` }} />
+          </div>
+          <span className="text-[11px] text-slate-500 block font-medium">
+            Story, Heritage & Craft stages verified
+          </span>
         </div>
 
-        {/* Card 2: Website Text */}
-        <div 
-          onClick={() => onSelectTab('text')}
-          className="p-6 rounded-3xl bg-[#1E293B] border border-slate-700/80 hover:border-amber-500/50 transition-all cursor-pointer group shadow-lg hover:shadow-xl transform hover:-translate-y-1"
-        >
-          <div className="w-12 h-12 rounded-2xl bg-sky-500/10 text-sky-400 flex items-center justify-center mb-4 group-hover:scale-110 group-hover:bg-sky-500 group-hover:text-slate-950 transition-all">
-            <Type className="w-6 h-6" />
+        {/* Metric 2: Marathi Translation Coverage */}
+        <div className="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm space-y-3">
+          <div className="flex items-center justify-between text-slate-500">
+            <span className="text-xs font-bold uppercase tracking-wider">मराठी Localization</span>
+            <Globe className="w-4 h-4 text-emerald-600" />
           </div>
-          <h3 className="font-bold text-lg text-white group-hover:text-sky-400 transition-colors flex items-center justify-between">
-            <span>Website Text & Copy</span>
-            <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity" />
-          </h3>
-          <p className="text-xs text-slate-400 mt-2 leading-relaxed">
-            Manage headlines, subheadlines, quality pillars, 6-step brewing recipe, and 7-step ordering roadmap.
-          </p>
+          <div className="text-3xl font-black text-slate-900 font-serif">
+            {completeness.languageScore}%
+          </div>
+          <div className="w-full bg-slate-100 h-2 rounded-full overflow-hidden">
+            <div className="bg-emerald-500 h-full rounded-full" style={{ width: `${completeness.languageScore}%` }} />
+          </div>
+          <span className="text-[11px] text-slate-500 block font-medium">
+            Devanagari typography synchronized
+          </span>
         </div>
 
-        {/* Card 3: Products & Pricing */}
-        <div 
-          onClick={() => onSelectTab('products')}
-          className="p-6 rounded-3xl bg-[#1E293B] border border-slate-700/80 hover:border-amber-500/50 transition-all cursor-pointer group shadow-lg hover:shadow-xl transform hover:-translate-y-1"
-        >
-          <div className="w-12 h-12 rounded-2xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center mb-4 group-hover:scale-110 group-hover:bg-emerald-500 group-hover:text-slate-950 transition-all">
-            <ShoppingBag className="w-6 h-6" />
+        {/* Metric 3: Tea Stories */}
+        <div className="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm space-y-3">
+          <div className="flex items-center justify-between text-slate-500">
+            <span className="text-xs font-bold uppercase tracking-wider">Tea Blend Stories</span>
+            <Coffee className="w-4 h-4 text-amber-600" />
           </div>
-          <h3 className="font-bold text-lg text-white group-hover:text-emerald-400 transition-colors flex items-center justify-between">
-            <span>Products & Pricing</span>
-            <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity" />
-          </h3>
-          <p className="text-xs text-slate-400 mt-2 leading-relaxed">
-            Configure pack sizes (16g, 160g, 1kg), brochure rates (₹3.5 - ₹180), descriptions, and visibility.
-          </p>
+          <div className="text-3xl font-black text-slate-900 font-serif">
+            {teaStoriesCount}
+          </div>
+          <div className="text-xs text-slate-500 font-medium">
+            Pure editorial storytelling (no cart)
+          </div>
+          <button
+            type="button"
+            onClick={() => onSelectTab('tea-stories')}
+            className="text-xs text-amber-600 hover:text-amber-700 font-bold flex items-center gap-1 cursor-pointer pt-1"
+          >
+            <span>Manage stories</span>
+            <ArrowRight className="w-3.5 h-3.5" />
+          </button>
         </div>
 
-        {/* Card 4: Domain Management */}
-        <div 
-          onClick={() => onSelectTab('domains')}
-          className="p-6 rounded-3xl bg-[#1E293B] border border-slate-700/80 hover:border-amber-500/50 transition-all cursor-pointer group shadow-lg hover:shadow-xl transform hover:-translate-y-1"
-        >
-          <div className="w-12 h-12 rounded-2xl bg-amber-500/10 text-amber-400 flex items-center justify-center mb-4 group-hover:scale-110 group-hover:bg-amber-500 group-hover:text-slate-950 transition-all">
-            <Globe className="w-6 h-6" />
+        {/* Metric 4: Domain & Infrastructure */}
+        <div className="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm space-y-3">
+          <div className="flex items-center justify-between text-slate-500">
+            <span className="text-xs font-bold uppercase tracking-wider">Domain Network</span>
+            <Network className="w-4 h-4 text-sky-600" />
           </div>
-          <h3 className="font-bold text-lg text-white group-hover:text-amber-400 transition-colors flex items-center justify-between">
-            <span>Domain & DNS Setup</span>
-            <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity" />
-          </h3>
-          <p className="text-xs text-slate-400 mt-2 leading-relaxed">
-            Connect GoDaddy / Hostinger domains, manage CNAME/A records, and verify canonical routing.
-          </p>
+          <div className="text-lg font-bold text-slate-900 truncate font-mono">
+            {primaryDomain?.hostname || 'latatea.com'}
+          </div>
+          <div className="flex items-center gap-1.5 text-xs text-emerald-600 font-semibold">
+            <CheckCircle2 className="w-4 h-4" />
+            <span>DNS & SSL Active</span>
+          </div>
+          <button
+            type="button"
+            onClick={() => onSelectTab('domains')}
+            className="text-xs text-amber-600 hover:text-amber-700 font-bold flex items-center gap-1 cursor-pointer pt-1"
+          >
+            <span>Domain Manager</span>
+            <ArrowRight className="w-3.5 h-3.5" />
+          </button>
         </div>
 
       </div>
 
-      {/* Pre-Publish Checklist & System Health */}
-      <div className="p-6 sm:p-8 rounded-3xl bg-[#1E293B] border border-slate-700/80 shadow-lg">
-        <div className="flex items-center justify-between mb-6 pb-4 border-b border-slate-700/60">
-          <div>
-            <h3 className="font-bold text-base text-white flex items-center gap-2">
-              <CheckCircle2 className="w-4 h-4 text-emerald-400" />
-              <span>System Verification & Validation Rules</span>
-            </h3>
-            <p className="text-xs text-slate-400 mt-0.5">
-              Automated safety checks prior to live site publication.
-            </p>
-          </div>
-          <div className="text-xs font-semibold text-slate-400">
-            {errors.length === 0 ? (
-              <span className="text-emerald-400">All Critical Checks Passing</span>
-            ) : (
-              <span className="text-rose-400">{errors.length} Critical Issue(s)</span>
-            )}
-          </div>
+      {/* Quick Access Editorial Cards */}
+      <div className="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-sm space-y-6">
+        <h3 className="text-lg font-bold text-slate-900 font-serif">
+          Quick Story Editing Modules
+        </h3>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          <button
+            type="button"
+            onClick={() => onSelectTab('story')}
+            className="p-5 rounded-xl border border-slate-200 hover:border-amber-400 bg-slate-50 hover:bg-amber-50/40 text-left transition-all group cursor-pointer"
+          >
+            <BookOpen className="w-5 h-5 text-amber-600 mb-2 group-hover:scale-110 transition-transform" />
+            <h4 className="font-bold text-sm text-slate-900 font-serif">Story & Heritage</h4>
+            <p className="text-xs text-slate-500 mt-1">Origins, founding convictions, and milestone timeline.</p>
+          </button>
+
+          <button
+            type="button"
+            onClick={() => onSelectTab('craft')}
+            className="p-5 rounded-xl border border-slate-200 hover:border-amber-400 bg-slate-50 hover:bg-amber-50/40 text-left transition-all group cursor-pointer"
+          >
+            <Sliders className="w-5 h-5 text-lataleaf-600 mb-2 group-hover:scale-110 transition-transform" />
+            <h4 className="font-bold text-sm text-slate-900 font-serif">The Craft (5 Stages)</h4>
+            <p className="text-xs text-slate-500 mt-1">Source, Select, Blend, Prepare, Experience stages.</p>
+          </button>
+
+          <button
+            type="button"
+            onClick={() => onSelectTab('tea-stories')}
+            className="p-5 rounded-xl border border-slate-200 hover:border-amber-400 bg-slate-50 hover:bg-amber-50/40 text-left transition-all group cursor-pointer"
+          >
+            <Coffee className="w-5 h-5 text-amber-600 mb-2 group-hover:scale-110 transition-transform" />
+            <h4 className="font-bold text-sm text-slate-900 font-serif">Tea Stories</h4>
+            <p className="text-xs text-slate-500 mt-1">Tasting notes, origins, and non-commerce stories.</p>
+          </button>
+
+          <button
+            type="button"
+            onClick={() => onSelectTab('languages')}
+            className="p-5 rounded-xl border border-slate-200 hover:border-amber-400 bg-slate-50 hover:bg-amber-50/40 text-left transition-all group cursor-pointer"
+          >
+            <Globe className="w-5 h-5 text-emerald-600 mb-2 group-hover:scale-110 transition-transform" />
+            <h4 className="font-bold text-sm text-slate-900 font-serif">Languages (EN & MR)</h4>
+            <p className="text-xs text-slate-500 mt-1">Audit and update English and Marathi texts.</p>
+          </button>
         </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <div className="p-4 rounded-2xl bg-slate-900/60 border border-slate-800 flex items-start gap-3">
-            <div className="p-1 rounded-full bg-emerald-500/20 text-emerald-400 shrink-0 mt-0.5">
-              <CheckCircle2 className="w-4 h-4" />
-            </div>
-            <div>
-              <div className="text-xs font-bold text-white">Hero & Navigation Integrity</div>
-              <div className="text-xs text-slate-400 mt-0.5">
-                Hero headlines defined and {draftState.navigation.filter(n => n.isEnabled).length} active menu links configured.
-              </div>
-            </div>
-          </div>
-
-          <div className="p-4 rounded-2xl bg-slate-900/60 border border-slate-800 flex items-start gap-3">
-            <div className="p-1 rounded-full bg-emerald-500/20 text-emerald-400 shrink-0 mt-0.5">
-              <CheckCircle2 className="w-4 h-4" />
-            </div>
-            <div>
-              <div className="text-xs font-bold text-white">Brochure Pricing Matrix</div>
-              <div className="text-xs text-slate-400 mt-0.5">
-                {draftState.products.length} products mapped with valid tiered pricing (16g, 160g, 1kg).
-              </div>
-            </div>
-          </div>
-
-          <div className="p-4 rounded-2xl bg-slate-900/60 border border-slate-800 flex items-start gap-3">
-            <div className="p-1 rounded-full bg-emerald-500/20 text-emerald-400 shrink-0 mt-0.5">
-              <CheckCircle2 className="w-4 h-4" />
-            </div>
-            <div>
-              <div className="text-xs font-bold text-white">Named Media Slots</div>
-              <div className="text-xs text-slate-400 mt-0.5">
-                {totalSlots} media slots mapped with coordinates and object-fit rules.
-              </div>
-            </div>
-          </div>
-
-          <div className="p-4 rounded-2xl bg-slate-900/60 border border-slate-800 flex items-start gap-3">
-            <div className="p-1 rounded-full bg-emerald-500/20 text-emerald-400 shrink-0 mt-0.5">
-              <CheckCircle2 className="w-4 h-4" />
-            </div>
-            <div>
-              <div className="text-xs font-bold text-white">Decoupled Architecture</div>
-              <div className="text-xs text-slate-400 mt-0.5">
-                Public website strictly consumes published snapshot; zero unverified drafts exposed.
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Warning messages list if any */}
-        {warnings.length > 0 && (
-          <div className="mt-6 p-4 rounded-2xl bg-amber-500/10 border border-amber-500/30">
-            <div className="flex items-center gap-2 text-xs font-bold text-amber-400 uppercase tracking-wider mb-2">
-              <AlertTriangle className="w-4 h-4" />
-              <span>Recommended Optimization Notices ({warnings.length})</span>
-            </div>
-            <ul className="space-y-1 text-xs text-slate-300">
-              {warnings.map(w => (
-                <li key={w.id} className="flex items-center gap-2">
-                  <span className="w-1.5 h-1.5 rounded-full bg-amber-400 shrink-0" />
-                  <span><strong>{w.category}:</strong> {w.message}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-        )}
       </div>
     </div>
   );
