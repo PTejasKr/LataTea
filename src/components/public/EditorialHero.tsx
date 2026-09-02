@@ -37,24 +37,24 @@ export const EditorialHero: React.FC<EditorialHeroProps> = ({ isDraftPreview = f
           {t(hero.tagline)}
         </span>
 
-        <h1 className="font-rajwada text-fluid-5xl font-bold tracking-tight text-white leading-[1.1] drop-shadow-lg mb-6">
+        <h1 className="font-rajwada text-pub-hero font-bold tracking-tight text-white leading-[1.1] drop-shadow-lg mb-6">
           {t(hero.headline)}
         </h1>
 
-        <p className="mt-4 text-fluid-lg text-slate-200 max-w-2xl font-sans font-medium leading-relaxed drop-shadow-md">
+        <p className="mt-4 text-pub-body text-slate-200 max-w-2xl font-sans font-medium leading-relaxed drop-shadow-md">
           {t(hero.subheadline)}
         </p>
 
         <div className="mt-10 flex flex-col sm:flex-row items-center gap-4">
           <Link
             to="/products"
-            className="w-full sm:w-auto px-8 py-3.5 rounded-sm bg-brand-accent hover:bg-brand-accent-hover text-white text-sm font-bold uppercase tracking-wider transition-all shadow-md inline-flex items-center justify-center gap-2"
+            className="w-full sm:w-auto px-8 py-3.5 rounded-sm bg-brand-accent hover:bg-brand-accent-hover text-white text-pub-btn uppercase tracking-wider transition-all shadow-md inline-flex items-center justify-center gap-2"
           >
             <span>{t('Explore Tea Catalogue')}</span>
           </Link>
           <a
             href="#story"
-            className="w-full sm:w-auto px-8 py-3.5 rounded-sm bg-transparent border-2 border-white hover:bg-white hover:text-brand-primary text-white text-sm font-bold uppercase tracking-wider transition-all inline-flex items-center justify-center gap-2"
+            className="w-full sm:w-auto px-8 py-3.5 rounded-sm bg-transparent border-2 border-white hover:bg-white hover:text-brand-primary text-white text-pub-btn uppercase tracking-wider transition-all inline-flex items-center justify-center gap-2"
           >
             <span>{t('Our Story')}</span>
             <ArrowDown className="w-4 h-4" />

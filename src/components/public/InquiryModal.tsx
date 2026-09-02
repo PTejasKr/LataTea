@@ -52,7 +52,7 @@ export const InquiryModal: React.FC<InquiryModalProps> = ({ isOpen, onClose, def
             <X className="w-5 h-5" />
           </button>
           
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-500/20 text-amber-300 text-[11px] font-bold uppercase tracking-wider mb-2 border border-amber-500/30">
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-500/20 text-amber-300 text-pub-small font-bold uppercase tracking-wider mb-2 border border-amber-500/30">
             <Sparkles className="w-3.5 h-3.5" />
             <span>Sample Kit & Wholesale Quotation</span>
           </div>
@@ -81,7 +81,7 @@ export const InquiryModal: React.FC<InquiryModalProps> = ({ isOpen, onClose, def
               <div className="pt-4">
                 <button
                   onClick={handleResetAndClose}
-                  className="px-8 py-3 rounded-full bg-[#1E3F20] text-amber-300 text-xs font-bold uppercase tracking-wider hover:bg-[#142915] transition-all"
+                  className="px-8 py-3 rounded-full bg-[#1E3F20] text-amber-300 text-pub-btn uppercase tracking-wider hover:bg-[#142915] transition-all"
                 >
                   Done
                 </button>
@@ -212,3 +212,5 @@ export const InquiryModal: React.FC<InquiryModalProps> = ({ isOpen, onClose, def
     </div>
   );
 };
+
+

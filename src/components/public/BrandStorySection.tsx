@@ -34,26 +34,26 @@ export const BrandStorySection: React.FC<BrandStorySectionProps> = ({ isDraftPre
 
           {/* Narrative: 2-3 short, clear blocks */}
           <div className="md:col-span-7 space-y-3">
-            <span className="text-[11px] font-bold tracking-widest text-brand-accent uppercase font-sans">
+            <span className="text-pub-small font-bold tracking-widest text-brand-accent uppercase font-sans">
               {t(story.tagline)}
             </span>
 
-            <h2 className="font-rajwada text-2xl sm:text-3xl font-bold text-brand-primary-dark leading-snug">
+            <h2 className="font-rajwada text-pub-section font-bold text-brand-primary-dark leading-snug">
               {t(story.heading)}
             </h2>
 
-            <p className="text-sm sm:text-base text-brand-primary font-medium leading-relaxed">
+            <p className="text-pub-body text-brand-primary font-medium leading-relaxed">
               {t(story.introduction)}
             </p>
 
-            <div className="space-y-2 text-xs sm:text-sm text-brand-text-muted font-sans leading-relaxed">
+            <div className="space-y-2 text-pub-body text-brand-text-muted font-sans leading-relaxed">
               {(story.paragraphs || []).map((p, idx) => (
                 <p key={idx}>{t(p)}</p>
               ))}
             </div>
 
             <div className="pt-3 border-t border-brand-border">
-              <p className="text-xs sm:text-sm text-brand-accent font-semibold italic">
+              <p className="text-pub-body text-brand-accent font-semibold italic">
                 {t(story.quote)}
               </p>
             </div>
@@ -65,3 +65,5 @@ export const BrandStorySection: React.FC<BrandStorySectionProps> = ({ isDraftPre
     </section>
   );
 };
+
+

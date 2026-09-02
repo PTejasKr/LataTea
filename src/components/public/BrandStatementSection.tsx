@@ -18,7 +18,7 @@ export const BrandStatementSection: React.FC<BrandStatementSectionProps> = ({ is
           {t(stmt.quote)}
         </p>
 
-        <p className="text-xs sm:text-sm text-slate-300 font-sans font-light max-w-lg mx-auto">
+        <p className="text-pub-body text-slate-300 font-sans font-light max-w-lg mx-auto">
           {t(stmt.subtext)}
         </p>
 
@@ -26,3 +26,4 @@ export const BrandStatementSection: React.FC<BrandStatementSectionProps> = ({ is
     </section>
   );
 };
+

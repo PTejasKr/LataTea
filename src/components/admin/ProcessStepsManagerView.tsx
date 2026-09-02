@@ -46,12 +46,12 @@ export const ProcessStepsManagerView: React.FC = () => {
     <div className="space-y-6 max-w-5xl mx-auto">
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
-          <h2 className="text-xl sm:text-2xl font-bold text-white font-rajwada">Order Process Steps</h2>
-          <p className="text-sm text-slate-400 mt-1">Manage the visual steps from Order to Delivery.</p>
+          <h2 className="text-cms-card font-bold text-white font-rajwada">Order Process Steps</h2>
+          <p className="text-cms-body text-slate-400 mt-1">Manage the visual steps from Order to Delivery.</p>
         </div>
         <button
           onClick={handleAdd}
-          className="px-4 py-2 bg-amber-500 hover:bg-amber-400 text-slate-900 rounded-xl font-bold text-sm flex items-center gap-2"
+          className="px-4 py-2 bg-amber-500 hover:bg-amber-400 text-slate-900 rounded-xl font-bold text-cms-body flex items-center gap-2"
         >
           <Plus className="w-4 h-4" />
           Add Step
@@ -62,7 +62,7 @@ export const ProcessStepsManagerView: React.FC = () => {
         {steps.map((step, index) => (
           <div key={step.id} className="p-4 sm:p-6 rounded-2xl bg-slate-800 border border-slate-700 space-y-4">
             <div className="flex justify-between items-center mb-2">
-              <div className="text-sm font-bold text-amber-400">Step {index + 1}</div>
+              <div className="text-cms-body font-bold text-amber-400">Step {index + 1}</div>
               <div className="flex gap-2">
                 <button onClick={() => handleMove(index, 'up')} disabled={index === 0} className="p-1 text-slate-400 hover:text-white disabled:opacity-30">
                   <ArrowUp className="w-4 h-4" />
@@ -78,37 +78,37 @@ export const ProcessStepsManagerView: React.FC = () => {
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div>
-                <label className="block text-xs font-bold text-slate-400 mb-1">Title (EN)</label>
+                <label className="block text-cms-small font-bold text-slate-400 mb-1">Title (EN)</label>
                 <input
                   type="text"
                   value={step.titleEn}
                   onChange={e => handleChange(step.id, 'titleEn', e.target.value)}
-                  className="w-full bg-slate-900 border border-slate-700 rounded-lg px-3 py-2 text-sm text-white"
+                  className="w-full bg-slate-900 border border-slate-700 rounded-lg px-3 py-2 text-cms-body text-white"
                 />
               </div>
               <div>
-                <label className="block text-xs font-bold text-slate-400 mb-1">Title (MR)</label>
+                <label className="block text-cms-small font-bold text-slate-400 mb-1">Title (MR)</label>
                 <input
                   type="text"
                   value={step.titleMr}
                   onChange={e => handleChange(step.id, 'titleMr', e.target.value)}
-                  className="w-full bg-slate-900 border border-slate-700 rounded-lg px-3 py-2 text-sm text-white"
+                  className="w-full bg-slate-900 border border-slate-700 rounded-lg px-3 py-2 text-cms-body text-white"
                 />
               </div>
               <div>
-                <label className="block text-xs font-bold text-slate-400 mb-1">Description (EN)</label>
+                <label className="block text-cms-small font-bold text-slate-400 mb-1">Description (EN)</label>
                 <textarea
                   value={step.descEn}
                   onChange={e => handleChange(step.id, 'descEn', e.target.value)}
-                  className="w-full bg-slate-900 border border-slate-700 rounded-lg px-3 py-2 text-sm text-white h-20"
+                  className="w-full bg-slate-900 border border-slate-700 rounded-lg px-3 py-2 text-cms-body text-white h-20"
                 />
               </div>
               <div>
-                <label className="block text-xs font-bold text-slate-400 mb-1">Description (MR)</label>
+                <label className="block text-cms-small font-bold text-slate-400 mb-1">Description (MR)</label>
                 <textarea
                   value={step.descMr}
                   onChange={e => handleChange(step.id, 'descMr', e.target.value)}
-                  className="w-full bg-slate-900 border border-slate-700 rounded-lg px-3 py-2 text-sm text-white h-20"
+                  className="w-full bg-slate-900 border border-slate-700 rounded-lg px-3 py-2 text-cms-body text-white h-20"
                 />
               </div>
             </div>
@@ -118,3 +118,6 @@ export const ProcessStepsManagerView: React.FC = () => {
     </div>
   );
 };
+
+
+

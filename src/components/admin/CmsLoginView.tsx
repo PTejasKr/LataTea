@@ -38,29 +38,29 @@ export const CmsLoginView: React.FC = () => {
             <BrandLogo className="h-20 w-auto drop-shadow-xl" />
           </div>
 
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-500/20 text-amber-300 text-[10px] font-bold uppercase tracking-wider border border-amber-500/30 mt-2">
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-500/20 text-amber-300 text-cms-small font-bold uppercase tracking-wider border border-amber-500/30 mt-2">
             <ShieldCheck className="w-3.5 h-3.5" />
             <span>Administrative Security Gate</span>
           </div>
 
-          <h1 className="font-serif text-2xl font-bold text-white tracking-wide">
+          <h1 className="font-serif text-cms-page text-white tracking-wide">
             Media Management System
           </h1>
-          <p className="text-xs text-slate-400">
+          <p className="text-cms-small text-slate-400">
             Sign in with authorized administrator credentials to manage public website content.
           </p>
         </div>
 
         {/* Error Alert */}
         {error && (
-          <div className="p-3.5 rounded-xl bg-rose-500/10 border border-rose-500/30 text-rose-300 text-xs flex items-center gap-2">
+          <div className="p-3.5 rounded-xl bg-rose-500/10 border border-rose-500/30 text-rose-300 text-cms-small flex items-center gap-2">
             <AlertCircle className="w-4 h-4 shrink-0 text-rose-400" />
             <span>{error}</span>
           </div>
         )}
 
         {/* Login Form */}
-        <form onSubmit={handleSubmit} className="space-y-4 text-xs">
+        <form onSubmit={handleSubmit} className="space-y-4 text-cms-small">
           <div>
             <label className="block font-bold uppercase tracking-wider text-slate-300 mb-1.5">
               Admin Username
@@ -73,7 +73,7 @@ export const CmsLoginView: React.FC = () => {
                 placeholder="Murjo Basu"
                 value={username}
                 onChange={e => setUsername(e.target.value)}
-                className="w-full pl-10 pr-4 py-2.5 rounded-xl border border-slate-700 bg-slate-900 text-white font-sans text-sm focus:ring-2 focus:ring-amber-400 focus:outline-none"
+                className="w-full pl-10 pr-4 py-2.5 rounded-xl border border-slate-700 bg-slate-900 text-white font-sans text-cms-body focus:ring-2 focus:ring-amber-400 focus:outline-none"
               />
             </div>
           </div>
@@ -90,7 +90,7 @@ export const CmsLoginView: React.FC = () => {
                 placeholder="Basu@123"
                 value={password}
                 onChange={e => setPassword(e.target.value)}
-                className="w-full pl-10 pr-4 py-2.5 rounded-xl border border-slate-700 bg-slate-900 text-white font-mono text-sm focus:ring-2 focus:ring-amber-400 focus:outline-none"
+                className="w-full pl-10 pr-4 py-2.5 rounded-xl border border-slate-700 bg-slate-900 text-white font-mono text-cms-body focus:ring-2 focus:ring-amber-400 focus:outline-none"
               />
             </div>
           </div>
@@ -99,7 +99,7 @@ export const CmsLoginView: React.FC = () => {
             <button
               type="submit"
               disabled={isLoading}
-              className="w-full py-3.5 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold uppercase tracking-wider text-xs shadow-lg hover:shadow-xl transition-all flex items-center justify-center gap-2 disabled:opacity-50"
+              className="w-full py-3.5 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold uppercase tracking-wider text-cms-small shadow-lg hover:shadow-xl transition-all flex items-center justify-center gap-2 disabled:opacity-50"
             >
               <Lock className="w-4 h-4" />
               <span>{isLoading ? 'Authenticating...' : 'Access CMS Dashboard'}</span>
@@ -115,7 +115,7 @@ export const CmsLoginView: React.FC = () => {
               window.location.hash = '';
               setActiveView('public');
             }}
-            className="text-xs text-slate-400 hover:text-amber-300 transition-colors"
+            className="text-cms-small text-slate-400 hover:text-amber-300 transition-colors"
           >
             ← Return to Public Lata Teamix Website
           </button>
@@ -125,3 +125,5 @@ export const CmsLoginView: React.FC = () => {
     </div>
   );
 };
+
+

@@ -59,7 +59,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenInquiry, isDraftPreview = 
                 <Link
                   key={idx}
                   to={item.url}
-                  className={`text-xs font-medium tracking-wide uppercase transition-colors py-1 ${
+                  className={`text-pub-nav uppercase tracking-wide transition-colors py-1 ${
                     isActive
                       ? 'text-brand-accent font-bold border-b-2 border-brand-accent'
                       : 'text-white/80 hover:text-white'
@@ -79,7 +79,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenInquiry, isDraftPreview = 
               <button
                 type="button"
                 onClick={() => setLanguage('en')}
-                className={`px-2 py-0.5 rounded text-[11px] font-medium transition-colors ${
+                className={`px-2 py-0.5 rounded text-pub-small font-medium transition-colors ${
                   language === 'en'
                     ? 'bg-brand-accent text-white shadow-xs'
                     : 'text-white/70 hover:text-white'
@@ -90,7 +90,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenInquiry, isDraftPreview = 
               <button
                 type="button"
                 onClick={() => setLanguage('mr')}
-                className={`px-2 py-0.5 rounded text-[11px] font-medium transition-colors ${
+                className={`px-2 py-0.5 rounded text-pub-small font-medium transition-colors ${
                   language === 'mr'
                     ? 'bg-brand-accent text-white shadow-xs'
                     : 'text-white/70 hover:text-white'
@@ -104,7 +104,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenInquiry, isDraftPreview = 
             <button
               type="button"
               onClick={() => onOpenInquiry?.()}
-              className="hidden sm:inline-flex items-center px-4 py-1.5 rounded-md text-xs font-semibold uppercase tracking-wider bg-brand-accent hover:bg-brand-accent-hover text-white transition-colors"
+              className="hidden sm:inline-flex items-center px-4 py-1.5 rounded-md text-pub-btn uppercase tracking-wider bg-brand-accent hover:bg-brand-accent-hover text-white transition-colors"
             >
               {t('Request Samples')}
             </button>
@@ -132,7 +132,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenInquiry, isDraftPreview = 
                 key={idx}
                 to={item.url}
                 onClick={() => setMobileMenuOpen(false)}
-                className="text-sm font-medium text-white/80 hover:text-white py-1.5 border-b border-white/10"
+                className="text-pub-nav font-medium text-white/80 hover:text-white py-1.5 border-b border-white/10"
               >
                 {t(item.label)}
               </Link>
@@ -145,7 +145,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenInquiry, isDraftPreview = 
                 setMobileMenuOpen(false);
                 onOpenInquiry?.();
               }}
-              className="w-full py-2 rounded-md bg-brand-accent hover:bg-brand-accent-hover text-white text-xs font-bold uppercase tracking-wider text-center"
+              className="w-full py-2 rounded-md bg-brand-accent hover:bg-brand-accent-hover text-white text-pub-btn uppercase tracking-wider text-center"
             >
               {t('Request Samples')}
             </button>
@@ -155,3 +155,4 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenInquiry, isDraftPreview = 
     </header>
   );
 };
+

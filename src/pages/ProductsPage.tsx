@@ -16,13 +16,13 @@ export const ProductsPage: React.FC<ProductsPageProps> = ({ onOpenInquiry }) => 
       {/* Header Banner */}
       <section className="py-14 bg-[#1B4332] text-white text-center">
         <div className="max-w-4xl mx-auto px-4 sm:px-6">
-          <span className="text-[11px] font-sans font-semibold tracking-widest text-[#A5D6A7] uppercase block mb-1">
+          <span className="text-pub-small font-sans font-semibold tracking-widest text-[#A5D6A7] uppercase block mb-1">
             {t('PRODUCT CATALOGUE')}
           </span>
           <h1 className="font-rajwada text-3xl sm:text-5xl font-bold text-white tracking-tight">
             {t('Explore All Lata Teamixs')}
           </h1>
-          <p className="mt-2 text-xs sm:text-sm text-slate-200 font-sans max-w-xl mx-auto">
+          <p className="mt-2 text-pub-body text-slate-200 font-sans max-w-xl mx-auto">
             {t('Pure jaggery chai blends, basundi tea, and instant 3-in-1 premixes.')}
           </p>
         </div>
@@ -34,3 +34,5 @@ export const ProductsPage: React.FC<ProductsPageProps> = ({ onOpenInquiry }) => 
     </div>
   );
 };
+
+

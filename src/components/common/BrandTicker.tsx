@@ -18,7 +18,7 @@ export const BrandTicker: React.FC<BrandTickerProps> = ({
 }) => {
   return (
     <div className="w-full bg-[#142615] border-y border-amber-500/30 py-3.5 overflow-hidden relative shadow-inner">
-      <div className="flex w-max animate-marquee gap-8 items-center text-xs sm:text-sm font-bold uppercase tracking-widest text-amber-300 font-sans">
+      <div className="flex w-max animate-marquee gap-8 items-center text-pub-body font-bold uppercase tracking-widest text-amber-300 font-sans">
         {/* Double array for infinite seamless looping */}
         {[...items, ...items, ...items].map((item, idx) => (
           <div key={idx} className="flex items-center gap-3 shrink-0">
@@ -30,3 +30,4 @@ export const BrandTicker: React.FC<BrandTickerProps> = ({
     </div>
   );
 };
+

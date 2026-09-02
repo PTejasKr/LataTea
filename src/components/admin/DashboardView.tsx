@@ -50,16 +50,16 @@ export const DashboardView: React.FC<DashboardViewProps> = ({ onSelectTab, onOpe
 
         <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6 relative z-10">
           <div>
-            <div className="flex items-center gap-2 text-xs font-bold tracking-widest text-amber-400 uppercase mb-2">
+            <div className="flex items-center gap-2 text-cms-small font-bold tracking-widest text-amber-400 uppercase mb-2">
               <Activity className="w-4 h-4" />
               <span>EDITORIAL STORYTELLING PLATFORM</span>
             </div>
 
             <div className="flex items-center gap-3">
-              <h2 className="text-2xl sm:text-3xl font-bold font-serif text-white">
+              <h2 className="text-cms-section font-bold font-serif text-white">
                 Lata Teamix Sovereign Platform
               </h2>
-              <span className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider ${
+              <span className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-cms-btn uppercase tracking-wider ${
                 hasDraftChanges 
                   ? 'bg-amber-500/20 text-amber-300 border border-amber-500/40'
                   : 'bg-emerald-500/20 text-emerald-300 border border-emerald-500/40'
@@ -69,7 +69,7 @@ export const DashboardView: React.FC<DashboardViewProps> = ({ onSelectTab, onOpe
               </span>
             </div>
 
-            <div className="flex items-center gap-4 text-xs text-slate-400 mt-2 font-mono">
+            <div className="flex items-center gap-4 text-cms-small text-slate-400 mt-2 font-mono">
               <div className="flex items-center gap-1.5">
                 <Clock className="w-3.5 h-3.5 text-slate-500" />
                 <span>Last Published: {lastPublishedFormatted}</span>
@@ -85,7 +85,7 @@ export const DashboardView: React.FC<DashboardViewProps> = ({ onSelectTab, onOpe
             <button
               type="button"
               onClick={() => setShowPreviewModal(true)}
-              className="px-5 py-3 rounded-2xl bg-white/10 hover:bg-white/15 text-white text-xs font-bold uppercase tracking-wider flex items-center gap-2 border border-white/20 transition-all cursor-pointer"
+              className="px-5 py-3 rounded-2xl bg-white/10 hover:bg-white/15 text-white text-cms-btn uppercase tracking-wider flex items-center gap-2 border border-white/20 transition-all cursor-pointer"
             >
               <Eye className="w-4 h-4 text-amber-300" />
               <span>Live Preview</span>
@@ -95,7 +95,7 @@ export const DashboardView: React.FC<DashboardViewProps> = ({ onSelectTab, onOpe
               type="button"
               onClick={onOpenPublishModal}
               disabled={!hasDraftChanges}
-              className={`px-6 py-3 rounded-2xl text-xs font-bold uppercase tracking-wider flex items-center gap-2 shadow-lg transition-all cursor-pointer ${
+              className={`px-6 py-3 rounded-2xl text-cms-btn uppercase tracking-wider flex items-center gap-2 shadow-lg transition-all cursor-pointer ${
                 hasDraftChanges
                   ? 'bg-amber-500 hover:bg-amber-600 text-slate-950 shadow-amber-500/20 scale-102'
                   : 'bg-slate-700 text-slate-400 cursor-not-allowed'
@@ -114,7 +114,7 @@ export const DashboardView: React.FC<DashboardViewProps> = ({ onSelectTab, onOpe
         {/* Metric 1: Story Completeness */}
         <div className="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm space-y-3">
           <div className="flex items-center justify-between text-slate-500">
-            <span className="text-xs font-bold uppercase tracking-wider">Editorial Completeness</span>
+            <span className="text-cms-btn uppercase tracking-wider">Editorial Completeness</span>
             <BookOpen className="w-4 h-4 text-amber-600" />
           </div>
           <div className="text-3xl font-black text-slate-900 font-serif">
@@ -123,7 +123,7 @@ export const DashboardView: React.FC<DashboardViewProps> = ({ onSelectTab, onOpe
           <div className="w-full bg-slate-100 h-2 rounded-full overflow-hidden">
             <div className="bg-amber-500 h-full rounded-full" style={{ width: `${completeness.overall}%` }} />
           </div>
-          <span className="text-[11px] text-slate-500 block font-medium">
+          <span className="text-cms-small text-slate-500 block font-medium">
             Story, Heritage & Craft stages verified
           </span>
         </div>
@@ -131,7 +131,7 @@ export const DashboardView: React.FC<DashboardViewProps> = ({ onSelectTab, onOpe
         {/* Metric 2: Marathi Translation Coverage */}
         <div className="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm space-y-3">
           <div className="flex items-center justify-between text-slate-500">
-            <span className="text-xs font-bold uppercase tracking-wider">मराठी Localization</span>
+            <span className="text-cms-btn uppercase tracking-wider">मराठी Localization</span>
             <Globe className="w-4 h-4 text-emerald-600" />
           </div>
           <div className="text-3xl font-black text-slate-900 font-serif">
@@ -140,7 +140,7 @@ export const DashboardView: React.FC<DashboardViewProps> = ({ onSelectTab, onOpe
           <div className="w-full bg-slate-100 h-2 rounded-full overflow-hidden">
             <div className="bg-emerald-500 h-full rounded-full" style={{ width: `${completeness.languageScore}%` }} />
           </div>
-          <span className="text-[11px] text-slate-500 block font-medium">
+          <span className="text-cms-small text-slate-500 block font-medium">
             Devanagari typography synchronized
           </span>
         </div>
@@ -148,19 +148,19 @@ export const DashboardView: React.FC<DashboardViewProps> = ({ onSelectTab, onOpe
         {/* Metric 3: Tea Stories */}
         <div className="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm space-y-3">
           <div className="flex items-center justify-between text-slate-500">
-            <span className="text-xs font-bold uppercase tracking-wider">Tea Blend Stories</span>
+            <span className="text-cms-btn uppercase tracking-wider">Tea Blend Stories</span>
             <Coffee className="w-4 h-4 text-amber-600" />
           </div>
           <div className="text-3xl font-black text-slate-900 font-serif">
             {teaStoriesCount}
           </div>
-          <div className="text-xs text-slate-500 font-medium">
+          <div className="text-cms-small text-slate-500 font-medium">
             Pure editorial storytelling (no cart)
           </div>
           <button
             type="button"
             onClick={() => onSelectTab('tea-stories')}
-            className="text-xs text-amber-600 hover:text-amber-700 font-bold flex items-center gap-1 cursor-pointer pt-1"
+            className="text-cms-small text-amber-600 hover:text-amber-700 font-bold flex items-center gap-1 cursor-pointer pt-1"
           >
             <span>Manage stories</span>
             <ArrowRight className="w-3.5 h-3.5" />
@@ -170,20 +170,20 @@ export const DashboardView: React.FC<DashboardViewProps> = ({ onSelectTab, onOpe
         {/* Metric 4: Domain & Infrastructure */}
         <div className="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm space-y-3">
           <div className="flex items-center justify-between text-slate-500">
-            <span className="text-xs font-bold uppercase tracking-wider">Domain Network</span>
+            <span className="text-cms-btn uppercase tracking-wider">Domain Network</span>
             <Network className="w-4 h-4 text-sky-600" />
           </div>
-          <div className="text-lg font-bold text-slate-900 truncate font-mono">
+          <div className="text-cms-card text-slate-900 truncate font-mono">
             {primaryDomain?.hostname || 'latatea.com'}
           </div>
-          <div className="flex items-center gap-1.5 text-xs text-emerald-600 font-semibold">
+          <div className="flex items-center gap-1.5 text-cms-small text-emerald-600 font-semibold">
             <CheckCircle2 className="w-4 h-4" />
             <span>DNS & SSL Active</span>
           </div>
           <button
             type="button"
             onClick={() => onSelectTab('domains')}
-            className="text-xs text-amber-600 hover:text-amber-700 font-bold flex items-center gap-1 cursor-pointer pt-1"
+            className="text-cms-small text-amber-600 hover:text-amber-700 font-bold flex items-center gap-1 cursor-pointer pt-1"
           >
             <span>Domain Manager</span>
             <ArrowRight className="w-3.5 h-3.5" />
@@ -194,7 +194,7 @@ export const DashboardView: React.FC<DashboardViewProps> = ({ onSelectTab, onOpe
 
       {/* Quick Access Editorial Cards */}
       <div className="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-sm space-y-6">
-        <h3 className="text-lg font-bold text-slate-900 font-serif">
+        <h3 className="text-cms-card text-slate-900 font-serif">
           Quick Story Editing Modules
         </h3>
 
@@ -205,8 +205,8 @@ export const DashboardView: React.FC<DashboardViewProps> = ({ onSelectTab, onOpe
             className="p-5 rounded-xl border border-slate-200 hover:border-amber-400 bg-slate-50 hover:bg-amber-50/40 text-left transition-all group cursor-pointer"
           >
             <BookOpen className="w-5 h-5 text-amber-600 mb-2 group-hover:scale-110 transition-transform" />
-            <h4 className="font-bold text-sm text-slate-900 font-serif">Story & Heritage</h4>
-            <p className="text-xs text-slate-500 mt-1">Origins, founding convictions, and milestone timeline.</p>
+            <h4 className="font-bold text-cms-body text-slate-900 font-serif">Story & Heritage</h4>
+            <p className="text-cms-small text-slate-500 mt-1">Origins, founding convictions, and milestone timeline.</p>
           </button>
 
           <button
@@ -215,8 +215,8 @@ export const DashboardView: React.FC<DashboardViewProps> = ({ onSelectTab, onOpe
             className="p-5 rounded-xl border border-slate-200 hover:border-amber-400 bg-slate-50 hover:bg-amber-50/40 text-left transition-all group cursor-pointer"
           >
             <Sliders className="w-5 h-5 text-lataleaf-600 mb-2 group-hover:scale-110 transition-transform" />
-            <h4 className="font-bold text-sm text-slate-900 font-serif">The Craft (5 Stages)</h4>
-            <p className="text-xs text-slate-500 mt-1">Source, Select, Blend, Prepare, Experience stages.</p>
+            <h4 className="font-bold text-cms-body text-slate-900 font-serif">The Craft (5 Stages)</h4>
+            <p className="text-cms-small text-slate-500 mt-1">Source, Select, Blend, Prepare, Experience stages.</p>
           </button>
 
           <button
@@ -225,8 +225,8 @@ export const DashboardView: React.FC<DashboardViewProps> = ({ onSelectTab, onOpe
             className="p-5 rounded-xl border border-slate-200 hover:border-amber-400 bg-slate-50 hover:bg-amber-50/40 text-left transition-all group cursor-pointer"
           >
             <Coffee className="w-5 h-5 text-amber-600 mb-2 group-hover:scale-110 transition-transform" />
-            <h4 className="font-bold text-sm text-slate-900 font-serif">Tea Stories</h4>
-            <p className="text-xs text-slate-500 mt-1">Tasting notes, origins, and non-commerce stories.</p>
+            <h4 className="font-bold text-cms-body text-slate-900 font-serif">Tea Stories</h4>
+            <p className="text-cms-small text-slate-500 mt-1">Tasting notes, origins, and non-commerce stories.</p>
           </button>
 
           <button
@@ -235,11 +235,15 @@ export const DashboardView: React.FC<DashboardViewProps> = ({ onSelectTab, onOpe
             className="p-5 rounded-xl border border-slate-200 hover:border-amber-400 bg-slate-50 hover:bg-amber-50/40 text-left transition-all group cursor-pointer"
           >
             <Globe className="w-5 h-5 text-emerald-600 mb-2 group-hover:scale-110 transition-transform" />
-            <h4 className="font-bold text-sm text-slate-900 font-serif">Languages (EN & MR)</h4>
-            <p className="text-xs text-slate-500 mt-1">Audit and update English and Marathi texts.</p>
+            <h4 className="font-bold text-cms-body text-slate-900 font-serif">Languages (EN & MR)</h4>
+            <p className="text-cms-small text-slate-500 mt-1">Audit and update English and Marathi texts.</p>
           </button>
         </div>
       </div>
     </div>
   );
 };
+
+
+
+

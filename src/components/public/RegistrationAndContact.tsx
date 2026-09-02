@@ -20,13 +20,13 @@ export const RegistrationAndContact: React.FC<RegistrationAndContactProps> = ({ 
         
         {/* Section Header */}
         <div className="max-w-xl mb-10">
-          <span className="text-[11px] font-sans font-semibold tracking-widest text-brand-accent uppercase block mb-1">
+          <span className="text-pub-small font-sans font-semibold tracking-widest text-brand-accent uppercase block mb-1">
             {t('GET IN TOUCH')}
           </span>
-          <h2 className="font-rajwada text-2xl sm:text-3xl font-bold text-brand-primary tracking-tight">
+          <h2 className="font-rajwada text-pub-section font-bold text-brand-primary tracking-tight">
             {t('Business Inquiries')}
           </h2>
-          <p className="mt-1 text-xs sm:text-sm text-brand-text-muted font-sans">
+          <p className="mt-1 text-pub-body text-brand-text-muted font-sans">
             {t('Head office and direct communication channels.')}
           </p>
         </div>
@@ -45,7 +45,7 @@ export const RegistrationAndContact: React.FC<RegistrationAndContactProps> = ({ 
               </h3>
               
               <div className="pt-2 border-t border-brand-border space-y-1">
-                <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">
+                <span className="text-pub-small font-bold text-slate-400 uppercase tracking-wider block">
                   {t('Address:')}
                 </span>
                 <p className="text-xs text-brand-text-muted font-sans leading-relaxed font-medium">
@@ -55,7 +55,7 @@ export const RegistrationAndContact: React.FC<RegistrationAndContactProps> = ({ 
               </div>
 
               <div className="pt-2 border-t border-brand-border space-y-1">
-                <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">
+                <span className="text-pub-small font-bold text-slate-400 uppercase tracking-wider block">
                   {t('Email:')}
                 </span>
                 <a href={`mailto:${contact.email || 'info@latatea.com'}`} className="text-brand-primary hover:text-brand-accent font-medium text-xs">
@@ -64,7 +64,7 @@ export const RegistrationAndContact: React.FC<RegistrationAndContactProps> = ({ 
               </div>
 
               <div className="pt-2 border-t border-brand-border space-y-1">
-                <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">
+                <span className="text-pub-small font-bold text-slate-400 uppercase tracking-wider block">
                   {t('Direct Phone:')}
                 </span>
                 <div className="flex items-center gap-2 text-xs font-medium text-brand-primary">
@@ -84,7 +84,7 @@ export const RegistrationAndContact: React.FC<RegistrationAndContactProps> = ({ 
                 href={whatsappUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full py-2.5 px-3 rounded-lg bg-brand-accent hover:bg-brand-accent-hover text-white text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-2 transition-colors"
+                className="w-full py-2.5 px-3 rounded-lg bg-brand-accent hover:bg-brand-accent-hover text-white text-pub-btn uppercase tracking-wider flex items-center justify-center gap-2 transition-colors"
               >
                 <MessageCircle className="w-4 h-4 fill-white" />
                 <span>{t('1-Click WhatsApp Chat')}</span>
@@ -98,3 +98,6 @@ export const RegistrationAndContact: React.FC<RegistrationAndContactProps> = ({ 
     </section>
   );
 };
+
+
+

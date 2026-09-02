@@ -57,7 +57,7 @@ export const PublicWebsite: React.FC<PublicWebsiteProps> = ({ isDraftPreview = f
       return (
         <div className="pt-28 pb-20 max-w-3xl mx-auto px-4 sm:px-6">
           <div className="bg-white p-6 sm:p-8 rounded-xl border border-[#E2ECE3] shadow-xs space-y-4">
-            <h1 className="font-rajwada text-2xl sm:text-3xl font-bold text-[#1B4332]">
+            <h1 className="font-rajwada text-pub-section font-bold text-[#1B4332]">
               {path === '/privacy' ? 'Privacy Policy & Data Protection' : 'Terms & Conditions'}
             </h1>
             <div className="h-0.5 w-12 bg-[#2E7D32]" />
@@ -98,3 +98,4 @@ export const PublicWebsite: React.FC<PublicWebsiteProps> = ({ isDraftPreview = f
     </div>
   );
 };
+

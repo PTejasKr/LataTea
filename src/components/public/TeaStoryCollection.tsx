@@ -36,10 +36,10 @@ export const TeaStoryCollection: React.FC<TeaStoryCollectionProps> = ({
         {/* Compact Catalogue Header & Category Filter Bar */}
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-6 pb-3 border-b border-brand-border">
           <div>
-            <h2 className="text-lg sm:text-xl font-bold text-brand-primary-dark font-rajwada">
+            <h2 className="text-pub-sub font-bold text-brand-primary-dark font-rajwada">
               {t('Tea Catalogue')}
             </h2>
-            <p className="text-[11px] sm:text-xs text-brand-text-muted">
+            <p className="text-pub-small text-brand-text-muted">
               {t('Browse products with quick details & samples')}
             </p>
           </div>
@@ -83,7 +83,7 @@ export const TeaStoryCollection: React.FC<TeaStoryCollectionProps> = ({
                     loading="lazy"
                   />
                   {/* Subtle Category Pill on Image */}
-                  <span className="absolute top-2 left-2 px-1.5 py-0.5 rounded bg-white/95 text-[9px] font-bold uppercase text-brand-accent shadow-xs">
+                  <span className="absolute top-2 left-2 px-1.5 py-0.5 rounded bg-white/95 text-pub-small font-bold uppercase text-brand-accent shadow-xs">
                     {t(tea.categoryName)}
                   </span>
                 </Link>
@@ -91,13 +91,13 @@ export const TeaStoryCollection: React.FC<TeaStoryCollectionProps> = ({
                 {/* Compact Info Block */}
                 <div className="p-2 sm:p-3 flex-1 flex flex-col justify-between">
                   <div>
-                    <span className="text-[9px] font-bold uppercase tracking-wider text-brand-text-muted block">
+                    <span className="text-pub-small font-bold uppercase tracking-wider text-brand-text-muted block">
                       LATA TEAMIX
                     </span>
-                    <h3 className="font-bold text-xs sm:text-sm text-brand-primary-dark group-hover:text-brand-accent transition-colors truncate mt-0.5">
+                    <h3 className="font-bold text-pub-body text-brand-primary-dark group-hover:text-brand-accent transition-colors truncate mt-0.5">
                       {t(tea.name)}
                     </h3>
-                    <p className="text-[10px] sm:text-[11px] text-brand-text-muted line-clamp-1 mt-0.5">
+                    <p className="text-pub-small sm:text-pub-small text-brand-text-muted line-clamp-1 mt-0.5">
                       {t(tea.shortDescription)}
                     </p>
                   </div>
@@ -106,7 +106,7 @@ export const TeaStoryCollection: React.FC<TeaStoryCollectionProps> = ({
                   <div className="mt-2.5 pt-2 border-t border-brand-border flex items-center justify-between gap-1">
                     <Link
                       to={`/tea/${tea.slug}`}
-                      className="text-[11px] font-bold text-brand-accent hover:text-brand-accent-hover inline-flex items-center gap-0.5"
+                      className="text-pub-small font-bold text-brand-accent hover:text-brand-accent-hover inline-flex items-center gap-0.5"
                     >
                       <span>{t('Details')}</span>
                       <ArrowRight className="w-3 h-3" />
@@ -115,7 +115,7 @@ export const TeaStoryCollection: React.FC<TeaStoryCollectionProps> = ({
                     <button
                       type="button"
                       onClick={() => onOpenInquiry?.(tea.name.en)}
-                      className="px-2 py-0.5 rounded bg-brand-background hover:bg-brand-accent-pale text-[10px] font-bold text-brand-primary cursor-pointer border border-brand-border whitespace-nowrap"
+                      className="px-2 py-0.5 rounded bg-brand-background hover:bg-brand-accent-pale text-pub-small font-bold text-brand-primary cursor-pointer border border-brand-border whitespace-nowrap"
                     >
                       {t('Sample')}
                     </button>
@@ -130,3 +130,7 @@ export const TeaStoryCollection: React.FC<TeaStoryCollectionProps> = ({
     </section>
   );
 };
+
+
+
+

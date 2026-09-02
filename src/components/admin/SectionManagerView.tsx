@@ -33,11 +33,11 @@ export const SectionManagerView: React.FC = () => {
   return (
     <div className="space-y-6 animate-in fade-in duration-150">
       <div className="pb-4 border-b border-slate-700">
-        <h2 className="text-xl font-bold text-white flex items-center gap-2">
+        <h2 className="text-cms-section text-white flex items-center gap-2">
           <Layers className="w-5 h-5 text-amber-400" />
           <span>Homepage Section Management</span>
         </h2>
-        <p className="text-xs text-slate-400 mt-1">
+        <p className="text-cms-small text-slate-400 mt-1">
           Enable, disable, and organize public website sections.
         </p>
       </div>
@@ -54,16 +54,16 @@ export const SectionManagerView: React.FC = () => {
               }`}
             >
               <div className="flex items-center gap-3">
-                <span className="w-6 h-6 rounded-lg bg-slate-800 text-slate-400 font-mono font-bold text-xs flex items-center justify-center shrink-0">
+                <span className="w-6 h-6 rounded-lg bg-slate-800 text-slate-400 font-mono font-bold text-cms-small flex items-center justify-center shrink-0">
                   {idx + 1}
                 </span>
 
                 <div>
-                  <div className="font-bold text-white text-sm flex items-center gap-2">
+                  <div className="font-bold text-white text-cms-body flex items-center gap-2">
                     <span>{section.name}</span>
-                    <span className="font-mono text-[10px] text-amber-400">#{section.key}</span>
+                    <span className="font-mono text-cms-small text-amber-400">#{section.key}</span>
                   </div>
-                  <p className="text-xs text-slate-400 mt-0.5">
+                  <p className="text-cms-small text-slate-400 mt-0.5">
                     {section.description}
                   </p>
                 </div>
@@ -72,7 +72,7 @@ export const SectionManagerView: React.FC = () => {
               <div className="flex items-center gap-3 shrink-0 pt-2 sm:pt-0 border-t sm:border-t-0 border-slate-800">
                 <button
                   onClick={() => handleToggle(section.id)}
-                  className={`px-3 py-1.5 rounded-xl text-xs font-semibold flex items-center gap-1.5 transition-colors ${
+                  className={`px-3 py-1.5 rounded-xl text-cms-btn flex items-center gap-1.5 transition-colors ${
                     section.isEnabled
                       ? 'bg-emerald-500/20 text-emerald-300 border border-emerald-500/30'
                       : 'bg-slate-800 text-slate-500 hover:text-slate-300'
@@ -106,3 +106,5 @@ export const SectionManagerView: React.FC = () => {
     </div>
   );
 };
+
+

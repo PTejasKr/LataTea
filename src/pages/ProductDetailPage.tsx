@@ -1,4 +1,4 @@
-﻿import React from 'react';
+import React from 'react';
 import { useCMS } from '../context/CMSContext';
 import { Link } from '../router/Router';
 import { 
@@ -25,7 +25,7 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({ slug, onOp
       <div className="pt-32 pb-20 max-w-4xl mx-auto px-4 text-center">
         <h2 className="text-xl font-bold text-[#1B4332]">Product Not Found</h2>
         <Link to="/tea" className="mt-3 inline-block text-[#F89E22] font-semibold text-xs">
-          â† Back to Catalogue
+          ← Back to Catalogue
         </Link>
       </div>
     );
@@ -70,23 +70,23 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({ slug, onOp
             
             {/* Header: Product Name & Short Descriptor */}
             <div>
-              <span className="text-[11px] font-mono uppercase tracking-wider text-[#F89E22] font-semibold block mb-1">
+              <span className="text-pub-small font-mono uppercase tracking-wider text-[#F89E22] font-semibold block mb-1">
                 {t(tea.categoryName)}
               </span>
-              <h1 className="font-rajwada text-2xl sm:text-3xl font-bold text-[#1B4332]">
+              <h1 className="font-rajwada text-pub-section font-bold text-[#1B4332]">
                 {t(tea.name)}
               </h1>
-              <p className="text-xs sm:text-sm text-[#5A6B5C] mt-0.5">
+              <p className="text-pub-body text-[#5A6B5C] mt-0.5">
                 {t(tea.tagline)}
               </p>
             </div>
 
             {/* About this blend (Very short paragraph) */}
             <div className="p-4 rounded-xl bg-white border border-[#E2ECE3] space-y-1.5">
-              <h2 className="text-xs font-bold uppercase tracking-wider text-[#1B4332]">
+              <h2 className="text-pub-btn uppercase tracking-wider text-[#1B4332]">
                 {t('About This Blend')}
               </h2>
-              <p className="text-xs sm:text-sm text-[#1A291B] font-sans leading-relaxed">
+              <p className="text-pub-body text-[#1A291B] font-sans leading-relaxed">
                 {t(tea.editorialStory)}
               </p>
             </div>
@@ -94,7 +94,7 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({ slug, onOp
             {/* Key Characteristics (Bullet Points) */}
             {tea.tastingNotes && tea.tastingNotes.length > 0 && (
               <div className="p-4 rounded-xl bg-white border border-[#E2ECE3] space-y-2">
-                <h3 className="text-xs font-bold uppercase tracking-wider text-[#1B4332]">
+                <h3 className="text-pub-btn uppercase tracking-wider text-[#1B4332]">
                   {t('Key Characteristics')}
                 </h3>
                 <ul className="space-y-1 text-xs text-[#1A291B]">
@@ -111,7 +111,7 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({ slug, onOp
             {/* How it is used (Visual / concise info) */}
             <div className="grid grid-cols-2 gap-3">
               <div className="p-3 rounded-lg bg-white border border-[#E2ECE3] space-y-0.5">
-                <div className="flex items-center gap-1.5 text-[11px] font-semibold text-[#F89E22]">
+                <div className="flex items-center gap-1.5 text-pub-small font-semibold text-[#F89E22]">
                   <Clock className="w-3.5 h-3.5" />
                   <span>{t('Preparation')}</span>
                 </div>
@@ -121,7 +121,7 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({ slug, onOp
               </div>
 
               <div className="p-3 rounded-lg bg-white border border-[#E2ECE3] space-y-0.5">
-                <div className="flex items-center gap-1.5 text-[11px] font-semibold text-[#F89E22]">
+                <div className="flex items-center gap-1.5 text-pub-small font-semibold text-[#F89E22]">
                   <MapPin className="w-3.5 h-3.5" />
                   <span>{t('Origin')}</span>
                 </div>
@@ -136,7 +136,7 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({ slug, onOp
               <button
                 type="button"
                 onClick={() => onOpenInquiry(tea.name.en)}
-                className="w-full sm:w-auto px-6 py-2.5 rounded-lg bg-[#F89E22] hover:bg-[#1B4332] text-white text-xs font-bold uppercase tracking-wider transition-colors cursor-pointer"
+                className="w-full sm:w-auto px-6 py-2.5 rounded-lg bg-[#F89E22] hover:bg-[#1B4332] text-white text-pub-btn uppercase tracking-wider transition-colors cursor-pointer"
               >
                 {t('Request Samples / Enquire')}
               </button>
@@ -145,7 +145,7 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({ slug, onOp
                 href={whatsappUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full sm:w-auto px-5 py-2.5 rounded-lg bg-[#25D366] hover:bg-[#20bd5a] text-white text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-1.5 transition-colors"
+                className="w-full sm:w-auto px-5 py-2.5 rounded-lg bg-[#25D366] hover:bg-[#20bd5a] text-white text-pub-btn uppercase tracking-wider flex items-center justify-center gap-1.5 transition-colors"
               >
                 <MessageCircle className="w-4 h-4 fill-white" />
                 <span>{t('WhatsApp Inquiry')}</span>
@@ -160,4 +160,6 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({ slug, onOp
     </div>
   );
 };
+
+
 

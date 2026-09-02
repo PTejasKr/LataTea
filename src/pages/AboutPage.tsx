@@ -13,13 +13,13 @@ export const AboutPage: React.FC = () => {
       {/* Page Hero Header */}
       <section className="py-14 bg-brand-primary-dark text-white text-center">
         <div className="max-w-4xl mx-auto px-4 sm:px-6">
-          <span className="text-[11px] font-sans font-semibold tracking-widest text-brand-accent uppercase block mb-1">
+          <span className="text-pub-small font-sans font-semibold tracking-widest text-brand-accent uppercase block mb-1">
             {t('ABOUT LATA TEAMIX')}
           </span>
           <h1 className="font-rajwada text-3xl sm:text-5xl font-bold text-white tracking-tight">
             {t('Indian Tea & Jaggery Blends')}
           </h1>
-          <p className="mt-2 text-xs sm:text-sm text-slate-200 font-sans max-w-xl mx-auto">
+          <p className="mt-2 text-pub-body text-slate-200 font-sans max-w-xl mx-auto">
             {t('Manufactured with pride by Purple Bean Agro Industries Private Limited in Pune, Maharashtra.')}
           </p>
         </div>
@@ -30,27 +30,27 @@ export const AboutPage: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-10 items-center">
           
           <div className="md:col-span-7 space-y-3">
-            <span className="text-[11px] font-bold tracking-widest text-brand-accent uppercase font-sans">
+            <span className="text-pub-small font-bold tracking-widest text-brand-accent uppercase font-sans">
               {t('PURPOSE & STANDARDS')}
             </span>
-            <h2 className="font-rajwada text-2xl sm:text-3xl font-bold text-brand-primary-dark leading-snug">
+            <h2 className="font-rajwada text-pub-section font-bold text-brand-primary-dark leading-snug">
               {t('Unadulterated Tea in Every Boiling Cup')}
             </h2>
-            <p className="text-xs sm:text-sm text-brand-primary leading-relaxed font-sans">
+            <p className="text-pub-body text-brand-primary leading-relaxed font-sans">
               Lata Teamix was established to solve an everyday challenge: giving families, cafés, and corporate workplaces access to authentic jaggery chai without curdling milk or burning sweetness.
             </p>
-            <p className="text-xs sm:text-sm text-brand-text-muted leading-relaxed font-sans">
+            <p className="text-pub-body text-brand-text-muted leading-relaxed font-sans">
               {t('Blended in a cleanroom in Pune, our products deliver consistent taste and aroma across homes, pantries, and vending machines.')}
             </p>
 
             <div className="pt-3 border-t border-brand-border grid grid-cols-2 gap-3">
               <div className="p-3 rounded-lg bg-brand-surface border border-brand-border shadow-xs">
                 <div className="text-xl font-bold font-rajwada text-brand-primary-dark">500+</div>
-                <div className="text-[11px] text-brand-text-muted font-sans">{t('Retail & Pantry Partners')}</div>
+                <div className="text-pub-small text-brand-text-muted font-sans">{t('Retail & Pantry Partners')}</div>
               </div>
               <div className="p-3 rounded-lg bg-brand-surface border border-brand-border shadow-xs">
                 <div className="text-xl font-bold font-rajwada text-brand-primary-dark">{t('100%')}</div>
-                <div className="text-[11px] text-brand-text-muted font-sans">{t('Pure Cane Jaggery')}</div>
+                <div className="text-pub-small text-brand-text-muted font-sans">{t('Pure Cane Jaggery')}</div>
               </div>
             </div>
           </div>
@@ -72,10 +72,10 @@ export const AboutPage: React.FC = () => {
       <section className="py-14 bg-brand-surface border-y border-brand-border">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-xl mb-10">
-            <span className="text-[11px] font-sans font-semibold tracking-widest text-brand-accent uppercase block mb-1">
+            <span className="text-pub-small font-sans font-semibold tracking-widest text-brand-accent uppercase block mb-1">
               {t('HYGIENE & STANDARDS')}
             </span>
-            <h2 className="font-rajwada text-2xl sm:text-3xl font-bold text-brand-primary-dark">
+            <h2 className="font-rajwada text-pub-section font-bold text-brand-primary-dark">
               {t('Controlled Production')}
             </h2>
           </div>
@@ -129,7 +129,7 @@ export const AboutPage: React.FC = () => {
             </div>
             <Link
               to="/contact"
-              className="px-5 py-2 rounded-md text-xs font-bold uppercase tracking-wider bg-brand-accent hover:bg-brand-accent-hover text-white transition-colors shrink-0"
+              className="px-5 py-2 rounded-md text-pub-btn uppercase tracking-wider bg-brand-accent hover:bg-brand-accent-hover text-white transition-colors shrink-0"
             >
               {t('Contact Sales')}
             </Link>
@@ -140,3 +140,5 @@ export const AboutPage: React.FC = () => {
     </div>
   );
 };
+
+

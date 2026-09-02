@@ -14,15 +14,15 @@ export const TeaExperienceSection: React.FC<TeaExperienceSectionProps> = ({ isDr
     <section id="experience" className="py-14 sm:py-16 bg-[#142615] text-white">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
         
-        <span className="text-[10px] font-sans font-semibold tracking-[0.25em] text-amber-400 uppercase">
+        <span className="text-pub-small font-sans font-semibold tracking-[0.25em] text-amber-400 uppercase">
           {t(exp.tagline)}
         </span>
 
-        <h2 className="font-rajwada text-2xl sm:text-3xl font-bold text-white max-w-xl mx-auto leading-tight">
+        <h2 className="font-rajwada text-pub-section font-bold text-white max-w-xl mx-auto leading-tight">
           {t(exp.heading)}
         </h2>
 
-        <p className="text-xs sm:text-sm text-slate-300 font-sans max-w-lg mx-auto leading-relaxed">
+        <p className="text-pub-body text-slate-300 font-sans max-w-lg mx-auto leading-relaxed">
           {t(exp.sensoryDescription)}
         </p>
 
@@ -44,3 +44,5 @@ export const TeaExperienceSection: React.FC<TeaExperienceSectionProps> = ({ isDr
     </section>
   );
 };
+
+

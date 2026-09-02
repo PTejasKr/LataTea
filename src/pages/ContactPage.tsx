@@ -28,13 +28,13 @@ export const ContactPage: React.FC = () => {
       {/* Contact Hero */}
       <section className="py-14 bg-brand-primary-dark text-white text-center">
         <div className="max-w-4xl mx-auto px-4 sm:px-6">
-          <span className="text-[11px] font-sans font-semibold tracking-widest text-brand-accent uppercase block mb-1">
+          <span className="text-pub-small font-sans font-semibold tracking-widest text-brand-accent uppercase block mb-1">
             PARTNER WITH US
           </span>
           <h1 className="font-rajwada text-3xl sm:text-5xl font-bold text-white tracking-tight">
             Distributor & Wholesale Enquiries
           </h1>
-          <p className="mt-2 text-xs sm:text-sm text-slate-200 max-w-xl mx-auto">
+          <p className="mt-2 text-pub-body text-slate-200 max-w-xl mx-auto">
             Direct supply chain solutions for corporate pantries, hotels, and FMCG distributors across India.
           </p>
         </div>
@@ -142,7 +142,7 @@ export const ContactPage: React.FC = () => {
 
                 <button
                   type="submit"
-                  className="w-full py-3 rounded-lg text-xs font-bold uppercase tracking-wider bg-brand-accent hover:bg-brand-accent-hover text-white transition-colors flex items-center justify-center gap-2 cursor-pointer"
+                  className="w-full py-3 rounded-lg text-pub-btn uppercase tracking-wider bg-brand-accent hover:bg-brand-accent-hover text-white transition-colors flex items-center justify-center gap-2 cursor-pointer"
                 >
                   <Send className="w-4 h-4" />
                   <span>Submit Sample & Pricing Request</span>
@@ -158,7 +158,7 @@ export const ContactPage: React.FC = () => {
                 Head Office
               </h3>
               
-              <div className="space-y-3 text-xs sm:text-sm font-sans">
+              <div className="space-y-3 text-pub-body font-sans">
                 <div className="flex items-start gap-2.5">
                   <MapPin className="w-4 h-4 text-brand-accent shrink-0 mt-0.5" />
                   <span>{contact.address}</span>
@@ -184,3 +184,5 @@ export const ContactPage: React.FC = () => {
     </div>
   );
 };
+
+

@@ -21,19 +21,19 @@ export const Footer: React.FC = () => {
               <BrandLogo className="h-10 sm:h-12 w-auto" />
             </Link>
 
-            <p className="text-xs text-slate-300 font-sans leading-relaxed max-w-sm">
+            <p className="text-pub-small text-slate-300 font-sans leading-relaxed max-w-sm">
               {language === 'en' 
                 ? 'Lata Teamix is manufactured by Purple Bean Agro Industries Private Limited in Pune, Maharashtra. Natural jaggery tea and basundi premixes.' 
                 : 'पर्पल बीन अ‍ॅग्रो इंडस्ट्रीज प्रायव्हेट लिमिटेड, पुणे. नैसर्गिक गूळ चहा आणि बासुंदी प्रीमिक्स.'}
             </p>
 
             {/* Language Switcher in Footer */}
-            <div className="pt-2 flex items-center gap-2 text-xs">
+            <div className="pt-2 flex items-center gap-2 text-pub-small">
               <span className="text-slate-400 font-medium">Language:</span>
               <button
                 type="button"
                 onClick={() => setLanguage('en')}
-                className={`px-2.5 py-0.5 rounded text-xs transition-colors ${
+                className={`px-2.5 py-0.5 rounded text-pub-small transition-colors ${
                   language === 'en'
                     ? 'bg-brand-accent text-white font-bold'
                     : 'bg-brand-primary text-slate-300 hover:text-white border border-brand-border/30'
@@ -44,7 +44,7 @@ export const Footer: React.FC = () => {
               <button
                 type="button"
                 onClick={() => setLanguage('mr')}
-                className={`px-2.5 py-0.5 rounded text-xs transition-colors ${
+                className={`px-2.5 py-0.5 rounded text-pub-small transition-colors ${
                   language === 'mr'
                     ? 'bg-brand-accent text-white font-bold'
                     : 'bg-brand-primary text-slate-300 hover:text-white border border-brand-border/30'
@@ -57,10 +57,10 @@ export const Footer: React.FC = () => {
 
           {/* Quick Links */}
           <div className="lg:col-span-3 space-y-2">
-            <h4 className="font-rajwada text-sm font-bold uppercase tracking-wider text-brand-accent">
+            <h4 className="font-rajwada text-pub-btn uppercase tracking-wider text-brand-accent">
               {t('Navigation')}
             </h4>
-            <ul className="space-y-1.5 text-xs font-sans">
+            <ul className="space-y-1.5 text-pub-small font-sans">
               <li>
                 <Link to="/" className="text-slate-300 hover:text-white transition-colors">
                   {t('Home')}
@@ -89,8 +89,8 @@ export const Footer: React.FC = () => {
           </div>
 
           {/* Head Office */}
-          <div className="lg:col-span-4 space-y-2 text-xs font-sans">
-            <h4 className="font-rajwada text-sm font-bold uppercase tracking-wider text-brand-accent">
+          <div className="lg:col-span-4 space-y-2 text-pub-small font-sans">
+            <h4 className="font-rajwada text-pub-btn uppercase tracking-wider text-brand-accent">
               {t('Head Office')}
             </h4>
             
@@ -110,7 +110,7 @@ export const Footer: React.FC = () => {
         </div>
 
         {/* Bottom Bar */}
-        <div className="pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs font-sans text-slate-400">
+        <div className="pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-pub-small font-sans text-slate-400">
           <div>
             {language === 'en' 
               ? '© 2026 Purple Bean Agro Industries Private Limited. All rights reserved.' 
@@ -134,3 +134,5 @@ export const Footer: React.FC = () => {
     </footer>
   );
 };
+
+

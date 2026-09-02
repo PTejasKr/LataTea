@@ -37,18 +37,18 @@ export const BrandSettingsView: React.FC = () => {
     <div className="space-y-6 animate-in fade-in duration-150">
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-slate-700">
         <div>
-          <h2 className="text-xl font-bold text-white flex items-center gap-2">
+          <h2 className="text-cms-section text-white flex items-center gap-2">
             <Palette className="w-5 h-5 text-amber-400" />
             <span>Brand Styling & Design System</span>
           </h2>
-          <p className="text-xs text-slate-400 mt-1">
+          <p className="text-cms-small text-slate-400 mt-1">
             Global color coding, logo bindings, and typography variables derived from the LataTea brochure.
           </p>
         </div>
 
         <button
           onClick={handleResetBrochureColors}
-          className="px-4 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-semibold flex items-center gap-1.5 self-start"
+          className="px-4 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 text-cms-btn flex items-center gap-1.5 self-start"
         >
           <RefreshCw className="w-3.5 h-3.5" />
           <span>Restore Brochure Colors</span>
@@ -59,17 +59,17 @@ export const BrandSettingsView: React.FC = () => {
         
         {/* Color Palette Controls */}
         <div className="p-6 sm:p-8 rounded-3xl bg-[#1E293B] border border-slate-700/80 shadow-lg space-y-5">
-          <h3 className="text-sm font-bold text-white mb-2 flex items-center gap-2">
+          <h3 className="text-cms-body font-bold text-white mb-2 flex items-center gap-2">
             <Sparkles className="w-4 h-4 text-amber-400" />
             <span>Brand Palette (Brochure Spec)</span>
           </h3>
 
-          <div className="space-y-4 text-xs">
+          <div className="space-y-4 text-cms-small">
             {/* Primary Green */}
             <div className="p-4 rounded-2xl bg-slate-900 border border-slate-800 flex items-center justify-between">
               <div>
                 <div className="font-bold text-white">Primary Brand Green</div>
-                <div className="text-[11px] text-slate-400">Main header, banners, deep brand identity</div>
+                <div className="text-cms-small text-slate-400">Main header, banners, deep brand identity</div>
               </div>
               <div className="flex items-center gap-3">
                 <input
@@ -82,7 +82,7 @@ export const BrandSettingsView: React.FC = () => {
                   type="text"
                   value={brand.primaryColor}
                   onChange={e => handleColorChange('primaryColor', e.target.value)}
-                  className="w-24 px-2.5 py-1.5 rounded-lg bg-slate-800 border border-slate-700 font-mono text-white text-xs uppercase"
+                  className="w-24 px-2.5 py-1.5 rounded-lg bg-slate-800 border border-slate-700 font-mono text-white text-cms-small uppercase"
                 />
               </div>
             </div>
@@ -91,7 +91,7 @@ export const BrandSettingsView: React.FC = () => {
             <div className="p-4 rounded-2xl bg-slate-900 border border-slate-800 flex items-center justify-between">
               <div>
                 <div className="font-bold text-white">Accent Gold / Marigold</div>
-                <div className="text-[11px] text-slate-400">Teamix pill badge, CTA buttons, highlights</div>
+                <div className="text-cms-small text-slate-400">Teamix pill badge, CTA buttons, highlights</div>
               </div>
               <div className="flex items-center gap-3">
                 <input
@@ -104,7 +104,7 @@ export const BrandSettingsView: React.FC = () => {
                   type="text"
                   value={brand.accentColor}
                   onChange={e => handleColorChange('accentColor', e.target.value)}
-                  className="w-24 px-2.5 py-1.5 rounded-lg bg-slate-800 border border-slate-700 font-mono text-white text-xs uppercase"
+                  className="w-24 px-2.5 py-1.5 rounded-lg bg-slate-800 border border-slate-700 font-mono text-white text-cms-small uppercase"
                 />
               </div>
             </div>
@@ -113,7 +113,7 @@ export const BrandSettingsView: React.FC = () => {
             <div className="p-4 rounded-2xl bg-slate-900 border border-slate-800 flex items-center justify-between">
               <div>
                 <div className="font-bold text-white">Secondary Leaf Green</div>
-                <div className="text-[11px] text-slate-400">Sprout leaves, badges, positive status</div>
+                <div className="text-cms-small text-slate-400">Sprout leaves, badges, positive status</div>
               </div>
               <div className="flex items-center gap-3">
                 <input
@@ -126,7 +126,7 @@ export const BrandSettingsView: React.FC = () => {
                   type="text"
                   value={brand.secondaryColor}
                   onChange={e => handleColorChange('secondaryColor', e.target.value)}
-                  className="w-24 px-2.5 py-1.5 rounded-lg bg-slate-800 border border-slate-700 font-mono text-white text-xs uppercase"
+                  className="w-24 px-2.5 py-1.5 rounded-lg bg-slate-800 border border-slate-700 font-mono text-white text-cms-small uppercase"
                 />
               </div>
             </div>
@@ -135,7 +135,7 @@ export const BrandSettingsView: React.FC = () => {
             <div className="p-4 rounded-2xl bg-slate-900 border border-slate-800 flex items-center justify-between">
               <div>
                 <div className="font-bold text-white">Background Warm Cream</div>
-                <div className="text-[11px] text-slate-400">Body backdrop, card containers</div>
+                <div className="text-cms-small text-slate-400">Body backdrop, card containers</div>
               </div>
               <div className="flex items-center gap-3">
                 <input
@@ -148,7 +148,7 @@ export const BrandSettingsView: React.FC = () => {
                   type="text"
                   value={brand.backgroundColor}
                   onChange={e => handleColorChange('backgroundColor', e.target.value)}
-                  className="w-24 px-2.5 py-1.5 rounded-lg bg-slate-800 border border-slate-700 font-mono text-white text-xs uppercase"
+                  className="w-24 px-2.5 py-1.5 rounded-lg bg-slate-800 border border-slate-700 font-mono text-white text-cms-small uppercase"
                 />
               </div>
             </div>
@@ -157,9 +157,9 @@ export const BrandSettingsView: React.FC = () => {
 
         {/* Logo Slots & Typography */}
         <div className="p-6 sm:p-8 rounded-3xl bg-[#1E293B] border border-slate-700/80 shadow-lg space-y-5">
-          <h3 className="text-sm font-bold text-white mb-2">Logo & Typography Bindings</h3>
+          <h3 className="text-cms-body font-bold text-white mb-2">Logo & Typography Bindings</h3>
 
-          <div className="space-y-4 text-xs">
+          <div className="space-y-4 text-cms-small">
             {/* Primary Logo */}
             <div className="p-4 rounded-2xl bg-slate-900 border border-slate-800 space-y-2">
               <div className="font-bold text-white">Primary Crest Logo</div>
@@ -167,7 +167,7 @@ export const BrandSettingsView: React.FC = () => {
                 {logoPrimary.url ? (
                   <img src={logoPrimary.url} alt="Logo" className="max-h-full max-w-full object-contain" />
                 ) : (
-                  <span className="text-slate-400 text-xs">No Logo</span>
+                  <span className="text-slate-400 text-cms-small">No Logo</span>
                 )}
               </div>
             </div>
@@ -179,21 +179,21 @@ export const BrandSettingsView: React.FC = () => {
                 {logoLight.url ? (
                   <img src={logoLight.url} alt="Logo Light" className="max-h-full max-w-full object-contain" />
                 ) : (
-                  <span className="text-slate-400 text-xs">No Light Logo</span>
+                  <span className="text-slate-400 text-cms-small">No Light Logo</span>
                 )}
               </div>
             </div>
 
             {/* Typography */}
             <div className="space-y-2 pt-2">
-              <label className="block font-bold text-slate-300 uppercase tracking-wider text-[11px]">
+              <label className="block font-bold text-slate-300 uppercase tracking-wider text-cms-small">
                 Heading Font Family
               </label>
               <input
                 type="text"
                 value={brand.fontHeading}
                 onChange={e => handleColorChange('fontHeading', e.target.value)}
-                className="w-full px-3 py-2 rounded-xl bg-slate-900 border border-slate-700 text-white font-mono text-xs"
+                className="w-full px-3 py-2 rounded-xl bg-slate-900 border border-slate-700 text-white font-mono text-cms-small"
               />
             </div>
           </div>
@@ -203,3 +203,5 @@ export const BrandSettingsView: React.FC = () => {
     </div>
   );
 };
+
+

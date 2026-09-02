@@ -7,6 +7,28 @@
     scroll-behavior: smooth;
     font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
   }
+  
+  /* Accessibility & Tap Targets */
+  button, 
+  input[type="text"], 
+  input[type="email"], 
+  input[type="password"], 
+  input[type="tel"], 
+  input[type="url"], 
+  input[type="search"],
+  textarea,
+  select {
+    min-height: 48px;
+  }
+  
+  /* Exception for very small utility buttons like close (X) icons */
+  button.p-1, button.p-1\.5, button.p-2 {
+    min-height: 44px;
+    min-width: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
 }
 
 /* Custom refined scrollbars */

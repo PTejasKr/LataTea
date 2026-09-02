@@ -1,4 +1,4 @@
-﻿import React from 'react';
+import React from 'react';
 import { useCMS } from '../../context/CMSContext';
 
 interface CraftSectionProps {
@@ -16,13 +16,13 @@ export const CraftSection: React.FC<CraftSectionProps> = ({ isDraftPreview = fal
         
         {/* Section Header */}
         <div className="max-w-xl mb-10">
-          <span className="text-[11px] font-sans font-semibold tracking-widest text-[#F89E22] uppercase block mb-1">
+          <span className="text-pub-small font-sans font-semibold tracking-widest text-[#F89E22] uppercase block mb-1">
             {t(craft.tagline)}
           </span>
-          <h2 className="font-rajwada text-2xl sm:text-3xl font-bold text-[#1B4332] tracking-tight">
+          <h2 className="font-rajwada text-pub-section font-bold text-[#1B4332] tracking-tight">
             {t(craft.heading)}
           </h2>
-          <p className="mt-1 text-xs sm:text-sm text-[#5A6B5C] font-sans">
+          <p className="mt-1 text-pub-body text-[#5A6B5C] font-sans">
             {t(craft.subheading)}
           </p>
         </div>
@@ -48,15 +48,15 @@ export const CraftSection: React.FC<CraftSectionProps> = ({ isDraftPreview = fal
                     />
                   </div>
 
-                  <span className="text-[10px] font-mono text-[#F89E22] font-bold uppercase block mb-1">
+                  <span className="text-pub-small font-mono text-[#F89E22] font-bold uppercase block mb-1">
                     {t(stage.tagline)}
                   </span>
                   
-                  <h3 className="font-rajwada text-sm sm:text-base font-bold text-[#1B4332] leading-snug mb-1">
+                  <h3 className="font-rajwada text-pub-body font-bold text-[#1B4332] leading-snug mb-1">
                     {t(stage.title)}
                   </h3>
 
-                  <p className="text-[11px] sm:text-xs text-[#5A6B5C] font-sans leading-relaxed">
+                  <p className="text-pub-small text-[#5A6B5C] font-sans leading-relaxed">
                     {t(stage.description)}
                   </p>
                 </div>
@@ -69,4 +69,7 @@ export const CraftSection: React.FC<CraftSectionProps> = ({ isDraftPreview = fal
     </section>
   );
 };
+
+
+
 

@@ -56,11 +56,11 @@ export const MediaLibraryView: React.FC = () => {
       {/* Header */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-slate-700">
         <div>
-          <h2 className="text-xl font-bold text-white flex items-center gap-2">
+          <h2 className="text-cms-section text-white flex items-center gap-2">
             <ImageIcon className="w-5 h-5 text-amber-400" />
             <span>Media Library & Asset Manager</span>
           </h2>
-          <p className="text-xs text-slate-400 mt-1">
+          <p className="text-cms-small text-slate-400 mt-1">
             Upload, inspect, and organize image assets (PNG, JPG, WebP, SVG).
           </p>
         </div>
@@ -76,7 +76,7 @@ export const MediaLibraryView: React.FC = () => {
           <button
             onClick={() => fileInputRef.current?.click()}
             disabled={isUploading}
-            className="px-4 py-2.5 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold uppercase tracking-wider text-xs flex items-center gap-1.5 shadow-md disabled:opacity-50"
+            className="px-4 py-2.5 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold uppercase tracking-wider text-cms-small flex items-center gap-1.5 shadow-md disabled:opacity-50"
           >
             <Upload className="w-4 h-4" />
             <span>{isUploading ? 'Uploading...' : 'Upload Asset'}</span>
@@ -92,7 +92,7 @@ export const MediaLibraryView: React.FC = () => {
           placeholder="Search media by filename or alt text..."
           value={searchQuery}
           onChange={e => setSearchQuery(e.target.value)}
-          className="w-full bg-transparent text-white text-xs placeholder-slate-500 focus:outline-none"
+          className="w-full bg-transparent text-white text-cms-small placeholder-slate-500 focus:outline-none"
         />
       </div>
 
@@ -118,8 +118,8 @@ export const MediaLibraryView: React.FC = () => {
                     <img src={media.url} alt={media.alt} className="w-full h-full object-contain p-1" />
                   </div>
                   <div>
-                    <div className="font-bold text-xs text-white truncate">{media.filename}</div>
-                    <div className="flex items-center justify-between text-[10px] text-slate-400 mt-1">
+                    <div className="font-bold text-cms-small text-white truncate">{media.filename}</div>
+                    <div className="flex items-center justify-between text-cms-small text-slate-400 mt-1">
                       <span>{media.fileSize || 'Asset'}</span>
                       <span className="uppercase text-amber-400/80">{media.mediaType?.split('/')[1] || 'img'}</span>
                     </div>
@@ -132,9 +132,9 @@ export const MediaLibraryView: React.FC = () => {
 
         {/* Selected Media Details Panel */}
         {selectedMedia && (
-          <div className="lg:col-span-4 p-6 rounded-3xl bg-[#1E293B] border border-slate-700 shadow-xl space-y-4 text-xs">
+          <div className="lg:col-span-4 p-6 rounded-3xl bg-[#1E293B] border border-slate-700 shadow-xl space-y-4 text-cms-small">
             <div className="flex items-center justify-between pb-3 border-b border-slate-700">
-              <h3 className="font-bold text-white text-sm">Asset Metadata</h3>
+              <h3 className="font-bold text-white text-cms-body">Asset Metadata</h3>
               <button
                 onClick={() => setSelectedMedia(null)}
                 className="text-slate-400 hover:text-white"
@@ -149,7 +149,7 @@ export const MediaLibraryView: React.FC = () => {
 
             <div className="space-y-3">
               <div>
-                <label className="block text-slate-400 font-bold uppercase text-[10px] mb-1">
+                <label className="block text-slate-400 font-bold uppercase text-cms-small mb-1">
                   Filename
                 </label>
                 <div className="font-mono text-white break-all bg-slate-900 p-2 rounded-lg border border-slate-800">
@@ -158,18 +158,18 @@ export const MediaLibraryView: React.FC = () => {
               </div>
 
               <div>
-                <label className="block text-slate-400 font-bold uppercase text-[10px] mb-1">
+                <label className="block text-slate-400 font-bold uppercase text-cms-small mb-1">
                   Alt Text (SEO & Accessibility)
                 </label>
                 <input
                   type="text"
                   value={selectedMedia.alt}
                   onChange={e => handleUpdateAlt(selectedMedia.id, e.target.value)}
-                  className="w-full px-3 py-2 rounded-lg bg-slate-900 border border-slate-700 text-white font-sans text-xs"
+                  className="w-full px-3 py-2 rounded-lg bg-slate-900 border border-slate-700 text-white font-sans text-cms-small"
                 />
               </div>
 
-              <div className="grid grid-cols-2 gap-2 text-[11px] text-slate-400 bg-slate-900 p-3 rounded-xl border border-slate-800">
+              <div className="grid grid-cols-2 gap-2 text-cms-small text-slate-400 bg-slate-900 p-3 rounded-xl border border-slate-800">
                 <div>
                   <span className="block text-slate-500">File Size:</span>
                   <span className="text-white font-bold">{selectedMedia.fileSize || 'N/A'}</span>
@@ -197,3 +197,6 @@ export const MediaLibraryView: React.FC = () => {
     </div>
   );
 };
+
+
+

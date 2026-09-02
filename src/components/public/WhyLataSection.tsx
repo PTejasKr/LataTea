@@ -1,4 +1,4 @@
-﻿import React from 'react';
+import React from 'react';
 import { useCMS } from '../../context/CMSContext';
 import { ShieldCheck, Leaf, Award, Clock } from 'lucide-react';
 
@@ -14,23 +14,23 @@ export const WhyLataSection: React.FC<WhyLataSectionProps> = ({ isDraftPreview =
   const points = [
     {
       icon: <Leaf className="w-5 h-5 text-[#F89E22]" />,
-      title: { en: '100% Cane Jaggery', mr: 'à¥§à¥¦à¥¦% à¤¨à¥ˆà¤¸à¤°à¥à¤—à¤¿à¤• à¤—à¥‚à¤³' },
-      desc: { en: 'Sweetened with unrefined jaggery. No white sugar or synthetic syrup.', mr: 'à¤•à¥‡à¤µà¤³ à¤¨à¥ˆà¤¸à¤°à¥à¤—à¤¿à¤• à¤—à¥‚à¤³. à¤ªà¤¾à¤‚à¤¢à¤°à¥€ à¤¸à¤¾à¤–à¤° à¤•à¤¿à¤‚à¤µà¤¾ à¤¸à¤¿à¤°à¤ª à¤¨à¤¾à¤¹à¥€.' }
+      title: { en: '100% Cane Jaggery', mr: '१००% नैसर्गिक गूळ' },
+      desc: { en: 'Sweetened with unrefined jaggery. No white sugar or synthetic syrup.', mr: 'केवळ नैसर्गिक गूळ. पांढरी साखर किंवा सिरप नाही.' }
     },
     {
       icon: <ShieldCheck className="w-5 h-5 text-[#F89E22]" />,
-      title: { en: 'Non-Curdling Guarantee', mr: 'à¤¦à¥‚à¤§ à¤¨ à¤«à¤¾à¤Ÿà¤£à¥à¤¯à¤¾à¤šà¥€ à¤¹à¤®à¥€' },
-      desc: { en: 'Balanced formulation lets you boil directly in fresh milk.', mr: 'à¤¥à¥‡à¤Ÿ à¤¦à¥à¤§à¤¾à¤¤ à¤‰à¤•à¤³à¤£à¥à¤¯à¤¾à¤¸à¤¾à¤ à¥€ à¤¸à¤‚à¤¤à¥à¤²à¤¿à¤¤ à¤®à¤¿à¤¶à¥à¤°à¤£.' }
+      title: { en: 'Non-Curdling Guarantee', mr: 'दूध न फाटण्याची हमी' },
+      desc: { en: 'Balanced formulation lets you boil directly in fresh milk.', mr: 'थेट दुधात उकळण्यासाठी संतुलित मिश्रण.' }
     },
     {
       icon: <Award className="w-5 h-5 text-[#F89E22]" />,
-      title: { en: 'Certified Production', mr: 'à¤ªà¥à¤°à¤®à¤¾à¤£à¤¿à¤¤ à¤‰à¤¤à¥à¤ªà¤¾à¤¦à¤¨' },
-      desc: { en: 'Blended and packed under FSSAI & ISO 22000 in Pune.', mr: 'à¤ªà¥à¤£à¥à¤¯à¤¾à¤¤à¥€à¤² à¤¨à¥‹à¤‚à¤¦à¤£à¥€à¤•à¥ƒà¤¤ à¤¯à¥à¤¨à¤¿à¤Ÿà¤®à¤§à¥à¤¯à¥‡ à¤¸à¥à¤µà¤šà¥à¤›à¤¤à¤¾ à¤®à¤¾à¤¨à¤•à¤¾à¤‚à¤¸à¤¹ à¤ªà¥…à¤•à¤¿à¤‚à¤—.' }
+      title: { en: 'Certified Production', mr: 'प्रमाणित उत्पादन' },
+      desc: { en: 'Blended and packed under FSSAI & ISO 22000 in Pune.', mr: 'पुण्यातील नोंदणीकृत युनिटमध्ये स्वच्छता मानकांसह पॅकिंग.' }
     },
     {
       icon: <Clock className="w-5 h-5 text-[#F89E22]" />,
-      title: { en: '3-Minute Preparation', mr: 'à¥© à¤®à¤¿à¤¨à¤¿à¤Ÿà¤¾à¤‚à¤¤ à¤¤à¤¯à¤¾à¤°' },
-      desc: { en: 'Quick boiling ritual for homes, offices, and cafÃ©s.', mr: 'à¤˜à¤°à¥‡ à¤†à¤£à¤¿ à¤•à¤¾à¤°à¥à¤¯à¤¾à¤²à¤¯à¤¾à¤‚à¤¸à¤¾à¤ à¥€ à¤œà¤²à¤¦ à¤†à¤£à¤¿ à¤–à¤¾à¤¤à¥à¤°à¥€à¤¶à¥€à¤° à¤ªà¤¦à¥à¤§à¤¤.' }
+      title: { en: '3-Minute Preparation', mr: '३ मिनिटांत तयार' },
+      desc: { en: 'Quick boiling ritual for homes, offices, and cafés.', mr: 'घरे आणि कार्यालयांसाठी जलद आणि खात्रीशीर पद्धत.' }
     }
   ];
 
@@ -40,10 +40,10 @@ export const WhyLataSection: React.FC<WhyLataSectionProps> = ({ isDraftPreview =
         
         {/* Section Header */}
         <div className="max-w-xl mb-10">
-          <span className="text-[11px] font-sans font-semibold tracking-widest text-[#F89E22] uppercase block mb-1">
+          <span className="text-pub-small font-sans font-semibold tracking-widest text-[#F89E22] uppercase block mb-1">
             {t('WHY LATA TEAMIX')}
           </span>
-          <h2 className="font-rajwada text-2xl sm:text-3xl font-bold text-[#1B4332] tracking-tight">
+          <h2 className="font-rajwada text-pub-section font-bold text-[#1B4332] tracking-tight">
             {t('Why Business & Families Choose Us')}
           </h2>
         </div>
@@ -74,4 +74,6 @@ export const WhyLataSection: React.FC<WhyLataSectionProps> = ({ isDraftPreview =
     </section>
   );
 };
+
+
 

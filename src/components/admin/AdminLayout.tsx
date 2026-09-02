@@ -95,17 +95,17 @@ export const AdminLayout: React.FC<AdminLayoutProps> = ({
           </button>
           
           <div className="flex items-center gap-2.5">
-            <div className="w-8 h-8 rounded-lg bg-[#142615] flex items-center justify-center font-serif font-black text-amber-400 text-sm shadow-md border border-amber-500/30">
+            <div className="w-8 h-8 rounded-lg bg-[#142615] flex items-center justify-center font-serif font-black text-amber-400 text-cms-body shadow-md border border-amber-500/30">
               LT
             </div>
             <div>
-              <div className="font-bold text-sm text-white tracking-wide flex items-center gap-2">
+              <div className="font-bold text-cms-body text-white tracking-wide flex items-center gap-2">
                 <span>Storytelling CMS</span>
-                <span className="text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded bg-amber-500/20 text-amber-300 border border-amber-500/30">
+                <span className="text-cms-small uppercase font-bold tracking-wider px-2 py-0.5 rounded bg-amber-500/20 text-amber-300 border border-amber-500/30">
                   Editorial Suite
                 </span>
               </div>
-              <div className="text-[11px] text-slate-400">
+              <div className="text-cms-small text-slate-400">
                 Logged in as: <span className="text-amber-300 font-semibold">Murjo Basu</span>
               </div>
             </div>
@@ -114,7 +114,7 @@ export const AdminLayout: React.FC<AdminLayoutProps> = ({
 
         {/* Center/Right Status & Action Buttons */}
         <div className="flex items-center gap-2 sm:gap-4">
-          <div className="hidden md:flex items-center gap-2 px-3 py-1.5 rounded-full bg-slate-900/80 border border-slate-700 text-xs">
+          <div className="hidden md:flex items-center gap-2 px-3 py-1.5 rounded-full bg-slate-900/80 border border-slate-700 text-cms-small">
             <span className={`w-2.5 h-2.5 rounded-full ${hasDraftChanges ? 'bg-amber-400 animate-pulse' : 'bg-emerald-400'}`} />
             <span className="font-semibold text-slate-300">
               {hasDraftChanges ? 'Draft Edits Pending' : 'Live & Published'}
@@ -129,7 +129,7 @@ export const AdminLayout: React.FC<AdminLayoutProps> = ({
                   discardDraft();
                 }
               }}
-              className="px-3 py-1.5 rounded-lg text-xs font-semibold bg-rose-500/20 hover:bg-rose-500/30 text-rose-300 border border-rose-500/30 transition-all flex items-center gap-1.5 cursor-pointer"
+              className="px-3 py-1.5 rounded-lg text-cms-btn bg-rose-500/20 hover:bg-rose-500/30 text-rose-300 border border-rose-500/30 transition-all flex items-center gap-1.5 cursor-pointer"
               title="Discard all pending draft edits"
             >
               <RotateCcw className="w-3.5 h-3.5" />
@@ -140,7 +140,7 @@ export const AdminLayout: React.FC<AdminLayoutProps> = ({
           <button
             type="button"
             onClick={() => setShowPreviewModal(true)}
-            className="px-3 sm:px-4 py-1.5 rounded-lg text-xs font-bold bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-600 transition-all flex items-center gap-1.5 cursor-pointer"
+            className="px-3 sm:px-4 py-1.5 rounded-lg text-cms-small font-bold bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-600 transition-all flex items-center gap-1.5 cursor-pointer"
             title="Preview live changes across devices"
           >
             <Eye className="w-3.5 h-3.5 text-amber-300" />
@@ -151,7 +151,7 @@ export const AdminLayout: React.FC<AdminLayoutProps> = ({
             type="button"
             onClick={onOpenPublishModal}
             disabled={!hasDraftChanges}
-            className={`px-4 py-1.5 rounded-lg text-xs font-bold flex items-center gap-1.5 transition-all shadow-md cursor-pointer ${
+            className={`px-4 py-1.5 rounded-lg text-cms-small font-bold flex items-center gap-1.5 transition-all shadow-md cursor-pointer ${
               hasDraftChanges
                 ? 'bg-amber-500 hover:bg-amber-600 text-slate-950 shadow-amber-500/20'
                 : 'bg-slate-700 text-slate-400 cursor-not-allowed'
@@ -164,7 +164,7 @@ export const AdminLayout: React.FC<AdminLayoutProps> = ({
           <button
             type="button"
             onClick={exitCms}
-            className="hidden lg:flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold text-slate-300 hover:text-white bg-slate-800 hover:bg-slate-700 border border-slate-600 cursor-pointer"
+            className="hidden lg:flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-cms-btn text-slate-300 hover:text-white bg-slate-800 hover:bg-slate-700 border border-slate-600 cursor-pointer"
           >
             <span>Exit to Site</span>
           </button>
@@ -189,7 +189,7 @@ export const AdminLayout: React.FC<AdminLayoutProps> = ({
           }`}
         >
           <div className="py-4 px-2 space-y-1">
-            <div className={`px-3 py-2 text-[10px] uppercase font-bold text-slate-400 tracking-wider ${sidebarCollapsed ? 'hidden' : 'block'}`}>
+            <div className={`px-3 py-2 text-cms-small uppercase font-bold text-slate-400 tracking-wider ${sidebarCollapsed ? 'hidden' : 'block'}`}>
               Storytelling Modules
             </div>
 
@@ -201,7 +201,7 @@ export const AdminLayout: React.FC<AdminLayoutProps> = ({
                   type="button"
                   onClick={() => onSelectTab(link.id)}
                   title={sidebarCollapsed ? link.label : undefined}
-                  className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-xs font-semibold transition-all cursor-pointer ${
+                  className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-cms-btn transition-all cursor-pointer ${
                     isActive
                       ? 'bg-amber-500 text-slate-950 font-bold shadow-md'
                       : 'text-slate-300 hover:bg-slate-800 hover:text-white'
@@ -212,7 +212,7 @@ export const AdminLayout: React.FC<AdminLayoutProps> = ({
                     <span className="flex-1 text-left truncate">{link.label}</span>
                   )}
                   {!sidebarCollapsed && link.badge && (
-                    <span className={`text-[10px] px-1.5 py-0.5 rounded-full font-mono ${
+                    <span className={`text-cms-small px-1.5 py-0.5 rounded-full font-mono ${
                       isActive ? 'bg-slate-950 text-amber-300' : 'bg-slate-700 text-slate-300'
                     }`}>
                       {link.badge}
@@ -225,7 +225,7 @@ export const AdminLayout: React.FC<AdminLayoutProps> = ({
 
           <div className="p-3 border-t border-slate-700/60 text-center">
             {!sidebarCollapsed && (
-              <div className="text-[10px] text-slate-500 font-mono">
+              <div className="text-cms-small text-slate-500 font-mono">
                 Lata Teamix CMS • Multilingual
               </div>
             )}
@@ -240,3 +240,6 @@ export const AdminLayout: React.FC<AdminLayoutProps> = ({
     </div>
   );
 };
+
+
+

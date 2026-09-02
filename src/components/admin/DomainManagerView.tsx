@@ -168,28 +168,28 @@ export const DomainManagerView: React.FC = () => {
     switch (status) {
       case 'ACTIVE':
         return (
-          <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-emerald-500/10 text-emerald-400 border border-emerald-500/30">
+          <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-cms-small font-bold bg-emerald-500/10 text-emerald-400 border border-emerald-500/30">
             <CheckCircle2 className="w-3.5 h-3.5" />
             ACTIVE
           </span>
         );
       case 'DNS_CONFIGURATION_REQUIRED':
         return (
-          <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-amber-500/10 text-amber-400 border border-amber-500/30">
+          <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-cms-small font-bold bg-amber-500/10 text-amber-400 border border-amber-500/30">
             <Clock className="w-3.5 h-3.5" />
             DNS SETUP NEEDED
           </span>
         );
       case 'VERIFYING':
         return (
-          <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-blue-500/10 text-blue-400 border border-blue-500/30 animate-pulse">
+          <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-cms-small font-bold bg-blue-500/10 text-blue-400 border border-blue-500/30 animate-pulse">
             <RefreshCw className="w-3.5 h-3.5 animate-spin" />
             VERIFYING
           </span>
         );
       default:
         return (
-          <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-slate-700 text-slate-300">
+          <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-cms-small font-bold bg-slate-700 text-slate-300">
             {status}
           </span>
         );
@@ -203,22 +203,22 @@ export const DomainManagerView: React.FC = () => {
       <div className="p-8 rounded-3xl bg-gradient-to-br from-[#1E293B] via-[#0F172A] to-[#1E3F20]/30 border border-slate-700/80 shadow-2xl relative overflow-hidden">
         <div className="relative z-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
           <div>
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-400 text-xs font-bold uppercase tracking-wider mb-3">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-400 text-cms-btn uppercase tracking-wider mb-3">
               <Globe className="w-3.5 h-3.5" />
               <span>Multi-Provider Domain & Host Engine</span>
             </div>
-            <h2 className="text-2xl sm:text-3xl font-black text-white font-rajwada">
+            <h2 className="text-cms-section font-black text-white font-rajwada">
               Domain Management & /cms Access
             </h2>
-            <p className="mt-1 text-sm text-slate-300 max-w-2xl font-sans font-light">
-              Connect custom domains from <span className="font-semibold text-amber-300">GoDaddy</span>, <span className="font-semibold text-emerald-300">Hostinger</span>, Cloudflare, or any registrar. The website and <code className="px-1.5 py-0.5 rounded bg-black/40 text-amber-300 font-mono text-xs">/cms</code> portal dynamically route to any configured domain.
+            <p className="mt-1 text-cms-body text-slate-300 max-w-2xl font-sans font-light">
+              Connect custom domains from <span className="font-semibold text-amber-300">GoDaddy</span>, <span className="font-semibold text-emerald-300">Hostinger</span>, Cloudflare, or any registrar. The website and <code className="px-1.5 py-0.5 rounded bg-black/40 text-amber-300 font-mono text-cms-small">/cms</code> portal dynamically route to any configured domain.
             </p>
           </div>
 
           <button
             type="button"
             onClick={() => setIsAddModalOpen(true)}
-            className="shrink-0 px-6 py-3.5 rounded-2xl bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-slate-950 font-bold text-xs uppercase tracking-wider flex items-center gap-2 shadow-xl hover:scale-102 transition-all cursor-pointer"
+            className="shrink-0 px-6 py-3.5 rounded-2xl bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-slate-950 font-bold text-cms-small uppercase tracking-wider flex items-center gap-2 shadow-xl hover:scale-102 transition-all cursor-pointer"
           >
             <Plus className="w-4 h-4" />
             <span>+ Add Domain</span>
@@ -228,7 +228,7 @@ export const DomainManagerView: React.FC = () => {
         {/* Stats Strip */}
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-8 pt-6 border-t border-slate-700/60">
           <div className="p-4 rounded-2xl bg-slate-900/60 border border-slate-800">
-            <div className="text-xs font-semibold text-slate-400">Primary Canonical Domain</div>
+            <div className="text-cms-btn text-slate-400">Primary Canonical Domain</div>
             <div className="text-base font-bold text-white mt-1 flex items-center gap-2">
               <Star className="w-4 h-4 text-amber-400 fill-amber-400" />
               <span>{primaryDomain ? primaryDomain.hostname : 'latatea.com'}</span>
@@ -236,7 +236,7 @@ export const DomainManagerView: React.FC = () => {
           </div>
 
           <div className="p-4 rounded-2xl bg-slate-900/60 border border-slate-800">
-            <div className="text-xs font-semibold text-slate-400">CMS Gateway Route</div>
+            <div className="text-cms-btn text-slate-400">CMS Gateway Route</div>
             <div className="text-base font-mono font-bold text-emerald-400 mt-1 flex items-center gap-2">
               <Lock className="w-4 h-4 text-emerald-400" />
               <span>https://{primaryDomain ? primaryDomain.hostname : 'latatea.com'}/cms</span>
@@ -244,8 +244,8 @@ export const DomainManagerView: React.FC = () => {
           </div>
 
           <div className="p-4 rounded-2xl bg-slate-900/60 border border-slate-800">
-            <div className="text-xs font-semibold text-slate-400">Architecture Compatibility</div>
-            <div className="text-xs font-semibold text-slate-200 mt-1">
+            <div className="text-cms-btn text-slate-400">Architecture Compatibility</div>
+            <div className="text-cms-btn text-slate-200 mt-1">
               GoDaddy Registrar ➔ Hostinger Hosting (Ready)
             </div>
           </div>
@@ -255,10 +255,10 @@ export const DomainManagerView: React.FC = () => {
       {/* Domain List Table */}
       <div className="bg-slate-900/70 border border-slate-800 rounded-3xl overflow-hidden shadow-xl">
         <div className="px-6 py-5 border-b border-slate-800 flex items-center justify-between">
-          <h3 className="text-sm font-bold text-slate-200 uppercase tracking-wider">
+          <h3 className="text-cms-body font-bold text-slate-200 uppercase tracking-wider">
             Configured Domains ({domains.length})
           </h3>
-          <span className="text-xs text-slate-400 font-light">
+          <span className="text-cms-small text-slate-400 font-light">
             Click &apos;DNS Setup&apos; to view DNS records or point new domains
           </span>
         </div>
@@ -272,18 +272,18 @@ export const DomainManagerView: React.FC = () => {
               {/* Domain Main Info */}
               <div className="space-y-2">
                 <div className="flex items-center gap-3">
-                  <span className="text-lg font-bold text-white font-mono">{dom.hostname}</span>
+                  <span className="text-cms-card text-white font-mono">{dom.hostname}</span>
                   
                   {dom.isPrimary ? (
-                    <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-amber-500/20 text-amber-300 border border-amber-500/40">
+                    <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-cms-small font-bold bg-amber-500/20 text-amber-300 border border-amber-500/40">
                       <Star className="w-3 h-3 fill-amber-300" /> PRIMARY
                     </span>
                   ) : dom.type === 'redirect' ? (
-                    <span className="px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-blue-500/20 text-blue-300 border border-blue-500/40">
+                    <span className="px-2.5 py-0.5 rounded-full text-cms-small font-bold bg-blue-500/20 text-blue-300 border border-blue-500/40">
                       REDIRECT ➔ {primaryDomain?.hostname}
                     </span>
                   ) : (
-                    <span className="px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-slate-700 text-slate-300">
+                    <span className="px-2.5 py-0.5 rounded-full text-cms-small font-bold bg-slate-700 text-slate-300">
                       SECONDARY
                     </span>
                   )}
@@ -291,7 +291,7 @@ export const DomainManagerView: React.FC = () => {
                   {getStatusBadge(dom.status)}
                 </div>
 
-                <div className="flex flex-wrap items-center gap-4 text-xs text-slate-400 font-sans">
+                <div className="flex flex-wrap items-center gap-4 text-cms-small text-slate-400 font-sans">
                   <span className="flex items-center gap-1.5">
                     <Lock className="w-3.5 h-3.5 text-emerald-400" />
                     SSL: <strong className="text-slate-200">{dom.sslStatus}</strong>
@@ -314,7 +314,7 @@ export const DomainManagerView: React.FC = () => {
                 <button
                   type="button"
                   onClick={() => setInspectDomain(dom)}
-                  className="px-4 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-amber-300 border border-amber-500/30 text-xs font-bold transition-all flex items-center gap-1.5"
+                  className="px-4 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-amber-300 border border-amber-500/30 text-cms-small font-bold transition-all flex items-center gap-1.5"
                 >
                   <Server className="w-3.5 h-3.5" />
                   <span>DNS Setup</span>
@@ -324,7 +324,7 @@ export const DomainManagerView: React.FC = () => {
                   type="button"
                   onClick={() => handleVerify(dom)}
                   disabled={isVerifying === dom.id}
-                  className="px-4 py-2 rounded-xl bg-emerald-950/60 hover:bg-emerald-900/80 text-emerald-300 border border-emerald-500/30 text-xs font-bold transition-all flex items-center gap-1.5 disabled:opacity-50"
+                  className="px-4 py-2 rounded-xl bg-emerald-950/60 hover:bg-emerald-900/80 text-emerald-300 border border-emerald-500/30 text-cms-small font-bold transition-all flex items-center gap-1.5 disabled:opacity-50"
                 >
                   <RefreshCw className={`w-3.5 h-3.5 ${isVerifying === dom.id ? 'animate-spin' : ''}`} />
                   <span>{isVerifying === dom.id ? 'Checking...' : 'Verify DNS'}</span>
@@ -334,7 +334,7 @@ export const DomainManagerView: React.FC = () => {
                   <button
                     type="button"
                     onClick={() => handleSetPrimary(dom.id)}
-                    className="px-3.5 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-semibold transition-all hover:text-white"
+                    className="px-3.5 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 text-cms-btn transition-all hover:text-white"
                   >
                     Make Primary
                   </button>
@@ -369,27 +369,27 @@ export const DomainManagerView: React.FC = () => {
 
             {/* Header */}
             <div>
-              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-500/10 text-amber-400 border border-amber-500/20 text-xs font-bold uppercase mb-2">
+              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-500/10 text-amber-400 border border-amber-500/20 text-cms-btn uppercase mb-2">
                 <Globe className="w-3.5 h-3.5" />
                 DNS Instructions & Propagation
               </div>
-              <h3 className="text-2xl font-bold text-white font-mono">
+              <h3 className="text-cms-page text-white font-mono">
                 {inspectDomain.hostname}
               </h3>
-              <p className="text-xs text-slate-300 mt-1">
+              <p className="text-cms-small text-slate-300 mt-1">
                 Add these DNS records in your domain registrar (e.g. GoDaddy or Hostinger) to connect your custom domain to the website.
               </p>
             </div>
 
             {/* DNS Records Table */}
             <div className="space-y-3">
-              <div className="text-xs font-bold text-slate-400 uppercase tracking-wider">
+              <div className="text-cms-small font-bold text-slate-400 uppercase tracking-wider">
                 Required DNS Records:
               </div>
 
               <div className="overflow-x-auto rounded-2xl border border-slate-800 bg-slate-950">
-                <table className="w-full text-left text-xs">
-                  <thead className="bg-slate-900 text-slate-400 uppercase text-[10px] tracking-wider border-b border-slate-800">
+                <table className="w-full text-left text-cms-small">
+                  <thead className="bg-slate-900 text-slate-400 uppercase text-cms-small tracking-wider border-b border-slate-800">
                     <tr>
                       <th className="p-3">Type</th>
                       <th className="p-3">Name / Host</th>
@@ -409,7 +409,7 @@ export const DomainManagerView: React.FC = () => {
                           <button
                             type="button"
                             onClick={() => handleCopy(rec.value, `dns_${idx}`)}
-                            className="px-2.5 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 text-amber-300 text-[11px] font-sans font-bold flex items-center gap-1 ml-auto"
+                            className="px-2.5 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 text-amber-300 text-cms-small font-sans font-bold flex items-center gap-1 ml-auto"
                           >
                             {copiedKey === `dns_${idx}` ? (
                               <>
@@ -433,7 +433,7 @@ export const DomainManagerView: React.FC = () => {
 
             {/* Registrar Setup Guides Tabs */}
             <div className="space-y-3 pt-2">
-              <div className="text-xs font-bold text-slate-400 uppercase tracking-wider">
+              <div className="text-cms-small font-bold text-slate-400 uppercase tracking-wider">
                 Step-by-Step Setup Guide:
               </div>
 
@@ -443,7 +443,7 @@ export const DomainManagerView: React.FC = () => {
                     key={tab}
                     type="button"
                     onClick={() => setActiveGuideTab(tab)}
-                    className={`px-3.5 py-1.5 rounded-xl text-xs font-bold capitalize transition-all ${
+                    className={`px-3.5 py-1.5 rounded-xl text-cms-small font-bold capitalize transition-all ${
                       activeGuideTab === tab 
                         ? 'bg-amber-500 text-slate-950 shadow-md' 
                         : 'bg-slate-800 text-slate-300 hover:text-white'
@@ -455,13 +455,13 @@ export const DomainManagerView: React.FC = () => {
               </div>
 
               <div className="p-4 rounded-2xl bg-slate-950 border border-slate-800 space-y-2">
-                <ol className="list-decimal list-inside space-y-1.5 text-xs text-slate-300 font-sans">
+                <ol className="list-decimal list-inside space-y-1.5 text-cms-small text-slate-300 font-sans">
                   {SUPPORTED_PROVIDERS[activeGuideTab].recommendedInstructions.map((inst, i) => (
                     <li key={i} className="leading-relaxed">{inst}</li>
                   ))}
                 </ol>
 
-                <div className="pt-2 text-[11px] text-amber-300/80 flex items-center gap-1.5">
+                <div className="pt-2 text-cms-small text-amber-300/80 flex items-center gap-1.5">
                   <HelpCircle className="w-3.5 h-3.5" />
                   <span>
                     Need help? Visit the official{' '}
@@ -483,7 +483,7 @@ export const DomainManagerView: React.FC = () => {
               <button
                 type="button"
                 onClick={() => setInspectDomain(null)}
-                className="px-5 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-xs font-bold text-slate-300"
+                className="px-5 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-cms-small font-bold text-slate-300"
               >
                 Close
               </button>
@@ -492,7 +492,7 @@ export const DomainManagerView: React.FC = () => {
                 type="button"
                 onClick={() => handleVerify(inspectDomain)}
                 disabled={isVerifying === inspectDomain.id}
-                className="px-6 py-2.5 rounded-xl bg-emerald-500 hover:bg-emerald-600 text-slate-950 text-xs font-bold uppercase tracking-wider flex items-center gap-2 shadow-lg cursor-pointer disabled:opacity-50"
+                className="px-6 py-2.5 rounded-xl bg-emerald-500 hover:bg-emerald-600 text-slate-950 text-cms-btn uppercase tracking-wider flex items-center gap-2 shadow-lg cursor-pointer disabled:opacity-50"
               >
                 <RefreshCw className={`w-3.5 h-3.5 ${isVerifying === inspectDomain.id ? 'animate-spin' : ''}`} />
                 <span>{isVerifying === inspectDomain.id ? 'Verifying...' : 'Verify Connection Now'}</span>
@@ -517,20 +517,20 @@ export const DomainManagerView: React.FC = () => {
             </button>
 
             <div>
-              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-500/10 text-amber-400 border border-amber-500/20 text-xs font-bold uppercase mb-2">
+              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-500/10 text-amber-400 border border-amber-500/20 text-cms-btn uppercase mb-2">
                 <Plus className="w-3.5 h-3.5" />
                 Connect New Domain
               </div>
-              <h3 className="text-2xl font-bold text-white font-rajwada">
+              <h3 className="text-cms-page text-white font-rajwada">
                 Add Custom Domain
               </h3>
-              <p className="text-xs text-slate-300 mt-1">
+              <p className="text-cms-small text-slate-300 mt-1">
                 Enter your domain to generate DNS settings and enable dynamic <code className="text-amber-300 font-mono">/cms</code> routing.
               </p>
             </div>
 
             {formError && (
-              <div className="p-3.5 rounded-2xl bg-red-500/10 border border-red-500/30 text-red-400 text-xs flex items-center gap-2">
+              <div className="p-3.5 rounded-2xl bg-red-500/10 border border-red-500/30 text-red-400 text-cms-small flex items-center gap-2">
                 <AlertCircle className="w-4 h-4 shrink-0" />
                 <span>{formError}</span>
               </div>
@@ -538,7 +538,7 @@ export const DomainManagerView: React.FC = () => {
 
             <form onSubmit={handleAddDomain} className="space-y-4">
               <div>
-                <label className="block text-xs font-bold text-slate-300 uppercase mb-1.5">
+                <label className="block text-cms-small font-bold text-slate-300 uppercase mb-1.5">
                   Domain Name *
                 </label>
                 <input
@@ -547,19 +547,19 @@ export const DomainManagerView: React.FC = () => {
                   placeholder="e.g. latatea.com or brand.latatea.com"
                   value={newHostname}
                   onChange={e => setNewHostname(e.target.value)}
-                  className="w-full px-4 py-3 rounded-xl bg-slate-950 border border-slate-800 text-white font-mono text-sm focus:border-amber-400 focus:outline-none"
+                  className="w-full px-4 py-3 rounded-xl bg-slate-950 border border-slate-800 text-white font-mono text-cms-body focus:border-amber-400 focus:outline-none"
                 />
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-xs font-bold text-slate-300 uppercase mb-1.5">
+                  <label className="block text-cms-small font-bold text-slate-300 uppercase mb-1.5">
                     Domain Type
                   </label>
                   <select
                     value={newType}
                     onChange={e => setNewType(e.target.value as DomainType)}
-                    className="w-full px-4 py-3 rounded-xl bg-slate-950 border border-slate-800 text-white text-xs focus:border-amber-400 focus:outline-none"
+                    className="w-full px-4 py-3 rounded-xl bg-slate-950 border border-slate-800 text-white text-cms-small focus:border-amber-400 focus:outline-none"
                   >
                     <option value="primary">Primary (Main Website & Canonical)</option>
                     <option value="secondary">Secondary (Direct Alias)</option>
@@ -568,13 +568,13 @@ export const DomainManagerView: React.FC = () => {
                 </div>
 
                 <div>
-                  <label className="block text-xs font-bold text-slate-300 uppercase mb-1.5">
+                  <label className="block text-cms-small font-bold text-slate-300 uppercase mb-1.5">
                     Registrar
                   </label>
                   <select
                     value={newRegistrar}
                     onChange={e => setNewRegistrar(e.target.value)}
-                    className="w-full px-4 py-3 rounded-xl bg-slate-950 border border-slate-800 text-white text-xs focus:border-amber-400 focus:outline-none"
+                    className="w-full px-4 py-3 rounded-xl bg-slate-950 border border-slate-800 text-white text-cms-small focus:border-amber-400 focus:outline-none"
                   >
                     <option value="GoDaddy">GoDaddy</option>
                     <option value="Hostinger">Hostinger</option>
@@ -586,13 +586,13 @@ export const DomainManagerView: React.FC = () => {
               </div>
 
               <div>
-                <label className="block text-xs font-bold text-slate-300 uppercase mb-1.5">
+                <label className="block text-cms-small font-bold text-slate-300 uppercase mb-1.5">
                   Hosting Target
                 </label>
                 <select
                   value={newHosting}
                   onChange={e => setNewHosting(e.target.value)}
-                  className="w-full px-4 py-3 rounded-xl bg-slate-950 border border-slate-800 text-white text-xs focus:border-amber-400 focus:outline-none"
+                  className="w-full px-4 py-3 rounded-xl bg-slate-950 border border-slate-800 text-white text-cms-small focus:border-amber-400 focus:outline-none"
                 >
                   <option value="Hostinger">Hostinger Cloud / Web Hosting</option>
                   <option value="Cloudflare">Cloudflare Pages / CDN</option>
@@ -606,14 +606,14 @@ export const DomainManagerView: React.FC = () => {
                 <button
                   type="button"
                   onClick={() => setIsAddModalOpen(false)}
-                  className="px-5 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-xs font-bold text-slate-300"
+                  className="px-5 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-cms-small font-bold text-slate-300"
                 >
                   Cancel
                 </button>
 
                 <button
                   type="submit"
-                  className="px-6 py-2.5 rounded-xl bg-amber-500 hover:bg-amber-600 text-slate-950 font-bold text-xs uppercase tracking-wider shadow-lg transition-all cursor-pointer"
+                  className="px-6 py-2.5 rounded-xl bg-amber-500 hover:bg-amber-600 text-slate-950 font-bold text-cms-small uppercase tracking-wider shadow-lg transition-all cursor-pointer"
                 >
                   Save & Get DNS Records
                 </button>
@@ -627,3 +627,8 @@ export const DomainManagerView: React.FC = () => {
     </div>
   );
 };
+
+
+
+
+

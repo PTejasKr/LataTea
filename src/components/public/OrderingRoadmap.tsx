@@ -32,14 +32,14 @@ export const OrderingRoadmap: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <div className="text-center max-w-2xl mx-auto mb-16">
-          <span className="text-[11px] font-sans font-semibold tracking-widest text-brand-accent uppercase block mb-2">
+          <span className="text-pub-small font-sans font-semibold tracking-widest text-brand-accent uppercase block mb-2">
             {t('The Process')}
           </span>
-          <h2 className="font-rajwada text-3xl sm:text-4xl font-bold text-brand-primary tracking-tight">
+          <h2 className="font-rajwada text-pub-section font-bold text-brand-primary tracking-tight">
             {t('From Order to Delivery')}
           </h2>
           <div className="mt-4 w-16 h-1 bg-brand-accent mx-auto rounded-full"></div>
-          <p className="mt-4 text-sm sm:text-base text-brand-text-muted font-sans">
+          <p className="mt-4 text-pub-body text-brand-text-muted font-sans">
             {t('Experience our transparent and efficient 7-step process designed for bulk buyers and distributors.')}
           </p>
         </div>
@@ -83,7 +83,7 @@ export const OrderingRoadmap: React.FC = () => {
                 <div className="absolute -top-1 -right-1 w-6 h-6 rounded-full bg-brand-accent text-white flex items-center justify-center font-bold text-xs shadow-md">1</div>
               </div>
               <h3 className="font-rajwada font-bold text-sm text-brand-primary text-center leading-tight mb-1 break-words">{language === 'mr' ? steps[0]?.titleMr : steps[0]?.titleEn}</h3>
-              <p className="text-[10px] text-brand-text-muted font-sans text-center leading-tight break-words">{language === 'mr' ? steps[0]?.descMr : steps[0]?.descEn}</p>
+              <p className="text-pub-small text-brand-text-muted font-sans text-center leading-tight break-words">{language === 'mr' ? steps[0]?.descMr : steps[0]?.descEn}</p>
             </div>
 
             {/* 1 to 2 */}
@@ -98,7 +98,7 @@ export const OrderingRoadmap: React.FC = () => {
                 <div className="absolute -top-1 -right-1 w-6 h-6 rounded-full bg-brand-accent text-white flex items-center justify-center font-bold text-xs shadow-md">2</div>
               </div>
               <h3 className="font-rajwada font-bold text-sm text-brand-primary text-center leading-tight mb-1 break-words">{language === 'mr' ? steps[1]?.titleMr : steps[1]?.titleEn}</h3>
-              <p className="text-[10px] text-brand-text-muted font-sans text-center leading-tight break-words">{language === 'mr' ? steps[1]?.descMr : steps[1]?.descEn}</p>
+              <p className="text-pub-small text-brand-text-muted font-sans text-center leading-tight break-words">{language === 'mr' ? steps[1]?.descMr : steps[1]?.descEn}</p>
             </div>
 
             {/* 2 to 3 */}
@@ -113,7 +113,7 @@ export const OrderingRoadmap: React.FC = () => {
                 <div className="absolute -top-1 -right-1 w-6 h-6 rounded-full bg-brand-accent text-white flex items-center justify-center font-bold text-xs shadow-md">3</div>
               </div>
               <h3 className="font-rajwada font-bold text-sm text-brand-primary text-center leading-tight mb-1 break-words">{language === 'mr' ? steps[2]?.titleMr : steps[2]?.titleEn}</h3>
-              <p className="text-[10px] text-brand-text-muted font-sans text-center leading-tight break-words">{language === 'mr' ? steps[2]?.descMr : steps[2]?.descEn}</p>
+              <p className="text-pub-small text-brand-text-muted font-sans text-center leading-tight break-words">{language === 'mr' ? steps[2]?.descMr : steps[2]?.descEn}</p>
             </div>
 
             {/* 3 to 4 */}
@@ -128,7 +128,7 @@ export const OrderingRoadmap: React.FC = () => {
                 <div className="absolute -top-1 -right-1 w-6 h-6 rounded-full bg-brand-accent text-white flex items-center justify-center font-bold text-xs shadow-md">4</div>
               </div>
               <h3 className="font-rajwada font-bold text-sm text-brand-primary text-center leading-tight mb-1 break-words">{language === 'mr' ? steps[3]?.titleMr : steps[3]?.titleEn}</h3>
-              <p className="text-[10px] text-brand-text-muted font-sans text-center leading-tight break-words">{language === 'mr' ? steps[3]?.descMr : steps[3]?.descEn}</p>
+              <p className="text-pub-small text-brand-text-muted font-sans text-center leading-tight break-words">{language === 'mr' ? steps[3]?.descMr : steps[3]?.descEn}</p>
             </div>
 
             {/* 4 to 5 */}
@@ -143,7 +143,7 @@ export const OrderingRoadmap: React.FC = () => {
                 <div className="absolute -top-1 -right-1 w-6 h-6 rounded-full bg-brand-accent text-white flex items-center justify-center font-bold text-xs shadow-md">5</div>
               </div>
               <h3 className="font-rajwada font-bold text-sm text-brand-primary text-center leading-tight mb-1 break-words">{language === 'mr' ? steps[4]?.titleMr : steps[4]?.titleEn}</h3>
-              <p className="text-[10px] text-brand-text-muted font-sans text-center leading-tight break-words">{language === 'mr' ? steps[4]?.descMr : steps[4]?.descEn}</p>
+              <p className="text-pub-small text-brand-text-muted font-sans text-center leading-tight break-words">{language === 'mr' ? steps[4]?.descMr : steps[4]?.descEn}</p>
             </div>
 
             {/* 5 to 6 */}
@@ -158,7 +158,7 @@ export const OrderingRoadmap: React.FC = () => {
                 <div className="absolute -top-1 -right-1 w-6 h-6 rounded-full bg-brand-accent text-white flex items-center justify-center font-bold text-xs shadow-md">6</div>
               </div>
               <h3 className="font-rajwada font-bold text-sm text-brand-primary text-center leading-tight mb-1 break-words">{language === 'mr' ? steps[5]?.titleMr : steps[5]?.titleEn}</h3>
-              <p className="text-[10px] text-brand-text-muted font-sans text-center leading-tight break-words">{language === 'mr' ? steps[5]?.descMr : steps[5]?.descEn}</p>
+              <p className="text-pub-small text-brand-text-muted font-sans text-center leading-tight break-words">{language === 'mr' ? steps[5]?.descMr : steps[5]?.descEn}</p>
             </div>
 
             {/* 6 to 7 */}
@@ -173,7 +173,7 @@ export const OrderingRoadmap: React.FC = () => {
                 <div className="absolute -top-1 -right-1 w-6 h-6 rounded-full bg-brand-accent text-white flex items-center justify-center font-bold text-xs shadow-md">7</div>
               </div>
               <h3 className="font-rajwada font-bold text-sm text-brand-primary text-center leading-tight mb-1 break-words">{language === 'mr' ? steps[6]?.titleMr : steps[6]?.titleEn}</h3>
-              <p className="text-[10px] text-brand-text-muted font-sans text-center leading-tight break-words">{language === 'mr' ? steps[6]?.descMr : steps[6]?.descEn}</p>
+              <p className="text-pub-small text-brand-text-muted font-sans text-center leading-tight break-words">{language === 'mr' ? steps[6]?.descMr : steps[6]?.descEn}</p>
             </div>
 
           </div>
@@ -184,10 +184,10 @@ export const OrderingRoadmap: React.FC = () => {
         <div className="mt-20 bg-brand-primary-dark rounded-xl overflow-hidden shadow-lg relative">
           <div className="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-white via-transparent to-transparent"></div>
           <div className="relative p-8 sm:p-12 text-center flex flex-col items-center">
-            <h3 className="font-rajwada text-2xl sm:text-3xl font-bold text-white mb-4">
+            <h3 className="font-rajwada text-pub-section font-bold text-white mb-4">
               {t('Partner with Lata Teamix')}
             </h3>
-            <p className="text-slate-200 text-sm sm:text-base font-sans max-w-2xl mx-auto mb-8 opacity-90">
+            <p className="text-slate-200 text-pub-body font-sans max-w-2xl mx-auto mb-8 opacity-90">
               {t('Contact us today for premium quality blends and unmatched taste that your customers will love.')}
             </p>
             <a 
@@ -203,3 +203,6 @@ export const OrderingRoadmap: React.FC = () => {
     </section>
   );
 };
+
+
+
