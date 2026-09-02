@@ -35,26 +35,21 @@ export const RegistrationAndContact: React.FC<RegistrationAndContactProps> = ({ 
   const whatsappUrl = `https://wa.me/${whatsappNumber}?text=Hi%20LataTea%2C%20I%20would%20like%20to%20inquire%20about%20your%20tea%20products%20and%20request%20samples.`;
 
   return (
-    <section id="contact" className="py-24 bg-[#FAF6EE] relative border-t border-amber-900/10">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="contact" className="py-16 sm:py-20 bg-[#FAF6EE] relative border-t border-amber-900/10">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <span className="text-xs sm:text-sm font-bold uppercase tracking-widest text-lataamber-600 mb-2 block font-sans">
-            {language === 'mr' ? 'कायदेशीर आणि कॉर्पोरेट माहिती' : 'STATUTORY & CORPORATE DETAILS'}
+        <div className="max-w-2xl mb-12">
+          <span className="text-[11px] font-sans font-semibold tracking-[0.2em] text-amber-700 uppercase block mb-2">
+            {language === 'mr' ? 'कायदेशीर तपशील' : 'STATUTORY DETAILS'}
           </span>
-          <h2 className="font-rajwada text-3xl sm:text-4xl md:text-5xl font-bold text-[#1E3F20] tracking-tight">
-            {language === 'mr' ? 'नोंदणीकृत तपशील आणि संपर्क' : 'Official Registration & Contact'}
+          <h2 className="font-rajwada text-2xl sm:text-4xl font-bold text-[#1E3F20] tracking-tight">
+            {language === 'mr' ? 'नोंदणी आणि संपर्क' : 'Registration & Contact'}
           </h2>
-          <div className="flex items-center justify-center gap-2 my-4">
-            <div className="h-0.5 w-12 bg-lataamber-500" />
-            <div className="w-2 h-2 rotate-45 bg-lataamber-500" />
-            <div className="h-0.5 w-12 bg-lataamber-500" />
-          </div>
-          <p className="text-base sm:text-lg text-slate-700 font-sans font-light">
+          <p className="mt-2 text-xs sm:text-sm text-slate-600 font-sans leading-relaxed">
             {language === 'mr'
-              ? 'प्रमाणित सरकारी परवाने, अन्न सुरक्षा प्रमाणपत्रे आणि अधिकृत संपर्क माध्यमे.'
-              : 'Verified corporate credentials, food safety registrations, and official communication channels.'}
+              ? 'प्रमाणित सरकारी परवाने, अन्न सुरक्षा प्रमाणपत्रे आणि अधिकृत संपर्क.'
+              : 'Corporate office, food safety licenses, and direct communication channels.'}
           </p>
         </div>
 
