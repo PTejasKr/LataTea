@@ -64,6 +64,14 @@ export interface CraftStageItem {
   keyDetails?: LocalizedString[];
 }
 
+export interface ProductCategoryItem {
+  id: string;
+  slug: string;
+  name: LocalizedString;
+  order: number;
+  isVisible: boolean;
+}
+
 export interface TeaStoryItem {
   id: string;
   slug: string;
@@ -276,6 +284,7 @@ export interface CMSState {
   sections: SectionConfig[];
   navigation: NavigationItem[];
   teaStories: TeaStoryItem[];
+  categories?: ProductCategoryItem[];
   domains: DomainItem[];
   mediaLibrary: MediaItem[];
   mediaSlots: Record<string, MediaSlot>;

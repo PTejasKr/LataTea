@@ -2,16 +2,13 @@ import React from 'react';
 import { useCMS } from '../context/CMSContext';
 import { Link } from '../router/Router';
 import { 
-  Check, 
-  MapPin, 
-  Clock, 
-  Sparkles, 
   ArrowLeft, 
   MessageCircle,
-  Droplets,
-  ShieldCheck
+  Clock,
+  MapPin,
+  CheckCircle,
+  FileText
 } from 'lucide-react';
-import { TeaLeafIcon } from '../components/common/TeaLeafIcon';
 
 interface ProductDetailPageProps {
   slug: string;
@@ -25,39 +22,39 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({ slug, onOp
 
   if (!tea) {
     return (
-      <div className="pt-36 pb-20 max-w-4xl mx-auto px-4 text-center">
-        <h2 className="text-2xl font-bold text-slate-800">Tea Story Not Found</h2>
-        <Link to="/tea" className="mt-4 inline-block text-amber-600 font-bold">
-          ← Return to Tea Stories
+      <div className="pt-32 pb-20 max-w-4xl mx-auto px-4 text-center">
+        <h2 className="text-xl font-bold text-[#1B4332]">Product Not Found</h2>
+        <Link to="/tea" className="mt-3 inline-block text-[#2E7D32] font-semibold text-xs">
+          ← Back to Catalogue
         </Link>
       </div>
     );
   }
 
   const teaImage = resolveSlotImage(tea.imageSlotId || 'STORY_IMAGE_PRIMARY');
-  const whatsappUrl = `https://wa.me/917666953873?text=Hi%20LataTea%2C%20I%20am%20reading%20about%20${encodeURIComponent(tea.name.en)}%20and%20would%20like%20to%20request%20samples.`;
+  const whatsappUrl = `https://wa.me/917666953873?text=Hi%20LataTea%2C%20I%20am%20inquiring%20about%20${encodeURIComponent(tea.name.en)}%20for%20my%20business.`;
 
   return (
-    <div className="pt-28 pb-24 bg-[#FAF6EE] text-[#1A2416] animate-fade-in min-h-screen">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="pt-24 pb-20 bg-[#F8FAF8] text-[#1A291B] min-h-screen">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Navigation Breadcrumb */}
-        <div className="mb-8">
+        <div className="mb-6">
           <Link
             to="/tea"
-            className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-slate-500 hover:text-amber-600 transition-colors"
+            className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#5A6B5C] hover:text-[#2E7D32] transition-colors"
           >
-            <ArrowLeft className="w-4 h-4" />
-            <span>{language === 'mr' ? 'सर्व चहा संग्रह' : 'Back to Tea Collection'}</span>
+            <ArrowLeft className="w-3.5 h-3.5" />
+            <span>{language === 'mr' ? 'सर्व उत्पादने' : 'Back to Catalogue'}</span>
           </Link>
         </div>
 
-        {/* Main Editorial Showcase */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+        {/* Product Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-10 items-start">
           
-          {/* Visual Showcase */}
-          <div className="lg:col-span-6 relative">
-            <div className="rounded-3xl overflow-hidden shadow-2xl border-4 border-white aspect-[4/3] bg-amber-50">
+          {/* 1. PRODUCT IMAGE */}
+          <div className="md:col-span-5">
+            <div className="rounded-xl overflow-hidden border border-[#E2ECE3] bg-white aspect-square shadow-xs">
               <img
                 src={teaImage.url}
                 alt={teaImage.alt}
@@ -66,115 +63,93 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({ slug, onOp
                 loading="eager"
               />
             </div>
-
-            {tea.badgeText && (
-              <div className="absolute top-4 left-4 bg-amber-500 text-slate-950 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest shadow-md">
-                {t(tea.badgeText)}
-              </div>
-            )}
           </div>
 
-          {/* Editorial Content */}
-          <div className="lg:col-span-6 space-y-6">
-            <div className="space-y-2">
-              <span className="text-xs font-bold uppercase tracking-widest text-lataamber-600 block font-sans">
+          {/* Details Column */}
+          <div className="md:col-span-7 space-y-4">
+            
+            {/* Header: Product Name & Short Descriptor */}
+            <div>
+              <span className="text-[11px] font-mono uppercase tracking-wider text-[#2E7D32] font-semibold block mb-1">
                 {t(tea.categoryName)}
               </span>
-              <h1 className="font-rajwada text-3xl sm:text-4xl md:text-5xl font-bold text-[#1E3F20] leading-tight">
+              <h1 className="font-rajwada text-2xl sm:text-3xl font-bold text-[#1B4332]">
                 {t(tea.name)}
               </h1>
-              <p className="text-sm sm:text-base text-slate-500 font-sans italic">
+              <p className="text-xs sm:text-sm text-[#5A6B5C] mt-0.5">
                 {t(tea.tagline)}
               </p>
             </div>
 
-            <p className="text-base text-slate-700 font-sans font-light leading-relaxed">
-              {t(tea.editorialStory)}
-            </p>
+            {/* About this blend (Very short paragraph) */}
+            <div className="p-4 rounded-xl bg-white border border-[#E2ECE3] space-y-1.5">
+              <h2 className="text-xs font-bold uppercase tracking-wider text-[#1B4332]">
+                {language === 'mr' ? 'उत्पादनाबद्दल' : 'About This Blend'}
+              </h2>
+              <p className="text-xs sm:text-sm text-[#1A291B] font-sans leading-relaxed">
+                {t(tea.editorialStory)}
+              </p>
+            </div>
 
-            {/* Tasting Profile Notes */}
+            {/* Key Characteristics (Bullet Points) */}
             {tea.tastingNotes && tea.tastingNotes.length > 0 && (
-              <div className="p-5 rounded-2xl bg-white border border-amber-200/80 shadow-sm space-y-2">
-                <span className="text-xs font-bold uppercase tracking-widest text-[#1E3F20] block">
-                  {language === 'mr' ? 'चवीची वैशिष्ट्ये (Tasting Notes):' : 'Aromatics & Tasting Profile:'}
-                </span>
-                <div className="flex flex-wrap gap-2">
+              <div className="p-4 rounded-xl bg-white border border-[#E2ECE3] space-y-2">
+                <h3 className="text-xs font-bold uppercase tracking-wider text-[#1B4332]">
+                  {language === 'mr' ? 'मुख्य वैशिष्ट्ये' : 'Key Characteristics'}
+                </h3>
+                <ul className="space-y-1 text-xs text-[#1A291B]">
                   {tea.tastingNotes.map((note, idx) => (
-                    <span
-                      key={idx}
-                      className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-semibold bg-[#FAF6EE] text-[#1E3F20] border border-amber-200"
-                    >
-                      <Sparkles className="w-3.5 h-3.5 text-amber-500" />
+                    <li key={idx} className="flex items-center gap-2">
+                      <CheckCircle className="w-3.5 h-3.5 text-[#2E7D32] shrink-0" />
                       <span>{t(note)}</span>
-                    </span>
+                    </li>
                   ))}
-                </div>
+                </ul>
               </div>
             )}
 
-            {/* Ingredients & Origin */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
-              <div className="p-4 rounded-2xl bg-white border border-amber-200/80 space-y-1">
-                <div className="flex items-center gap-2 text-xs font-bold uppercase text-slate-500">
-                  <MapPin className="w-3.5 h-3.5 text-amber-600" />
-                  <span>{language === 'mr' ? 'उगम' : 'Origin & Harvest'}</span>
+            {/* How it is used (Visual / concise info) */}
+            <div className="grid grid-cols-2 gap-3">
+              <div className="p-3 rounded-lg bg-white border border-[#E2ECE3] space-y-0.5">
+                <div className="flex items-center gap-1.5 text-[11px] font-semibold text-[#2E7D32]">
+                  <Clock className="w-3.5 h-3.5" />
+                  <span>{language === 'mr' ? 'तयारी' : 'Preparation'}</span>
                 </div>
-                <div className="text-xs font-semibold text-slate-800">
-                  {t(tea.origin)}
-                </div>
+                <p className="text-xs text-[#1A291B]">
+                  {t(tea.servingRitual)}
+                </p>
               </div>
 
-              <div className="p-4 rounded-2xl bg-white border border-amber-200/80 space-y-1">
-                <div className="flex items-center gap-2 text-xs font-bold uppercase text-slate-500">
-                  <Droplets className="w-3.5 h-3.5 text-lataleaf-600" />
-                  <span>{language === 'mr' ? 'तयारीची पद्धत' : 'Simmering Ritual'}</span>
+              <div className="p-3 rounded-lg bg-white border border-[#E2ECE3] space-y-0.5">
+                <div className="flex items-center gap-1.5 text-[11px] font-semibold text-[#2E7D32]">
+                  <MapPin className="w-3.5 h-3.5" />
+                  <span>{language === 'mr' ? 'उगम' : 'Origin'}</span>
                 </div>
-                <div className="text-xs font-semibold text-slate-800">
-                  {t(tea.servingRitual)}
-                </div>
+                <p className="text-xs text-[#1A291B]">
+                  {t(tea.origin)}
+                </p>
               </div>
             </div>
 
-            {/* Ingredients List */}
-            {tea.ingredients && tea.ingredients.length > 0 && (
-              <div className="pt-2">
-                <span className="text-xs font-bold uppercase tracking-widest text-slate-500 block mb-2">
-                  {language === 'mr' ? 'साहित्य (Ingredients):' : 'Pure Ingredients:'}
-                </span>
-                <div className="flex flex-wrap gap-2">
-                  {tea.ingredients.map((ing, idx) => (
-                    <span key={idx} className="text-xs font-medium bg-amber-500/10 text-amber-950 px-3 py-1 rounded-lg border border-amber-300/40">
-                      {t(ing)}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            )}
-
-            {/* Inquiries Action Block (Zero e-commerce/checkout!) */}
-            <div className="pt-6 border-t border-amber-900/10 flex flex-col sm:flex-row items-center gap-4">
+            {/* Actions: Enquire / Request Information (No Cart / No Buy Now) */}
+            <div className="pt-3 flex flex-col sm:flex-row items-center gap-2.5">
               <button
                 type="button"
                 onClick={() => onOpenInquiry(tea.name.en)}
-                className="w-full sm:w-auto px-8 py-3.5 rounded-full bg-amber-500 hover:bg-amber-600 text-slate-950 text-xs font-bold uppercase tracking-wider shadow-lg hover:shadow-xl transition-all cursor-pointer"
+                className="w-full sm:w-auto px-6 py-2.5 rounded-lg bg-[#2E7D32] hover:bg-[#1B4332] text-white text-xs font-bold uppercase tracking-wider transition-colors cursor-pointer"
               >
-                {language === 'mr' ? 'नमुना किट मागवा' : 'Request Enterprise Sample Kit'}
+                {language === 'mr' ? 'व्यावसायिक चौकशी / नमुना मागवा' : 'Request Samples / Enquire'}
               </button>
 
               <a
                 href={whatsappUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full sm:w-auto px-6 py-3.5 rounded-full bg-[#25D366] hover:bg-[#20bd5a] text-white text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-2 shadow-md hover:shadow-lg transition-all"
+                className="w-full sm:w-auto px-5 py-2.5 rounded-lg bg-[#25D366] hover:bg-[#20bd5a] text-white text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-1.5 transition-colors"
               >
                 <MessageCircle className="w-4 h-4 fill-white" />
-                <span>{language === 'mr' ? 'व्हॉट्सॲपवर संपर्क' : 'WhatsApp Inquiry'}</span>
+                <span>{language === 'mr' ? 'व्हॉट्सॲप चौकशी' : 'WhatsApp Inquiry'}</span>
               </a>
-            </div>
-
-            <div className="flex items-center gap-2 text-xs text-slate-500 font-sans pt-2">
-              <ShieldCheck className="w-4 h-4 text-lataleaf-600" />
-              <span>Certified ISO 22000 & FSSAI Cleanroom Blending • Purple Bean Agro Industries Pvt Ltd</span>
             </div>
 
           </div>

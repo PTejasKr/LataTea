@@ -1,74 +1,65 @@
 import React from 'react';
 import { useCMS } from '../context/CMSContext';
-import { useRouter, Link } from '../router/Router';
-import { ShieldCheck, Award, Leaf, Building2, CheckCircle2, ArrowRight } from 'lucide-react';
-import { TeaLeafIcon } from '../components/common/TeaLeafIcon';
+import { Link } from '../router/Router';
+import { ShieldCheck, Award, Leaf } from 'lucide-react';
 
 export const AboutPage: React.FC = () => {
   const { publishedState } = useCMS();
   const contact = publishedState.contact;
 
   return (
-    <div className="pt-28 pb-20 bg-[#FAF6EE] text-[#1A2416] animate-fade-in min-h-screen">
+    <div className="pt-20 pb-20 bg-[#F8FAF8] text-[#1A291B] min-h-screen">
       
       {/* Page Hero Header */}
-      <section className="relative py-20 bg-[#162E18] text-white overflow-hidden">
-        <div className="absolute inset-0 z-0 opacity-40">
-          <img
-            src="/assets/images/hero_tea_panoramic.png"
-            alt="Lata Tea Heritage"
-            className="w-full h-full object-cover"
-          />
-        </div>
-        <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 text-center">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-black/60 border border-amber-400/40 text-amber-300 text-xs font-bold uppercase tracking-widest mb-4">
-            <TeaLeafIcon className="w-3.5 h-3.5" />
-            <span>ABOUT LATA TEA</span>
-          </div>
-          <h1 className="font-rajwada text-4xl sm:text-6xl font-black text-amber-100 tracking-tight leading-tight">
-            Pioneering the Future of Indian Tea & Basundi Premixes
+      <section className="py-14 bg-[#1B4332] text-white text-center">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6">
+          <span className="text-[11px] font-sans font-semibold tracking-widest text-[#A5D6A7] uppercase block mb-1">
+            ABOUT LATA TEA
+          </span>
+          <h1 className="font-rajwada text-3xl sm:text-5xl font-bold text-white tracking-tight">
+            Indian Tea & Jaggery Blends
           </h1>
-          <p className="mt-6 text-base sm:text-xl text-slate-200 font-light max-w-3xl mx-auto font-sans leading-relaxed">
+          <p className="mt-2 text-xs sm:text-sm text-slate-200 font-sans max-w-xl mx-auto">
             Manufactured with pride by Purple Bean Agro Industries Private Limited in Pune, Maharashtra.
           </p>
         </div>
       </section>
 
       {/* Corporate Purpose & Vision */}
-      <section className="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+      <section className="py-14 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-10 items-center">
           
-          <div className="lg:col-span-6 space-y-6">
-            <span className="text-xs font-bold uppercase tracking-widest text-lataamber-600 font-sans">
-              OUR MISSION & PURPOSE
+          <div className="md:col-span-7 space-y-3">
+            <span className="text-[11px] font-bold tracking-widest text-[#2E7D32] uppercase font-sans">
+              PURPOSE & STANDARDS
             </span>
-            <h2 className="font-rajwada text-3xl sm:text-4xl font-black text-[#1E3F20] leading-tight">
-              To Deliver Unadulterated, Royal Chai in Every Cup
+            <h2 className="font-rajwada text-2xl sm:text-3xl font-bold text-[#1B4332] leading-snug">
+              Unadulterated Tea in Every Boiling Cup
             </h2>
-            <p className="text-slate-700 text-base sm:text-lg leading-relaxed font-sans font-light">
-              LataTea was established to solve a pressing consumer need: giving tea lovers, restaurants, and corporate workplaces instant access to the wholesome goodness of slow-cooked Indian jaggery tea without hours of laborious preparation or milk curdling issues.
+            <p className="text-xs sm:text-sm text-[#1A291B] leading-relaxed font-sans">
+              Lata Tea was established to solve an everyday challenge: giving families, cafés, and corporate workplaces access to authentic jaggery chai without curdling milk or burning sweetness.
             </p>
-            <p className="text-slate-700 text-base sm:text-lg leading-relaxed font-sans font-light">
-              By combining artisanal culinary wisdom with state-of-the-art climate-controlled cleanroom manufacturing, we ensure that every single sachet, pouch, and vending carton delivers uniform perfection.
+            <p className="text-xs sm:text-sm text-[#5A6B5C] leading-relaxed font-sans">
+              Blended in a certified cleanroom in Pune, our products deliver consistent taste and aroma across homes, pantries, and vending machines.
             </p>
 
-            <div className="pt-4 border-t border-amber-900/10 grid grid-cols-2 gap-4">
-              <div className="p-4 rounded-2xl bg-white border border-amber-100 shadow-sm">
-                <div className="text-2xl font-black font-rajwada text-[#1E3F20]">500+</div>
-                <div className="text-xs text-slate-600 mt-1 font-sans">Corporate & Retail Partners</div>
+            <div className="pt-3 border-t border-[#E2ECE3] grid grid-cols-2 gap-3">
+              <div className="p-3 rounded-lg bg-white border border-[#E2ECE3] shadow-xs">
+                <div className="text-xl font-bold font-rajwada text-[#1B4332]">500+</div>
+                <div className="text-[11px] text-[#5A6B5C] font-sans">Retail & Pantry Partners</div>
               </div>
-              <div className="p-4 rounded-2xl bg-white border border-amber-100 shadow-sm">
-                <div className="text-2xl font-black font-rajwada text-[#1E3F20]">100%</div>
-                <div className="text-xs text-slate-600 mt-1 font-sans">Pure Organic Jaggery Range</div>
+              <div className="p-3 rounded-lg bg-white border border-[#E2ECE3] shadow-xs">
+                <div className="text-xl font-bold font-rajwada text-[#1B4332]">100%</div>
+                <div className="text-[11px] text-[#5A6B5C] font-sans">Pure Cane Jaggery</div>
               </div>
             </div>
           </div>
 
-          <div className="lg:col-span-6">
-            <div className="rounded-3xl overflow-hidden shadow-2xl border-4 border-white aspect-square">
+          <div className="md:col-span-5">
+            <div className="rounded-xl overflow-hidden border border-[#E2ECE3] aspect-[4/3] bg-white shadow-xs">
               <img
                 src="/assets/images/royal_tea_bowl.jpg"
-                alt="Master Ground Tea and Spices"
+                alt="Lata Tea Blends"
                 className="w-full h-full object-cover"
               />
             </div>
@@ -77,70 +68,70 @@ export const AboutPage: React.FC = () => {
         </div>
       </section>
 
-      {/* Manufacturing & Cleanroom Standards */}
-      <section className="py-20 bg-white border-y border-amber-100">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <span className="text-xs font-bold uppercase tracking-widest text-lataleaf-600 font-sans">
-              HYGIENE & INFRASTRUCTURE
+      {/* Hygiene & Infrastructure */}
+      <section className="py-14 bg-white border-y border-[#E2ECE3]">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-xl mb-10">
+            <span className="text-[11px] font-sans font-semibold tracking-widest text-[#2E7D32] uppercase block mb-1">
+              HYGIENE & STANDARDS
             </span>
-            <h2 className="font-rajwada text-3xl sm:text-4xl font-black text-[#1E3F20] mt-2">
-              ISO & FSSAI Certified Cleanroom Formulation
+            <h2 className="font-rajwada text-2xl sm:text-3xl font-bold text-[#1B4332]">
+              FSSAI & ISO 22000 Certified Production
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="p-8 rounded-3xl bg-[#FAF6EE] border border-amber-200/60 shadow-sm hover:shadow-md transition-shadow">
-              <div className="p-3.5 rounded-2xl bg-lataleaf-500/20 text-lataleaf-600 w-fit mb-6">
-                <ShieldCheck className="w-6 h-6" />
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+            <div className="p-5 rounded-xl bg-[#F8FAF8] border border-[#E2ECE3] space-y-2">
+              <div className="w-8 h-8 rounded-lg bg-[#EBF5EC] text-[#2E7D32] flex items-center justify-center">
+                <ShieldCheck className="w-5 h-5" />
               </div>
-              <h3 className="font-royal text-lg font-bold text-[#1E3F20] mb-2">
-                Climate-Controlled Cleanroom
+              <h3 className="font-rajwada text-base font-bold text-[#1B4332]">
+                Controlled Cleanroom
               </h3>
-              <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-sans">
-                Formulated under HEPA-filtered cleanroom conditions with temperature and relative humidity precision to preserve natural essential oils.
+              <p className="text-xs text-[#5A6B5C] leading-relaxed font-sans">
+                Formulated under humidity-controlled cleanroom conditions in Pune to protect spice essential oils.
               </p>
             </div>
 
-            <div className="p-8 rounded-3xl bg-[#FAF6EE] border border-amber-200/60 shadow-sm hover:shadow-md transition-shadow">
-              <div className="p-3.5 rounded-2xl bg-lataamber-500/20 text-lataamber-600 w-fit mb-6">
-                <Award className="w-6 h-6" />
+            <div className="p-5 rounded-xl bg-[#F8FAF8] border border-[#E2ECE3] space-y-2">
+              <div className="w-8 h-8 rounded-lg bg-[#EBF5EC] text-[#2E7D32] flex items-center justify-center">
+                <Award className="w-5 h-5" />
               </div>
-              <h3 className="font-royal text-lg font-bold text-[#1E3F20] mb-2">
-                Nitrogen-Flushed Barrier Foil
+              <h3 className="font-rajwada text-base font-bold text-[#1B4332]">
+                Barrier Packaging
               </h3>
-              <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-sans">
-                Multi-layer food-grade aluminum barrier pouches protect against oxygen and moisture, delivering 12-month ambient freshness with zero preservatives.
+              <p className="text-xs text-[#5A6B5C] leading-relaxed font-sans">
+                Food-grade barrier pouches preserve ambient freshness with zero chemical preservatives.
               </p>
             </div>
 
-            <div className="p-8 rounded-3xl bg-[#FAF6EE] border border-amber-200/60 shadow-sm hover:shadow-md transition-shadow">
-              <div className="p-3.5 rounded-2xl bg-blue-500/20 text-blue-600 w-fit mb-6">
-                <Leaf className="w-6 h-6" />
+            <div className="p-5 rounded-xl bg-[#F8FAF8] border border-[#E2ECE3] space-y-2">
+              <div className="w-8 h-8 rounded-lg bg-[#EBF5EC] text-[#2E7D32] flex items-center justify-center">
+                <Leaf className="w-5 h-5" />
               </div>
-              <h3 className="font-royal text-lg font-bold text-[#1E3F20] mb-2">
-                Ethical Direct Sourcing
+              <h3 className="font-rajwada text-base font-bold text-[#1B4332]">
+                Direct Sourcing
               </h3>
-              <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-sans">
-                We partner with certified organic jaggery cane crushers and high-elevation Assam tea gardens, ensuring fair compensation and environmental stewardship.
+              <p className="text-xs text-[#5A6B5C] leading-relaxed font-sans">
+                Direct partnerships with Kolhapur sugarcane jaggery crushers and Assam CTC estates.
               </p>
             </div>
           </div>
 
-          <div className="mt-16 p-8 rounded-3xl bg-[#1E3F20] text-white flex flex-col md:flex-row items-center justify-between gap-6">
+          <div className="mt-10 p-6 rounded-xl bg-[#1B4332] text-white flex flex-col sm:flex-row items-center justify-between gap-4">
             <div>
-              <h4 className="font-royal text-xl font-bold text-amber-300">
-                Experience LataTea for Your Enterprise
+              <h4 className="font-rajwada text-lg font-bold text-white">
+                Request a Tasting Kit for Your Business
               </h4>
-              <p className="text-xs sm:text-sm text-slate-200 mt-1 font-sans">
-                Request a comprehensive trial sample kit for your office pantry, restaurant, or hotel.
+              <p className="text-xs text-slate-200 mt-0.5 font-sans">
+                Trial sample kits available for office pantries, hotels, and distributors.
               </p>
             </div>
             <Link
               to="/contact"
-              className="px-8 py-3.5 rounded-full text-xs font-bold uppercase tracking-wider bg-lataamber-500 hover:bg-lataamber-600 text-white shadow-xl hover:scale-105 transition-all shrink-0"
+              className="px-5 py-2 rounded-md text-xs font-bold uppercase tracking-wider bg-[#4CAF50] hover:bg-[#43A047] text-white transition-colors shrink-0"
             >
-              Contact Corporate Sales
+              Contact Sales
             </Link>
           </div>
         </div>

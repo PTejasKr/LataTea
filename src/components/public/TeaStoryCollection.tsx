@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useCMS } from '../../context/CMSContext';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, Coffee, Sparkles, Flame, Check } from 'lucide-react';
 import { Link } from '../../router/Router';
 
 interface TeaStoryCollectionProps {
@@ -14,7 +14,7 @@ export const TeaStoryCollection: React.FC<TeaStoryCollectionProps> = ({
 }) => {
   const { publishedState, draftState, resolveSlotImage, t, language } = useCMS();
   const state = isDraftPreview ? draftState : publishedState;
-  const teas = (state.teaStories || []).filter(t => t.isVisible);
+  const teas = (state.teaStories || []).filter(item => item.isVisible);
 
   const [activeCategory, setActiveCategory] = useState<'all' | 'gud' | 'sugar' | 'premixes'>('all');
 
@@ -25,36 +25,48 @@ export const TeaStoryCollection: React.FC<TeaStoryCollectionProps> = ({
   const categories = [
     { id: 'all', label: { en: 'All Teas', mr: 'सर्व चहा' } },
     { id: 'gud', label: { en: 'Jaggery Blends', mr: 'गूळ चहा' } },
-    { id: 'sugar', label: { en: 'Basundi Series', mr: 'बासुंदी मालिका' } },
+    { id: 'sugar', label: { en: 'Basundi Series', mr: 'बासुंदी चहा' } },
     { id: 'premixes', label: { en: 'Premixes', mr: 'प्रीमिक्स' } }
   ];
 
+  // Helper icon for tea type
+  const getCategoryIcon = (category: string) => {
+    switch (category) {
+      case 'premixes':
+        return <Sparkles className="w-3.5 h-3.5 text-[#2E7D32]" />;
+      case 'gud':
+        return <Flame className="w-3.5 h-3.5 text-[#2E7D32]" />;
+      default:
+        return <Coffee className="w-3.5 h-3.5 text-[#2E7D32]" />;
+    }
+  };
+
   return (
-    <section id="tea" className="py-16 sm:py-24 bg-[#FAF6EE] text-[#1A2416]">
+    <section id="tea" className="py-14 sm:py-20 bg-[#F8FAF8] text-[#1A291B] border-t border-[#E2ECE3]">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
-        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-10">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
           <div>
-            <span className="text-[11px] font-sans font-semibold tracking-[0.2em] text-amber-700 uppercase block mb-2">
-              {language === 'mr' ? 'चहा संग्रह' : 'TEA BLENDS'}
+            <span className="text-[11px] font-sans font-semibold tracking-widest text-[#2E7D32] uppercase block mb-1">
+              {language === 'mr' ? 'उत्पादन कॅटलॉग' : 'OUR TEAS'}
             </span>
-            <h2 className="font-rajwada text-2xl sm:text-4xl font-bold text-[#1E3F20] tracking-tight">
-              {language === 'mr' ? 'स्वाक्षरी चहा प्रकार' : 'Signature Blends'}
+            <h2 className="font-rajwada text-2xl sm:text-3xl font-bold text-[#1B4332] tracking-tight">
+              {language === 'mr' ? 'सर्व उत्पादने व चहा प्रकार' : 'Product Catalogue'}
             </h2>
           </div>
 
-          {/* Filter Pills */}
-          <div className="flex flex-wrap items-center gap-2">
+          {/* Clean Horizontal Category Navigation (Desktop & Mobile Familiar Bar) */}
+          <div className="flex items-center gap-1.5 p-1 bg-white rounded-lg border border-[#E2ECE3]">
             {categories.map(cat => (
               <button
                 key={cat.id}
                 type="button"
                 onClick={() => setActiveCategory(cat.id as any)}
-                className={`px-3.5 py-1.5 rounded-full text-xs font-semibold tracking-wider transition-all cursor-pointer ${
+                className={`px-3 py-1.5 rounded-md text-xs font-medium transition-colors cursor-pointer ${
                   activeCategory === cat.id
-                    ? 'bg-[#1E3F20] text-white shadow-sm'
-                    : 'bg-white text-slate-700 border border-slate-200 hover:border-slate-300'
+                    ? 'bg-[#2E7D32] text-white font-semibold shadow-xs'
+                    : 'text-[#5A6B5C] hover:text-[#1A291B] hover:bg-[#F8FAF8]'
                 }`}
               >
                 {t(cat.label)}
@@ -63,75 +75,62 @@ export const TeaStoryCollection: React.FC<TeaStoryCollectionProps> = ({
           </div>
         </div>
 
-        {/* 2-Column Clean Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        {/* Familiar Product Catalogue Grid: 2-Column Mobile & 4-Column Desktop */}
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-5">
           {filteredTeas.map((tea) => {
             const teaImage = resolveSlotImage(tea.imageSlotId || 'STORY_IMAGE_PRIMARY', false, isDraftPreview);
 
             return (
               <div
                 key={tea.id}
-                className="bg-white rounded-2xl border border-amber-900/10 p-6 sm:p-8 flex flex-col justify-between space-y-6 shadow-sm hover:shadow-md transition-shadow"
+                className="bg-white rounded-xl border border-[#E2ECE3] hover:border-[#2E7D32] hover:shadow-sm transition-all flex flex-col justify-between overflow-hidden group"
               >
-                <div className="space-y-4">
-                  <div className="rounded-xl overflow-hidden aspect-[16/10] bg-amber-50 border border-amber-100">
-                    <img
-                      src={teaImage.url}
-                      alt={teaImage.alt}
-                      style={teaImage.style}
-                      className="w-full h-full object-cover"
-                      loading="lazy"
-                    />
-                  </div>
+                {/* Product Image Box */}
+                <Link to={`/tea/${tea.slug}`} className="block relative aspect-[4/3] bg-[#EBF5EC] overflow-hidden">
+                  <img
+                    src={teaImage.url}
+                    alt={teaImage.alt}
+                    style={teaImage.style}
+                    className="w-full h-full object-cover group-hover:scale-102 transition-transform duration-300"
+                    loading="lazy"
+                  />
+                  {/* Subtle category tag */}
+                  <span className="absolute top-2 left-2 inline-flex items-center gap-1 px-2 py-0.5 rounded bg-white/95 text-[10px] font-semibold text-[#1B4332] shadow-xs">
+                    {getCategoryIcon(tea.category)}
+                    <span>{t(tea.categoryName)}</span>
+                  </span>
+                </Link>
 
+                {/* Card Content: Concise, Scannable Info */}
+                <div className="p-3.5 sm:p-4 flex-1 flex flex-col justify-between">
                   <div>
-                    <span className="text-[10px] font-mono uppercase tracking-wider text-amber-700 block mb-1">
-                      {t(tea.categoryName)}
-                    </span>
-                    <h3 className="font-rajwada text-xl sm:text-2xl font-bold text-[#1E3F20]">
+                    <h3 className="font-rajwada text-sm sm:text-base font-bold text-[#1B4332] group-hover:text-[#2E7D32] transition-colors line-clamp-1">
                       {t(tea.name)}
                     </h3>
-                    <p className="text-xs text-slate-500 font-sans mt-0.5">
-                      {t(tea.tagline)}
+                    
+                    <p className="text-[11px] sm:text-xs text-[#5A6B5C] mt-1 line-clamp-2 leading-relaxed">
+                      {t(tea.shortDescription)}
                     </p>
                   </div>
 
-                  <p className="text-xs sm:text-sm text-slate-600 font-sans leading-relaxed">
-                    {t(tea.shortDescription)}
-                  </p>
+                  {/* Clear Actions */}
+                  <div className="mt-3.5 pt-3 border-t border-[#E2ECE3] flex items-center justify-between gap-2">
+                    <Link
+                      to={`/tea/${tea.slug}`}
+                      className="text-xs font-semibold text-[#2E7D32] hover:text-[#1B4332] inline-flex items-center gap-1 transition-colors"
+                    >
+                      <span>{language === 'mr' ? 'तपशील' : 'Details'}</span>
+                      <ArrowRight className="w-3.5 h-3.5" />
+                    </Link>
 
-                  {/* Tasting Notes */}
-                  {tea.tastingNotes && tea.tastingNotes.length > 0 && (
-                    <div className="flex flex-wrap gap-1.5 pt-1">
-                      {tea.tastingNotes.map((note, idx) => (
-                        <span
-                          key={idx}
-                          className="px-2.5 py-1 rounded-md text-[11px] font-medium bg-[#FAF6EE] text-slate-700 border border-amber-200/60"
-                        >
-                          {t(note)}
-                        </span>
-                      ))}
-                    </div>
-                  )}
-                </div>
-
-                {/* Actions */}
-                <div className="pt-4 border-t border-slate-100 flex items-center justify-between">
-                  <Link
-                    to={`/tea/${tea.slug}`}
-                    className="inline-flex items-center gap-1.5 text-xs font-bold text-[#1E3F20] hover:text-amber-700 transition-colors"
-                  >
-                    <span>{language === 'mr' ? 'तपशील' : 'View Blend'}</span>
-                    <ArrowRight className="w-3.5 h-3.5" />
-                  </Link>
-
-                  <button
-                    type="button"
-                    onClick={() => onOpenInquiry?.(tea.name.en)}
-                    className="px-3.5 py-1.5 rounded-full bg-amber-50 hover:bg-amber-100 border border-amber-200 text-slate-900 text-xs font-semibold cursor-pointer"
-                  >
-                    {language === 'mr' ? 'नमुना मागवा' : 'Request Sample'}
-                  </button>
+                    <button
+                      type="button"
+                      onClick={() => onOpenInquiry?.(tea.name.en)}
+                      className="px-2.5 py-1 rounded text-[10px] font-semibold text-[#1B4332] bg-[#EBF5EC] hover:bg-[#D7EBD9] transition-colors cursor-pointer"
+                    >
+                      {language === 'mr' ? 'नमुना' : 'Sample'}
+                    </button>
+                  </div>
                 </div>
               </div>
             );

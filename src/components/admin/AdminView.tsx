@@ -4,6 +4,7 @@ import { DashboardView } from './DashboardView';
 import { StoryManagerView } from './StoryManagerView';
 import { CraftManagerView } from './CraftManagerView';
 import { TeaStoriesManagerView } from './TeaStoriesManagerView';
+import { CategoriesManagerView } from './CategoriesManagerView';
 import { LanguagesManagerView } from './LanguagesManagerView';
 import { NavManagerView } from './NavManagerView';
 import { DomainManagerView } from './DomainManagerView';
@@ -42,6 +43,7 @@ export const AdminView: React.FC = () => {
         {activeTab === 'story' && <StoryManagerView />}
         {activeTab === 'craft' && <CraftManagerView />}
         {activeTab === 'tea-stories' && <TeaStoriesManagerView />}
+        {activeTab === 'categories' && <CategoriesManagerView />}
         {activeTab === 'languages' && <LanguagesManagerView />}
         {activeTab === 'navigation' && <NavManagerView />}
         {activeTab === 'domains' && <DomainManagerView />}

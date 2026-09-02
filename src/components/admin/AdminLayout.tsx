@@ -18,7 +18,8 @@ import {
   ChevronLeft, 
   ChevronRight,
   LogOut,
-  Network
+  Network,
+  FolderTree
 } from 'lucide-react';
 
 export type AdminTab = 
@@ -26,6 +27,7 @@ export type AdminTab =
   | 'story'
   | 'craft'
   | 'tea-stories'
+  | 'categories'
   | 'languages'
   | 'navigation'
   | 'domains'
@@ -64,6 +66,7 @@ export const AdminLayout: React.FC<AdminLayoutProps> = ({
     { id: 'story', label: 'Story & Heritage', icon: <BookOpen className="w-4 h-4 text-amber-400" /> },
     { id: 'craft', label: 'The Craft / Process', icon: <Sliders className="w-4 h-4 text-lataleaf-400" /> },
     { id: 'tea-stories', label: 'Tea Stories', icon: <Coffee className="w-4 h-4 text-amber-400" />, badge: `${(draftState.teaStories || []).length}` },
+    { id: 'categories', label: 'Product Categories', icon: <FolderTree className="w-4 h-4 text-emerald-400" /> },
     { id: 'languages', label: 'Languages (EN & MR)', icon: <Globe className="w-4 h-4 text-emerald-400" /> },
     { id: 'navigation', label: 'Navigation Manager', icon: <MenuIcon className="w-4 h-4" /> },
     { id: 'domains', label: 'Domain Management', icon: <Network className="w-4 h-4 text-sky-400" />, badge: `${(draftState.domains || []).length}` },

@@ -746,6 +746,12 @@ export const INITIAL_CMS_STATE: CMSState = {
   ],
   navigation: DEFAULT_NAVIGATION,
   teaStories: DEFAULT_TEA_STORIES,
+  categories: [
+    { id: 'cat_all', slug: 'all', name: { en: 'All Teas', mr: 'सर्व चहा' }, order: 1, isVisible: true },
+    { id: 'cat_gud', slug: 'gud', name: { en: 'Jaggery Blends', mr: 'गूळ चहा' }, order: 2, isVisible: true },
+    { id: 'cat_sugar', slug: 'sugar', name: { en: 'Basundi Series', mr: 'बासुंदी चहा' }, order: 3, isVisible: true },
+    { id: 'cat_premixes', slug: 'premixes', name: { en: 'Premixes', mr: 'प्रीमिक्स' }, order: 4, isVisible: true }
+  ],
   domains: DEFAULT_DOMAINS,
   mediaLibrary: DEFAULT_MEDIA_ITEMS,
   mediaSlots: DEFAULT_MEDIA_SLOTS,

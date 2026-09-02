@@ -11,34 +11,34 @@ export const CraftSection: React.FC<CraftSectionProps> = ({ isDraftPreview = fal
   const craft = state.content.craft;
 
   return (
-    <section id="craft" className="py-16 sm:py-24 bg-[#FAF6EE] text-[#1A2416]">
+    <section id="craft" className="py-14 sm:py-20 bg-[#F8FAF8] text-[#1A291B]">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
-        <div className="max-w-2xl mb-12">
-          <span className="text-[11px] font-sans font-semibold tracking-[0.2em] text-amber-700 uppercase block mb-2">
+        <div className="max-w-xl mb-10">
+          <span className="text-[11px] font-sans font-semibold tracking-widest text-[#2E7D32] uppercase block mb-1">
             {t(craft.tagline)}
           </span>
-          <h2 className="font-rajwada text-2xl sm:text-4xl font-bold text-[#1E3F20] tracking-tight">
+          <h2 className="font-rajwada text-2xl sm:text-3xl font-bold text-[#1B4332] tracking-tight">
             {t(craft.heading)}
           </h2>
-          <p className="mt-2 text-xs sm:text-sm text-slate-600 font-sans leading-relaxed">
+          <p className="mt-1 text-xs sm:text-sm text-[#5A6B5C] font-sans">
             {t(craft.subheading)}
           </p>
         </div>
 
         {/* 5-Step Process Sequence */}
-        <div className="grid grid-cols-1 md:grid-cols-5 gap-6">
+        <div className="grid grid-cols-2 md:grid-cols-5 gap-4 sm:gap-5">
           {(craft.stages || []).map((stage) => {
             const stageImage = resolveSlotImage(stage.imageSlotId, false, isDraftPreview);
 
             return (
               <div
                 key={stage.stageNumber}
-                className="bg-white rounded-2xl p-5 border border-amber-900/10 shadow-sm flex flex-col justify-between space-y-4"
+                className="bg-white rounded-xl p-4 border border-[#E2ECE3] shadow-xs flex flex-col justify-between space-y-3"
               >
                 <div>
-                  <div className="rounded-xl overflow-hidden aspect-[4/3] bg-amber-50 mb-3 border border-amber-100">
+                  <div className="rounded-lg overflow-hidden aspect-[4/3] bg-[#EBF5EC] mb-2.5">
                     <img
                       src={stageImage.url}
                       alt={stageImage.alt}
@@ -48,15 +48,15 @@ export const CraftSection: React.FC<CraftSectionProps> = ({ isDraftPreview = fal
                     />
                   </div>
 
-                  <span className="text-[10px] font-mono text-amber-700 font-bold uppercase block mb-1">
+                  <span className="text-[10px] font-mono text-[#2E7D32] font-bold uppercase block mb-1">
                     {t(stage.tagline)}
                   </span>
                   
-                  <h3 className="font-rajwada text-base font-bold text-[#1E3F20] leading-snug mb-2">
+                  <h3 className="font-rajwada text-sm sm:text-base font-bold text-[#1B4332] leading-snug mb-1">
                     {t(stage.title)}
                   </h3>
 
-                  <p className="text-xs text-slate-600 font-sans leading-relaxed">
+                  <p className="text-[11px] sm:text-xs text-[#5A6B5C] font-sans leading-relaxed">
                     {t(stage.description)}
                   </p>
                 </div>

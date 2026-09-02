@@ -6,7 +6,7 @@
 [![React](https://img.shields.io/badge/UI-React%2019%20%2B%20TypeScript-61DAFB.svg)](https://react.dev/)
 [![Tailwind CSS](https://img.shields.io/badge/Styling-Tailwind%20CSS%203.4-38B2AC.svg)](https://tailwindcss.com/)
 
-> **LataTea** is an editorial, story-driven, minimal Indian tea brand platform and bilingual Content Management System (CMS). Inspired by the typography, whitespace, and authoritative corporate presentation of **CCL Products**, it presents an uncompromising narrative of pure unrefined cane jaggery, authentic Assam CTC harvest, and traditional Maharashtrian Basundi Chai without e-commerce cart friction.
+> **LataTea** is a professional, visual, and story-driven Indian tea brand platform and bilingual Content Management System (CMS). Built with a clear product catalogue and brand narrative, it presents an uncompromising standard of pure unrefined cane jaggery, authentic Assam CTC harvest, and traditional Maharashtrian Basundi Chai for businesses, distributors, and tea lovers.
 
 ---
 

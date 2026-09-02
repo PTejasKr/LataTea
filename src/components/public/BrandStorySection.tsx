@@ -13,15 +13,14 @@ export const BrandStorySection: React.FC<BrandStorySectionProps> = ({ isDraftPre
   const bowlImage = resolveSlotImage(story.imageSlotId || 'STORY_IMAGE_PRIMARY', false, isDraftPreview);
 
   return (
-    <section id="story" className="py-16 sm:py-24 bg-[#FAF6EE] text-[#1A2416]">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="story" className="py-14 sm:py-20 bg-[#F8FAF8] text-[#1A291B]">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* Editorial Split Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 items-center">
           
-          {/* Visual Showcase: Antique Copper Bowl */}
-          <div className="lg:col-span-5">
-            <div className="rounded-2xl overflow-hidden shadow-lg border border-amber-900/10 aspect-[4/3] bg-white">
+          {/* Visual: Antique Copper Bowl / Spices */}
+          <div className="md:col-span-5">
+            <div className="rounded-xl overflow-hidden shadow-sm border border-[#E2ECE3] aspect-[4/3] bg-white">
               <img
                 src={bowlImage.url}
                 alt={bowlImage.alt}
@@ -33,28 +32,28 @@ export const BrandStorySection: React.FC<BrandStorySectionProps> = ({ isDraftPre
             </div>
           </div>
 
-          {/* Narrative */}
-          <div className="lg:col-span-7 space-y-4">
-            <span className="text-[11px] font-bold tracking-[0.2em] text-amber-700 uppercase font-sans">
+          {/* Narrative: 2-3 short, clear blocks */}
+          <div className="md:col-span-7 space-y-3">
+            <span className="text-[11px] font-bold tracking-widest text-[#2E7D32] uppercase font-sans">
               {t(story.tagline)}
             </span>
 
-            <h2 className="font-rajwada text-2xl sm:text-4xl font-bold text-[#1E3F20] leading-tight">
+            <h2 className="font-rajwada text-2xl sm:text-3xl font-bold text-[#1B4332] leading-snug">
               {t(story.heading)}
             </h2>
 
-            <p className="text-sm sm:text-base text-slate-800 font-serif leading-relaxed">
+            <p className="text-sm sm:text-base text-[#1A291B] font-medium leading-relaxed">
               {t(story.introduction)}
             </p>
 
-            <div className="space-y-3 text-xs sm:text-sm text-slate-600 font-sans leading-relaxed">
+            <div className="space-y-2 text-xs sm:text-sm text-[#5A6B5C] font-sans leading-relaxed">
               {(story.paragraphs || []).map((p, idx) => (
                 <p key={idx}>{t(p)}</p>
               ))}
             </div>
 
-            <div className="pt-4 border-t border-amber-900/10">
-              <p className="font-rajwada text-base sm:text-lg text-amber-900 font-semibold italic">
+            <div className="pt-3 border-t border-[#E2ECE3]">
+              <p className="text-xs sm:text-sm text-[#2E7D32] font-semibold italic">
                 {t(story.quote)}
               </p>
             </div>

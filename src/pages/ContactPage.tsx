@@ -24,20 +24,19 @@ export const ContactPage: React.FC = () => {
   };
 
   return (
-    <div className="pt-28 pb-20 bg-[#FAF6EE] text-[#1A2416] animate-fade-in min-h-screen">
+    <div className="pt-20 pb-20 bg-[#F8FAF8] text-[#1A291B] min-h-screen">
       
       {/* Hero Header */}
-      <section className="relative py-16 bg-[#162D18] text-white text-center overflow-hidden">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 relative z-10">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-black/60 border border-amber-400/40 text-amber-300 text-xs font-bold uppercase tracking-widest mb-3">
-            <TeaLeafIcon className="w-3.5 h-3.5" />
-            <span>CONNECT WITH LATA TEA</span>
-          </div>
-          <h1 className="font-rajwada text-3xl sm:text-5xl font-black text-amber-100 tracking-tight">
+      <section className="py-14 bg-[#1B4332] text-white text-center">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6">
+          <span className="text-[11px] font-sans font-semibold tracking-widest text-[#A5D6A7] uppercase block mb-1">
+            BUSINESS CONTACT
+          </span>
+          <h1 className="font-rajwada text-3xl sm:text-5xl font-bold text-white tracking-tight">
             Corporate Sales & Sample Inquiries
           </h1>
-          <p className="mt-4 text-base sm:text-lg text-slate-200 font-light font-sans max-w-2xl mx-auto">
-            Get in touch for wholesale distributor pricing, trial sample kits, or custom white-label formulations.
+          <p className="mt-2 text-xs sm:text-sm text-slate-200 font-sans max-w-xl mx-auto">
+            Get in touch for wholesale distributor pricing, trial sample kits, or commercial partnerships.
           </p>
         </div>
       </section>
@@ -144,7 +143,7 @@ export const ContactPage: React.FC = () => {
 
                 <button
                   type="submit"
-                  className="w-full py-4 rounded-full text-xs font-bold uppercase tracking-widest bg-lataamber-500 hover:bg-lataamber-600 text-white shadow-xl hover:scale-102 transition-all flex items-center justify-center gap-2"
+                  className="w-full py-3 rounded-lg text-xs font-bold uppercase tracking-wider bg-[#2E7D32] hover:bg-[#1B4332] text-white shadow-xs transition-colors flex items-center justify-center gap-2 cursor-pointer"
                 >
                   <Send className="w-4 h-4" />
                   <span>Submit Sample & Pricing Request</span>
@@ -155,14 +154,14 @@ export const ContactPage: React.FC = () => {
 
           {/* Quick Info Column */}
           <div className="lg:col-span-5 space-y-6">
-            <div className="p-8 rounded-3xl bg-[#1E3F20] text-white shadow-xl space-y-6">
-              <h3 className="font-rajwada text-2xl font-bold text-amber-300">
+            <div className="p-6 sm:p-8 rounded-xl bg-[#1B4332] text-white shadow-xs space-y-5 border border-[#2D6A4F]">
+              <h3 className="font-rajwada text-xl font-bold text-white">
                 Corporate Headquarters
               </h3>
               
-              <div className="space-y-4 text-xs sm:text-sm font-sans font-light">
-                <div className="flex items-start gap-3">
-                  <MapPin className="w-5 h-5 text-lataamber-400 shrink-0 mt-0.5" />
+              <div className="space-y-3 text-xs sm:text-sm font-sans">
+                <div className="flex items-start gap-2.5">
+                  <MapPin className="w-4 h-4 text-[#A5D6A7] shrink-0 mt-0.5" />
                   <span>{contact.address}</span>
                 </div>
                 <div className="flex items-center gap-3">

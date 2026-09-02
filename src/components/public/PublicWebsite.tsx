@@ -59,12 +59,12 @@ export const PublicWebsite: React.FC<PublicWebsiteProps> = ({ isDraftPreview = f
     // 5. Legal & Statutory
     if (path === '/privacy' || path === '/terms') {
       return (
-        <div className="pt-32 pb-24 max-w-4xl mx-auto px-4 sm:px-6">
-          <div className="bg-white p-8 sm:p-12 rounded-3xl border border-amber-200 shadow-xl space-y-6">
-            <h1 className="font-rajwada text-3xl sm:text-4xl font-bold text-[#1E3F20]">
-              {path === '/privacy' ? 'Privacy Policy & Data Protection' : 'Terms & Conditions of Commercial Engagement'}
+        <div className="pt-28 pb-20 max-w-3xl mx-auto px-4 sm:px-6">
+          <div className="bg-white p-6 sm:p-8 rounded-xl border border-[#E2ECE3] shadow-xs space-y-4">
+            <h1 className="font-rajwada text-2xl sm:text-3xl font-bold text-[#1B4332]">
+              {path === '/privacy' ? 'Privacy Policy & Data Protection' : 'Terms & Conditions'}
             </h1>
-            <div className="h-0.5 w-16 bg-lataamber-500" />
+            <div className="h-0.5 w-12 bg-[#2E7D32]" />
             <p className="text-sm text-slate-700 leading-relaxed font-sans">
               Purple Bean Agro Industries Private Limited operates under strict compliance with Indian food safety laws (FSSAI Lic: 11525996000709), fair trade, and corporate data confidentiality.
             </p>
