@@ -8,7 +8,6 @@ import { InquiryModal } from './InquiryModal';
 // Pages
 import { HomePage } from '../../pages/HomePage';
 import { AboutPage } from '../../pages/AboutPage';
-import { OurStoryPage } from '../../pages/OurStoryPage';
 import { ProductsPage } from '../../pages/ProductsPage';
 import { ProductDetailPage } from '../../pages/ProductDetailPage';
 import { ContactPage } from '../../pages/ContactPage';
@@ -34,12 +33,9 @@ export const PublicWebsite: React.FC<PublicWebsiteProps> = ({ isDraftPreview = f
       return <HomePage onOpenInquiry={handleOpenInquiry} isDraftPreview={isDraftPreview} />;
     }
 
-    // 2. Story & Heritage
-    if (path === '/about') {
+    // 2. About Us
+    if (path === '/about' || path === '/our-story' || path === '/story' || path === '/heritage') {
       return <AboutPage />;
-    }
-    if (path === '/our-story' || path === '/story' || path === '/heritage') {
-      return <OurStoryPage />;
     }
 
     // 3. Tea Collection & Stories

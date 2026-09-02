@@ -70,28 +70,18 @@ export const Footer: React.FC = () => {
                 </Link>
               </li>
               <li>
-                <Link to="/story" className="text-slate-300 hover:text-white transition-colors">
-                  {language === 'mr' ? 'आमची गोष्ट' : 'Our Story'}
+                <Link to="/about" className="text-slate-300 hover:text-white transition-colors">
+                  {language === 'mr' ? 'आमच्याबद्दल' : 'About Us'}
                 </Link>
               </li>
               <li>
-                <Link to="/heritage" className="text-slate-300 hover:text-white transition-colors">
-                  {language === 'mr' ? 'उगम' : 'Heritage'}
-                </Link>
-              </li>
-              <li>
-                <Link to="/craft" className="text-slate-300 hover:text-white transition-colors">
-                  {language === 'mr' ? 'पद्धत' : 'The Process'}
-                </Link>
-              </li>
-              <li>
-                <Link to="/tea" className="text-slate-300 hover:text-white transition-colors">
-                  {language === 'mr' ? 'चहा प्रकार' : 'Tea Catalogue'}
+                <Link to="/products" className="text-slate-300 hover:text-white transition-colors">
+                  {language === 'mr' ? 'उत्पादने' : 'Product List'}
                 </Link>
               </li>
               <li>
                 <Link to="/contact" className="text-slate-300 hover:text-white transition-colors">
-                  {language === 'mr' ? 'संपर्क आणि नमुने' : 'Contact & Samples'}
+                  {language === 'mr' ? 'संपर्क' : 'Contact Us'}
                 </Link>
               </li>
             </ul>

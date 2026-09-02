@@ -132,27 +132,27 @@ export const DEFAULT_MEDIA_SLOTS: Record<string, MediaSlot> = {
 
 export const DEFAULT_NAVIGATION: NavigationItem[] = [
   { 
-    id: 'nav_story', 
-    label: { en: 'Our Story', mr: 'आमची गोष्ट' }, 
-    url: '/story', 
+    id: 'nav_home', 
+    label: { en: 'Home', mr: 'मुख्य पृष्ठ' }, 
+    url: '/', 
     isExternal: false, 
     isButton: false, 
     isEnabled: true, 
     order: 1 
   },
   { 
-    id: 'nav_craft', 
-    label: { en: 'The Process', mr: 'पद्धत' }, 
-    url: '/craft', 
+    id: 'nav_about', 
+    label: { en: 'About Us', mr: 'आमच्याबद्दल' }, 
+    url: '/about', 
     isExternal: false, 
     isButton: false, 
     isEnabled: true, 
     order: 2 
   },
   { 
-    id: 'nav_tea', 
-    label: { en: 'Teas', mr: 'चहा' }, 
-    url: '/tea', 
+    id: 'nav_products', 
+    label: { en: 'Product List', mr: 'उत्पादने' }, 
+    url: '/products', 
     isExternal: false, 
     isButton: false, 
     isEnabled: true, 
@@ -160,7 +160,7 @@ export const DEFAULT_NAVIGATION: NavigationItem[] = [
   },
   { 
     id: 'nav_contact', 
-    label: { en: 'Contact', mr: 'संपर्क' }, 
+    label: { en: 'Contact Us', mr: 'संपर्क' }, 
     url: '/contact', 
     isExternal: false, 
     isButton: false, 
@@ -728,7 +728,7 @@ export const DEFAULT_STORY_CONTENT: EditorialStoryContent = {
 };
 
 export const INITIAL_CMS_STATE: CMSState = {
-  version: 4,
+  version: 5,
   status: 'published',
   lastPublishedAt: new Date().toISOString(),
   lastSavedAt: new Date().toISOString(),

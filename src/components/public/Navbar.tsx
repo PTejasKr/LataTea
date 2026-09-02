@@ -26,12 +26,10 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenInquiry, isDraftPreview = 
   }, []);
 
   const navLinks = [
-    { label: { en: 'Home', mr: 'मुख्य' }, url: '/' },
-    { label: { en: 'Story', mr: 'गोष्ट' }, url: '/story' },
-    { label: { en: 'Heritage', mr: 'उगम' }, url: '/heritage' },
-    { label: { en: 'Craft', mr: 'पद्धत' }, url: '/craft' },
-    { label: { en: 'Teas', mr: 'चहा' }, url: '/tea' },
-    { label: { en: 'Contact', mr: 'संपर्क' }, url: '/contact' }
+    { label: { en: 'Home', mr: 'मुख्य पृष्ठ' }, url: '/' },
+    { label: { en: 'About Us', mr: 'आमच्याबद्दल' }, url: '/about' },
+    { label: { en: 'Product List', mr: 'उत्पादने' }, url: '/products' },
+    { label: { en: 'Contact Us', mr: 'संपर्क' }, url: '/contact' }
   ];
 
   return (

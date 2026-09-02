@@ -1,8 +1,8 @@
 import { CMSState, MediaItem, MediaSlot, TeaStoryItem, ValidationIssue } from '../types/cms';
 import { INITIAL_CMS_STATE } from '../data/defaultContent';
 
-const STORAGE_KEY_PUBLISHED = 'latatea_cms_v4_pub';
-const STORAGE_KEY_DRAFT = 'latatea_cms_v4_draft';
+const STORAGE_KEY_PUBLISHED = 'latatea_cms_v5_pub';
+const STORAGE_KEY_DRAFT = 'latatea_cms_v5_draft';
 
 type Listener = () => void;
 const listeners: Set<Listener> = new Set();
@@ -59,18 +59,12 @@ function mergeWithInitialState(parsed: Partial<CMSState> | null): CMSState {
         ...((parsed.content && parsed.content.footer) || {})
       }
     },
-    teaStories: (parsed.teaStories && parsed.teaStories.length > 0)
-      ? parsed.teaStories
-      : INITIAL_CMS_STATE.teaStories,
-    domains: (parsed.domains && parsed.domains.length > 0)
-      ? parsed.domains
-      : INITIAL_CMS_STATE.domains,
-    navigation: (parsed.navigation && parsed.navigation.length > 0)
-      ? parsed.navigation
-      : INITIAL_CMS_STATE.navigation,
-    sections: (parsed.sections && parsed.sections.length > 0)
-      ? parsed.sections
-      : INITIAL_CMS_STATE.sections,
+    sections: INITIAL_CMS_STATE.sections,
+    navigation: INITIAL_CMS_STATE.navigation,
+    teaStories: parsed.teaStories && parsed.teaStories.length > 0 ? parsed.teaStories : INITIAL_CMS_STATE.teaStories,
+    categories: parsed.categories && parsed.categories.length > 0 ? parsed.categories : INITIAL_CMS_STATE.categories,
+    domains: parsed.domains || INITIAL_CMS_STATE.domains,
+    mediaLibrary: parsed.mediaLibrary || INITIAL_CMS_STATE.mediaLibrary,
     mediaSlots: {
       ...INITIAL_CMS_STATE.mediaSlots,
       ...(parsed.mediaSlots || {})
@@ -101,6 +95,8 @@ export const cmsStore = {
   getPublishedState(): CMSState {
     try {
       // Clean up legacy keys
+      localStorage.removeItem('latatea_cms_v4_pub');
+      localStorage.removeItem('latatea_cms_v4_draft');
       localStorage.removeItem('latatea_cms_story_v3_pub');
       localStorage.removeItem('latatea_cms_story_v3_draft');
       localStorage.removeItem('latatea_cms_pub_v2');

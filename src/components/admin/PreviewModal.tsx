@@ -2,13 +2,8 @@ import React, { useState } from 'react';
 import { useCMS } from '../../context/CMSContext';
 import { Navbar } from '../public/Navbar';
 import { EditorialHero } from '../public/EditorialHero';
-import { BrandStorySection } from '../public/BrandStorySection';
-import { HeritageSection } from '../public/HeritageSection';
-import { CraftSection } from '../public/CraftSection';
 import { TeaStoryCollection } from '../public/TeaStoryCollection';
-import { TeaExperienceSection } from '../public/TeaExperienceSection';
 import { WhyLataSection } from '../public/WhyLataSection';
-import { BrandStatementSection } from '../public/BrandStatementSection';
 import { RegistrationAndContact } from '../public/RegistrationAndContact';
 import { Footer } from '../public/Footer';
 import { 
@@ -194,17 +189,12 @@ export const PreviewModal: React.FC<PreviewModalProps> = ({
           {/* Mock Public Top Navigation */}
           <Navbar isDraftPreview={true} />
 
-          {/* Sequential 11-Step Editorial Canvas */}
+          {/* Streamlined Homepage Canvas */}
           <div className="space-y-0">
             <EditorialHero isDraftPreview={true} />
-            <BrandStorySection isDraftPreview={true} />
-            <HeritageSection isDraftPreview={true} />
-            <CraftSection isDraftPreview={true} />
             <TeaStoryCollection isDraftPreview={true} />
-            <TeaExperienceSection isDraftPreview={true} />
             <WhyLataSection isDraftPreview={true} />
             <RegistrationAndContact isDraftPreview={true} />
-            <BrandStatementSection isDraftPreview={true} />
             <Footer />
           </div>
         </div>
