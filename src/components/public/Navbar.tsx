@@ -36,9 +36,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenInquiry, isDraftPreview = 
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-40 transition-all duration-200 ${
-        isScrolled
-          ? 'bg-brand-surface shadow-sm py-3 border-b border-brand-border'
-          : 'bg-brand-surface/95 py-4'
+        isScrolled ? 'bg-[#0a2318] shadow-md py-3 border-b border-[#0a2318]/20' : 'bg-[#0a2318]/95 py-4'
       }`}
     >
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -64,7 +62,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenInquiry, isDraftPreview = 
                   className={`text-xs font-medium tracking-wide uppercase transition-colors py-1 ${
                     isActive
                       ? 'text-brand-accent font-bold border-b-2 border-brand-accent'
-                      : 'text-brand-text-muted hover:text-brand-primary'
+                      : 'text-white/80 hover:text-white'
                   }`}
                 >
                   {t(item.label)}
@@ -77,14 +75,14 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenInquiry, isDraftPreview = 
           <div className="flex items-center gap-3">
             
             {/* Language Switcher (EN | मराठी) */}
-            <div className="inline-flex items-center p-0.5 rounded-md bg-brand-background border border-brand-border text-xs">
+            <div className="inline-flex items-center p-0.5 rounded-md bg-white/10 border border-white/20 text-xs">
               <button
                 type="button"
                 onClick={() => setLanguage('en')}
                 className={`px-2 py-0.5 rounded text-[11px] font-medium transition-colors ${
                   language === 'en'
                     ? 'bg-brand-accent text-white font-bold'
-                    : 'text-brand-text-muted hover:text-brand-primary'
+                    : 'text-white/80 hover:text-white'
                 }`}
               >
                 EN
@@ -95,7 +93,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenInquiry, isDraftPreview = 
                 className={`px-2 py-0.5 rounded text-[11px] font-medium transition-colors ${
                   language === 'mr'
                     ? 'bg-brand-accent text-white font-bold'
-                    : 'text-brand-text-muted hover:text-brand-primary'
+                    : 'text-white/80 hover:text-white'
                 }`}
               >
                 मराठी
@@ -115,7 +113,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenInquiry, isDraftPreview = 
             <button
               type="button"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="md:hidden p-1.5 rounded-md bg-brand-background text-brand-primary border border-brand-border"
+              className="md:hidden p-1.5 rounded-md bg-transparent text-white border border-white/20"
               aria-label="Menu"
             >
               {mobileMenuOpen ? <X className="w-5 h-5" /> : <MenuIcon className="w-5 h-5" />}
@@ -127,14 +125,14 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenInquiry, isDraftPreview = 
 
       {/* Mobile Drawer */}
       {mobileMenuOpen && (
-        <div className="md:hidden bg-brand-surface border-t border-brand-border px-5 py-4 space-y-3 shadow-lg">
+        <div className="md:hidden bg-[#0a2318] border-t border-white/10 px-5 py-4 space-y-3 shadow-lg">
           <nav className="flex flex-col space-y-2">
             {navLinks.map((item, idx) => (
               <Link
                 key={idx}
                 to={item.url}
                 onClick={() => setMobileMenuOpen(false)}
-                className="text-sm font-medium text-brand-text-muted hover:text-brand-primary py-1.5 border-b border-brand-border"
+                className="text-sm font-medium text-white/80 hover:text-white py-1.5 border-b border-white/10"
               >
                 {t(item.label)}
               </Link>

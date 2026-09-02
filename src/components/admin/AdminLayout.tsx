@@ -226,7 +226,7 @@ export const AdminLayout: React.FC<AdminLayoutProps> = ({
           <div className="p-3 border-t border-slate-700/60 text-center">
             {!sidebarCollapsed && (
               <div className="text-[10px] text-slate-500 font-mono">
-                LataTea Story v3.0 • Multilingual
+                Lata Teamix CMS • Multilingual
               </div>
             )}
           </div>

@@ -34,8 +34,8 @@ export const CmsLoginView: React.FC = () => {
         
         {/* Top Crest */}
         <div className="text-center space-y-2">
-          <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-latagreen-800 to-latagreen-950 border border-amber-400/40 mx-auto flex items-center justify-center text-amber-300 font-serif font-black text-2xl shadow-xl">
-            LT
+          <div className="mx-auto flex items-center justify-center mb-4">
+            <BrandLogo className="h-20 w-auto drop-shadow-xl" />
           </div>
 
           <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-500/20 text-amber-300 text-[10px] font-bold uppercase tracking-wider border border-amber-500/30 mt-2">
