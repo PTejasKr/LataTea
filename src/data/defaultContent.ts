@@ -728,7 +728,7 @@ export const DEFAULT_STORY_CONTENT: EditorialStoryContent = {
 };
 
 export const INITIAL_CMS_STATE: CMSState = {
-  version: 3,
+  version: 4,
   status: 'published',
   lastPublishedAt: new Date().toISOString(),
   lastSavedAt: new Date().toISOString(),

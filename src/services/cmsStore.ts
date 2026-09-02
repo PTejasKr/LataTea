@@ -1,8 +1,8 @@
 import { CMSState, MediaItem, MediaSlot, TeaStoryItem, ValidationIssue } from '../types/cms';
 import { INITIAL_CMS_STATE } from '../data/defaultContent';
 
-const STORAGE_KEY_PUBLISHED = 'latatea_cms_story_v3_pub';
-const STORAGE_KEY_DRAFT = 'latatea_cms_story_v3_draft';
+const STORAGE_KEY_PUBLISHED = 'latatea_cms_v4_pub';
+const STORAGE_KEY_DRAFT = 'latatea_cms_v4_draft';
 
 type Listener = () => void;
 const listeners: Set<Listener> = new Set();
@@ -100,10 +100,18 @@ export const cmsStore = {
 
   getPublishedState(): CMSState {
     try {
+      // Clean up legacy keys
+      localStorage.removeItem('latatea_cms_story_v3_pub');
+      localStorage.removeItem('latatea_cms_story_v3_draft');
+      localStorage.removeItem('latatea_cms_pub_v2');
+      localStorage.removeItem('latatea_cms_draft_v2');
+
       const data = localStorage.getItem(STORAGE_KEY_PUBLISHED);
       if (data) {
         const parsed = JSON.parse(data);
-        return mergeWithInitialState(parsed);
+        if (parsed && parsed.version === INITIAL_CMS_STATE.version) {
+          return mergeWithInitialState(parsed);
+        }
       }
     } catch (e) {
       console.error('Error reading published CMS state:', e);
@@ -125,7 +133,9 @@ export const cmsStore = {
       const data = localStorage.getItem(STORAGE_KEY_DRAFT);
       if (data) {
         const parsed = JSON.parse(data);
-        return mergeWithInitialState(parsed);
+        if (parsed && parsed.version === INITIAL_CMS_STATE.version) {
+          return mergeWithInitialState(parsed);
+        }
       }
     } catch (e) {
       console.error('Error reading draft CMS state:', e);
