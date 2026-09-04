@@ -72,6 +72,31 @@ export interface CraftStageItem {
   keyDetails?: LocalizedString[];
 }
 
+export interface RecipeMethodItem {
+  id: string;
+  titleEn: string;
+  titleMr: string;
+  instructionsEn: string;
+  instructionsMr: string;
+  imageSlotId?: string; // Optional image slot
+  associatedProductSlug?: string;
+  displayOrder: number;
+  isVisible: boolean;
+}
+
+export interface HelpfulVideoItem {
+  id: string;
+  instagramUrl: string;
+  titleEn: string;
+  titleMr: string;
+  descriptionEn: string;
+  descriptionMr: string;
+  thumbnailUrl?: string; // Fallback or extracted thumbnail
+  category?: string;
+  displayOrder: number;
+  isVisible: boolean;
+}
+
 export interface ProductCategoryItem {
   id: string;
   slug: string;
@@ -278,6 +303,8 @@ export interface CMSState {
   navigation: NavigationItem[];
   teaStories: TeaStoryItem[];
   processSteps?: ProcessStepItem[];
+  recipes?: RecipeMethodItem[];
+  helpfulVideos?: HelpfulVideoItem[];
   categories?: ProductCategoryItem[];
   domains: DomainItem[];
   mediaLibrary: MediaItem[];

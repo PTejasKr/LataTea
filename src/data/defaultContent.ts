@@ -412,12 +412,12 @@ export const DEFAULT_STORY_CONTENT: EditorialStoryContent = {
   // 01 HERO
   hero: {
     tagline: {
-      en: 'Lata Teamix • PUNE',
-      mr: 'लता टी • पुणे'
+      en: 'Lata Teamix — PUNE',
+      mr: 'लता टीमिक्स — पुणे'
     },
     headline: {
-      en: 'Pure Jaggery Basundi Chai',
-      mr: 'अस्सल गूळ बासुंदी चहा'
+      en: 'Authentic taste\nConsistent quality\nInstant Convenience',
+      mr: 'खरा स्वाद\nसातत्यपूर्ण गुणवत्ता\nझटपट सोय'
     },
     subheadline: {
       en: 'Strong Assam CTC tea, whole spices, and organic cane jaggery. Ready in 3 minutes without curdling milk.',
@@ -737,7 +737,7 @@ export const DEFAULT_STORY_CONTENT: EditorialStoryContent = {
 };
 
 export const INITIAL_CMS_STATE: CMSState = {
-  version: 6,
+  version: 8,
   status: 'published',
   lastPublishedAt: new Date().toISOString(),
   lastSavedAt: new Date().toISOString(),
@@ -755,6 +755,30 @@ export const INITIAL_CMS_STATE: CMSState = {
   ],
   navigation: DEFAULT_NAVIGATION,
   teaStories: DEFAULT_TEA_STORIES,
+  recipes: [
+    {
+      id: 'r1',
+      titleEn: 'Gud Basundi Tea',
+      titleMr: 'गूळ बासुंदी चहा',
+      instructionsEn: 'STEP 1: Add required quantity of tea mix.\nSTEP 2: Add hot water/milk as applicable.\nSTEP 3: Mix according to the recommended preparation method.\nSTEP 4: Serve.',
+      instructionsMr: 'स्टेप १: आवश्यक प्रमाणात चहा मिक्स घाला.\nस्टेप २: आवश्यकतेनुसार गरम पाणी/दूध घाला.\nस्टेप ३: शिफारस केलेल्या पद्धतीनुसार मिक्स करा.\nस्टेप ४: सर्व्ह करा.',
+      displayOrder: 1,
+      isVisible: true
+    }
+  ],
+  helpfulVideos: [
+    {
+      id: 'v1',
+      instagramUrl: 'https://www.instagram.com/p/C_mF1GwvqfH/',
+      titleEn: 'How to prepare Gud Basundi Tea',
+      titleMr: 'गूळ बासुंदी चहा कसा बनवायचा',
+      descriptionEn: 'A quick guide to making the perfect cup of Lata Teamix.',
+      descriptionMr: 'लता टीमिक्सचा उत्तम चहा बनवण्याची एक द्रुत मार्गदर्शक.',
+      displayOrder: 1,
+      isVisible: true,
+      thumbnailUrl: 'https://latatea.vercel.app/media_royal_bowl.jpg'
+    }
+  ],
   processSteps: [
     { id: 1, titleEn: 'Enquire', titleMr: 'चौकशी करा', descEn: 'Connect with our team.', descMr: 'आमच्या टीमशी संपर्क साधा.' },
     { id: 2, titleEn: 'Select Products', titleMr: 'उत्पादने निवडा', descEn: 'Choose your tea blend.', descMr: 'तुमचा चहा ब्लेंड निवडा.' },

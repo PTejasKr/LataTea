@@ -21,9 +21,12 @@ function getNormalizedPath(): string {
     if (cleanHash.startsWith('/')) {
       return cleanHash;
     }
-    if (cleanHash.length > 0) {
-      return `/#${cleanHash}`;
-    }
+    if (cleanHash === 'process') return '/process';
+    if (cleanHash === 'about' || cleanHash === 'story' || cleanHash === 'our-story') return '/about';
+    if (cleanHash === 'products' || cleanHash === 'tea') return '/products';
+    if (cleanHash === 'contact') return '/contact';
+    if (cleanHash === 'home' || cleanHash === '') return '/';
+    return `/${cleanHash}`;
   }
 
   const pathname = window.location.pathname;
@@ -48,15 +51,9 @@ export const RouterProvider: React.FC<{ children: React.ReactNode }> = ({ childr
   }, []);
 
   const navigate = (to: string) => {
-    if (to.startsWith('#')) {
-      window.location.hash = to;
-      const el = document.querySelector(to);
-      if (el) el.scrollIntoView({ behavior: 'smooth' });
-      return;
-    }
-
-    window.location.hash = `#${to}`;
-    setCurrentPath(to);
+    const targetPath = to.startsWith('/') ? to : `/${to}`;
+    window.location.hash = `#${targetPath}`;
+    setCurrentPath(targetPath);
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 

@@ -11,6 +11,7 @@ import { AboutPage } from '../../pages/AboutPage';
 import { ProductsPage } from '../../pages/ProductsPage';
 import { ProductDetailPage } from '../../pages/ProductDetailPage';
 import { ContactPage } from '../../pages/ContactPage';
+import { ProcessPage } from '../../pages/ProcessPage';
 
 interface PublicWebsiteProps {
   isDraftPreview?: boolean;
@@ -36,6 +37,11 @@ export const PublicWebsite: React.FC<PublicWebsiteProps> = ({ isDraftPreview = f
     // 2. About Us
     if (path === '/about' || path === '/our-story' || path === '/story' || path === '/heritage') {
       return <AboutPage />;
+    }
+
+    // 2.5 Process
+    if (path === '/process') {
+      return <ProcessPage />;
     }
 
     // 3. Tea Collection & Stories

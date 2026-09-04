@@ -59,13 +59,16 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenInquiry, isDraftPreview = 
                 <Link
                   key={idx}
                   to={item.url}
-                  className={`text-pub-nav uppercase tracking-wide transition-colors py-1 ${
+                  className={`text-pub-nav uppercase tracking-wide transition-all duration-200 py-1.5 relative ${
                     isActive
-                      ? 'text-brand-accent font-bold border-b-2 border-brand-accent'
+                      ? 'text-brand-accent font-bold'
                       : 'text-white/80 hover:text-white'
                   }`}
                 >
-                  {t(item.label)}
+                  <span>{t(item.label)}</span>
+                  {isActive && (
+                    <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-brand-accent rounded-full animate-fade-in" />
+                  )}
                 </Link>
               );
             })}

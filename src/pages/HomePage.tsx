@@ -1,7 +1,6 @@
 import React from 'react';
 import { EditorialHero } from '../components/public/EditorialHero';
 import { BrandStorySection } from '../components/public/BrandStorySection';
-import { OrderingRoadmap } from '../components/public/OrderingRoadmap';
 import { TeaStoryCollection } from '../components/public/TeaStoryCollection';
 import { RegistrationAndContact } from '../components/public/RegistrationAndContact';
 
@@ -18,9 +17,6 @@ export const HomePage: React.FC<HomePageProps> = ({ onOpenInquiry, isDraftPrevie
 
       {/* 02 — BRAND STORY */}
       <BrandStorySection isDraftPreview={isDraftPreview} />
-
-      {/* 03 — ORDER TO DELIVERY PROCESS */}
-      <OrderingRoadmap />
 
       {/* 04 — TEA CATALOGUE */}
       <TeaStoryCollection onOpenInquiry={onOpenInquiry} isDraftPreview={isDraftPreview} />
