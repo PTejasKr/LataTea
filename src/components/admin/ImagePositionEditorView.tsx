@@ -108,28 +108,28 @@ export const ImagePositionEditorView: React.FC = () => {
   return (
     <div className="space-y-6 animate-in fade-in duration-150">
       {/* Header */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-slate-700">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-[#222]">
         <div>
           <div className="flex items-center gap-2">
             <h2 className="text-cms-section text-white flex items-center gap-2">
-              <Crosshair className="w-5 h-5 text-amber-400" />
+              <Crosshair className="w-5 h-5 text-white" />
               <span>Image Position & Focal Point Editor</span>
             </h2>
-            <span className="text-cms-small uppercase font-bold px-2 py-0.5 rounded bg-amber-500/20 text-amber-300 border border-amber-500/30">
+            <span className="text-cms-small uppercase font-bold px-2 py-0.5 rounded bg-white text-black/20 text-white border border-[#333]">
               Core CMS Feature
             </span>
           </div>
-          <p className="text-cms-small text-slate-400 mt-1">
+          <p className="text-cms-small text-neutral-400 mt-1">
             Click directly on any image to set its optical focal coordinates. Live crop simulation across Desktop, Tablet, and Mobile devices.
           </p>
         </div>
 
         {/* Device Viewport Preview Selector */}
-        <div className="flex items-center bg-slate-900 rounded-xl p-1 border border-slate-700 self-start">
+        <div className="flex items-center bg-[#0a0a0a] rounded-sm p-1 border border-[#222] self-start">
           <button
             onClick={() => setActiveDevicePreview('desktop')}
-            className={`px-3 py-1.5 rounded-lg text-cms-btn flex items-center gap-1.5 transition-all ${
-              activeDevicePreview === 'desktop' ? 'bg-amber-500 text-slate-950 font-bold' : 'text-slate-400 hover:text-white'
+            className={`px-3 py-1.5 rounded-sm text-cms-btn flex items-center gap-1.5 transition-all ${
+              activeDevicePreview === 'desktop' ? 'bg-white text-black font-bold' : 'text-neutral-400 hover:text-white'
             }`}
           >
             <Monitor className="w-3.5 h-3.5" />
@@ -137,8 +137,8 @@ export const ImagePositionEditorView: React.FC = () => {
           </button>
           <button
             onClick={() => setActiveDevicePreview('tablet')}
-            className={`px-3 py-1.5 rounded-lg text-cms-btn flex items-center gap-1.5 transition-all ${
-              activeDevicePreview === 'tablet' ? 'bg-amber-500 text-slate-950 font-bold' : 'text-slate-400 hover:text-white'
+            className={`px-3 py-1.5 rounded-sm text-cms-btn flex items-center gap-1.5 transition-all ${
+              activeDevicePreview === 'tablet' ? 'bg-white text-black font-bold' : 'text-neutral-400 hover:text-white'
             }`}
           >
             <Tablet className="w-3.5 h-3.5" />
@@ -146,8 +146,8 @@ export const ImagePositionEditorView: React.FC = () => {
           </button>
           <button
             onClick={() => setActiveDevicePreview('mobile')}
-            className={`px-3 py-1.5 rounded-lg text-cms-btn flex items-center gap-1.5 transition-all ${
-              activeDevicePreview === 'mobile' ? 'bg-amber-500 text-slate-950 font-bold' : 'text-slate-400 hover:text-white'
+            className={`px-3 py-1.5 rounded-sm text-cms-btn flex items-center gap-1.5 transition-all ${
+              activeDevicePreview === 'mobile' ? 'bg-white text-black font-bold' : 'text-neutral-400 hover:text-white'
             }`}
           >
             <Smartphone className="w-3.5 h-3.5" />
@@ -161,7 +161,7 @@ export const ImagePositionEditorView: React.FC = () => {
         
         {/* Left Column: Slot Selector List */}
         <div className="lg:col-span-4 space-y-3">
-          <h3 className="text-cms-btn uppercase tracking-wider text-slate-400 mb-2">
+          <h3 className="text-cms-btn uppercase tracking-wider text-neutral-400 mb-2">
             Named Media Slots ({slots.length})
           </h3>
           <div className="space-y-2 max-h-[600px] overflow-y-auto pr-1">
@@ -173,25 +173,25 @@ export const ImagePositionEditorView: React.FC = () => {
                 <div
                   key={slot.slotKey}
                   onClick={() => setSelectedSlotKey(slot.slotKey)}
-                  className={`p-3.5 rounded-2xl border transition-all cursor-pointer flex items-center gap-3 ${
+                  className={`p-3.5 rounded-sm border transition-all cursor-pointer flex items-center gap-3 ${
                     isSelected
-                      ? 'bg-amber-500/20 border-amber-500/60 shadow-md ring-1 ring-amber-500/40'
-                      : 'bg-[#1E293B] border-slate-700/80 hover:border-slate-600 hover:bg-slate-800'
+                      ? 'bg-white text-black/20 border-[#333]  ring-1 ring-[#333]'
+                      : 'bg-[#0a0a0a] border-[#222] hover:border-[#333] hover:bg-[#111111]'
                   }`}
                 >
-                  <div className="w-12 h-12 rounded-xl bg-slate-900 border border-slate-700 overflow-hidden flex items-center justify-center shrink-0">
+                  <div className="w-12 h-12 rounded-sm bg-[#0a0a0a] border border-[#222] overflow-hidden flex items-center justify-center shrink-0">
                     {media?.url ? (
                       <img src={media.url} alt={slot.label} className="w-full h-full object-cover" />
                     ) : (
-                      <ImageIcon className="w-5 h-5 text-slate-500" />
+                      <ImageIcon className="w-5 h-5 text-neutral-500" />
                     )}
                   </div>
                   <div className="flex-1 min-w-0">
                     <div className="font-bold text-cms-small text-white truncate">{slot.label}</div>
-                    <div className="font-mono text-cms-small text-amber-400 truncate">{slot.slotKey}</div>
-                    <div className="text-cms-small text-slate-400 mt-0.5 flex items-center gap-2">
+                    <div className="font-mono text-cms-small text-white truncate">{slot.slotKey}</div>
+                    <div className="text-cms-small text-neutral-400 mt-0.5 flex items-center gap-2">
                       <span>X: {slot.focalX}% Y: {slot.focalY}%</span>
-                      <span className="uppercase text-emerald-400 font-semibold">• {slot.objectFit}</span>
+                      <span className="uppercase text-neutral-300 font-semibold">• {slot.objectFit}</span>
                     </div>
                   </div>
                 </div>
@@ -204,26 +204,26 @@ export const ImagePositionEditorView: React.FC = () => {
         <div className="lg:col-span-8 space-y-6">
           
           {/* Active Slot Control Box */}
-          <div className="p-6 rounded-3xl bg-[#1E293B] border border-slate-700/80 shadow-xl space-y-6">
+          <div className="p-6 rounded-3xl bg-[#0a0a0a] border border-[#222]  space-y-6">
             
             {/* Slot Header & Target Switcher */}
-            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-slate-700">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-[#222]">
               <div>
-                <span className="text-cms-small font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-slate-800 text-amber-300 border border-slate-700">
+                <span className="text-cms-small font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-[#111111] text-white border border-[#222]">
                   {currentSlot?.category} slot
                 </span>
                 <h3 className="text-base font-bold text-white mt-1">{currentSlot?.label}</h3>
-                <p className="text-cms-small text-slate-400 font-mono mt-0.5">{currentSlot?.slotKey}</p>
+                <p className="text-cms-small text-neutral-400 font-mono mt-0.5">{currentSlot?.slotKey}</p>
               </div>
 
               <div className="flex items-center gap-2">
                 {/* Desktop / Mobile Override Switch */}
                 <button
                   onClick={() => setIsEditingMobileOverrides(!isEditingMobileOverrides)}
-                  className={`px-3 py-1.5 rounded-xl text-cms-btn border transition-all flex items-center gap-1.5 ${
+                  className={`px-3 py-1.5 rounded-sm text-cms-btn border transition-all flex items-center gap-1.5 ${
                     isEditingMobileOverrides
-                      ? 'bg-sky-500/20 text-sky-300 border-sky-500/50'
-                      : 'bg-slate-800 text-slate-400 border-slate-700 hover:text-slate-200'
+                      ? 'bg-[#111111] text-white border-[#333]'
+                      : 'bg-[#111111] text-neutral-400 border-[#222] hover:text-neutral-200'
                   }`}
                 >
                   <Smartphone className="w-3.5 h-3.5" />
@@ -232,7 +232,7 @@ export const ImagePositionEditorView: React.FC = () => {
 
                 <button
                   onClick={() => setShowMediaPicker(true)}
-                  className="px-3.5 py-1.5 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 text-cms-btn uppercase tracking-wider transition-all flex items-center gap-1.5 shadow-sm"
+                  className="px-3.5 py-1.5 rounded-sm bg-white text-black text-cms-btn uppercase tracking-wider transition-all flex items-center gap-1.5 "
                 >
                   <FolderOpen className="w-3.5 h-3.5" />
                   <span>Replace Image</span>
@@ -242,19 +242,19 @@ export const ImagePositionEditorView: React.FC = () => {
 
             {/* Interactive Click-to-Pin Canvas (PDF Spec 6) */}
             <div className="space-y-2">
-              <div className="flex items-center justify-between text-cms-small text-slate-300">
+              <div className="flex items-center justify-between text-cms-small text-neutral-300">
                 <span className="font-bold flex items-center gap-1.5">
-                  <Crosshair className="w-4 h-4 text-amber-400" />
+                  <Crosshair className="w-4 h-4 text-white" />
                   <span>Interactive Focal Point Canvas (Click to Place Target)</span>
                 </span>
-                <span className="font-mono text-amber-400 font-bold">
+                <span className="font-mono text-white font-bold">
                   Coordinates: X: {focalX}% | Y: {focalY}%
                 </span>
               </div>
 
               <div
                 onClick={handleCanvasClick}
-                className="relative rounded-2xl overflow-hidden bg-slate-950 border-2 border-slate-700 hover:border-amber-400/80 cursor-crosshair group shadow-inner max-h-[360px] flex items-center justify-center select-none"
+                className="relative rounded-sm overflow-hidden bg-slate-950 border-2 border-[#222] hover:border-[#333] cursor-crosshair group shadow-inner max-h-[360px] flex items-center justify-center select-none"
               >
                 {currentMedia?.url ? (
                   <img
@@ -264,7 +264,7 @@ export const ImagePositionEditorView: React.FC = () => {
                     className="max-h-[340px] w-auto max-w-full object-contain pointer-events-none opacity-90"
                   />
                 ) : (
-                  <div className="h-48 flex items-center justify-center text-cms-small text-slate-500">
+                  <div className="h-48 flex items-center justify-center text-cms-small text-neutral-500">
                     No image linked to slot
                   </div>
                 )}
@@ -274,25 +274,25 @@ export const ImagePositionEditorView: React.FC = () => {
                   className="absolute w-8 h-8 -ml-4 -mt-4 pointer-events-none transition-all duration-75 flex items-center justify-center"
                   style={{ left: `${focalX}%`, top: `${focalY}%` }}
                 >
-                  <div className="w-8 h-8 rounded-full border-2 border-amber-400 bg-amber-400/30 animate-ping absolute" />
-                  <div className="w-5 h-5 rounded-full border-2 border-white bg-amber-500 shadow-lg flex items-center justify-center text-cms-small font-bold text-slate-950">
+                  <div className="w-8 h-8 rounded-sm border-2 border-[#333] bg-white text-black animate-ping absolute" />
+                  <div className="w-5 h-5 rounded-sm border-2 border-white bg-white text-black  flex items-center justify-center text-cms-small font-bold">
                     ●
                   </div>
                 </div>
 
                 {/* Overlay Prompt */}
-                <div className="absolute bottom-2 left-2 px-2.5 py-1 rounded-lg bg-black/60 backdrop-blur-sm text-cms-small text-slate-300 pointer-events-none">
+                <div className="absolute bottom-2 left-2 px-2.5 py-1 rounded-sm bg-black/60 backdrop-blur-sm text-cms-small text-neutral-300 pointer-events-none">
                   Click anywhere on image to reposition focal center
                 </div>
               </div>
             </div>
 
             {/* Precision Slider Controls (PDF Spec 6) */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 p-4 rounded-2xl bg-slate-900/80 border border-slate-800 text-cms-small">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 p-4 rounded-sm bg-[#0a0a0a]/80 border border-slate-800 text-cms-small">
               <div>
-                <div className="flex items-center justify-between mb-1.5 font-bold text-slate-300">
+                <div className="flex items-center justify-between mb-1.5 font-bold text-neutral-300">
                   <span>Focal X Coordinate:</span>
-                  <span className="font-mono text-amber-400">{focalX}%</span>
+                  <span className="font-mono text-white">{focalX}%</span>
                 </div>
                 <input
                   type="range"
@@ -300,14 +300,14 @@ export const ImagePositionEditorView: React.FC = () => {
                   max="100"
                   value={focalX}
                   onChange={e => handleFocalChange(parseInt(e.target.value), focalY)}
-                  className="w-full accent-amber-400 cursor-pointer h-2 bg-slate-800 rounded-lg"
+                  className="w-full accent-white cursor-pointer h-2 bg-[#111111] rounded-sm"
                 />
               </div>
 
               <div>
-                <div className="flex items-center justify-between mb-1.5 font-bold text-slate-300">
+                <div className="flex items-center justify-between mb-1.5 font-bold text-neutral-300">
                   <span>Focal Y Coordinate:</span>
-                  <span className="font-mono text-amber-400">{focalY}%</span>
+                  <span className="font-mono text-white">{focalY}%</span>
                 </div>
                 <input
                   type="range"
@@ -315,14 +315,14 @@ export const ImagePositionEditorView: React.FC = () => {
                   max="100"
                   value={focalY}
                   onChange={e => handleFocalChange(focalX, parseInt(e.target.value))}
-                  className="w-full accent-amber-400 cursor-pointer h-2 bg-slate-800 rounded-lg"
+                  className="w-full accent-white cursor-pointer h-2 bg-[#111111] rounded-sm"
                 />
               </div>
             </div>
 
             {/* Object-Fit Mode Selection (PDF Spec 6) */}
             <div className="space-y-2">
-              <label className="block text-cms-btn uppercase tracking-wider text-slate-300">
+              <label className="block text-cms-btn uppercase tracking-wider text-neutral-300">
                 Object Fit Mode (CSS Rendering)
               </label>
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
@@ -330,10 +330,10 @@ export const ImagePositionEditorView: React.FC = () => {
                   <button
                     key={fit}
                     onClick={() => handleObjectFitChange(fit)}
-                    className={`py-2 px-3 rounded-xl text-cms-btn uppercase tracking-wider border transition-all ${
+                    className={`py-2 px-3 rounded-sm text-cms-btn uppercase tracking-wider border transition-all ${
                       currentSlot?.objectFit === fit
-                        ? 'bg-amber-500 text-slate-950 border-amber-400 shadow-sm'
-                        : 'bg-slate-900 text-slate-400 border-slate-800 hover:border-slate-700 hover:text-white'
+                        ? 'bg-white text-black border-[#333] '
+                        : 'bg-[#0a0a0a] text-neutral-400 border-slate-800 hover:border-[#222] hover:text-white'
                     }`}
                   >
                     {fit}
@@ -343,21 +343,21 @@ export const ImagePositionEditorView: React.FC = () => {
             </div>
 
             {/* Live Responsive Viewport Simulation (Desktop / Tablet / Mobile) */}
-            <div className="space-y-3 pt-4 border-t border-slate-700">
-              <div className="flex items-center justify-between text-cms-small text-slate-300">
+            <div className="space-y-3 pt-4 border-t border-[#222]">
+              <div className="flex items-center justify-between text-cms-small text-neutral-300">
                 <span className="font-bold flex items-center gap-1.5">
-                  <Monitor className="w-4 h-4 text-sky-400" />
+                  <Monitor className="w-4 h-4 text-neutral-300" />
                   <span>Real-Time Viewport Crop Simulation ({activeDevicePreview.toUpperCase()})</span>
                 </span>
-                <span className="text-cms-small text-slate-400">
+                <span className="text-cms-small text-neutral-400">
                   CSS: <code>object-position: {focalX}% {focalY}%</code>
                 </span>
               </div>
 
               {/* Viewport Frame Container */}
-              <div className="p-4 rounded-2xl bg-slate-950 border border-slate-800 flex items-center justify-center overflow-hidden min-h-[220px]">
+              <div className="p-4 rounded-sm bg-slate-950 border border-slate-800 flex items-center justify-center overflow-hidden min-h-[220px]">
                 {activeDevicePreview === 'desktop' && (
-                  <div className="w-full max-w-lg aspect-[16/9] rounded-xl overflow-hidden border-2 border-slate-700 shadow-2xl relative bg-slate-900">
+                  <div className="w-full max-w-lg aspect-[16/9] rounded-sm overflow-hidden border-2 border-[#222] shadow-2xl relative bg-[#0a0a0a]">
                     <img
                       src={currentMedia?.url}
                       alt="Desktop Preview"
@@ -374,7 +374,7 @@ export const ImagePositionEditorView: React.FC = () => {
                 )}
 
                 {activeDevicePreview === 'tablet' && (
-                  <div className="w-72 aspect-[4/3] rounded-xl overflow-hidden border-2 border-slate-700 shadow-2xl relative bg-slate-900">
+                  <div className="w-72 aspect-[4/3] rounded-sm overflow-hidden border-2 border-[#222] shadow-2xl relative bg-[#0a0a0a]">
                     <img
                       src={currentMedia?.url}
                       alt="Tablet Preview"
@@ -391,7 +391,7 @@ export const ImagePositionEditorView: React.FC = () => {
                 )}
 
                 {activeDevicePreview === 'mobile' && (
-                  <div className="w-48 aspect-[9/16] rounded-2xl overflow-hidden border-2 border-slate-700 shadow-2xl relative bg-slate-900">
+                  <div className="w-48 aspect-[9/16] rounded-sm overflow-hidden border-2 border-[#222] shadow-2xl relative bg-[#0a0a0a]">
                     <img
                       src={currentMedia?.url}
                       alt="Mobile Preview"
@@ -417,14 +417,14 @@ export const ImagePositionEditorView: React.FC = () => {
       {/* Media Picker Modal */}
       {showMediaPicker && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm animate-in fade-in">
-          <div className="bg-[#1E293B] border border-slate-700 rounded-3xl w-full max-w-3xl max-h-[85vh] overflow-y-auto p-6 shadow-2xl text-cms-small space-y-4">
-            <div className="flex items-center justify-between pb-3 border-b border-slate-700">
+          <div className="bg-[#0a0a0a] border border-[#222] rounded-3xl w-full max-w-3xl max-h-[85vh] overflow-y-auto p-6 shadow-2xl text-cms-small space-y-4">
+            <div className="flex items-center justify-between pb-3 border-b border-[#222]">
               <h3 className="font-bold text-base text-white">
-                Select Media for Slot: <span className="text-amber-400">{currentSlot?.label}</span>
+                Select Media for Slot: <span className="text-white">{currentSlot?.label}</span>
               </h3>
               <button
                 onClick={() => setShowMediaPicker(false)}
-                className="text-slate-400 hover:text-white p-1"
+                className="text-neutral-400 hover:text-white p-1"
               >
                 ✕
               </button>
@@ -435,14 +435,14 @@ export const ImagePositionEditorView: React.FC = () => {
                 <div
                   key={media.id}
                   onClick={() => handleAssignMedia(media.id)}
-                  className="p-2.5 rounded-2xl bg-slate-900 border border-slate-800 hover:border-amber-400 cursor-pointer transition-all group flex flex-col justify-between"
+                  className="p-2.5 rounded-sm bg-[#0a0a0a] border border-slate-800 hover:border-[#333] cursor-pointer transition-all group flex flex-col justify-between"
                 >
-                  <div className="aspect-square w-full rounded-xl overflow-hidden bg-slate-950 flex items-center justify-center mb-2">
+                  <div className="aspect-square w-full rounded-sm overflow-hidden bg-slate-950 flex items-center justify-center mb-2">
                     <img src={media.url} alt={media.alt} className="w-full h-full object-contain p-1" />
                   </div>
                   <div>
                     <div className="font-bold text-white truncate">{media.filename}</div>
-                    <div className="text-cms-small text-slate-400">{media.fileSize}</div>
+                    <div className="text-cms-small text-neutral-400">{media.fileSize}</div>
                   </div>
                 </div>
               ))}

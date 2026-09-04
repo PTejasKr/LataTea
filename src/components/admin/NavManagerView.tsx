@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useCMS } from '../../context/CMSContext';
 import { NavigationItem } from '../../types/cms';
-import { Menu, Plus, Trash2, ArrowUp, ArrowDown, Eye, EyeOff, Sparkles, Link as LinkIcon, Globe } from 'lucide-react';
+import { Menu, Plus, Trash2, ArrowUp, ArrowDown, Eye, EyeOff, Link as LinkIcon, Globe } from 'lucide-react';
 
 export const NavManagerView: React.FC = () => {
   const { draftState, updateDraft } = useCMS();
@@ -93,27 +93,27 @@ export const NavManagerView: React.FC = () => {
   return (
     <div className="space-y-8 animate-fade-in max-w-5xl">
       {/* Header */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-slate-700/80">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-[#222]">
         <div>
-          <div className="flex items-center gap-2 text-cms-btn uppercase tracking-widest text-amber-400 mb-1">
+          <div className="flex items-center gap-2 text-cms-btn uppercase tracking-widest text-white mb-1">
             <Menu className="w-4 h-4" />
             <span>HEADER & FOOTER LINKS</span>
           </div>
           <h1 className="text-cms-section font-bold font-serif text-white">
             Navigation Manager
           </h1>
-          <p className="text-cms-body text-slate-400 mt-1">
+          <p className="text-cms-body text-neutral-400 mt-1">
             Reorder, add, or toggle visibility of navigation links in English and Marathi.
           </p>
         </div>
 
         {/* Bilingual Editor Switcher */}
-        <div className="flex items-center gap-1 p-1 bg-slate-800 rounded-2xl border border-slate-700">
+        <div className="flex items-center gap-1 p-1 bg-[#111111] rounded-sm border border-[#222]">
           <button
             type="button"
             onClick={() => setActiveLang('en')}
-            className={`flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-cms-btn uppercase transition-all ${
-              activeLang === 'en' ? 'bg-amber-500 text-slate-950 font-bold' : 'text-slate-400'
+            className={`flex items-center gap-1.5 px-3 py-1.5 rounded-sm text-cms-btn uppercase transition-all ${
+              activeLang === 'en' ? 'bg-white text-black font-bold' : 'text-neutral-400'
             }`}
           >
             <Globe className="w-3.5 h-3.5" />
@@ -122,8 +122,8 @@ export const NavManagerView: React.FC = () => {
           <button
             type="button"
             onClick={() => setActiveLang('mr')}
-            className={`flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-cms-btn uppercase transition-all ${
-              activeLang === 'mr' ? 'bg-amber-500 text-slate-950 font-bold' : 'text-slate-400'
+            className={`flex items-center gap-1.5 px-3 py-1.5 rounded-sm text-cms-btn uppercase transition-all ${
+              activeLang === 'mr' ? 'bg-white text-black font-bold' : 'text-neutral-400'
             }`}
           >
             <Globe className="w-3.5 h-3.5" />
@@ -133,15 +133,15 @@ export const NavManagerView: React.FC = () => {
       </div>
 
       {/* Add New Link Card */}
-      <form onSubmit={handleAddItem} className="p-6 rounded-2xl bg-slate-900 border border-slate-800 space-y-4">
-        <h3 className="text-cms-btn uppercase tracking-wider text-slate-300 flex items-center gap-2">
-          <Plus className="w-4 h-4 text-amber-400" />
+      <form onSubmit={handleAddItem} className="p-6 rounded-sm bg-[#0a0a0a] border border-slate-800 space-y-4">
+        <h3 className="text-cms-btn uppercase tracking-wider text-neutral-300 flex items-center gap-2">
+          <Plus className="w-4 h-4 text-white" />
           <span>Add New Navigation Item</span>
         </h3>
 
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
           <div>
-            <label className="block text-cms-small font-bold uppercase tracking-wider text-slate-400 mb-1">
+            <label className="block text-cms-small font-bold uppercase tracking-wider text-neutral-400 mb-1">
               English Label
             </label>
             <input
@@ -149,12 +149,12 @@ export const NavManagerView: React.FC = () => {
               placeholder="e.g. THE CRAFT"
               value={newLabelEn}
               onChange={e => setNewLabelEn(e.target.value)}
-              className="w-full px-3 py-2 rounded-xl bg-slate-800 border border-slate-700 text-white text-cms-btn focus:outline-none focus:border-amber-400"
+              className="w-full px-3 py-2 rounded-sm bg-[#111111] border border-[#222] text-white text-cms-btn focus:outline-none focus:border-[#333]"
             />
           </div>
 
           <div>
-            <label className="block text-cms-small font-bold uppercase tracking-wider text-slate-400 mb-1">
+            <label className="block text-cms-small font-bold uppercase tracking-wider text-neutral-400 mb-1">
               मराठी (Marathi) Label
             </label>
             <input
@@ -162,12 +162,12 @@ export const NavManagerView: React.FC = () => {
               placeholder="उदा. निर्मिती कला"
               value={newLabelMr}
               onChange={e => setNewLabelMr(e.target.value)}
-              className="w-full px-3 py-2 rounded-xl bg-slate-800 border border-slate-700 text-white text-cms-btn focus:outline-none focus:border-amber-400"
+              className="w-full px-3 py-2 rounded-sm bg-[#111111] border border-[#222] text-white text-cms-btn focus:outline-none focus:border-[#333]"
             />
           </div>
 
           <div>
-            <label className="block text-cms-small font-bold uppercase tracking-wider text-slate-400 mb-1">
+            <label className="block text-cms-small font-bold uppercase tracking-wider text-neutral-400 mb-1">
               Destination URL
             </label>
             <input
@@ -175,7 +175,7 @@ export const NavManagerView: React.FC = () => {
               placeholder="e.g. /craft"
               value={newUrl}
               onChange={e => setNewUrl(e.target.value)}
-              className="w-full px-3 py-2 rounded-xl bg-slate-800 border border-slate-700 text-white text-cms-small font-mono focus:outline-none focus:border-amber-400"
+              className="w-full px-3 py-2 rounded-sm bg-[#111111] border border-[#222] text-white text-cms-small font-mono focus:outline-none focus:border-[#333]"
             />
           </div>
         </div>
@@ -183,7 +183,7 @@ export const NavManagerView: React.FC = () => {
         <div className="flex justify-end pt-2">
           <button
             type="submit"
-            className="px-4 py-2 rounded-xl text-cms-btn uppercase tracking-wider bg-amber-500 hover:bg-amber-600 text-slate-950 flex items-center gap-1.5 transition-all shadow-md"
+            className="px-4 py-2 rounded-sm text-cms-btn uppercase tracking-wider bg-white text-black hover:bg-neutral-200 flex items-center gap-1.5 transition-all "
           >
             <Plus className="w-3.5 h-3.5" />
             <span>Add to Navigation</span>
@@ -193,21 +193,21 @@ export const NavManagerView: React.FC = () => {
 
       {/* Existing Navigation Links List */}
       <div className="space-y-3">
-        <h3 className="text-cms-btn uppercase tracking-wider text-slate-300">
+        <h3 className="text-cms-btn uppercase tracking-wider text-neutral-300">
           Active Navigation Links ({navigation.length})
         </h3>
 
         {navigation.map((item, idx) => (
           <div
             key={item.id}
-            className={`p-4 rounded-2xl border transition-all flex flex-col sm:flex-row sm:items-center justify-between gap-4 ${
+            className={`p-4 rounded-sm border transition-all flex flex-col sm:flex-row sm:items-center justify-between gap-4 ${
               item.isEnabled
-                ? 'bg-slate-900 border-slate-800'
-                : 'bg-slate-900/40 border-slate-800/40 opacity-60'
+                ? 'bg-[#0a0a0a] border-slate-800'
+                : 'bg-[#0a0a0a]/40 border-slate-800/40 opacity-60'
             }`}
           >
             <div className="flex items-center gap-3 flex-1">
-              <span className="w-6 h-6 rounded-lg bg-slate-800 text-slate-400 font-mono font-bold text-cms-small flex items-center justify-center shrink-0">
+              <span className="w-6 h-6 rounded-sm bg-[#111111] text-neutral-400 font-mono font-bold text-cms-small flex items-center justify-center shrink-0">
                 {idx + 1}
               </span>
 
@@ -216,16 +216,16 @@ export const NavManagerView: React.FC = () => {
                   type="text"
                   value={item.label[activeLang] || ''}
                   onChange={e => handleUpdateLabel(item.id, e.target.value)}
-                  className="px-3 py-1.5 rounded-lg bg-slate-800 border border-slate-700 text-white font-bold text-cms-small focus:ring-1 focus:ring-amber-400 uppercase"
+                  className="px-3 py-1.5 rounded-sm bg-[#111111] border border-[#222] text-white font-bold text-cms-small focus:ring-1 focus:ring-[#333] uppercase"
                 />
 
                 <div className="flex items-center gap-2">
-                  <LinkIcon className="w-3.5 h-3.5 text-slate-500 shrink-0" />
+                  <LinkIcon className="w-3.5 h-3.5 text-neutral-500 shrink-0" />
                   <input
                     type="text"
                     value={item.url}
                     onChange={e => handleUpdateItem(item.id, { url: e.target.value })}
-                    className="w-full px-3 py-1.5 rounded-lg bg-slate-800 border border-slate-700 text-slate-300 font-mono text-cms-small focus:ring-1 focus:ring-amber-400"
+                    className="w-full px-3 py-1.5 rounded-sm bg-[#111111] border border-[#222] text-neutral-300 font-mono text-cms-small focus:ring-1 focus:ring-[#333]"
                   />
                 </div>
               </div>
@@ -236,7 +236,7 @@ export const NavManagerView: React.FC = () => {
                 type="button"
                 onClick={() => handleMove(idx, 'up')}
                 disabled={idx === 0}
-                className="p-1.5 rounded-lg text-slate-400 hover:text-white disabled:opacity-30"
+                className="p-1.5 rounded-sm text-neutral-400 hover:text-white disabled:opacity-30"
                 title="Move Up"
               >
                 <ArrowUp className="w-4 h-4" />
@@ -245,7 +245,7 @@ export const NavManagerView: React.FC = () => {
                 type="button"
                 onClick={() => handleMove(idx, 'down')}
                 disabled={idx === navigation.length - 1}
-                className="p-1.5 rounded-lg text-slate-400 hover:text-white disabled:opacity-30"
+                className="p-1.5 rounded-sm text-neutral-400 hover:text-white disabled:opacity-30"
                 title="Move Down"
               >
                 <ArrowDown className="w-4 h-4" />
@@ -254,16 +254,16 @@ export const NavManagerView: React.FC = () => {
               <button
                 type="button"
                 onClick={() => handleUpdateItem(item.id, { isEnabled: !item.isEnabled })}
-                className="p-1.5 rounded-lg text-slate-400 hover:text-white"
+                className="p-1.5 rounded-sm text-neutral-400 hover:text-white"
                 title={item.isEnabled ? 'Hide Link' : 'Show Link'}
               >
-                {item.isEnabled ? <Eye className="w-4 h-4 text-emerald-400" /> : <EyeOff className="w-4 h-4" />}
+                {item.isEnabled ? <Eye className="w-4 h-4 text-neutral-300" /> : <EyeOff className="w-4 h-4" />}
               </button>
 
               <button
                 type="button"
                 onClick={() => handleDeleteItem(item.id)}
-                className="p-1.5 text-slate-400 hover:text-rose-400"
+                className="p-1.5 text-neutral-400 hover:text-neutral-400 hover:text-white"
                 title="Delete Link"
               >
                 <Trash2 className="w-4 h-4" />

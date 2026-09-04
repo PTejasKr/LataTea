@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+﻿import React, { useState } from 'react';
 import { AdminLayout, AdminTab } from './AdminLayout';
 import { DashboardView } from './DashboardView';
 import { StoryManagerView } from './StoryManagerView';
@@ -24,9 +24,7 @@ export const AdminView: React.FC = () => {
   const [activeTab, setActiveTab] = useState<AdminTab>('dashboard');
   const [showPublishModal, setShowPublishModal] = useState(false);
 
-  if (!isCmsAuthenticated) {
-    return <CmsLoginView />;
-  }
+  
 
   return (
     <>
@@ -73,3 +71,4 @@ export const AdminView: React.FC = () => {
 };
 
 export default AdminView;
+

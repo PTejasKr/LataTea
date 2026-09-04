@@ -78,83 +78,83 @@ export const CategoriesManagerView: React.FC = () => {
   };
 
   return (
-    <div className="space-y-6">
-      <div className="flex items-center justify-between pb-4 border-b border-slate-200">
+    <div className="space-y-6 max-w-5xl">
+      <div className="flex items-center justify-between pb-4 border-b border-[#222]">
         <div>
-          <h2 className="text-cms-section text-slate-900 flex items-center gap-2">
-            <FolderTree className="w-5 h-5 text-[#2E7D32]" />
+          <h2 className="text-cms-section text-white flex items-center gap-2">
+            <FolderTree className="w-5 h-5 text-white" />
             <span>Product Categories</span>
           </h2>
-          <p className="text-cms-small text-slate-500 mt-1">
+          <p className="text-cms-small text-neutral-400 mt-1">
             Manage catalogue categories, Marathi translations, ordering, and visibility.
           </p>
         </div>
       </div>
 
       {/* Add New Category */}
-      <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 flex flex-col sm:flex-row items-end gap-3">
-        <div className="flex-1 w-full space-y-1">
-          <label className="text-cms-small font-bold text-slate-700 uppercase">Category Name (English)</label>
+      <div className="p-5 rounded-sm bg-[#111111] border border-[#222] flex flex-col sm:flex-row items-end gap-3">
+        <div className="flex-1 w-full space-y-1.5">
+          <label className="text-cms-small font-bold text-neutral-300 uppercase">Category Name (English)</label>
           <input
             type="text"
             value={newCatEn}
             onChange={(e) => setNewCatEn(e.target.value)}
             placeholder="e.g. Kadak Chai"
-            className="w-full px-3 py-2 text-cms-small rounded-lg border border-slate-300 bg-white"
+            className="w-full px-3 py-2 text-cms-small rounded-sm border border-[#333] bg-[#0a0a0a] text-white placeholder:text-neutral-600 focus:border-white focus:outline-none"
           />
         </div>
-        <div className="flex-1 w-full space-y-1">
-          <label className="text-cms-small font-bold text-slate-700 uppercase">Marathi Name (मराठी)</label>
+        <div className="flex-1 w-full space-y-1.5">
+          <label className="text-cms-small font-bold text-neutral-300 uppercase">Marathi Name (मराठी)</label>
           <input
             type="text"
             value={newCatMr}
             onChange={(e) => setNewCatMr(e.target.value)}
             placeholder="उदा. कडक चहा"
-            className="w-full px-3 py-2 text-cms-small rounded-lg border border-slate-300 bg-white"
+            className="w-full px-3 py-2 text-cms-small rounded-sm border border-[#333] bg-[#0a0a0a] text-white placeholder:text-neutral-600 focus:border-white focus:outline-none"
           />
         </div>
         <button
           type="button"
           onClick={handleAddCategory}
           disabled={!newCatEn.trim()}
-          className="px-4 py-2 rounded-lg bg-[#2E7D32] hover:bg-[#1B4332] text-white text-cms-btn uppercase transition-colors disabled:opacity-50 cursor-pointer flex items-center gap-1.5"
+          className="px-5 py-2.5 rounded-sm bg-white hover:bg-neutral-200 text-black text-cms-btn uppercase font-bold transition-colors disabled:opacity-50 cursor-pointer flex items-center gap-1.5 shrink-0"
         >
           <Plus className="w-4 h-4" />
-          <span>Add</span>
+          <span>Add Category</span>
         </button>
       </div>
 
       {/* Categories List */}
-      <div className="bg-white rounded-xl border border-slate-200 divide-y divide-slate-100 overflow-hidden">
+      <div className="bg-[#111111] rounded-sm border border-[#222] divide-y divide-[#222] overflow-hidden">
         {categories.map((cat, idx) => (
-          <div key={cat.id} className="p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-4 hover:bg-slate-50 transition-colors">
-            <div className="flex items-center gap-3">
-              <span className="w-6 text-center font-mono text-cms-small text-slate-400 font-bold">
+          <div key={cat.id} className="p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-4 hover:bg-[#161616] transition-colors">
+            <div className="flex items-center gap-3 flex-1">
+              <span className="w-6 text-center font-mono text-cms-small text-neutral-500 font-bold shrink-0">
                 {idx + 1}
               </span>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 flex-1">
                 <input
                   type="text"
                   value={cat.name.en}
                   onChange={(e) => handleUpdateName(cat.id, 'en', e.target.value)}
-                  className="px-2.5 py-1 text-cms-btn rounded border border-slate-200 bg-white"
+                  className="px-3 py-1.5 text-cms-btn rounded-sm border border-[#333] bg-[#0a0a0a] text-white placeholder:text-neutral-600 focus:border-white focus:outline-none"
                 />
                 <input
                   type="text"
                   value={cat.name.mr}
                   onChange={(e) => handleUpdateName(cat.id, 'mr', e.target.value)}
                   placeholder="मराठी नाव"
-                  className="px-2.5 py-1 text-cms-small rounded border border-slate-200 bg-white"
+                  className="px-3 py-1.5 text-cms-small rounded-sm border border-[#333] bg-[#0a0a0a] text-white placeholder:text-neutral-600 focus:border-white focus:outline-none"
                 />
               </div>
             </div>
 
-            <div className="flex items-center gap-1.5 self-end sm:self-center">
+            <div className="flex items-center gap-1.5 self-end sm:self-center shrink-0">
               <button
                 type="button"
                 onClick={() => handleToggleVisibility(cat.id)}
-                className={`p-1.5 rounded text-cms-small transition-colors cursor-pointer ${
-                  cat.isVisible ? 'text-[#2E7D32] hover:bg-[#EBF5EC]' : 'text-slate-400 hover:bg-slate-100'
+                className={`p-2 rounded-sm text-cms-small transition-colors cursor-pointer ${
+                  cat.isVisible ? 'text-white bg-[#0a0a0a] border border-[#333]' : 'text-neutral-500 hover:text-neutral-300'
                 }`}
                 title={cat.isVisible ? 'Visible' : 'Hidden'}
               >
@@ -165,7 +165,7 @@ export const CategoriesManagerView: React.FC = () => {
                 type="button"
                 onClick={() => handleMove(idx, 'up')}
                 disabled={idx === 0}
-                className="p-1.5 rounded text-slate-500 hover:bg-slate-100 disabled:opacity-30 cursor-pointer"
+                className="p-2 rounded-sm text-neutral-400 hover:text-white disabled:opacity-30 cursor-pointer"
                 title="Move Up"
               >
                 <ArrowUp className="w-4 h-4" />
@@ -175,7 +175,7 @@ export const CategoriesManagerView: React.FC = () => {
                 type="button"
                 onClick={() => handleMove(idx, 'down')}
                 disabled={idx === categories.length - 1}
-                className="p-1.5 rounded text-slate-500 hover:bg-slate-100 disabled:opacity-30 cursor-pointer"
+                className="p-2 rounded-sm text-neutral-400 hover:text-white disabled:opacity-30 cursor-pointer"
                 title="Move Down"
               >
                 <ArrowDown className="w-4 h-4" />
@@ -185,7 +185,7 @@ export const CategoriesManagerView: React.FC = () => {
                 <button
                   type="button"
                   onClick={() => handleDelete(cat.id)}
-                  className="p-1.5 rounded text-red-600 hover:bg-red-50 cursor-pointer"
+                  className="p-2 rounded-sm text-red-400 hover:text-red-300 hover:bg-red-950/40 cursor-pointer transition-colors"
                   title="Delete Category"
                 >
                   <Trash2 className="w-4 h-4" />

@@ -1,6 +1,6 @@
 import React from 'react';
 import { useCMS } from '../../context/CMSContext';
-import { Globe, CheckCircle2, AlertTriangle, Sparkles } from 'lucide-react';
+import { Globe, CheckCircle2, AlertTriangle } from 'lucide-react';
 import { cmsStore } from '../../services/cmsStore';
 
 export const LanguagesManagerView: React.FC = () => {
@@ -17,15 +17,15 @@ export const LanguagesManagerView: React.FC = () => {
   return (
     <div className="space-y-8 animate-fade-in max-w-5xl">
       {/* Header */}
-      <div className="pb-6 border-b border-slate-200">
-        <div className="inline-flex items-center gap-2 text-cms-btn uppercase tracking-widest text-lataamber-600 mb-1">
-          <Globe className="w-4 h-4" />
+      <div className="pb-6 border-b border-[#222]">
+        <div className="inline-flex items-center gap-2 text-cms-btn uppercase tracking-widest text-white mb-1">
+          <Globe className="w-4 h-4 text-white" />
           <span>Localization & Multilingual Settings</span>
         </div>
-        <h1 className="text-cms-section font-bold text-slate-900 font-serif">
+        <h1 className="text-cms-section font-bold text-white font-serif">
           Languages Management (English & Marathi)
         </h1>
-        <p className="text-cms-body text-slate-500 mt-1">
+        <p className="text-cms-body text-neutral-400 mt-1">
           Monitor translation coverage, configure default language settings, and preview language behavior.
         </p>
       </div>
@@ -34,56 +34,56 @@ export const LanguagesManagerView: React.FC = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         
         {/* English (Primary) */}
-        <div className="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm space-y-4">
+        <div className="bg-[#111111] rounded-sm p-6 border border-[#222] space-y-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
-              <span className="w-9 h-9 rounded-xl bg-slate-900 text-white font-bold flex items-center justify-center text-cms-small">
+              <span className="w-9 h-9 rounded-sm bg-white text-black font-bold flex items-center justify-center text-cms-small font-mono">
                 EN
               </span>
               <div>
-                <h3 className="text-base font-bold text-slate-900 font-serif">English</h3>
-                <span className="text-cms-small text-slate-500 font-medium">Default Master Language</span>
+                <h3 className="text-base font-bold text-white font-serif">English</h3>
+                <span className="text-cms-small text-neutral-400 font-medium">Default Master Language</span>
               </div>
             </div>
-            <span className="text-cms-btn uppercase tracking-wider text-emerald-600 bg-emerald-50 px-3 py-1 rounded-full border border-emerald-200">
+            <span className="text-cms-btn uppercase tracking-wider text-white bg-[#0a0a0a] px-3 py-1 rounded-sm border border-[#333] font-bold">
               100% Complete
             </span>
           </div>
 
-          <div className="w-full bg-slate-100 h-2.5 rounded-full overflow-hidden">
-            <div className="bg-emerald-500 h-full rounded-full w-full" />
+          <div className="w-full bg-[#222] h-2.5 rounded-sm overflow-hidden">
+            <div className="bg-white h-full rounded-sm w-full" />
           </div>
 
-          <p className="text-cms-small text-slate-600 font-sans leading-relaxed">
+          <p className="text-cms-small text-neutral-300 font-sans leading-relaxed">
             All primary storytelling chapters, craft stages, tea descriptions, and statutory legal statements are authored in English.
           </p>
         </div>
 
         {/* Marathi (Regional Sovereignty) */}
-        <div className="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm space-y-4">
+        <div className="bg-[#111111] rounded-sm p-6 border border-[#222] space-y-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
-              <span className="w-9 h-9 rounded-xl bg-amber-500 text-slate-950 font-bold flex items-center justify-center text-cms-small">
+              <span className="w-9 h-9 rounded-sm bg-white text-black font-bold flex items-center justify-center text-cms-small font-mono">
                 MR
               </span>
               <div>
-                <h3 className="text-base font-bold text-slate-900 font-serif">मराठी (Marathi)</h3>
-                <span className="text-cms-small text-slate-500 font-medium">Native Maharashtra Heritage</span>
+                <h3 className="text-base font-bold text-white font-serif">मराठी (Marathi)</h3>
+                <span className="text-cms-small text-neutral-400 font-medium">Native Maharashtra Heritage</span>
               </div>
             </div>
-            <span className="text-cms-btn uppercase tracking-wider text-amber-700 bg-amber-50 px-3 py-1 rounded-full border border-amber-200">
+            <span className="text-cms-btn uppercase tracking-wider text-white bg-[#0a0a0a] px-3 py-1 rounded-sm border border-[#333] font-bold">
               {completeness.languageScore}% Complete
             </span>
           </div>
 
-          <div className="w-full bg-slate-100 h-2.5 rounded-full overflow-hidden">
+          <div className="w-full bg-[#222] h-2.5 rounded-sm overflow-hidden">
             <div 
-              className="bg-amber-500 h-full rounded-full transition-all duration-500" 
+              className="bg-white h-full rounded-sm transition-all duration-500" 
               style={{ width: `${completeness.languageScore}%` }} 
             />
           </div>
 
-          <p className="text-cms-small text-slate-600 font-sans leading-relaxed">
+          <p className="text-cms-small text-neutral-300 font-sans leading-relaxed">
             Culturally authentic Devanagari typography with Rozha One, Noto Serif Devanagari, and Mukta font stacks.
           </p>
         </div>
@@ -91,23 +91,22 @@ export const LanguagesManagerView: React.FC = () => {
       </div>
 
       {/* Switcher Preview & Quick Test */}
-      <div className="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-sm space-y-4">
-        <h3 className="text-base font-bold text-slate-900 font-serif flex items-center gap-2">
-          <Sparkles className="w-4 h-4 text-amber-500" />
+      <div className="bg-[#111111] rounded-sm p-6 sm:p-8 border border-[#222] space-y-4">
+        <h3 className="text-base font-bold text-white font-serif flex items-center gap-2">
           <span>Active Public Session Language</span>
         </h3>
-        <p className="text-cms-small text-slate-500">
+        <p className="text-cms-small text-neutral-400">
           Click below to switch the preview language immediately across all public preview pages.
         </p>
 
-        <div className="inline-flex items-center gap-2 p-1.5 bg-slate-100 rounded-2xl border border-slate-200">
+        <div className="inline-flex items-center gap-2 p-1.5 bg-[#0a0a0a] rounded-sm border border-[#333]">
           <button
             type="button"
             onClick={() => setLanguage('en')}
-            className={`px-5 py-2.5 rounded-xl text-cms-btn uppercase tracking-wider transition-all ${
+            className={`px-5 py-2.5 rounded-sm text-cms-btn uppercase tracking-wider transition-all cursor-pointer ${
               language === 'en'
-                ? 'bg-white text-slate-900 shadow-md border border-slate-200'
-                : 'text-slate-600 hover:text-slate-900'
+                ? 'bg-white text-black font-bold'
+                : 'text-neutral-400 hover:text-white'
             }`}
           >
             English (EN)
@@ -115,10 +114,10 @@ export const LanguagesManagerView: React.FC = () => {
           <button
             type="button"
             onClick={() => setLanguage('mr')}
-            className={`px-5 py-2.5 rounded-xl text-cms-btn uppercase tracking-wider transition-all ${
+            className={`px-5 py-2.5 rounded-sm text-cms-btn uppercase tracking-wider transition-all cursor-pointer ${
               language === 'mr'
-                ? 'bg-amber-500 text-slate-950 font-bold shadow-md'
-                : 'text-slate-600 hover:text-slate-900'
+                ? 'bg-white text-black font-bold'
+                : 'text-neutral-400 hover:text-white'
             }`}
           >
             मराठी (MR)
@@ -128,15 +127,15 @@ export const LanguagesManagerView: React.FC = () => {
 
       {/* Missing Translation Warnings */}
       {marathiMissing.length > 0 && (
-        <div className="bg-amber-50 rounded-2xl p-6 border border-amber-200 text-amber-900 space-y-2">
+        <div className="bg-[#111111] rounded-sm p-6 border border-[#333] text-white space-y-2">
           <div className="flex items-center gap-2 font-bold text-cms-body">
-            <AlertTriangle className="w-4 h-4 text-amber-600" />
+            <AlertTriangle className="w-4 h-4 text-white" />
             <span>Missing Marathi Translations</span>
           </div>
-          <p className="text-cms-small">
+          <p className="text-cms-small text-neutral-400">
             The following fields are currently falling back to English:
           </p>
-          <ul className="list-disc pl-5 text-cms-small space-y-1">
+          <ul className="list-disc pl-5 text-cms-small space-y-1 text-neutral-300">
             {marathiMissing.map((m, idx) => (
               <li key={idx}>{m}</li>
             ))}

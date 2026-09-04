@@ -51,9 +51,23 @@ interface CMSContextValue {
 
 const CMSContext = createContext<CMSContextValue | null>(null);
 
+import { INITIAL_CMS_STATE } from "../data/defaultContent";
 export const CMSProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [publishedState, setPublishedState] = useState<CMSState>(() => cmsStore.getPublishedState());
   const [draftState, setDraftState] = useState<CMSState>(() => cmsStore.getDraftState());
+  const [isInitializing, setIsInitializing] = useState(true);
+  useEffect(() => {
+    Promise.all([fetch("/api/cms/published"), fetch("/api/cms/draft")]).then(async ([p, d]) => {
+      if (p.ok) {
+        const pData = await p.json();
+        if (pData) setPublishedState(cmsStore.mergeWithInitialState(pData));
+      }
+      if (d.ok) {
+        const dData = await d.json();
+        if (dData) setDraftState(cmsStore.mergeWithInitialState(dData));
+      }
+    }).catch(console.error).finally(() => setIsInitializing(false));
+  }, []);
   
   // Language selection with local persistence (English is default)
   const [language, setLanguageState] = useState<LanguageCode>(() => {
@@ -106,7 +120,15 @@ export const CMSProvider: React.FC<{ children: React.ReactNode }> = ({ children 
     const path = window.location.pathname.toLowerCase();
     const hash = window.location.hash.toLowerCase();
     const search = window.location.search.toLowerCase();
-    return path.includes('/cms') || hash.includes('/cms') || search.includes('cms=true');
+    return (
+      path === '/cms' ||
+      path === '/cms/' ||
+      hash === '#cms' ||
+      hash === '#/cms' ||
+      hash.startsWith('#/cms/') ||
+      hash.startsWith('#cms/') ||
+      search.includes('cms=true')
+    );
   };
 
   const [activeView, setActiveView] = useState<'public' | 'admin'>(() => (isCmsRoute() ? 'admin' : 'public'));
@@ -161,16 +183,24 @@ export const CMSProvider: React.FC<{ children: React.ReactNode }> = ({ children 
           window.history.pushState(null, '', '/#cms');
           if (!currentPub) {
             setPendingExitCallback(() => {
-              setActiveView('public');
+              if (window.location.pathname.toLowerCase().includes('/cms')) {
+                window.history.replaceState(null, '', '/');
+              }
               window.location.hash = '';
+              setActiveView('public');
               setIsDirty(false);
               setSessionInitialState(null);
+              setPublishedState(cmsStore.getPublishedState());
             });
             setShowExitModal(true);
           }
         } else {
+          if (window.location.pathname.toLowerCase().includes('/cms')) {
+            window.history.replaceState(null, '', '/');
+          }
           setActiveView('public');
           setSessionInitialState(null);
+          setPublishedState(cmsStore.getPublishedState());
         }
       } else if (currentView === 'public' && isNowAdmin) {
         setActiveView('admin');
@@ -204,10 +234,22 @@ export const CMSProvider: React.FC<{ children: React.ReactNode }> = ({ children 
 
   const exitCms = () => {
     const doExit = () => {
-      setActiveView('public');
+      // 1. Completely remove /cms from browser history and URL
+      window.history.replaceState(null, '', '/');
       window.location.hash = '';
+
+      // 2. Fetch fresh published state so all published changes are live
+      const freshPublished = cmsStore.getPublishedState();
+      setPublishedState(freshPublished);
+      setDraftState(cmsStore.getDraftState());
+
+      // 3. Switch to public main website
+      setActiveView('public');
       setIsDirty(false);
       setSessionInitialState(null);
+
+      // 4. Scroll to top of main page
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     };
 
     if (isPublishing) return;
@@ -223,9 +265,22 @@ export const CMSProvider: React.FC<{ children: React.ReactNode }> = ({ children 
     const doLogout = () => {
       sessionStorage.removeItem(CMS_AUTH_KEY);
       setIsCmsAuthenticated(false);
+
+      // 1. Completely remove /cms from browser history and URL
+      window.history.replaceState(null, '', '/');
+      window.location.hash = '';
+
+      // 2. Fetch fresh published state
+      const freshPublished = cmsStore.getPublishedState();
+      setPublishedState(freshPublished);
+      setDraftState(cmsStore.getDraftState());
+
+      // 3. Switch to public view
       setActiveView('public');
       setIsDirty(false);
       setSessionInitialState(null);
+
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     };
 
     if (isPublishing) return;
@@ -242,10 +297,11 @@ export const CMSProvider: React.FC<{ children: React.ReactNode }> = ({ children 
   }, [draftState, publishedState]);
 
   const updateDraft = (updater: (prev: CMSState) => CMSState) => {
-    setIsDirty(true);
     setDraftState(prev => {
       const next = updater(prev);
       cmsStore.saveDraftState(next);
+      fetch("/api/cms/draft", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(next) }).catch(console.error);
+      
       return next;
     });
   };
@@ -311,6 +367,8 @@ export const CMSProvider: React.FC<{ children: React.ReactNode }> = ({ children 
     };
   };
 
+  if (isInitializing) return <div className="min-h-screen bg-black flex items-center justify-center text-white">Loading...</div>;
+
   return (
     <CMSContext.Provider
       value={{
@@ -370,7 +428,9 @@ export const CMSProvider: React.FC<{ children: React.ReactNode }> = ({ children 
                 onClick={async () => {
                   setShowExitModal(false);
                   setIsPublishing(true);
-                  await new Promise(r => setTimeout(r, 600)); // Simulate save
+                  cmsStore.publishDraft();
+                  setPublishedState(cmsStore.getPublishedState());
+                  setDraftState(cmsStore.getDraftState());
                   setIsPublishing(false);
                   setIsDirty(false); 
                   if (pendingExitCallback) pendingExitCallback();
@@ -424,3 +484,4 @@ export const useCMS = (): CMSContextValue => {
   }
   return context;
 };
+

@@ -49,20 +49,20 @@ export const PreviewModal: React.FC<PreviewModalProps> = ({
         return 'w-[768px] h-[860px] rounded-[32px] border-[10px] border-slate-800 shadow-2xl';
       case 'desktop':
       default:
-        return 'w-full h-full rounded-xl border border-slate-700 shadow-2xl';
+        return 'w-full h-full rounded-sm border border-[#222] shadow-2xl';
     }
   };
 
   return (
     <div className="fixed inset-0 z-50 bg-slate-950/90 backdrop-blur-md flex flex-col font-sans">
       {/* Top Preview Control Bar */}
-      <header className="h-16 bg-slate-900 border-b border-slate-800 px-6 flex items-center justify-between z-10 shrink-0">
+      <header className="h-16 bg-[#0a0a0a] border-b border-slate-800 px-6 flex items-center justify-between z-10 shrink-0">
         <div className="flex items-center gap-3">
-          <div className="w-2.5 h-2.5 rounded-full bg-amber-400 animate-pulse" />
+          <div className="w-2.5 h-2.5 rounded-sm bg-white text-black animate-pulse" />
           <h2 className="text-cms-body font-bold text-white tracking-wider font-serif">
             Live Draft Preview Canvas
           </h2>
-          <span className="text-cms-small font-mono text-slate-400 px-2.5 py-0.5 rounded-full bg-slate-800 border border-slate-700">
+          <span className="text-cms-small font-mono text-neutral-400 px-2.5 py-0.5 rounded-sm bg-[#111111] border border-[#222]">
             Unpublished Edits
           </span>
         </div>
@@ -70,12 +70,12 @@ export const PreviewModal: React.FC<PreviewModalProps> = ({
         {/* Device Switcher & Language Switcher */}
         <div className="flex items-center gap-3">
           {/* Language Switcher */}
-          <div className="flex items-center p-0.5 rounded-xl bg-slate-800 border border-slate-700 text-cms-small">
+          <div className="flex items-center p-0.5 rounded-sm bg-[#111111] border border-[#222] text-cms-small">
             <button
               type="button"
               onClick={() => setLanguage('en')}
-              className={`px-2.5 py-1 rounded-lg transition-all ${
-                language === 'en' ? 'bg-amber-500 text-slate-950 font-bold' : 'text-slate-400'
+              className={`px-2.5 py-1 rounded-sm transition-all ${
+                language === 'en' ? 'bg-white text-black font-bold' : 'text-neutral-400'
               }`}
             >
               EN
@@ -83,8 +83,8 @@ export const PreviewModal: React.FC<PreviewModalProps> = ({
             <button
               type="button"
               onClick={() => setLanguage('mr')}
-              className={`px-2.5 py-1 rounded-lg transition-all ${
-                language === 'mr' ? 'bg-amber-500 text-slate-950 font-bold' : 'text-slate-400'
+              className={`px-2.5 py-1 rounded-sm transition-all ${
+                language === 'mr' ? 'bg-white text-black font-bold' : 'text-neutral-400'
               }`}
             >
               मराठी
@@ -92,12 +92,12 @@ export const PreviewModal: React.FC<PreviewModalProps> = ({
           </div>
 
           {/* Device Toggles */}
-          <div className="flex items-center bg-slate-800 p-1 rounded-xl border border-slate-700 gap-1">
+          <div className="flex items-center bg-[#111111] p-1 rounded-sm border border-[#222] gap-1">
             <button
               type="button"
               onClick={() => setPreviewDevice('desktop')}
-              className={`p-1.5 rounded-lg transition-colors ${
-                previewDevice === 'desktop' ? 'bg-slate-700 text-amber-300' : 'text-slate-400 hover:text-white'
+              className={`p-1.5 rounded-sm transition-colors ${
+                previewDevice === 'desktop' ? 'bg-[#222222] text-white' : 'text-neutral-400 hover:text-white'
               }`}
               title="Desktop View"
             >
@@ -106,8 +106,8 @@ export const PreviewModal: React.FC<PreviewModalProps> = ({
             <button
               type="button"
               onClick={() => setPreviewDevice('tablet')}
-              className={`p-1.5 rounded-lg transition-colors ${
-                previewDevice === 'tablet' ? 'bg-slate-700 text-amber-300' : 'text-slate-400 hover:text-white'
+              className={`p-1.5 rounded-sm transition-colors ${
+                previewDevice === 'tablet' ? 'bg-[#222222] text-white' : 'text-neutral-400 hover:text-white'
               }`}
               title="Tablet View (iPad)"
             >
@@ -116,8 +116,8 @@ export const PreviewModal: React.FC<PreviewModalProps> = ({
             <button
               type="button"
               onClick={() => setPreviewDevice('mobile')}
-              className={`p-1.5 rounded-lg transition-colors ${
-                previewDevice === 'mobile' ? 'bg-slate-700 text-amber-300' : 'text-slate-400 hover:text-white'
+              className={`p-1.5 rounded-sm transition-colors ${
+                previewDevice === 'mobile' ? 'bg-[#222222] text-white' : 'text-neutral-400 hover:text-white'
               }`}
               title="Mobile View (iPhone)"
             >
@@ -128,7 +128,7 @@ export const PreviewModal: React.FC<PreviewModalProps> = ({
           <button
             type="button"
             onClick={() => setRefreshKey(prev => prev + 1)}
-            className="p-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-400 hover:text-white border border-slate-700 transition-colors"
+            className="p-2 rounded-sm bg-[#111111] hover:bg-[#222222] text-neutral-400 hover:text-white border border-[#222] transition-colors"
             title="Force Re-render Canvas"
           >
             <RefreshCw className="w-4 h-4" />
@@ -146,7 +146,7 @@ export const PreviewModal: React.FC<PreviewModalProps> = ({
                   onClose();
                 }
               }}
-              className="px-3 py-1.5 rounded-lg text-cms-btn bg-rose-500/20 text-rose-300 border border-rose-500/30 flex items-center gap-1.5"
+              className="px-3 py-1.5 rounded-sm text-cms-btn bg-neutral-800 text-white/20 text-white border border-[#333] flex items-center gap-1.5"
             >
               <RotateCcw className="w-3.5 h-3.5" />
               <span>Discard</span>
@@ -160,10 +160,10 @@ export const PreviewModal: React.FC<PreviewModalProps> = ({
               onOpenPublish();
             }}
             disabled={!hasDraftChanges}
-            className={`px-4 py-1.5 rounded-lg text-cms-small font-bold flex items-center gap-1.5 ${
+            className={`px-4 py-1.5 rounded-sm text-cms-small font-bold flex items-center gap-1.5 ${
               hasDraftChanges
-                ? 'bg-amber-500 hover:bg-amber-600 text-slate-950'
-                : 'bg-slate-700 text-slate-400 cursor-not-allowed'
+                ? 'bg-white text-black hover:bg-neutral-200'
+                : 'bg-[#222222] text-neutral-400 cursor-not-allowed'
             }`}
           >
             <UploadCloud className="w-4 h-4" />
@@ -173,7 +173,7 @@ export const PreviewModal: React.FC<PreviewModalProps> = ({
           <button
             type="button"
             onClick={onClose}
-            className="p-1.5 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800 transition-colors"
+            className="p-1.5 rounded-sm text-neutral-400 hover:text-white hover:bg-[#111111] transition-colors"
           >
             <X className="w-5 h-5" />
           </button>

@@ -1,5 +1,5 @@
-import React from 'react';
-import { Sparkles } from 'lucide-react';
+﻿import React from 'react';
+
 
 interface BrandTickerProps {
   items?: string[];
@@ -22,7 +22,7 @@ export const BrandTicker: React.FC<BrandTickerProps> = ({
         {/* Double array for infinite seamless looping */}
         {[...items, ...items, ...items].map((item, idx) => (
           <div key={idx} className="flex items-center gap-3 shrink-0">
-            <Sparkles className="w-4 h-4 brightness-125" />
+            <span className="w-1.5 h-1.5 rounded-full bg-white/40" />
             <span>{item}</span>
           </div>
         ))}
@@ -30,4 +30,5 @@ export const BrandTicker: React.FC<BrandTickerProps> = ({
     </div>
   );
 };
+
 

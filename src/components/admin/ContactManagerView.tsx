@@ -2,7 +2,7 @@ import React from 'react';
 import { useCMS } from '../../context/CMSContext';
 import { ContactInfo } from '../../types/cms';
 import { BROCHURE_CONTACT_PRESET } from '../../data/defaultContent';
-import { Phone, Building2, MapPin, Mail, Globe, Sparkles, Trash2, CheckCircle2 } from 'lucide-react';
+import { Phone, Building2, MapPin, Mail, Globe, Trash2, CheckCircle2 } from 'lucide-react';
 
 export const ContactManagerView: React.FC = () => {
   const { draftState, updateDraft } = useCMS();
@@ -66,22 +66,22 @@ export const ContactManagerView: React.FC = () => {
           <h2 className="text-cms-card font-bold text-white font-rajwada">
             Contact Details
           </h2>
-          <p className="text-cms-body text-slate-400 mt-1 max-w-2xl">
+          <p className="text-cms-body text-neutral-400 mt-1 max-w-2xl">
             Update the Head Office information, phone numbers, and social media handles displayed across the website.
           </p>
         </div>
         <div className="flex items-center gap-3">
           <button
             onClick={handleLoadBrochurePreset}
-            className="px-3.5 py-2 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold uppercase tracking-wider text-cms-small flex items-center gap-1.5 shadow-md"
+            className="px-3.5 py-2 rounded-sm bg-white text-black font-bold uppercase tracking-wider text-cms-small flex items-center gap-1.5 "
           >
-            <Sparkles className="w-4 h-4" />
+            
             <span>Load Brochure Preset</span>
           </button>
 
           <button
             onClick={handleClearAll}
-            className="px-3 py-2 rounded-xl bg-slate-800 hover:bg-rose-500/20 text-slate-400 hover:text-rose-300 text-cms-btn flex items-center gap-1.5"
+            className="px-3 py-2 rounded-sm bg-[#111111] hover:bg-neutral-800 text-white/20 text-neutral-400 hover:text-white text-cms-btn flex items-center gap-1.5"
           >
             <Trash2 className="w-3.5 h-3.5" />
             <span>Clear Fields</span>
@@ -93,14 +93,14 @@ export const ContactManagerView: React.FC = () => {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         
         {/* Card 1: Core Contact Channels */}
-        <div className="p-6 sm:p-8 rounded-3xl bg-[#1E293B] border border-slate-700/80 shadow-lg space-y-4 text-cms-small">
+        <div className="p-6 sm:p-8 rounded-3xl bg-[#0a0a0a] border border-[#222]  space-y-4 text-cms-small">
           <h3 className="text-cms-body font-bold text-white mb-2 flex items-center gap-2">
-            <Building2 className="w-4 h-4 text-amber-400" />
+            <Building2 className="w-4 h-4 text-white" />
             <span>General Contact & Location</span>
           </h3>
 
           <div>
-            <label className="block font-bold uppercase tracking-wider text-slate-300 mb-1">
+            <label className="block font-bold uppercase tracking-wider text-neutral-300 mb-1">
               Company Name
             </label>
             <input
@@ -108,12 +108,12 @@ export const ContactManagerView: React.FC = () => {
               placeholder="e.g. Purple Bean Agro Industries Private Limited"
               value={contact.companyName}
               onChange={e => handleChange('companyName', e.target.value)}
-              className="w-full px-3.5 py-2.5 rounded-xl border border-slate-700 bg-slate-900 text-white font-sans text-cms-small focus:ring-1 focus:ring-amber-400"
+              className="w-full px-3.5 py-2.5 rounded-sm border border-[#222] bg-[#0a0a0a] text-white font-sans text-cms-small focus:ring-1 focus:ring-[#333]"
             />
           </div>
 
           <div>
-            <label className="block font-bold uppercase tracking-wider text-slate-300 mb-1">
+            <label className="block font-bold uppercase tracking-wider text-neutral-300 mb-1">
               Head Office Address
             </label>
             <textarea
@@ -121,13 +121,13 @@ export const ContactManagerView: React.FC = () => {
               placeholder="e.g. Office 12, Business Avenue, Aundh, Pune, Maharashtra 411012"
               value={contact.address}
               onChange={e => handleChange('address', e.target.value)}
-              className="w-full px-3.5 py-2 rounded-xl border border-slate-700 bg-slate-900 text-white font-sans text-cms-small focus:ring-1 focus:ring-amber-400"
+              className="w-full px-3.5 py-2 rounded-sm border border-[#222] bg-[#0a0a0a] text-white font-sans text-cms-small focus:ring-1 focus:ring-[#333]"
             />
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             <div>
-              <label className="block font-bold uppercase tracking-wider text-slate-300 mb-1">
+              <label className="block font-bold uppercase tracking-wider text-neutral-300 mb-1">
                 Official Email Address
               </label>
               <input
@@ -135,12 +135,12 @@ export const ContactManagerView: React.FC = () => {
                 placeholder="info@latatea.com"
                 value={contact.email}
                 onChange={e => handleChange('email', e.target.value)}
-                className="w-full px-3.5 py-2 rounded-xl border border-slate-700 bg-slate-900 text-white font-sans text-cms-small focus:ring-1 focus:ring-amber-400"
+                className="w-full px-3.5 py-2 rounded-sm border border-[#222] bg-[#0a0a0a] text-white font-sans text-cms-small focus:ring-1 focus:ring-[#333]"
               />
             </div>
 
             <div>
-              <label className="block font-bold uppercase tracking-wider text-slate-300 mb-1">
+              <label className="block font-bold uppercase tracking-wider text-neutral-300 mb-1">
                 WhatsApp Hotline
               </label>
               <input
@@ -148,14 +148,14 @@ export const ContactManagerView: React.FC = () => {
                 placeholder="+91 7666953873"
                 value={contact.whatsapp}
                 onChange={e => handleChange('whatsapp', e.target.value)}
-                className="w-full px-3.5 py-2 rounded-xl border border-slate-700 bg-slate-900 text-white font-sans text-cms-small focus:ring-1 focus:ring-amber-400"
+                className="w-full px-3.5 py-2 rounded-sm border border-[#222] bg-[#0a0a0a] text-white font-sans text-cms-small focus:ring-1 focus:ring-[#333]"
               />
             </div>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
             <div>
-              <label className="block font-bold uppercase tracking-wider text-slate-300 mb-1">
+              <label className="block font-bold uppercase tracking-wider text-neutral-300 mb-1">
                 Phone 1
               </label>
               <input
@@ -163,11 +163,11 @@ export const ContactManagerView: React.FC = () => {
                 placeholder="+91 7666953873"
                 value={contact.phone1}
                 onChange={e => handleChange('phone1', e.target.value)}
-                className="w-full px-3 py-2 rounded-xl border border-slate-700 bg-slate-900 text-white font-sans text-cms-small"
+                className="w-full px-3 py-2 rounded-sm border border-[#222] bg-[#0a0a0a] text-white font-sans text-cms-small"
               />
             </div>
             <div>
-              <label className="block font-bold uppercase tracking-wider text-slate-300 mb-1">
+              <label className="block font-bold uppercase tracking-wider text-neutral-300 mb-1">
                 Phone 2
               </label>
               <input
@@ -175,11 +175,11 @@ export const ContactManagerView: React.FC = () => {
                 placeholder="+91 8483067383"
                 value={contact.phone2}
                 onChange={e => handleChange('phone2', e.target.value)}
-                className="w-full px-3 py-2 rounded-xl border border-slate-700 bg-slate-900 text-white font-sans text-cms-small"
+                className="w-full px-3 py-2 rounded-sm border border-[#222] bg-[#0a0a0a] text-white font-sans text-cms-small"
               />
             </div>
             <div>
-              <label className="block font-bold uppercase tracking-wider text-slate-300 mb-1">
+              <label className="block font-bold uppercase tracking-wider text-neutral-300 mb-1">
                 Phone 3
               </label>
               <input
@@ -187,22 +187,22 @@ export const ContactManagerView: React.FC = () => {
                 placeholder="+91 9595333976"
                 value={contact.phone3}
                 onChange={e => handleChange('phone3', e.target.value)}
-                className="w-full px-3 py-2 rounded-xl border border-slate-700 bg-slate-900 text-white font-sans text-cms-small"
+                className="w-full px-3 py-2 rounded-sm border border-[#222] bg-[#0a0a0a] text-white font-sans text-cms-small"
               />
             </div>
           </div>
         </div>
 
         {/* Card 2: Social Media Handles */}
-        <div className="p-6 sm:p-8 rounded-3xl bg-[#1E293B] border border-slate-700/80 shadow-lg space-y-4 text-cms-small">
+        <div className="p-6 sm:p-8 rounded-3xl bg-[#0a0a0a] border border-[#222]  space-y-4 text-cms-small">
           <h3 className="text-cms-body font-bold text-white mb-2 flex items-center gap-2">
-            <Globe className="w-4 h-4 text-sky-400" />
+            <Globe className="w-4 h-4 text-neutral-300" />
             <span>Social Media Channels</span>
           </h3>
 
           <div className="space-y-3">
             <div>
-              <label className="block font-bold uppercase tracking-wider text-slate-300 mb-1">
+              <label className="block font-bold uppercase tracking-wider text-neutral-300 mb-1">
                 Instagram URL
               </label>
               <input
@@ -210,12 +210,12 @@ export const ContactManagerView: React.FC = () => {
                 placeholder="https://instagram.com/latatea"
                 value={contact.socials.instagram || ''}
                 onChange={e => handleSocialChange('instagram', e.target.value)}
-                className="w-full px-3.5 py-2 rounded-xl border border-slate-700 bg-slate-900 text-white font-sans text-cms-small"
+                className="w-full px-3.5 py-2 rounded-sm border border-[#222] bg-[#0a0a0a] text-white font-sans text-cms-small"
               />
             </div>
 
             <div>
-              <label className="block font-bold uppercase tracking-wider text-slate-300 mb-1">
+              <label className="block font-bold uppercase tracking-wider text-neutral-300 mb-1">
                 Facebook URL
               </label>
               <input
@@ -223,12 +223,12 @@ export const ContactManagerView: React.FC = () => {
                 placeholder="https://facebook.com/latatea"
                 value={contact.socials.facebook || ''}
                 onChange={e => handleSocialChange('facebook', e.target.value)}
-                className="w-full px-3.5 py-2 rounded-xl border border-slate-700 bg-slate-900 text-white font-sans text-cms-small"
+                className="w-full px-3.5 py-2 rounded-sm border border-[#222] bg-[#0a0a0a] text-white font-sans text-cms-small"
               />
             </div>
 
             <div>
-              <label className="block font-bold uppercase tracking-wider text-slate-300 mb-1">
+              <label className="block font-bold uppercase tracking-wider text-neutral-300 mb-1">
                 LinkedIn Company Page
               </label>
               <input
@@ -236,12 +236,12 @@ export const ContactManagerView: React.FC = () => {
                 placeholder="https://linkedin.com/company/latatea"
                 value={contact.socials.linkedin || ''}
                 onChange={e => handleSocialChange('linkedin', e.target.value)}
-                className="w-full px-3.5 py-2 rounded-xl border border-slate-700 bg-slate-900 text-white font-sans text-cms-small"
+                className="w-full px-3.5 py-2 rounded-sm border border-[#222] bg-[#0a0a0a] text-white font-sans text-cms-small"
               />
             </div>
 
             <div>
-              <label className="block font-bold uppercase tracking-wider text-slate-300 mb-1">
+              <label className="block font-bold uppercase tracking-wider text-neutral-300 mb-1">
                 YouTube Channel
               </label>
               <input
@@ -249,7 +249,7 @@ export const ContactManagerView: React.FC = () => {
                 placeholder="https://youtube.com/@latatea"
                 value={contact.socials.youtube || ''}
                 onChange={e => handleSocialChange('youtube', e.target.value)}
-                className="w-full px-3.5 py-2 rounded-xl border border-slate-700 bg-slate-900 text-white font-sans text-cms-small"
+                className="w-full px-3.5 py-2 rounded-sm border border-[#222] bg-[#0a0a0a] text-white font-sans text-cms-small"
               />
             </div>
           </div>

@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+﻿import React, { useState } from 'react';
 import { useCMS } from '../../context/CMSContext';
-import { X, CheckCircle2, Send, Sparkles } from 'lucide-react';
+import { X, CheckCircle2, Send } from 'lucide-react';
 
 interface InquiryModalProps {
   isOpen: boolean;
@@ -52,10 +52,7 @@ export const InquiryModal: React.FC<InquiryModalProps> = ({ isOpen, onClose, def
             <X className="w-5 h-5" />
           </button>
           
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-500/20 text-amber-300 text-pub-small font-bold uppercase tracking-wider mb-2 border border-amber-500/30">
-            <Sparkles className="w-3.5 h-3.5" />
-            <span>Sample Kit & Wholesale Quotation</span>
-          </div>
+          
           
           <h3 className="font-serif font-bold text-2xl text-white">
             Request LataTea Samples
@@ -176,8 +173,8 @@ export const InquiryModal: React.FC<InquiryModalProps> = ({ isOpen, onClose, def
                   className="w-full px-4 py-2.5 rounded-xl border border-amber-200 bg-white text-slate-900 focus:outline-none focus:ring-2 focus:ring-lataamber-500 font-sans text-sm"
                 >
                   <option value="Sample Box (All Varieties)">Initial Sample Box (Test Batch)</option>
-                  <option value="50kg - 200kg / month">50kg – 200kg / month (Office / Cafe)</option>
-                  <option value="200kg - 1000kg / month">200kg – 1000kg / month (Hotel / Vending Fleet)</option>
+                  <option value="50kg - 200kg / month">50kg â€“ 200kg / month (Office / Cafe)</option>
+                  <option value="200kg - 1000kg / month">200kg â€“ 1000kg / month (Hotel / Vending Fleet)</option>
                   <option value="1 Ton+ / month">1 Ton+ Commercial Bulk / Retail Distribution</option>
                 </select>
               </div>
@@ -212,5 +209,7 @@ export const InquiryModal: React.FC<InquiryModalProps> = ({ isOpen, onClose, def
     </div>
   );
 };
+
+
 
 

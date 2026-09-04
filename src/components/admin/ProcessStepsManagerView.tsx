@@ -134,53 +134,53 @@ export const ProcessStepsManagerView: React.FC = () => {
       
       {/* --- RECIPES SECTION --- */}
       <div className="space-y-6">
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-700 pb-4">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-[#222] pb-4">
           <div className="flex items-center gap-3">
-            <ChefHat className="w-6 h-6 text-amber-500" />
+            <ChefHat className="w-6 h-6 text-white" />
             <div>
               <h2 className="text-cms-card font-bold text-white font-rajwada">Recipe Methods</h2>
-              <p className="text-cms-body text-slate-400 mt-1">Manage preparation methods shown on the Process page.</p>
+              <p className="text-cms-body text-neutral-400 mt-1">Manage preparation methods shown on the Process page.</p>
             </div>
           </div>
-          <button onClick={handleAddRecipe} className="px-4 py-2 bg-amber-500 hover:bg-amber-400 text-slate-900 rounded-xl font-bold text-cms-body flex items-center gap-2">
+          <button onClick={handleAddRecipe} className="px-4 py-2 bg-white text-black rounded-sm font-bold text-cms-body flex items-center gap-2">
             <Plus className="w-4 h-4" /> Add Recipe
           </button>
         </div>
 
         <div className="space-y-4">
           {recipes.map((recipe, index) => (
-            <div key={recipe.id} className="p-4 sm:p-6 rounded-2xl bg-slate-800 border border-slate-700 space-y-4">
+            <div key={recipe.id} className="p-4 sm:p-6 rounded-sm bg-[#111111] border border-[#222] space-y-4">
               <div className="flex justify-between items-center mb-2">
                 <div className="flex items-center gap-4">
-                  <div className="text-cms-body font-bold text-amber-400">Recipe {index + 1}</div>
-                  <label className="flex items-center gap-2 text-slate-300 text-cms-small cursor-pointer">
-                    <input type="checkbox" checked={recipe.isVisible} onChange={e => handleChangeRecipe(recipe.id, 'isVisible', e.target.checked)} className="rounded border-slate-600 text-amber-500 bg-slate-900 focus:ring-amber-500 focus:ring-offset-slate-900" />
+                  <div className="text-cms-body font-bold text-white">Recipe {index + 1}</div>
+                  <label className="flex items-center gap-2 text-neutral-300 text-cms-small cursor-pointer">
+                    <input type="checkbox" checked={recipe.isVisible} onChange={e => handleChangeRecipe(recipe.id, 'isVisible', e.target.checked)} className="rounded border-[#333] text-white bg-[#0a0a0a] focus:ring-white focus:ring-offset-slate-900" />
                     Visible on site
                   </label>
                 </div>
                 <div className="flex gap-2">
-                  <button onClick={() => handleMoveRecipe(index, 'up')} disabled={index === 0} className="p-1 text-slate-400 hover:text-white disabled:opacity-30"><ArrowUp className="w-4 h-4" /></button>
-                  <button onClick={() => handleMoveRecipe(index, 'down')} disabled={index === recipes.length - 1} className="p-1 text-slate-400 hover:text-white disabled:opacity-30"><ArrowDown className="w-4 h-4" /></button>
-                  <button onClick={() => handleRemoveRecipe(recipe.id)} className="p-1 text-rose-400 hover:text-rose-300 ml-2"><Trash2 className="w-4 h-4" /></button>
+                  <button onClick={() => handleMoveRecipe(index, 'up')} disabled={index === 0} className="p-1 text-neutral-400 hover:text-white disabled:opacity-30"><ArrowUp className="w-4 h-4" /></button>
+                  <button onClick={() => handleMoveRecipe(index, 'down')} disabled={index === recipes.length - 1} className="p-1 text-neutral-400 hover:text-white disabled:opacity-30"><ArrowDown className="w-4 h-4" /></button>
+                  <button onClick={() => handleRemoveRecipe(recipe.id)} className="p-1 text-neutral-400 hover:text-white hover:text-white ml-2"><Trash2 className="w-4 h-4" /></button>
                 </div>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-cms-small font-bold text-slate-400 mb-1">Title (EN)</label>
-                  <input type="text" value={recipe.titleEn} onChange={e => handleChangeRecipe(recipe.id, 'titleEn', e.target.value)} className="w-full bg-slate-900 border border-slate-700 rounded-lg px-3 py-2 text-cms-body text-white min-h-[48px]" />
+                  <label className="block text-cms-small font-bold text-neutral-400 mb-1">Title (EN)</label>
+                  <input type="text" value={recipe.titleEn} onChange={e => handleChangeRecipe(recipe.id, 'titleEn', e.target.value)} className="w-full bg-[#0a0a0a] border border-[#222] rounded-sm px-3 py-2 text-cms-body text-white min-h-[48px]" />
                 </div>
                 <div>
-                  <label className="block text-cms-small font-bold text-slate-400 mb-1">Title (MR)</label>
-                  <input type="text" value={recipe.titleMr} onChange={e => handleChangeRecipe(recipe.id, 'titleMr', e.target.value)} className="w-full bg-slate-900 border border-slate-700 rounded-lg px-3 py-2 text-cms-body text-white min-h-[48px]" />
+                  <label className="block text-cms-small font-bold text-neutral-400 mb-1">Title (MR)</label>
+                  <input type="text" value={recipe.titleMr} onChange={e => handleChangeRecipe(recipe.id, 'titleMr', e.target.value)} className="w-full bg-[#0a0a0a] border border-[#222] rounded-sm px-3 py-2 text-cms-body text-white min-h-[48px]" />
                 </div>
                 <div>
-                  <label className="block text-cms-small font-bold text-slate-400 mb-1">Instructions (EN) - One step per line</label>
-                  <textarea value={recipe.instructionsEn} onChange={e => handleChangeRecipe(recipe.id, 'instructionsEn', e.target.value)} rows={4} className="w-full bg-slate-900 border border-slate-700 rounded-lg px-3 py-2 text-cms-body text-white min-h-[48px]" />
+                  <label className="block text-cms-small font-bold text-neutral-400 mb-1">Instructions (EN) - One step per line</label>
+                  <textarea value={recipe.instructionsEn} onChange={e => handleChangeRecipe(recipe.id, 'instructionsEn', e.target.value)} rows={4} className="w-full bg-[#0a0a0a] border border-[#222] rounded-sm px-3 py-2 text-cms-body text-white min-h-[48px]" />
                 </div>
                 <div>
-                  <label className="block text-cms-small font-bold text-slate-400 mb-1">Instructions (MR) - One step per line</label>
-                  <textarea value={recipe.instructionsMr} onChange={e => handleChangeRecipe(recipe.id, 'instructionsMr', e.target.value)} rows={4} className="w-full bg-slate-900 border border-slate-700 rounded-lg px-3 py-2 text-cms-body text-white min-h-[48px]" />
+                  <label className="block text-cms-small font-bold text-neutral-400 mb-1">Instructions (MR) - One step per line</label>
+                  <textarea value={recipe.instructionsMr} onChange={e => handleChangeRecipe(recipe.id, 'instructionsMr', e.target.value)} rows={4} className="w-full bg-[#0a0a0a] border border-[#222] rounded-sm px-3 py-2 text-cms-body text-white min-h-[48px]" />
                 </div>
               </div>
             </div>
@@ -191,61 +191,61 @@ export const ProcessStepsManagerView: React.FC = () => {
 
       {/* --- VIDEOS SECTION --- */}
       <div className="space-y-6">
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-700 pb-4">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-[#222] pb-4">
           <div className="flex items-center gap-3">
-            <Video className="w-6 h-6 text-amber-500" />
+            <Video className="w-6 h-6 text-white" />
             <div>
               <h2 className="text-cms-card font-bold text-white font-rajwada">Helpful Videos</h2>
-              <p className="text-cms-body text-slate-400 mt-1">Manage Instagram video links and previews.</p>
+              <p className="text-cms-body text-neutral-400 mt-1">Manage Instagram video links and previews.</p>
             </div>
           </div>
-          <button onClick={handleAddVideo} className="px-4 py-2 bg-amber-500 hover:bg-amber-400 text-slate-900 rounded-xl font-bold text-cms-body flex items-center gap-2">
+          <button onClick={handleAddVideo} className="px-4 py-2 bg-white text-black rounded-sm font-bold text-cms-body flex items-center gap-2">
             <Plus className="w-4 h-4" /> Add Video
           </button>
         </div>
 
         <div className="space-y-4">
           {videos.map((video, index) => (
-            <div key={video.id} className="p-4 sm:p-6 rounded-2xl bg-slate-800 border border-slate-700 space-y-4">
+            <div key={video.id} className="p-4 sm:p-6 rounded-sm bg-[#111111] border border-[#222] space-y-4">
               <div className="flex justify-between items-center mb-2">
                 <div className="flex items-center gap-4">
-                  <div className="text-cms-body font-bold text-amber-400">Video {index + 1}</div>
-                  <label className="flex items-center gap-2 text-slate-300 text-cms-small cursor-pointer">
-                    <input type="checkbox" checked={video.isVisible} onChange={e => handleChangeVideo(video.id, 'isVisible', e.target.checked)} className="rounded border-slate-600 text-amber-500 bg-slate-900 focus:ring-amber-500 focus:ring-offset-slate-900" />
+                  <div className="text-cms-body font-bold text-white">Video {index + 1}</div>
+                  <label className="flex items-center gap-2 text-neutral-300 text-cms-small cursor-pointer">
+                    <input type="checkbox" checked={video.isVisible} onChange={e => handleChangeVideo(video.id, 'isVisible', e.target.checked)} className="rounded border-[#333] text-white bg-[#0a0a0a] focus:ring-white focus:ring-offset-slate-900" />
                     Visible on site
                   </label>
                 </div>
                 <div className="flex gap-2">
-                  <button onClick={() => handleMoveVideo(index, 'up')} disabled={index === 0} className="p-1 text-slate-400 hover:text-white disabled:opacity-30"><ArrowUp className="w-4 h-4" /></button>
-                  <button onClick={() => handleMoveVideo(index, 'down')} disabled={index === videos.length - 1} className="p-1 text-slate-400 hover:text-white disabled:opacity-30"><ArrowDown className="w-4 h-4" /></button>
-                  <button onClick={() => handleRemoveVideo(video.id)} className="p-1 text-rose-400 hover:text-rose-300 ml-2"><Trash2 className="w-4 h-4" /></button>
+                  <button onClick={() => handleMoveVideo(index, 'up')} disabled={index === 0} className="p-1 text-neutral-400 hover:text-white disabled:opacity-30"><ArrowUp className="w-4 h-4" /></button>
+                  <button onClick={() => handleMoveVideo(index, 'down')} disabled={index === videos.length - 1} className="p-1 text-neutral-400 hover:text-white disabled:opacity-30"><ArrowDown className="w-4 h-4" /></button>
+                  <button onClick={() => handleRemoveVideo(video.id)} className="p-1 text-neutral-400 hover:text-white hover:text-white ml-2"><Trash2 className="w-4 h-4" /></button>
                 </div>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div className="md:col-span-2">
-                  <label className="block text-cms-small font-bold text-slate-400 mb-1">Instagram URL</label>
-                  <input type="text" value={video.instagramUrl} onChange={e => handleChangeVideo(video.id, 'instagramUrl', e.target.value)} className="w-full bg-slate-900 border border-slate-700 rounded-lg px-3 py-2 text-cms-body text-white min-h-[48px]" />
+                  <label className="block text-cms-small font-bold text-neutral-400 mb-1">Instagram URL</label>
+                  <input type="text" value={video.instagramUrl} onChange={e => handleChangeVideo(video.id, 'instagramUrl', e.target.value)} className="w-full bg-[#0a0a0a] border border-[#222] rounded-sm px-3 py-2 text-cms-body text-white min-h-[48px]" />
                 </div>
                 <div className="md:col-span-2">
-                  <label className="block text-cms-small font-bold text-slate-400 mb-1">Thumbnail URL (Optional)</label>
-                  <input type="text" value={video.thumbnailUrl || ''} onChange={e => handleChangeVideo(video.id, 'thumbnailUrl', e.target.value)} className="w-full bg-slate-900 border border-slate-700 rounded-lg px-3 py-2 text-cms-body text-white min-h-[48px]" placeholder="e.g. /media_royal_bowl.jpg" />
+                  <label className="block text-cms-small font-bold text-neutral-400 mb-1">Thumbnail URL (Optional)</label>
+                  <input type="text" value={video.thumbnailUrl || ''} onChange={e => handleChangeVideo(video.id, 'thumbnailUrl', e.target.value)} className="w-full bg-[#0a0a0a] border border-[#222] rounded-sm px-3 py-2 text-cms-body text-white min-h-[48px]" placeholder="e.g. /media_royal_bowl.jpg" />
                 </div>
                 <div>
-                  <label className="block text-cms-small font-bold text-slate-400 mb-1">Title (EN)</label>
-                  <input type="text" value={video.titleEn} onChange={e => handleChangeVideo(video.id, 'titleEn', e.target.value)} className="w-full bg-slate-900 border border-slate-700 rounded-lg px-3 py-2 text-cms-body text-white min-h-[48px]" />
+                  <label className="block text-cms-small font-bold text-neutral-400 mb-1">Title (EN)</label>
+                  <input type="text" value={video.titleEn} onChange={e => handleChangeVideo(video.id, 'titleEn', e.target.value)} className="w-full bg-[#0a0a0a] border border-[#222] rounded-sm px-3 py-2 text-cms-body text-white min-h-[48px]" />
                 </div>
                 <div>
-                  <label className="block text-cms-small font-bold text-slate-400 mb-1">Title (MR)</label>
-                  <input type="text" value={video.titleMr} onChange={e => handleChangeVideo(video.id, 'titleMr', e.target.value)} className="w-full bg-slate-900 border border-slate-700 rounded-lg px-3 py-2 text-cms-body text-white min-h-[48px]" />
+                  <label className="block text-cms-small font-bold text-neutral-400 mb-1">Title (MR)</label>
+                  <input type="text" value={video.titleMr} onChange={e => handleChangeVideo(video.id, 'titleMr', e.target.value)} className="w-full bg-[#0a0a0a] border border-[#222] rounded-sm px-3 py-2 text-cms-body text-white min-h-[48px]" />
                 </div>
                 <div>
-                  <label className="block text-cms-small font-bold text-slate-400 mb-1">Description (EN)</label>
-                  <textarea value={video.descriptionEn} onChange={e => handleChangeVideo(video.id, 'descriptionEn', e.target.value)} rows={2} className="w-full bg-slate-900 border border-slate-700 rounded-lg px-3 py-2 text-cms-body text-white min-h-[48px]" />
+                  <label className="block text-cms-small font-bold text-neutral-400 mb-1">Description (EN)</label>
+                  <textarea value={video.descriptionEn} onChange={e => handleChangeVideo(video.id, 'descriptionEn', e.target.value)} rows={2} className="w-full bg-[#0a0a0a] border border-[#222] rounded-sm px-3 py-2 text-cms-body text-white min-h-[48px]" />
                 </div>
                 <div>
-                  <label className="block text-cms-small font-bold text-slate-400 mb-1">Description (MR)</label>
-                  <textarea value={video.descriptionMr} onChange={e => handleChangeVideo(video.id, 'descriptionMr', e.target.value)} rows={2} className="w-full bg-slate-900 border border-slate-700 rounded-lg px-3 py-2 text-cms-body text-white min-h-[48px]" />
+                  <label className="block text-cms-small font-bold text-neutral-400 mb-1">Description (MR)</label>
+                  <textarea value={video.descriptionMr} onChange={e => handleChangeVideo(video.id, 'descriptionMr', e.target.value)} rows={2} className="w-full bg-[#0a0a0a] border border-[#222] rounded-sm px-3 py-2 text-cms-body text-white min-h-[48px]" />
                 </div>
               </div>
             </div>
@@ -256,47 +256,47 @@ export const ProcessStepsManagerView: React.FC = () => {
 
       {/* --- ORDER PROCESS STEPS --- */}
       <div className="space-y-6">
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-700 pb-4">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-[#222] pb-4">
           <div className="flex items-center gap-3">
-            <Truck className="w-6 h-6 text-amber-500" />
+            <Truck className="w-6 h-6 text-white" />
             <div>
               <h2 className="text-cms-card font-bold text-white font-rajwada">Order Process Steps</h2>
-              <p className="text-cms-body text-slate-400 mt-1">Manage the visual steps from Order to Delivery.</p>
+              <p className="text-cms-body text-neutral-400 mt-1">Manage the visual steps from Order to Delivery.</p>
             </div>
           </div>
-          <button onClick={handleAddStep} className="px-4 py-2 bg-amber-500 hover:bg-amber-400 text-slate-900 rounded-xl font-bold text-cms-body flex items-center gap-2">
+          <button onClick={handleAddStep} className="px-4 py-2 bg-white text-black rounded-sm font-bold text-cms-body flex items-center gap-2">
             <Plus className="w-4 h-4" /> Add Step
           </button>
         </div>
 
         <div className="space-y-4">
           {steps.map((step, index) => (
-            <div key={step.id} className="p-4 sm:p-6 rounded-2xl bg-slate-800 border border-slate-700 space-y-4">
+            <div key={step.id} className="p-4 sm:p-6 rounded-sm bg-[#111111] border border-[#222] space-y-4">
               <div className="flex justify-between items-center mb-2">
-                <div className="text-cms-body font-bold text-amber-400">Step {index + 1}</div>
+                <div className="text-cms-body font-bold text-white">Step {index + 1}</div>
                 <div className="flex gap-2">
-                  <button onClick={() => handleMoveStep(index, 'up')} disabled={index === 0} className="p-1 text-slate-400 hover:text-white disabled:opacity-30"><ArrowUp className="w-4 h-4" /></button>
-                  <button onClick={() => handleMoveStep(index, 'down')} disabled={index === steps.length - 1} className="p-1 text-slate-400 hover:text-white disabled:opacity-30"><ArrowDown className="w-4 h-4" /></button>
-                  <button onClick={() => handleRemoveStep(step.id)} className="p-1 text-rose-400 hover:text-rose-300 ml-2"><Trash2 className="w-4 h-4" /></button>
+                  <button onClick={() => handleMoveStep(index, 'up')} disabled={index === 0} className="p-1 text-neutral-400 hover:text-white disabled:opacity-30"><ArrowUp className="w-4 h-4" /></button>
+                  <button onClick={() => handleMoveStep(index, 'down')} disabled={index === steps.length - 1} className="p-1 text-neutral-400 hover:text-white disabled:opacity-30"><ArrowDown className="w-4 h-4" /></button>
+                  <button onClick={() => handleRemoveStep(step.id)} className="p-1 text-neutral-400 hover:text-white hover:text-white ml-2"><Trash2 className="w-4 h-4" /></button>
                 </div>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-cms-small font-bold text-slate-400 mb-1">Title (EN)</label>
-                  <input type="text" value={step.titleEn} onChange={e => handleChangeStep(step.id, 'titleEn', e.target.value)} className="w-full bg-slate-900 border border-slate-700 rounded-lg px-3 py-2 text-cms-body text-white min-h-[48px]" />
+                  <label className="block text-cms-small font-bold text-neutral-400 mb-1">Title (EN)</label>
+                  <input type="text" value={step.titleEn} onChange={e => handleChangeStep(step.id, 'titleEn', e.target.value)} className="w-full bg-[#0a0a0a] border border-[#222] rounded-sm px-3 py-2 text-cms-body text-white min-h-[48px]" />
                 </div>
                 <div>
-                  <label className="block text-cms-small font-bold text-slate-400 mb-1">Title (MR)</label>
-                  <input type="text" value={step.titleMr} onChange={e => handleChangeStep(step.id, 'titleMr', e.target.value)} className="w-full bg-slate-900 border border-slate-700 rounded-lg px-3 py-2 text-cms-body text-white min-h-[48px]" />
+                  <label className="block text-cms-small font-bold text-neutral-400 mb-1">Title (MR)</label>
+                  <input type="text" value={step.titleMr} onChange={e => handleChangeStep(step.id, 'titleMr', e.target.value)} className="w-full bg-[#0a0a0a] border border-[#222] rounded-sm px-3 py-2 text-cms-body text-white min-h-[48px]" />
                 </div>
                 <div>
-                  <label className="block text-cms-small font-bold text-slate-400 mb-1">Description (EN)</label>
-                  <textarea value={step.descEn} onChange={e => handleChangeStep(step.id, 'descEn', e.target.value)} rows={2} className="w-full bg-slate-900 border border-slate-700 rounded-lg px-3 py-2 text-cms-body text-white min-h-[48px]" />
+                  <label className="block text-cms-small font-bold text-neutral-400 mb-1">Description (EN)</label>
+                  <textarea value={step.descEn} onChange={e => handleChangeStep(step.id, 'descEn', e.target.value)} rows={2} className="w-full bg-[#0a0a0a] border border-[#222] rounded-sm px-3 py-2 text-cms-body text-white min-h-[48px]" />
                 </div>
                 <div>
-                  <label className="block text-cms-small font-bold text-slate-400 mb-1">Description (MR)</label>
-                  <textarea value={step.descMr} onChange={e => handleChangeStep(step.id, 'descMr', e.target.value)} rows={2} className="w-full bg-slate-900 border border-slate-700 rounded-lg px-3 py-2 text-cms-body text-white min-h-[48px]" />
+                  <label className="block text-cms-small font-bold text-neutral-400 mb-1">Description (MR)</label>
+                  <textarea value={step.descMr} onChange={e => handleChangeStep(step.id, 'descMr', e.target.value)} rows={2} className="w-full bg-[#0a0a0a] border border-[#222] rounded-sm px-3 py-2 text-cms-body text-white min-h-[48px]" />
                 </div>
               </div>
             </div>

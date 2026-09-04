@@ -7,7 +7,6 @@ import {
   BookOpen, 
   Coffee, 
   Image as ImageIcon, 
-  Sparkles, 
   ArrowRight, 
   UploadCloud, 
   Eye, 
@@ -43,14 +42,14 @@ export const DashboardView: React.FC<DashboardViewProps> = ({ onSelectTab, onOpe
   return (
     <div className="space-y-8 animate-fade-in">
       {/* Top Banner Card */}
-      <div className="p-6 sm:p-8 rounded-3xl bg-gradient-to-br from-[#1E293B] to-[#0F172A] border border-slate-700/80 shadow-2xl relative overflow-hidden">
+      <div className="p-6 sm:p-8 rounded-3xl bg-gradient-to-br from-[#1E293B] to-[#0F172A] border border-[#222] shadow-2xl relative overflow-hidden">
         <div className="absolute top-0 right-0 p-8 opacity-10 pointer-events-none">
-          <Sparkles className="w-64 h-64 text-amber-400" />
+          
         </div>
 
         <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6 relative z-10">
           <div>
-            <div className="flex items-center gap-2 text-cms-small font-bold tracking-widest text-amber-400 uppercase mb-2">
+            <div className="flex items-center gap-2 text-cms-small font-bold tracking-widest text-white uppercase mb-2">
               <Activity className="w-4 h-4" />
               <span>EDITORIAL STORYTELLING PLATFORM</span>
             </div>
@@ -59,23 +58,23 @@ export const DashboardView: React.FC<DashboardViewProps> = ({ onSelectTab, onOpe
               <h2 className="text-cms-section font-bold font-serif text-white">
                 Lata Teamix Sovereign Platform
               </h2>
-              <span className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-cms-btn uppercase tracking-wider ${
+              <span className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-sm text-cms-btn uppercase tracking-wider ${
                 hasDraftChanges 
-                  ? 'bg-amber-500/20 text-amber-300 border border-amber-500/40'
-                  : 'bg-emerald-500/20 text-emerald-300 border border-emerald-500/40'
+                  ? 'bg-white text-black/20 text-white border border-[#333]'
+                  : 'bg-white text-black/20 text-white border border-[#333]'
               }`}>
-                <span className={`w-2 h-2 rounded-full ${hasDraftChanges ? 'bg-amber-400' : 'bg-emerald-400'}`} />
+                <span className={`w-2 h-2 rounded-sm ${hasDraftChanges ? 'bg-white text-black' : 'bg-[#111111]'}`} />
                 {hasDraftChanges ? 'Draft Edits Pending' : 'Live & Published'}
               </span>
             </div>
 
-            <div className="flex items-center gap-4 text-cms-small text-slate-400 mt-2 font-mono">
+            <div className="flex items-center gap-4 text-cms-small text-neutral-400 mt-2 font-mono">
               <div className="flex items-center gap-1.5">
-                <Clock className="w-3.5 h-3.5 text-slate-500" />
+                <Clock className="w-3.5 h-3.5 text-neutral-500" />
                 <span>Last Published: {lastPublishedFormatted}</span>
               </div>
               <div className="flex items-center gap-1.5">
-                <Globe className="w-3.5 h-3.5 text-emerald-400" />
+                <Globe className="w-3.5 h-3.5 text-neutral-300" />
                 <span>Active Domain: {primaryDomain?.hostname || 'latatea.com'}</span>
               </div>
             </div>
@@ -85,9 +84,9 @@ export const DashboardView: React.FC<DashboardViewProps> = ({ onSelectTab, onOpe
             <button
               type="button"
               onClick={() => setShowPreviewModal(true)}
-              className="px-5 py-3 rounded-2xl bg-white/10 hover:bg-white/15 text-white text-cms-btn uppercase tracking-wider flex items-center gap-2 border border-white/20 transition-all cursor-pointer"
+              className="px-5 py-3 rounded-sm bg-white/10 hover:bg-white/15 text-white text-cms-btn uppercase tracking-wider flex items-center gap-2 border border-white/20 transition-all cursor-pointer"
             >
-              <Eye className="w-4 h-4 text-amber-300" />
+              <Eye className="w-4 h-4 text-white" />
               <span>Live Preview</span>
             </button>
 
@@ -95,10 +94,10 @@ export const DashboardView: React.FC<DashboardViewProps> = ({ onSelectTab, onOpe
               type="button"
               onClick={onOpenPublishModal}
               disabled={!hasDraftChanges}
-              className={`px-6 py-3 rounded-2xl text-cms-btn uppercase tracking-wider flex items-center gap-2 shadow-lg transition-all cursor-pointer ${
+              className={`px-6 py-3 rounded-sm text-cms-btn uppercase tracking-wider flex items-center gap-2  transition-all cursor-pointer ${
                 hasDraftChanges
-                  ? 'bg-amber-500 hover:bg-amber-600 text-slate-950 shadow-amber-500/20 scale-102'
-                  : 'bg-slate-700 text-slate-400 cursor-not-allowed'
+                  ? 'bg-white text-black hover:bg-neutral-200  scale-102'
+                  : 'bg-[#222222] text-neutral-400 cursor-not-allowed'
               }`}
             >
               <UploadCloud className="w-4 h-4" />
@@ -112,55 +111,55 @@ export const DashboardView: React.FC<DashboardViewProps> = ({ onSelectTab, onOpe
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
         
         {/* Metric 1: Story Completeness */}
-        <div className="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm space-y-3">
-          <div className="flex items-center justify-between text-slate-500">
-            <span className="text-cms-btn uppercase tracking-wider">Editorial Completeness</span>
-            <BookOpen className="w-4 h-4 text-amber-600" />
+        <div className="bg-[#111111] rounded-sm p-6 border border-[#222] space-y-3">
+          <div className="flex items-center justify-between text-neutral-400">
+            <span className="text-cms-btn uppercase tracking-wider font-bold">Editorial Completeness</span>
+            <BookOpen className="w-4 h-4 text-white" />
           </div>
-          <div className="text-3xl font-black text-slate-900 font-serif">
+          <div className="text-3xl font-black text-white font-serif">
             {completeness.overall}%
           </div>
-          <div className="w-full bg-slate-100 h-2 rounded-full overflow-hidden">
-            <div className="bg-amber-500 h-full rounded-full" style={{ width: `${completeness.overall}%` }} />
+          <div className="w-full bg-[#222] h-2 rounded-sm overflow-hidden">
+            <div className="bg-white h-full rounded-sm" style={{ width: `${completeness.overall}%` }} />
           </div>
-          <span className="text-cms-small text-slate-500 block font-medium">
+          <span className="text-cms-small text-neutral-400 block font-medium">
             Story, Heritage & Craft stages verified
           </span>
         </div>
 
         {/* Metric 2: Marathi Translation Coverage */}
-        <div className="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm space-y-3">
-          <div className="flex items-center justify-between text-slate-500">
-            <span className="text-cms-btn uppercase tracking-wider">मराठी Localization</span>
-            <Globe className="w-4 h-4 text-emerald-600" />
+        <div className="bg-[#111111] rounded-sm p-6 border border-[#222] space-y-3">
+          <div className="flex items-center justify-between text-neutral-400">
+            <span className="text-cms-btn uppercase tracking-wider font-bold">मराठी Localization</span>
+            <Globe className="w-4 h-4 text-white" />
           </div>
-          <div className="text-3xl font-black text-slate-900 font-serif">
+          <div className="text-3xl font-black text-white font-serif">
             {completeness.languageScore}%
           </div>
-          <div className="w-full bg-slate-100 h-2 rounded-full overflow-hidden">
-            <div className="bg-emerald-500 h-full rounded-full" style={{ width: `${completeness.languageScore}%` }} />
+          <div className="w-full bg-[#222] h-2 rounded-sm overflow-hidden">
+            <div className="bg-white h-full rounded-sm" style={{ width: `${completeness.languageScore}%` }} />
           </div>
-          <span className="text-cms-small text-slate-500 block font-medium">
+          <span className="text-cms-small text-neutral-400 block font-medium">
             Devanagari typography synchronized
           </span>
         </div>
 
         {/* Metric 3: Tea Stories */}
-        <div className="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm space-y-3">
-          <div className="flex items-center justify-between text-slate-500">
-            <span className="text-cms-btn uppercase tracking-wider">Tea Blend Stories</span>
-            <Coffee className="w-4 h-4 text-amber-600" />
+        <div className="bg-[#111111] rounded-sm p-6 border border-[#222] space-y-3">
+          <div className="flex items-center justify-between text-neutral-400">
+            <span className="text-cms-btn uppercase tracking-wider font-bold">Tea Blend Stories</span>
+            <Coffee className="w-4 h-4 text-white" />
           </div>
-          <div className="text-3xl font-black text-slate-900 font-serif">
+          <div className="text-3xl font-black text-white font-serif">
             {teaStoriesCount}
           </div>
-          <div className="text-cms-small text-slate-500 font-medium">
+          <div className="text-cms-small text-neutral-400 font-medium">
             Pure editorial storytelling (no cart)
           </div>
           <button
             type="button"
             onClick={() => onSelectTab('tea-stories')}
-            className="text-cms-small text-amber-600 hover:text-amber-700 font-bold flex items-center gap-1 cursor-pointer pt-1"
+            className="text-cms-small text-white hover:text-neutral-300 font-bold flex items-center gap-1 cursor-pointer pt-1"
           >
             <span>Manage stories</span>
             <ArrowRight className="w-3.5 h-3.5" />
@@ -168,22 +167,22 @@ export const DashboardView: React.FC<DashboardViewProps> = ({ onSelectTab, onOpe
         </div>
 
         {/* Metric 4: Domain & Infrastructure */}
-        <div className="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm space-y-3">
-          <div className="flex items-center justify-between text-slate-500">
-            <span className="text-cms-btn uppercase tracking-wider">Domain Network</span>
-            <Network className="w-4 h-4 text-sky-600" />
+        <div className="bg-[#111111] rounded-sm p-6 border border-[#222] space-y-3">
+          <div className="flex items-center justify-between text-neutral-400">
+            <span className="text-cms-btn uppercase tracking-wider font-bold">Domain Network</span>
+            <Network className="w-4 h-4 text-white" />
           </div>
-          <div className="text-cms-card text-slate-900 truncate font-mono">
+          <div className="text-cms-card text-white truncate font-mono">
             {primaryDomain?.hostname || 'latatea.com'}
           </div>
-          <div className="flex items-center gap-1.5 text-cms-small text-emerald-600 font-semibold">
-            <CheckCircle2 className="w-4 h-4" />
+          <div className="flex items-center gap-1.5 text-cms-small text-white font-semibold">
+            <CheckCircle2 className="w-4 h-4 text-white" />
             <span>DNS & SSL Active</span>
           </div>
           <button
             type="button"
             onClick={() => onSelectTab('domains')}
-            className="text-cms-small text-amber-600 hover:text-amber-700 font-bold flex items-center gap-1 cursor-pointer pt-1"
+            className="text-cms-small text-white hover:text-neutral-300 font-bold flex items-center gap-1 cursor-pointer pt-1"
           >
             <span>Domain Manager</span>
             <ArrowRight className="w-3.5 h-3.5" />
@@ -193,8 +192,8 @@ export const DashboardView: React.FC<DashboardViewProps> = ({ onSelectTab, onOpe
       </div>
 
       {/* Quick Access Editorial Cards */}
-      <div className="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-sm space-y-6">
-        <h3 className="text-cms-card text-slate-900 font-serif">
+      <div className="bg-[#111111] rounded-sm p-6 sm:p-8 border border-[#222] space-y-6">
+        <h3 className="text-cms-card text-white font-serif">
           Quick Story Editing Modules
         </h3>
 
@@ -202,41 +201,41 @@ export const DashboardView: React.FC<DashboardViewProps> = ({ onSelectTab, onOpe
           <button
             type="button"
             onClick={() => onSelectTab('story')}
-            className="p-5 rounded-xl border border-slate-200 hover:border-amber-400 bg-slate-50 hover:bg-amber-50/40 text-left transition-all group cursor-pointer"
+            className="p-5 rounded-sm border border-[#222] hover:border-[#444] bg-[#0a0a0a] hover:bg-[#161616] text-left transition-all group cursor-pointer"
           >
-            <BookOpen className="w-5 h-5 text-amber-600 mb-2 group-hover:scale-110 transition-transform" />
-            <h4 className="font-bold text-cms-body text-slate-900 font-serif">Story & Heritage</h4>
-            <p className="text-cms-small text-slate-500 mt-1">Origins, founding convictions, and milestone timeline.</p>
+            <BookOpen className="w-5 h-5 text-white mb-2 group-hover:scale-110 transition-transform" />
+            <h4 className="font-bold text-cms-body text-white font-serif">Story & Heritage</h4>
+            <p className="text-cms-small text-neutral-400 mt-1">Origins, founding convictions, and milestone timeline.</p>
           </button>
 
           <button
             type="button"
             onClick={() => onSelectTab('craft')}
-            className="p-5 rounded-xl border border-slate-200 hover:border-amber-400 bg-slate-50 hover:bg-amber-50/40 text-left transition-all group cursor-pointer"
+            className="p-5 rounded-sm border border-[#222] hover:border-[#444] bg-[#0a0a0a] hover:bg-[#161616] text-left transition-all group cursor-pointer"
           >
-            <Sliders className="w-5 h-5 text-lataleaf-600 mb-2 group-hover:scale-110 transition-transform" />
-            <h4 className="font-bold text-cms-body text-slate-900 font-serif">The Craft (5 Stages)</h4>
-            <p className="text-cms-small text-slate-500 mt-1">Source, Select, Blend, Prepare, Experience stages.</p>
+            <Sliders className="w-5 h-5 text-white mb-2 group-hover:scale-110 transition-transform" />
+            <h4 className="font-bold text-cms-body text-white font-serif">The Craft (5 Stages)</h4>
+            <p className="text-cms-small text-neutral-400 mt-1">Source, Select, Blend, Prepare, Experience stages.</p>
           </button>
 
           <button
             type="button"
             onClick={() => onSelectTab('tea-stories')}
-            className="p-5 rounded-xl border border-slate-200 hover:border-amber-400 bg-slate-50 hover:bg-amber-50/40 text-left transition-all group cursor-pointer"
+            className="p-5 rounded-sm border border-[#222] hover:border-[#444] bg-[#0a0a0a] hover:bg-[#161616] text-left transition-all group cursor-pointer"
           >
-            <Coffee className="w-5 h-5 text-amber-600 mb-2 group-hover:scale-110 transition-transform" />
-            <h4 className="font-bold text-cms-body text-slate-900 font-serif">Tea Stories</h4>
-            <p className="text-cms-small text-slate-500 mt-1">Tasting notes, origins, and non-commerce stories.</p>
+            <Coffee className="w-5 h-5 text-white mb-2 group-hover:scale-110 transition-transform" />
+            <h4 className="font-bold text-cms-body text-white font-serif">Tea Stories</h4>
+            <p className="text-cms-small text-neutral-400 mt-1">Tasting notes, origins, and non-commerce stories.</p>
           </button>
 
           <button
             type="button"
             onClick={() => onSelectTab('languages')}
-            className="p-5 rounded-xl border border-slate-200 hover:border-amber-400 bg-slate-50 hover:bg-amber-50/40 text-left transition-all group cursor-pointer"
+            className="p-5 rounded-sm border border-[#222] hover:border-[#444] bg-[#0a0a0a] hover:bg-[#161616] text-left transition-all group cursor-pointer"
           >
-            <Globe className="w-5 h-5 text-emerald-600 mb-2 group-hover:scale-110 transition-transform" />
-            <h4 className="font-bold text-cms-body text-slate-900 font-serif">Languages (EN & MR)</h4>
-            <p className="text-cms-small text-slate-500 mt-1">Audit and update English and Marathi texts.</p>
+            <Globe className="w-5 h-5 text-white mb-2 group-hover:scale-110 transition-transform" />
+            <h4 className="font-bold text-cms-body text-white font-serif">Languages (EN & MR)</h4>
+            <p className="text-cms-small text-neutral-400 mt-1">Audit and update English and Marathi texts.</p>
           </button>
         </div>
       </div>

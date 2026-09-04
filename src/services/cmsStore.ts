@@ -85,6 +85,7 @@ function mergeWithInitialState(parsed: Partial<CMSState> | null): CMSState {
 }
 
 export const cmsStore = {
+  mergeWithInitialState,
   subscribe(listener: Listener) {
     listeners.add(listener);
     return () => {
