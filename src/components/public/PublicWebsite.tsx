@@ -68,7 +68,7 @@ export const PublicWebsite: React.FC<PublicWebsiteProps> = ({ isDraftPreview = f
             </h1>
             <div className="h-0.5 w-12 bg-[#2E7D32]" />
             <p className="text-sm text-slate-700 leading-relaxed font-sans">
-              Purple Bean Agro Industries Private Limited operates under strict compliance with Indian food safety laws (FSSAI Lic: 11525996000709), fair trade, and corporate data confidentiality.
+              We operate under strict compliance with Indian food safety laws (FSSAI Lic: 11525996000709), fair trade, and corporate data confidentiality.
             </p>
             <p className="text-xs text-slate-500 font-sans">
               Registered Office: Office 12, Business Avenue, Aundh, Pune, Maharashtra 411012. For official correspondence, email info@latatea.com.

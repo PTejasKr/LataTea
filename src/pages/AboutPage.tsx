@@ -20,7 +20,7 @@ export const AboutPage: React.FC = () => {
             {t('Indian Tea & Jaggery Blends')}
           </h1>
           <p className="mt-2 text-pub-body text-slate-200 font-sans max-w-xl mx-auto">
-            {t('Manufactured with pride by Purple Bean Agro Industries Private Limited in Pune, Maharashtra.')}
+            {t('Manufactured with pride in Pune, Maharashtra.')}
           </p>
         </div>
       </section>

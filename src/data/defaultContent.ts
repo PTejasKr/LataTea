@@ -450,8 +450,8 @@ export const DEFAULT_STORY_CONTENT: EditorialStoryContent = {
       mr: 'अस्सल चहा, नैसर्गिक गोडवा'
     },
     subheading: {
-      en: 'Made in Pune by Purple Bean Agro Industries Private Limited.',
-      mr: 'पर्पल बीन अ‍ॅग्रो इंडस्ट्रीज प्रायव्हेट लिमिटेड, पुणे.'
+      en: 'Made in Pune, Maharashtra.',
+      mr: 'पुणे, महाराष्ट्र.'
     },
     introduction: {
       en: 'Most everyday tea relies on refined white sugar. We built Lata Teamix to give families and businesses an easy way to brew traditional jaggery chai without milk curdling or burnt notes.',
@@ -689,8 +689,8 @@ export const DEFAULT_STORY_CONTENT: EditorialStoryContent = {
       mr: '“अस्सल चहा. शुद्ध गूळ. अवघ्या ३ मिनिटांत.”'
     },
     subtext: {
-      en: 'Purple Bean Agro Industries Private Limited — Pune, Maharashtra',
-      mr: 'पर्पल बीन अ‍ॅग्रो इंडस्ट्रीज प्रायव्हेट लिमिटेड — पुणे, महाराष्ट्र'
+      en: 'Pune, Maharashtra',
+      mr: 'पुणे, महाराष्ट्र'
     },
     author: {
       en: 'Lata Teamix',
@@ -721,12 +721,12 @@ export const DEFAULT_STORY_CONTENT: EditorialStoryContent = {
   // FOOTER
   footer: {
     aboutText: {
-      en: 'Lata Teamix is manufactured by Purple Bean Agro Industries Private Limited in Pune, Maharashtra. Natural jaggery tea and basundi premixes.',
-      mr: 'पर्पल बीन अ‍ॅग्रो इंडस्ट्रीज प्रायव्हेट लिमिटेड, पुणे. नैसर्गिक गूळ चहा आणि बासुंदी प्रीमिक्स.'
+      en: 'Lata Teamix is manufactured in Pune, Maharashtra. Natural jaggery tea and basundi premixes.',
+      mr: 'पुणे, महाराष्ट्र. नैसर्गिक गूळ चहा आणि बासुंदी प्रीमिक्स.'
     },
     copyrightText: {
-      en: '© 2026 Purple Bean Agro Industries Private Limited. All rights reserved.',
-      mr: '© २०२६ पर्पल बीन अ‍ॅग्रो इंडस्ट्रीज प्रायव्हेट लिमिटेड. सर्व हक्क राखीव.'
+      en: '© 2026 Lata Teamix. All rights reserved.',
+      mr: '© २०२६ लता टीमिक्स. सर्व हक्क राखीव.'
     },
     legalLinks: [
       { label: { en: 'Privacy Policy', mr: 'गोपनीयता धोरण' }, url: '/privacy' },
@@ -810,7 +810,7 @@ export const INITIAL_CMS_STATE: CMSState = {
     fontBody: 'Plus Jakarta Sans, sans-serif'
   },
   contact: {
-    companyName: 'Purple Bean Agro Industries Private Limited',
+    companyName: 'Lata Teamix',
     address: 'Office 12, Business Avenue, Aundh, Pune, Maharashtra 411012',
     email: 'info@latatea.com',
     phone1: '+91 7666953873',
@@ -832,8 +832,8 @@ export const INITIAL_CMS_STATE: CMSState = {
       mr: 'लता टी — अस्सल गूळ बासुंदी चहा'
     },
     metaDescription: {
-      en: 'Assam CTC tea and pure cane jaggery. Ready in 3 minutes. Made by Purple Bean Agro Industries in Pune.',
-      mr: 'आसाम चहा आणि शुद्ध गूळ. ३ मिनिटांत तयार. पर्पल बीन अ‍ॅग्रो इंडस्ट्रीज, पुणे.'
+      en: 'Assam CTC tea and pure cane jaggery. Ready in 3 minutes. Made in Pune.',
+      mr: 'आसाम चहा आणि शुद्ध गूळ. ३ मिनिटांत तयार. पुणे, महाराष्ट्र.'
     },
     ogTitle: {
       en: 'Lata Teamix — Jaggery Basundi Chai',

@@ -110,7 +110,7 @@ Object.assign(UI_TRANSLATIONS, {
 Object.assign(UI_TRANSLATIONS, {
   'ABOUT LATA TEAMIX': { en: 'ABOUT LATA TEAMIX', mr: 'लता टीमिक्स बद्दल' },
   'Indian Tea & Jaggery Blends': { en: 'Indian Tea & Jaggery Blends', mr: 'भारतीय चहा आणि गुळाचे ब्लेंड्स' },
-  'Manufactured with pride by Purple Bean Agro Industries Private Limited in Pune, Maharashtra.': { en: 'Manufactured with pride by Purple Bean Agro Industries Private Limited in Pune, Maharashtra.', mr: 'पर्पल बीन ॲग्रो इंडस्ट्रीज प्रायव्हेट लिमिटेड द्वारे पुणे, महाराष्ट्र येथे अभिमानाने उत्पादित.' },
+  'Manufactured with pride in Pune, Maharashtra.': { en: 'Manufactured with pride in Pune, Maharashtra.', mr: 'पुणे, महाराष्ट्र येथे अभिमानाने उत्पादित.' },
   'PURPOSE & STANDARDS': { en: 'PURPOSE & STANDARDS', mr: 'उद्देश आणि मानके' },
   'Unadulterated Tea in Every Boiling Cup': { en: 'Unadulterated Tea in Every Boiling Cup', mr: 'प्रत्येक उकळत्या कपात शुद्ध चहा' },
   'Lata Teamix was established to solve an everyday challenge: giving families, cafes, and corporate workplaces access to authentic jaggery chai without curdling milk or burning sweetness.': { en: 'Lata Teamix was established to solve an everyday challenge: giving families, cafes, and corporate workplaces access to authentic jaggery chai without curdling milk or burning sweetness.', mr: 'दूध न फाटता किंवा गोडवा न जाळता कुटुंबे, कॅफे आणि कॉर्पोरेट कार्यालयांना अस्सल गुळाचा चहा उपलब्ध करून देण्याचे रोजचे आव्हान सोडवण्यासाठी लता टीमिक्सची स्थापना करण्यात आली.' },

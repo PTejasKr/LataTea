@@ -105,7 +105,7 @@ export const ContactManagerView: React.FC = () => {
             </label>
             <input
               type="text"
-              placeholder="e.g. Purple Bean Agro Industries Private Limited"
+              placeholder="e.g. Lata Teamix"
               value={contact.companyName}
               onChange={e => handleChange('companyName', e.target.value)}
               className="w-full px-3.5 py-2.5 rounded-sm border border-[#222] bg-[#0a0a0a] text-white font-sans text-cms-small focus:ring-1 focus:ring-[#333]"

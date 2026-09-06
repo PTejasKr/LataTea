@@ -23,8 +23,8 @@ export const Footer: React.FC = () => {
 
             <p className="text-pub-small text-slate-300 font-sans leading-relaxed max-w-sm">
               {language === 'en' 
-                ? 'Lata Teamix is manufactured by Purple Bean Agro Industries Private Limited in Pune, Maharashtra. Natural jaggery tea and basundi premixes.' 
-                : 'पर्पल बीन अ‍ॅग्रो इंडस्ट्रीज प्रायव्हेट लिमिटेड, पुणे. नैसर्गिक गूळ चहा आणि बासुंदी प्रीमिक्स.'}
+                ? 'Lata Teamix is manufactured in Pune, Maharashtra. Natural jaggery tea and basundi premixes.' 
+                : 'पुणे, महाराष्ट्र. नैसर्गिक गूळ चहा आणि बासुंदी प्रीमिक्स.'}
             </p>
 
             {/* Language Switcher in Footer */}
@@ -113,8 +113,8 @@ export const Footer: React.FC = () => {
         <div className="pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-pub-small font-sans text-slate-400">
           <div>
             {language === 'en' 
-              ? '© 2026 Purple Bean Agro Industries Private Limited. All rights reserved.' 
-              : '© २०२६ पर्पल बीन अ‍ॅग्रो इंडस्ट्रीज प्रायव्हेट लिमिटेड. सर्व हक्क राखीव.'}
+              ? '© 2026 Lata Teamix. All rights reserved.' 
+              : '© २०२६ लता टीमिक्स. सर्व हक्क राखीव.'}
           </div>
 
           <div className="flex items-center gap-5">
