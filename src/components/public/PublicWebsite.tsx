@@ -71,7 +71,7 @@ export const PublicWebsite: React.FC<PublicWebsiteProps> = ({ isDraftPreview = f
               We operate under strict compliance with Indian food safety laws (FSSAI Lic: 11525996000709), fair trade, and corporate data confidentiality.
             </p>
             <p className="text-xs text-slate-500 font-sans">
-              Registered Office: Office 12, Business Avenue, Aundh, Pune, Maharashtra 411012. For official correspondence, email info@latatea.com.
+              Registered Office: 679/2, Chakan - Alandi Rd, Alandi Fata, Kurli, Maharashtra 410501. For official correspondence, email info@latatea.com.
             </p>
           </div>
         </div>

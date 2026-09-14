@@ -105,7 +105,7 @@ export const ContactManagerView: React.FC = () => {
             </label>
             <input
               type="text"
-              placeholder="e.g. Lata Teamix"
+              placeholder="e.g. Lata Private Limited"
               value={contact.companyName}
               onChange={e => handleChange('companyName', e.target.value)}
               className="w-full px-3.5 py-2.5 rounded-sm border border-[#222] bg-[#0a0a0a] text-white font-sans text-cms-small focus:ring-1 focus:ring-[#333]"
@@ -118,7 +118,7 @@ export const ContactManagerView: React.FC = () => {
             </label>
             <textarea
               rows={2}
-              placeholder="e.g. Office 12, Business Avenue, Aundh, Pune, Maharashtra 411012"
+              placeholder="e.g. 679/2, Chakan - Alandi Rd, Alandi Fata, Kurli, Maharashtra 410501"
               value={contact.address}
               onChange={e => handleChange('address', e.target.value)}
               className="w-full px-3.5 py-2 rounded-sm border border-[#222] bg-[#0a0a0a] text-white font-sans text-cms-small focus:ring-1 focus:ring-[#333]"
@@ -184,7 +184,7 @@ export const ContactManagerView: React.FC = () => {
               </label>
               <input
                 type="text"
-                placeholder="+91 9595333976"
+                placeholder="+91 8483067383"
                 value={contact.phone3}
                 onChange={e => handleChange('phone3', e.target.value)}
                 className="w-full px-3 py-2 rounded-sm border border-[#222] bg-[#0a0a0a] text-white font-sans text-cms-small"

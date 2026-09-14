@@ -25,7 +25,7 @@ export const WhyLataSection: React.FC<WhyLataSectionProps> = ({ isDraftPreview =
     {
       icon: <Award className="w-5 h-5 text-[#F89E22]" />,
       title: { en: 'Certified Production', mr: 'प्रमाणित उत्पादन' },
-      desc: { en: 'Blended and packed under FSSAI & ISO 22000 in Pune.', mr: 'पुण्यातील नोंदणीकृत युनिटमध्ये स्वच्छता मानकांसह पॅकिंग.' }
+      desc: { en: 'Blended and packed under FSSAI & ISO 22000 in Maharashtra.', mr: 'पुण्यातील नोंदणीकृत युनिटमध्ये स्वच्छता मानकांसह पॅकिंग.' }
     },
     {
       icon: <Clock className="w-5 h-5 text-[#F89E22]" />,
@@ -41,7 +41,7 @@ export const WhyLataSection: React.FC<WhyLataSectionProps> = ({ isDraftPreview =
         {/* Section Header */}
         <div className="max-w-xl mb-10">
           <span className="text-pub-small font-sans font-semibold tracking-widest text-[#F89E22] uppercase block mb-1">
-            {t('WHY LATA TEAMIX')}
+            {t('WHY LATA PRIVATE LIMITED')}
           </span>
           <h2 className="font-rajwada text-pub-section font-bold text-[#1B4332] tracking-tight">
             {t('Why Business & Families Choose Us')}

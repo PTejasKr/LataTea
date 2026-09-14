@@ -354,7 +354,7 @@ export const DEFAULT_TEA_STORIES: TeaStoryItem[] = [
       { en: 'Spice Extracts', mr: 'मसाला अर्क' }
     ],
     origin: {
-      en: 'Pune, Maharashtra',
+      en: 'Maharashtra',
       mr: 'पुणे, महाराष्ट्र'
     },
     servingRitual: {
@@ -412,7 +412,7 @@ export const DEFAULT_STORY_CONTENT: EditorialStoryContent = {
   // 01 HERO
   hero: {
     tagline: {
-      en: 'Lata Teamix — PUNE',
+      en: 'Lata Teamix — MAHARASHTRA',
       mr: 'लता टीमिक्स — पुणे'
     },
     headline: {
@@ -450,7 +450,7 @@ export const DEFAULT_STORY_CONTENT: EditorialStoryContent = {
       mr: 'अस्सल चहा, नैसर्गिक गोडवा'
     },
     subheading: {
-      en: 'Made in Pune, Maharashtra.',
+      en: 'Made in Maharashtra.',
       mr: 'पुणे, महाराष्ट्र.'
     },
     introduction: {
@@ -459,11 +459,11 @@ export const DEFAULT_STORY_CONTENT: EditorialStoryContent = {
     },
     paragraphs: [
       {
-        en: 'We source strong CTC leaves from Assam and blend them with unrefined cane jaggery and crushed spices: green cardamom, ginger root, mace, and nutmeg.',
+        en: 'Sourcing premium teas from India\'s finest growing regions, we blend them with precision and expertise to create exceptional tea products that bring the richness and character of Indian tea to customers across the globe.',
         mr: 'आम्ही आसामचा कडक चहा, नैसर्गिक देशी गूळ आणि वेलची, सुंठ, जायपत्री व जायफळ एकत्र करून हे मिश्रण तयार करतो.'
       },
       {
-        en: 'Our facility in Pune operates under FSSAI and ISO 22000 hygiene certifications, supplying households, corporate pantries, and restaurants across India.',
+        en: 'Premium Tea from India\'s Finest Gardens\nState-of-the-Art Processing & Blending Facility\nConsistent Quality, Every Batch\nStrong Procurement Network Across India',
         mr: 'पुणे येथील अन्न सुरक्षा प्रमाणित युनिटमध्ये तयार केलेला हा चहा देशभरातील घरे आणि कार्यालयांना पुरवला जातो.'
       }
     ],
@@ -664,7 +664,7 @@ export const DEFAULT_STORY_CONTENT: EditorialStoryContent = {
       {
         title: { en: 'FSSAI Certified Unit', mr: 'प्रमाणित उत्पादन' },
         description: { 
-          en: 'Blended and packed in our licensed Pune facility.',
+          en: 'Blended and packed in our licensed facility.',
           mr: 'पुण्यातील नोंदणीकृत युनिटमध्ये पॅकिंग.'
         },
         metric: 'ISO 22000',
@@ -689,7 +689,7 @@ export const DEFAULT_STORY_CONTENT: EditorialStoryContent = {
       mr: '“अस्सल चहा. शुद्ध गूळ. अवघ्या ३ मिनिटांत.”'
     },
     subtext: {
-      en: 'Pune, Maharashtra',
+      en: 'Maharashtra',
       mr: 'पुणे, महाराष्ट्र'
     },
     author: {
@@ -721,11 +721,11 @@ export const DEFAULT_STORY_CONTENT: EditorialStoryContent = {
   // FOOTER
   footer: {
     aboutText: {
-      en: 'Lata Teamix is manufactured in Pune, Maharashtra. Natural jaggery tea and basundi premixes.',
+      en: 'Lata Teamix is manufactured in Maharashtra. Natural jaggery tea and basundi premixes.',
       mr: 'पुणे, महाराष्ट्र. नैसर्गिक गूळ चहा आणि बासुंदी प्रीमिक्स.'
     },
     copyrightText: {
-      en: '© 2026 Lata Teamix. All rights reserved.',
+      en: '© 2026 Lata Private Limited. All rights reserved.',
       mr: '© २०२६ लता टीमिक्स. सर्व हक्क राखीव.'
     },
     legalLinks: [
@@ -810,15 +810,15 @@ export const INITIAL_CMS_STATE: CMSState = {
     fontBody: 'Plus Jakarta Sans, sans-serif'
   },
   contact: {
-    companyName: 'Lata Teamix',
-    address: 'Office 12, Business Avenue, Aundh, Pune, Maharashtra 411012',
+    companyName: 'Lata Private Limited',
+    address: '679/2, Chakan - Alandi Rd, Alandi Fata, Kurli, Maharashtra 410501',
     email: 'info@latatea.com',
     phone1: '+91 7666953873',
     phone2: '+91 8483067383',
-    phone3: '+91 9595333976',
+    phone3: '',
     whatsapp: '+91 7666953873',
     website: 'https://latatea.com',
-    googleMapsUrl: 'https://maps.google.com/?q=Aundh+Pune',
+    googleMapsUrl: 'https://maps.google.com/?q=Chakan+Pune',
     socials: {
       instagram: 'https://instagram.com/latatea_official',
       facebook: 'https://facebook.com/latatea',
@@ -832,7 +832,7 @@ export const INITIAL_CMS_STATE: CMSState = {
       mr: 'लता टी — अस्सल गूळ बासुंदी चहा'
     },
     metaDescription: {
-      en: 'Assam CTC tea and pure cane jaggery. Ready in 3 minutes. Made in Pune.',
+      en: 'Assam CTC tea and pure cane jaggery. Ready in 3 minutes. Made in Maharashtra.',
       mr: 'आसाम चहा आणि शुद्ध गूळ. ३ मिनिटांत तयार. पुणे, महाराष्ट्र.'
     },
     ogTitle: {

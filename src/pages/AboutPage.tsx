@@ -14,13 +14,13 @@ export const AboutPage: React.FC = () => {
       <section className="py-14 bg-brand-primary-dark text-white text-center">
         <div className="max-w-4xl mx-auto px-4 sm:px-6">
           <span className="text-pub-small font-sans font-semibold tracking-widest text-brand-accent uppercase block mb-1">
-            {t('ABOUT LATA TEAMIX')}
+            {t('ABOUT LATA PRIVATE LIMITED')}
           </span>
           <h1 className="font-rajwada text-3xl sm:text-5xl font-bold text-white tracking-tight">
             {t('Indian Tea & Jaggery Blends')}
           </h1>
           <p className="mt-2 text-pub-body text-slate-200 font-sans max-w-xl mx-auto">
-            {t('Manufactured with pride in Pune, Maharashtra.')}
+            {t('Manufactured with pride in Maharashtra.')}
           </p>
         </div>
       </section>
@@ -37,10 +37,15 @@ export const AboutPage: React.FC = () => {
               {t('Unadulterated Tea in Every Boiling Cup')}
             </h2>
             <p className="text-pub-body text-brand-primary leading-relaxed font-sans">
-              Lata Teamix was established to solve an everyday challenge: giving families, cafés, and corporate workplaces access to authentic jaggery chai without curdling milk or burning sweetness.
+              Sourcing premium teas from India's finest growing regions, we blend them with precision and expertise to create exceptional tea products that bring the richness and character of Indian tea to customers across the globe.
             </p>
             <p className="text-pub-body text-brand-text-muted leading-relaxed font-sans">
-              {t('Blended in a cleanroom in Pune, our products deliver consistent taste and aroma across homes, pantries, and vending machines.')}
+              <ul className="list-disc list-inside space-y-1">
+                <li>Premium Tea from India's Finest Gardens</li>
+                <li>State-of-the-Art Processing & Blending Facility</li>
+                <li>Consistent Quality, Every Batch</li>
+                <li>Strong Procurement Network Across India</li>
+              </ul>
             </p>
 
             <div className="pt-3 border-t border-brand-border grid grid-cols-2 gap-3">
@@ -140,5 +145,6 @@ export const AboutPage: React.FC = () => {
     </div>
   );
 };
+
 
 

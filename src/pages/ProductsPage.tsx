@@ -20,7 +20,7 @@ export const ProductsPage: React.FC<ProductsPageProps> = ({ onOpenInquiry }) => 
             {t('PRODUCT CATALOGUE')}
           </span>
           <h1 className="font-rajwada text-3xl sm:text-5xl font-bold text-white tracking-tight">
-            {t('Explore All Lata Teamixs')}
+            {t('Explore All Lata Teamix Products')}
           </h1>
           <p className="mt-2 text-pub-body text-slate-200 font-sans max-w-xl mx-auto">
             {t('Pure jaggery chai blends, basundi tea, and instant 3-in-1 premixes.')}

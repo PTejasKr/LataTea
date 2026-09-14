@@ -185,7 +185,7 @@ export const OrderingRoadmap: React.FC = () => {
           <div className="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-white via-transparent to-transparent"></div>
           <div className="relative p-8 sm:p-12 text-center flex flex-col items-center">
             <h3 className="font-rajwada text-pub-section font-bold text-white mb-4">
-              {t('Partner with Lata Teamix')}
+              {t('Partner with Lata Private Limited')}
             </h3>
             <p className="text-slate-200 text-pub-body font-sans max-w-2xl mx-auto mb-8 opacity-90">
               {t('Contact us today for premium quality blends and unmatched taste that your customers will love.')}

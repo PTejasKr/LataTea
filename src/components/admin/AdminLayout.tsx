@@ -229,7 +229,7 @@ export const AdminLayout: React.FC<AdminLayoutProps> = ({
           <div className="p-3 border-t border-[#222]/60 text-center">
             {!sidebarCollapsed && (
               <div className="text-cms-small text-neutral-500 font-mono">
-                Lata Teamix CMS â€¢ Multilingual
+                Lata Private Limited CMS â€¢ Multilingual
               </div>
             )}
           </div>

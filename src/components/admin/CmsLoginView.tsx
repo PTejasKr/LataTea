@@ -117,7 +117,7 @@ export const CmsLoginView: React.FC = () => {
             }}
             className="text-cms-small text-neutral-400 hover:text-white transition-colors"
           >
-            ← Return to Public Lata Teamix Website
+            ← Return to Public Lata Private Limited Website
           </button>
         </div>
 
