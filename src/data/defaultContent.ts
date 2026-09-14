@@ -1,4 +1,4 @@
-import { 
+﻿import { 
   CMSState, 
   MediaSlot, 
   TeaStoryItem, 
@@ -133,7 +133,7 @@ export const DEFAULT_MEDIA_SLOTS: Record<string, MediaSlot> = {
 export const DEFAULT_NAVIGATION: NavigationItem[] = [
   { 
     id: 'nav_home', 
-    label: { en: 'Home', mr: 'मुख्य पृष्ठ' }, 
+    label: { en: 'Home', mr: 'à¤®à¥à¤–à¥à¤¯ à¤ªà¥ƒà¤·à¥à¤ ' }, 
     url: '/', 
     isExternal: false, 
     isButton: false, 
@@ -142,7 +142,7 @@ export const DEFAULT_NAVIGATION: NavigationItem[] = [
   },
   { 
     id: 'nav_about', 
-    label: { en: 'Our Story', mr: 'आमची कथा' }, 
+    label: { en: 'Our Story', mr: 'à¤†à¤®à¤šà¥€ à¤•à¤¥à¤¾' }, 
     url: '/about', 
     isExternal: false, 
     isButton: false, 
@@ -151,7 +151,7 @@ export const DEFAULT_NAVIGATION: NavigationItem[] = [
   },
   { 
     id: 'nav_process', 
-    label: { en: 'Process', mr: 'प्रक्रिया' }, 
+    label: { en: 'Process', mr: 'à¤ªà¥à¤°à¤•à¥à¤°à¤¿à¤¯à¤¾' }, 
     url: '/process', 
     isExternal: false, 
     isButton: false, 
@@ -160,7 +160,7 @@ export const DEFAULT_NAVIGATION: NavigationItem[] = [
   },
   { 
     id: 'nav_products', 
-    label: { en: 'Tea Catalogue', mr: 'चहा कॅटलॉग' }, 
+    label: { en: 'Tea Catalogue', mr: 'à¤šà¤¹à¤¾ à¤•à¥…à¤Ÿà¤²à¥‰à¤—' }, 
     url: '/products', 
     isExternal: false, 
     isButton: false, 
@@ -169,7 +169,7 @@ export const DEFAULT_NAVIGATION: NavigationItem[] = [
   },
   { 
     id: 'nav_contact', 
-    label: { en: 'Contact', mr: 'संपर्क' }, 
+    label: { en: 'Contact', mr: 'à¤¸à¤‚à¤ªà¤°à¥à¤•' }, 
     url: '/contact', 
     isExternal: false, 
     isButton: false, 
@@ -184,42 +184,42 @@ export const DEFAULT_TEA_STORIES: TeaStoryItem[] = [
     slug: 'gud-basundi-tea',
     name: {
       en: 'Gud Basundi Tea',
-      mr: 'गूळ बासुंदी चहा'
+      mr: 'à¤—à¥‚à¤³ à¤¬à¤¾à¤¸à¥à¤‚à¤¦à¥€ à¤šà¤¹à¤¾'
     },
     tagline: {
       en: 'Spiced Jaggery Chai',
-      mr: 'मसाला गूळ चहा'
+      mr: 'à¤®à¤¸à¤¾à¤²à¤¾ à¤—à¥‚à¤³ à¤šà¤¹à¤¾'
     },
     category: 'gud',
     categoryName: {
       en: 'Jaggery Blends',
-      mr: 'गूळ चहा'
+      mr: 'à¤—à¥‚à¤³ à¤šà¤¹à¤¾'
     },
     shortDescription: {
       en: 'Assam CTC tea blended with natural cane jaggery, cardamom, mace, nutmeg, and ginger.',
-      mr: 'आसाम चहा, नैसर्गिक गूळ, वेलची, जायपत्री, जायफळ आणि सुंठीचे मिश्रण.'
+      mr: 'à¤†à¤¸à¤¾à¤® à¤šà¤¹à¤¾, à¤¨à¥ˆà¤¸à¤°à¥à¤—à¤¿à¤• à¤—à¥‚à¤³, à¤µà¥‡à¤²à¤šà¥€, à¤œà¤¾à¤¯à¤ªà¤¤à¥à¤°à¥€, à¤œà¤¾à¤¯à¤«à¤³ à¤†à¤£à¤¿ à¤¸à¥à¤‚à¤ à¥€à¤šà¥‡ à¤®à¤¿à¤¶à¥à¤°à¤£.'
     },
     editorialStory: {
       en: 'A rich, creamy chai inspired by western Indian milk sweets. Blended so jaggery dissolves into boiling milk without curdling, giving a clean caramel sweetness and warm spice finish in 3 minutes.',
-      mr: 'पारंपरिक बासुंदीच्या स्वादाने प्रेरित. उकळत्या दुधात न फाटता परिपूर्ण विरघळणारा हा चहा ३ मिनिटांत तयार होतो.'
+      mr: 'à¤ªà¤¾à¤°à¤‚à¤ªà¤°à¤¿à¤• à¤¬à¤¾à¤¸à¥à¤‚à¤¦à¥€à¤šà¥à¤¯à¤¾ à¤¸à¥à¤µà¤¾à¤¦à¤¾à¤¨à¥‡ à¤ªà¥à¤°à¥‡à¤°à¤¿à¤¤. à¤‰à¤•à¤³à¤¤à¥à¤¯à¤¾ à¤¦à¥à¤§à¤¾à¤¤ à¤¨ à¤«à¤¾à¤Ÿà¤¤à¤¾ à¤ªà¤°à¤¿à¤ªà¥‚à¤°à¥à¤£ à¤µà¤¿à¤°à¤˜à¤³à¤£à¤¾à¤°à¤¾ à¤¹à¤¾ à¤šà¤¹à¤¾ à¥© à¤®à¤¿à¤¨à¤¿à¤Ÿà¤¾à¤‚à¤¤ à¤¤à¤¯à¤¾à¤° à¤¹à¥‹à¤¤à¥‹.'
     },
     tastingNotes: [
-      { en: 'Caramel jaggery', mr: 'गुळाचा गोडवा' },
-      { en: 'Crushed cardamom', mr: 'हिरवी वेलची' },
-      { en: 'Bold Assam finish', mr: 'कडक आसाम चहा' }
+      { en: 'Caramel jaggery', mr: 'à¤—à¥à¤³à¤¾à¤šà¤¾ à¤—à¥‹à¤¡à¤µà¤¾' },
+      { en: 'Crushed cardamom', mr: 'à¤¹à¤¿à¤°à¤µà¥€ à¤µà¥‡à¤²à¤šà¥€' },
+      { en: 'Bold Assam finish', mr: 'à¤•à¤¡à¤• à¤†à¤¸à¤¾à¤® à¤šà¤¹à¤¾' }
     ],
     ingredients: [
-      { en: 'Assam CTC Tea', mr: 'आसाम सीटीसी चहा' },
-      { en: 'Organic Cane Jaggery', mr: 'सेंद्रिय गूळ' },
-      { en: 'Cardamom, Ginger, Mace, Nutmeg', mr: 'वेलची, सुंठ, जायपत्री, जायफळ' }
+      { en: 'Assam CTC Tea', mr: 'à¤†à¤¸à¤¾à¤® à¤¸à¥€à¤Ÿà¥€à¤¸à¥€ à¤šà¤¹à¤¾' },
+      { en: 'Organic Cane Jaggery', mr: 'à¤¸à¥‡à¤‚à¤¦à¥à¤°à¤¿à¤¯ à¤—à¥‚à¤³' },
+      { en: 'Cardamom, Ginger, Mace, Nutmeg', mr: 'à¤µà¥‡à¤²à¤šà¥€, à¤¸à¥à¤‚à¤ , à¤œà¤¾à¤¯à¤ªà¤¤à¥à¤°à¥€, à¤œà¤¾à¤¯à¤«à¤³' }
     ],
     origin: {
       en: 'Assam & Kolhapur',
-      mr: 'आसाम व कोल्हापूर'
+      mr: 'à¤†à¤¸à¤¾à¤® à¤µ à¤•à¥‹à¤²à¥à¤¹à¤¾à¤ªà¥‚à¤°'
     },
     servingRitual: {
       en: 'Simmer with equal parts water and milk for 2 to 3 minutes.',
-      mr: 'समान प्रमाणात पाणी व दूध एकत्र करून २ ते ३ मिनिटे उकळा.'
+      mr: 'à¤¸à¤®à¤¾à¤¨ à¤ªà¥à¤°à¤®à¤¾à¤£à¤¾à¤¤ à¤ªà¤¾à¤£à¥€ à¤µ à¤¦à¥‚à¤§ à¤à¤•à¤¤à¥à¤° à¤•à¤°à¥‚à¤¨ à¥¨ à¤¤à¥‡ à¥© à¤®à¤¿à¤¨à¤¿à¤Ÿà¥‡ à¤‰à¤•à¤³à¤¾.'
     },
     imageSlotId: 'STORY_IMAGE_PRIMARY',
     displayOrder: 1,
@@ -231,41 +231,41 @@ export const DEFAULT_TEA_STORIES: TeaStoryItem[] = [
     slug: 'gud-plain-chai',
     name: {
       en: 'Gud Plain Chai',
-      mr: 'गूळ साधा चहा'
+      mr: 'à¤—à¥‚à¤³ à¤¸à¤¾à¤§à¤¾ à¤šà¤¹à¤¾'
     },
     tagline: {
       en: 'Classic Jaggery & Tea',
-      mr: 'अस्सल साधा गूळ चहा'
+      mr: 'à¤…à¤¸à¥à¤¸à¤² à¤¸à¤¾à¤§à¤¾ à¤—à¥‚à¤³ à¤šà¤¹à¤¾'
     },
     category: 'gud',
     categoryName: {
       en: 'Jaggery Blends',
-      mr: 'गूळ चहा'
+      mr: 'à¤—à¥‚à¤³ à¤šà¤¹à¤¾'
     },
     shortDescription: {
       en: 'Unrefined cane jaggery with strong Assam CTC tea, without spices.',
-      mr: 'मसाल्यांशिवाय, फक्त कडक आसाम चहा आणि देशी गूळ.'
+      mr: 'à¤®à¤¸à¤¾à¤²à¥à¤¯à¤¾à¤‚à¤¶à¤¿à¤µà¤¾à¤¯, à¤«à¤•à¥à¤¤ à¤•à¤¡à¤• à¤†à¤¸à¤¾à¤® à¤šà¤¹à¤¾ à¤†à¤£à¤¿ à¤¦à¥‡à¤¶à¥€ à¤—à¥‚à¤³.'
     },
     editorialStory: {
       en: 'For everyday drinking. Clean, earthy jaggery paired directly with brisk black tea leaves. No white sugar, no preservatives.',
-      mr: 'दैनंदिन चहासाठी. पांढरी साखर नाही, कोणतेही प्रिझर्व्हेटिव्ह नाहीत.'
+      mr: 'à¤¦à¥ˆà¤¨à¤‚à¤¦à¤¿à¤¨ à¤šà¤¹à¤¾à¤¸à¤¾à¤ à¥€. à¤ªà¤¾à¤‚à¤¢à¤°à¥€ à¤¸à¤¾à¤–à¤° à¤¨à¤¾à¤¹à¥€, à¤•à¥‹à¤£à¤¤à¥‡à¤¹à¥€ à¤ªà¥à¤°à¤¿à¤à¤°à¥à¤µà¥à¤¹à¥‡à¤Ÿà¤¿à¤µà¥à¤¹ à¤¨à¤¾à¤¹à¥€à¤¤.'
     },
     tastingNotes: [
-      { en: 'Natural cane sweetness', mr: 'नैसर्गिक गोडवा' },
-      { en: 'Robust CTC body', mr: 'कडक रंग' },
-      { en: 'Clean finish', mr: 'हलकी चव' }
+      { en: 'Natural cane sweetness', mr: 'à¤¨à¥ˆà¤¸à¤°à¥à¤—à¤¿à¤• à¤—à¥‹à¤¡à¤µà¤¾' },
+      { en: 'Robust CTC body', mr: 'à¤•à¤¡à¤• à¤°à¤‚à¤—' },
+      { en: 'Clean finish', mr: 'à¤¹à¤²à¤•à¥€ à¤šà¤µ' }
     ],
     ingredients: [
-      { en: 'Assam CTC Tea Granules', mr: 'आसाम सीटीसी चहा दाणे' },
-      { en: 'Organic Desi Jaggery', mr: 'देशी सेंद्रिय गूळ' }
+      { en: 'Assam CTC Tea Granules', mr: 'à¤†à¤¸à¤¾à¤® à¤¸à¥€à¤Ÿà¥€à¤¸à¥€ à¤šà¤¹à¤¾ à¤¦à¤¾à¤£à¥‡' },
+      { en: 'Organic Desi Jaggery', mr: 'à¤¦à¥‡à¤¶à¥€ à¤¸à¥‡à¤‚à¤¦à¥à¤°à¤¿à¤¯ à¤—à¥‚à¤³' }
     ],
     origin: {
       en: 'Upper Assam',
-      mr: 'अप्पर आसाम'
+      mr: 'à¤…à¤ªà¥à¤ªà¤° à¤†à¤¸à¤¾à¤®'
     },
     servingRitual: {
       en: 'Boil in milk for 2 to 3 minutes.',
-      mr: 'दुधात २ ते ३ मिनिटे उकळा.'
+      mr: 'à¤¦à¥à¤§à¤¾à¤¤ à¥¨ à¤¤à¥‡ à¥© à¤®à¤¿à¤¨à¤¿à¤Ÿà¥‡ à¤‰à¤•à¤³à¤¾.'
     },
     imageSlotId: 'STORY_IMAGE_PRIMARY',
     displayOrder: 2,
@@ -277,42 +277,42 @@ export const DEFAULT_TEA_STORIES: TeaStoryItem[] = [
     slug: 'royal-sugar-basundi',
     name: {
       en: 'Sugar Basundi Tea',
-      mr: 'साखर बासुंदी चहा'
+      mr: 'à¤¸à¤¾à¤–à¤° à¤¬à¤¾à¤¸à¥à¤‚à¤¦à¥€ à¤šà¤¹à¤¾'
     },
     tagline: {
       en: 'Spiced Dairy Chai',
-      mr: 'मसाला बासुंदी चहा'
+      mr: 'à¤®à¤¸à¤¾à¤²à¤¾ à¤¬à¤¾à¤¸à¥à¤‚à¤¦à¥€ à¤šà¤¹à¤¾'
     },
     category: 'sugar',
     categoryName: {
       en: 'Basundi Series',
-      mr: 'बासुंदी मालिका'
+      mr: 'à¤¬à¤¾à¤¸à¥à¤‚à¤¦à¥€ à¤®à¤¾à¤²à¤¿à¤•à¤¾'
     },
     shortDescription: {
       en: 'Cardamom and nutmeg spiced tea blend formulated for thick, creamy chai.',
-      mr: 'घट्ट, मलईदार चहासाठी वेलची आणि जायफळयुक्त मिश्रण.'
+      mr: 'à¤˜à¤Ÿà¥à¤Ÿ, à¤®à¤²à¤ˆà¤¦à¤¾à¤° à¤šà¤¹à¤¾à¤¸à¤¾à¤ à¥€ à¤µà¥‡à¤²à¤šà¥€ à¤†à¤£à¤¿ à¤œà¤¾à¤¯à¤«à¤³à¤¯à¥à¤•à¥à¤¤ à¤®à¤¿à¤¶à¥à¤°à¤£.'
     },
     editorialStory: {
       en: 'Delivers the mouthfeel of slow-cooked basundi chai with whole-ground spices and strong Assam tea in standard brewing time.',
-      mr: 'संथपणे उकळवलेल्या पारंपरिक चहाची चव घरच्या घरी कमी वेळेत मिळवा.'
+      mr: 'à¤¸à¤‚à¤¥à¤ªà¤£à¥‡ à¤‰à¤•à¤³à¤µà¤²à¥‡à¤²à¥à¤¯à¤¾ à¤ªà¤¾à¤°à¤‚à¤ªà¤°à¤¿à¤• à¤šà¤¹à¤¾à¤šà¥€ à¤šà¤µ à¤˜à¤°à¤šà¥à¤¯à¤¾ à¤˜à¤°à¥€ à¤•à¤®à¥€ à¤µà¥‡à¤³à¥‡à¤¤ à¤®à¤¿à¤³à¤µà¤¾.'
     },
     tastingNotes: [
-      { en: 'Creamy texture', mr: 'मखमली घट्टपणा' },
-      { en: 'Aromatic cardamom', mr: 'वेलचीचा सुगंध' },
-      { en: 'Ginger warmth', mr: 'सुंठीची उब' }
+      { en: 'Creamy texture', mr: 'à¤®à¤–à¤®à¤²à¥€ à¤˜à¤Ÿà¥à¤Ÿà¤ªà¤£à¤¾' },
+      { en: 'Aromatic cardamom', mr: 'à¤µà¥‡à¤²à¤šà¥€à¤šà¤¾ à¤¸à¥à¤—à¤‚à¤§' },
+      { en: 'Ginger warmth', mr: 'à¤¸à¥à¤‚à¤ à¥€à¤šà¥€ à¤‰à¤¬' }
     ],
     ingredients: [
-      { en: 'Assam Tea Blend', mr: 'आसाम चहा' },
-      { en: 'Cane Sugar', mr: 'साखर' },
-      { en: 'Cardamom, Ginger, Mace, Nutmeg', mr: 'वेलची, सुंठ, जायपत्री, जायफळ' }
+      { en: 'Assam Tea Blend', mr: 'à¤†à¤¸à¤¾à¤® à¤šà¤¹à¤¾' },
+      { en: 'Cane Sugar', mr: 'à¤¸à¤¾à¤–à¤°' },
+      { en: 'Cardamom, Ginger, Mace, Nutmeg', mr: 'à¤µà¥‡à¤²à¤šà¥€, à¤¸à¥à¤‚à¤ , à¤œà¤¾à¤¯à¤ªà¤¤à¥à¤°à¥€, à¤œà¤¾à¤¯à¤«à¤³' }
     ],
     origin: {
       en: 'Assam & Western Ghats',
-      mr: 'आसाम व पश्चिम घाट'
+      mr: 'à¤†à¤¸à¤¾à¤® à¤µ à¤ªà¤¶à¥à¤šà¤¿à¤® à¤˜à¤¾à¤Ÿ'
     },
     servingRitual: {
       en: 'Boil with whole milk for 3 minutes.',
-      mr: 'दुधात ३ मिनिटे उकळा.'
+      mr: 'à¤¦à¥à¤§à¤¾à¤¤ à¥© à¤®à¤¿à¤¨à¤¿à¤Ÿà¥‡ à¤‰à¤•à¤³à¤¾.'
     },
     imageSlotId: 'STORY_IMAGE_PRIMARY',
     displayOrder: 4,
@@ -324,42 +324,42 @@ export const DEFAULT_TEA_STORIES: TeaStoryItem[] = [
     slug: 'instant-basundi-premix',
     name: {
       en: '3-in-1 Basundi Premix',
-      mr: '३-इन-१ बासुंदी प्रीमिक्स'
+      mr: 'à¥©-à¤‡à¤¨-à¥§ à¤¬à¤¾à¤¸à¥à¤‚à¤¦à¥€ à¤ªà¥à¤°à¥€à¤®à¤¿à¤•à¥à¤¸'
     },
     tagline: {
       en: 'Instant Hot Water Mix',
-      mr: 'इन्स्टंट प्रीमिक्स'
+      mr: 'à¤‡à¤¨à¥à¤¸à¥à¤Ÿà¤‚à¤Ÿ à¤ªà¥à¤°à¥€à¤®à¤¿à¤•à¥à¤¸'
     },
     category: 'premixes',
     categoryName: {
       en: 'Instant Premixes',
-      mr: 'इन्स्टंट प्रीमिक्स'
+      mr: 'à¤‡à¤¨à¥à¤¸à¥à¤Ÿà¤‚à¤Ÿ à¤ªà¥à¤°à¥€à¤®à¤¿à¤•à¥à¤¸'
     },
     shortDescription: {
       en: 'Dairy milk solids, tea extract, and spices. Just add hot water.',
-      mr: 'दुधाची भुकटी, चहा अर्क आणि मसाले. फक्त गरम पाणी घाला.'
+      mr: 'à¤¦à¥à¤§à¤¾à¤šà¥€ à¤­à¥à¤•à¤Ÿà¥€, à¤šà¤¹à¤¾ à¤…à¤°à¥à¤• à¤†à¤£à¤¿ à¤®à¤¸à¤¾à¤²à¥‡. à¤«à¤•à¥à¤¤ à¤—à¤°à¤® à¤ªà¤¾à¤£à¥€ à¤˜à¤¾à¤²à¤¾.'
     },
     editorialStory: {
       en: 'Granulated premix designed for offices, hotels, and vending machines. Dissolves cleanly without clumping.',
-      mr: 'ऑफिस आणि हॉटेलसाठी सोयीस्कर. पाण्यात सहज विरघळणारे दाणेदार मिश्रण.'
+      mr: 'à¤‘à¤«à¤¿à¤¸ à¤†à¤£à¤¿ à¤¹à¥‰à¤Ÿà¥‡à¤²à¤¸à¤¾à¤ à¥€ à¤¸à¥‹à¤¯à¥€à¤¸à¥à¤•à¤°. à¤ªà¤¾à¤£à¥à¤¯à¤¾à¤¤ à¤¸à¤¹à¤œ à¤µà¤¿à¤°à¤˜à¤³à¤£à¤¾à¤°à¥‡ à¤¦à¤¾à¤£à¥‡à¤¦à¤¾à¤° à¤®à¤¿à¤¶à¥à¤°à¤£.'
     },
     tastingNotes: [
-      { en: 'Consistent taste', mr: 'एकसारखी चव' },
-      { en: 'Balanced spice', mr: 'संतुलित मसाला' },
-      { en: 'Instant cup', mr: 'झटपट तयार' }
+      { en: 'Consistent taste', mr: 'à¤à¤•à¤¸à¤¾à¤°à¤–à¥€ à¤šà¤µ' },
+      { en: 'Balanced spice', mr: 'à¤¸à¤‚à¤¤à¥à¤²à¤¿à¤¤ à¤®à¤¸à¤¾à¤²à¤¾' },
+      { en: 'Instant cup', mr: 'à¤à¤Ÿà¤ªà¤Ÿ à¤¤à¤¯à¤¾à¤°' }
     ],
     ingredients: [
-      { en: 'Dairy Milk Powder', mr: 'दुधाची पावडर' },
-      { en: 'Black Tea Extract', mr: 'चहा अर्क' },
-      { en: 'Spice Extracts', mr: 'मसाला अर्क' }
+      { en: 'Dairy Milk Powder', mr: 'à¤¦à¥à¤§à¤¾à¤šà¥€ à¤ªà¤¾à¤µà¤¡à¤°' },
+      { en: 'Black Tea Extract', mr: 'à¤šà¤¹à¤¾ à¤…à¤°à¥à¤•' },
+      { en: 'Spice Extracts', mr: 'à¤®à¤¸à¤¾à¤²à¤¾ à¤…à¤°à¥à¤•' }
     ],
     origin: {
       en: 'Maharashtra',
-      mr: 'पुणे, महाराष्ट्र'
+      mr: 'à¤ªà¥à¤£à¥‡, à¤®à¤¹à¤¾à¤°à¤¾à¤·à¥à¤Ÿà¥à¤°'
     },
     servingRitual: {
       en: 'Add 14g to 80ml hot water and stir.',
-      mr: '८० मिली गरम पाण्यात १४ ग्रॅम घालून ढवळा.'
+      mr: 'à¥®à¥¦ à¤®à¤¿à¤²à¥€ à¤—à¤°à¤® à¤ªà¤¾à¤£à¥à¤¯à¤¾à¤¤ à¥§à¥ª à¤—à¥à¤°à¥…à¤® à¤˜à¤¾à¤²à¥‚à¤¨ à¤¢à¤µà¤³à¤¾.'
     },
     imageSlotId: 'STORY_IMAGE_PRIMARY',
     displayOrder: 5,
@@ -412,30 +412,30 @@ export const DEFAULT_STORY_CONTENT: EditorialStoryContent = {
   // 01 HERO
   hero: {
     tagline: {
-      en: 'Lata Teamix — MAHARASHTRA',
-      mr: 'लता टीमिक्स — पुणे'
+      en: 'Lata Teamix â€” MAHARASHTRA',
+      mr: 'à¤²à¤¤à¤¾ à¤Ÿà¥€à¤®à¤¿à¤•à¥à¤¸ â€” à¤ªà¥à¤£à¥‡'
     },
     headline: {
       en: 'Authentic taste\nConsistent quality\nInstant Convenience',
-      mr: 'खरा स्वाद\nसातत्यपूर्ण गुणवत्ता\nझटपट सोय'
+      mr: 'à¤–à¤°à¤¾ à¤¸à¥à¤µà¤¾à¤¦\nà¤¸à¤¾à¤¤à¤¤à¥à¤¯à¤ªà¥‚à¤°à¥à¤£ à¤—à¥à¤£à¤µà¤¤à¥à¤¤à¤¾\nà¤à¤Ÿà¤ªà¤Ÿ à¤¸à¥‹à¤¯'
     },
     subheadline: {
       en: 'Strong Assam CTC tea, whole spices, and organic cane jaggery. Ready in 3 minutes without curdling milk.',
-      mr: 'आसाम चहा, अख्खे मसाले आणि सेंद्रिय गूळ. दूध न फाटता ३ मिनिटांत तयार.'
+      mr: 'à¤†à¤¸à¤¾à¤® à¤šà¤¹à¤¾, à¤…à¤–à¥à¤–à¥‡ à¤®à¤¸à¤¾à¤²à¥‡ à¤†à¤£à¤¿ à¤¸à¥‡à¤‚à¤¦à¥à¤°à¤¿à¤¯ à¤—à¥‚à¤³. à¤¦à¥‚à¤§ à¤¨ à¤«à¤¾à¤Ÿà¤¤à¤¾ à¥© à¤®à¤¿à¤¨à¤¿à¤Ÿà¤¾à¤‚à¤¤ à¤¤à¤¯à¤¾à¤°.'
     },
     primaryCtaText: {
       en: 'Explore Teas',
-      mr: 'चहा पहा'
+      mr: 'à¤šà¤¹à¤¾ à¤ªà¤¹à¤¾'
     },
     primaryCtaLink: '#tea',
     secondaryCtaText: {
       en: 'Our Story',
-      mr: 'आमची गोष्ट'
+      mr: 'à¤†à¤®à¤šà¥€ à¤—à¥‹à¤·à¥à¤Ÿ'
     },
     secondaryCtaLink: '#story',
     badgeText: {
       en: 'Natural Jaggery',
-      mr: 'नैसर्गिक गूळ'
+      mr: 'à¤¨à¥ˆà¤¸à¤°à¥à¤—à¤¿à¤• à¤—à¥‚à¤³'
     }
   },
 
@@ -443,33 +443,33 @@ export const DEFAULT_STORY_CONTENT: EditorialStoryContent = {
   story: {
     tagline: {
       en: 'ABOUT Lata Teamix',
-      mr: 'आमच्याबद्दल'
+      mr: 'à¤†à¤®à¤šà¥à¤¯à¤¾à¤¬à¤¦à¥à¤¦à¤²'
     },
     heading: {
       en: 'Real Chai, Unrefined Sweetness',
-      mr: 'अस्सल चहा, नैसर्गिक गोडवा'
+      mr: 'à¤…à¤¸à¥à¤¸à¤² à¤šà¤¹à¤¾, à¤¨à¥ˆà¤¸à¤°à¥à¤—à¤¿à¤• à¤—à¥‹à¤¡à¤µà¤¾'
     },
     subheading: {
       en: 'Made in Maharashtra.',
-      mr: 'पुणे, महाराष्ट्र.'
+      mr: 'à¤ªà¥à¤£à¥‡, à¤®à¤¹à¤¾à¤°à¤¾à¤·à¥à¤Ÿà¥à¤°.'
     },
     introduction: {
       en: 'Most everyday tea relies on refined white sugar. We built Lata Teamix to give families and businesses an easy way to brew traditional jaggery chai without milk curdling or burnt notes.',
-      mr: 'रोजच्या चहात पांढऱ्या साखरेचा वापर जास्त होतो. दूध न फाटता घरच्या घरी गुळाचा चहा बनवता यावा यासाठी आम्ही लता टी ची सुरुवात केली.'
+      mr: 'à¤°à¥‹à¤œà¤šà¥à¤¯à¤¾ à¤šà¤¹à¤¾à¤¤ à¤ªà¤¾à¤‚à¤¢à¤±à¥à¤¯à¤¾ à¤¸à¤¾à¤–à¤°à¥‡à¤šà¤¾ à¤µà¤¾à¤ªà¤° à¤œà¤¾à¤¸à¥à¤¤ à¤¹à¥‹à¤¤à¥‹. à¤¦à¥‚à¤§ à¤¨ à¤«à¤¾à¤Ÿà¤¤à¤¾ à¤˜à¤°à¤šà¥à¤¯à¤¾ à¤˜à¤°à¥€ à¤—à¥à¤³à¤¾à¤šà¤¾ à¤šà¤¹à¤¾ à¤¬à¤¨à¤µà¤¤à¤¾ à¤¯à¤¾à¤µà¤¾ à¤¯à¤¾à¤¸à¤¾à¤ à¥€ à¤†à¤®à¥à¤¹à¥€ à¤²à¤¤à¤¾ à¤Ÿà¥€ à¤šà¥€ à¤¸à¥à¤°à¥à¤µà¤¾à¤¤ à¤•à¥‡à¤²à¥€.'
     },
     paragraphs: [
       {
         en: 'Sourcing premium teas from India\'s finest growing regions, we blend them with precision and expertise to create exceptional tea products that bring the richness and character of Indian tea to customers across the globe.',
-        mr: 'आम्ही आसामचा कडक चहा, नैसर्गिक देशी गूळ आणि वेलची, सुंठ, जायपत्री व जायफळ एकत्र करून हे मिश्रण तयार करतो.'
+        mr: 'à¤†à¤®à¥à¤¹à¥€ à¤†à¤¸à¤¾à¤®à¤šà¤¾ à¤•à¤¡à¤• à¤šà¤¹à¤¾, à¤¨à¥ˆà¤¸à¤°à¥à¤—à¤¿à¤• à¤¦à¥‡à¤¶à¥€ à¤—à¥‚à¤³ à¤†à¤£à¤¿ à¤µà¥‡à¤²à¤šà¥€, à¤¸à¥à¤‚à¤ , à¤œà¤¾à¤¯à¤ªà¤¤à¥à¤°à¥€ à¤µ à¤œà¤¾à¤¯à¤«à¤³ à¤à¤•à¤¤à¥à¤° à¤•à¤°à¥‚à¤¨ à¤¹à¥‡ à¤®à¤¿à¤¶à¥à¤°à¤£ à¤¤à¤¯à¤¾à¤° à¤•à¤°à¤¤à¥‹.'
       },
       {
         en: 'Premium Tea from India\'s Finest Gardens\nState-of-the-Art Processing & Blending Facility\nConsistent Quality, Every Batch\nStrong Procurement Network Across India',
-        mr: 'पुणे येथील अन्न सुरक्षा प्रमाणित युनिटमध्ये तयार केलेला हा चहा देशभरातील घरे आणि कार्यालयांना पुरवला जातो.'
+        mr: 'à¤ªà¥à¤£à¥‡ à¤¯à¥‡à¤¥à¥€à¤² à¤…à¤¨à¥à¤¨ à¤¸à¥à¤°à¤•à¥à¤·à¤¾ à¤ªà¥à¤°à¤®à¤¾à¤£à¤¿à¤¤ à¤¯à¥à¤¨à¤¿à¤Ÿà¤®à¤§à¥à¤¯à¥‡ à¤¤à¤¯à¤¾à¤° à¤•à¥‡à¤²à¥‡à¤²à¤¾ à¤¹à¤¾ à¤šà¤¹à¤¾ à¤¦à¥‡à¤¶à¤­à¤°à¤¾à¤¤à¥€à¤² à¤˜à¤°à¥‡ à¤†à¤£à¤¿ à¤•à¤¾à¤°à¥à¤¯à¤¾à¤²à¤¯à¤¾à¤‚à¤¨à¤¾ à¤ªà¥à¤°à¤µà¤²à¤¾ à¤œà¤¾à¤¤à¥‹.'
       }
     ],
     quote: {
-      en: '“Pure ingredients. Honest ratios. No shortcuts.”',
-      mr: '“शुद्ध घटक, प्रामाणिक प्रमाण.”'
+      en: 'â€œPure ingredients. Honest ratios. No shortcuts.â€',
+      mr: 'â€œà¤¶à¥à¤¦à¥à¤§ à¤˜à¤Ÿà¤•, à¤ªà¥à¤°à¤¾à¤®à¤¾à¤£à¤¿à¤• à¤ªà¥à¤°à¤®à¤¾à¤£.â€'
     },
     imageSlotId: 'STORY_IMAGE_PRIMARY'
   },
@@ -478,43 +478,43 @@ export const DEFAULT_STORY_CONTENT: EditorialStoryContent = {
   heritage: {
     tagline: {
       en: 'SOURCE & ROOTS',
-      mr: 'उगम'
+      mr: 'à¤‰à¤—à¤®'
     },
     heading: {
       en: 'Assam Tea & Maharashtra Jaggery',
-      mr: 'आसाम चहा आणि महाराष्ट्राचा गूळ'
+      mr: 'à¤†à¤¸à¤¾à¤® à¤šà¤¹à¤¾ à¤†à¤£à¤¿ à¤®à¤¹à¤¾à¤°à¤¾à¤·à¥à¤Ÿà¥à¤°à¤¾à¤šà¤¾ à¤—à¥‚à¤³'
     },
     subheading: {
       en: 'Two distinct agricultural regions brought together in one kettle.',
-      mr: 'दोन प्रांतांची निसर्गदत्त देणगी एका कपात.'
+      mr: 'à¤¦à¥‹à¤¨ à¤ªà¥à¤°à¤¾à¤‚à¤¤à¤¾à¤‚à¤šà¥€ à¤¨à¤¿à¤¸à¤°à¥à¤—à¤¦à¤¤à¥à¤¤ à¤¦à¥‡à¤£à¤—à¥€ à¤à¤•à¤¾ à¤•à¤ªà¤¾à¤¤.'
     },
     narrative: {
       en: 'We source tea directly from Assam tea gardens and combine it with cane jaggery from western Maharashtra.',
-      mr: 'आसामच्या बागांमधील ताजी चहाची पाने आणि पश्चिम महाराष्ट्रातील गूळ यांचा समतोल.'
+      mr: 'à¤†à¤¸à¤¾à¤®à¤šà¥à¤¯à¤¾ à¤¬à¤¾à¤—à¤¾à¤‚à¤®à¤§à¥€à¤² à¤¤à¤¾à¤œà¥€ à¤šà¤¹à¤¾à¤šà¥€ à¤ªà¤¾à¤¨à¥‡ à¤†à¤£à¤¿ à¤ªà¤¶à¥à¤šà¤¿à¤® à¤®à¤¹à¤¾à¤°à¤¾à¤·à¥à¤Ÿà¥à¤°à¤¾à¤¤à¥€à¤² à¤—à¥‚à¤³ à¤¯à¤¾à¤‚à¤šà¤¾ à¤¸à¤®à¤¤à¥‹à¤².'
     },
     milestones: [
       {
         year: 'Origin',
-        title: { en: 'Kolhapur Jaggery', mr: 'कोल्हापुरी गूळ' },
+        title: { en: 'Kolhapur Jaggery', mr: 'à¤•à¥‹à¤²à¥à¤¹à¤¾à¤ªà¥à¤°à¥€ à¤—à¥‚à¤³' },
         description: { 
           en: 'Unrefined sugarcane jaggery prepared with traditional boiling methods.',
-          mr: 'पारंपरिक पद्धतीने तयार केलेला शुद्ध सेंद्रिय गूळ.'
+          mr: 'à¤ªà¤¾à¤°à¤‚à¤ªà¤°à¤¿à¤• à¤ªà¤¦à¥à¤§à¤¤à¥€à¤¨à¥‡ à¤¤à¤¯à¤¾à¤° à¤•à¥‡à¤²à¥‡à¤²à¤¾ à¤¶à¥à¤¦à¥à¤§ à¤¸à¥‡à¤‚à¤¦à¥à¤°à¤¿à¤¯ à¤—à¥‚à¤³.'
         }
       },
       {
         year: 'Formulation',
-        title: { en: 'Non-Curdling Blend', mr: 'न फाटणारा चहा' },
+        title: { en: 'Non-Curdling Blend', mr: 'à¤¨ à¤«à¤¾à¤Ÿà¤£à¤¾à¤°à¤¾ à¤šà¤¹à¤¾' },
         description: { 
           en: 'Balanced acidity so jaggery dissolves into boiling milk smoothly.',
-          mr: 'उकळत्या दुधात गूळ सुरक्षितपणे विरघळेल अशी रचना.'
+          mr: 'à¤‰à¤•à¤³à¤¤à¥à¤¯à¤¾ à¤¦à¥à¤§à¤¾à¤¤ à¤—à¥‚à¤³ à¤¸à¥à¤°à¤•à¥à¤·à¤¿à¤¤à¤ªà¤£à¥‡ à¤µà¤¿à¤°à¤˜à¤³à¥‡à¤² à¤…à¤¶à¥€ à¤°à¤šà¤¨à¤¾.'
         }
       },
       {
         year: 'Supply',
-        title: { en: 'B2B & Homes', mr: 'घर आणि ऑफिस' },
+        title: { en: 'B2B & Homes', mr: 'à¤˜à¤° à¤†à¤£à¤¿ à¤‘à¤«à¤¿à¤¸' },
         description: { 
-          en: 'Supplied to corporate offices, cafés, and retail kitchens nationwide.',
-          mr: 'देशभरातील कार्यालये आणि घरांसाठी उपलब्ध.'
+          en: 'Supplied to corporate offices, cafÃ©s, and retail kitchens nationwide.',
+          mr: 'à¤¦à¥‡à¤¶à¤­à¤°à¤¾à¤¤à¥€à¤² à¤•à¤¾à¤°à¥à¤¯à¤¾à¤²à¤¯à¥‡ à¤†à¤£à¤¿ à¤˜à¤°à¤¾à¤‚à¤¸à¤¾à¤ à¥€ à¤‰à¤ªà¤²à¤¬à¥à¤§.'
         }
       }
     ],
@@ -525,68 +525,68 @@ export const DEFAULT_STORY_CONTENT: EditorialStoryContent = {
   craft: {
     tagline: {
       en: 'HOW IT IS MADE',
-      mr: 'कृती'
+      mr: 'à¤•à¥ƒà¤¤à¥€'
     },
     heading: {
       en: 'Five Steps from Garden to Cup',
-      mr: 'बागेपासून कपापर्यंत ५ टप्पे'
+      mr: 'à¤¬à¤¾à¤—à¥‡à¤ªà¤¾à¤¸à¥‚à¤¨ à¤•à¤ªà¤¾à¤ªà¤°à¥à¤¯à¤‚à¤¤ à¥« à¤Ÿà¤ªà¥à¤ªà¥‡'
     },
     subheading: {
       en: 'Clean, predictable preparation every time.',
-      mr: 'प्रत्येक वेळी तीच खात्रीशीर चव.'
+      mr: 'à¤ªà¥à¤°à¤¤à¥à¤¯à¥‡à¤• à¤µà¥‡à¤³à¥€ à¤¤à¥€à¤š à¤–à¤¾à¤¤à¥à¤°à¥€à¤¶à¥€à¤° à¤šà¤µ.'
     },
     introduction: {
       en: 'From harvest selection to the 3-minute boil, every step is tested for consistency.',
-      mr: 'पाने निवडण्यापासून ते ३ मिनिटांच्या उकळीपर्यंत प्रत्येक टप्पा तपासलेला आहे.'
+      mr: 'à¤ªà¤¾à¤¨à¥‡ à¤¨à¤¿à¤µà¤¡à¤£à¥à¤¯à¤¾à¤ªà¤¾à¤¸à¥‚à¤¨ à¤¤à¥‡ à¥© à¤®à¤¿à¤¨à¤¿à¤Ÿà¤¾à¤‚à¤šà¥à¤¯à¤¾ à¤‰à¤•à¤³à¥€à¤ªà¤°à¥à¤¯à¤‚à¤¤ à¤ªà¥à¤°à¤¤à¥à¤¯à¥‡à¤• à¤Ÿà¤ªà¥à¤ªà¤¾ à¤¤à¤ªà¤¾à¤¸à¤²à¥‡à¤²à¤¾ à¤†à¤¹à¥‡.'
     },
     stages: [
       {
         stageNumber: 1,
-        tagline: { en: '01 — SOURCE', mr: '०१ — पाने' },
-        title: { en: 'Assam CTC Tea', mr: 'आसाम सीटीसी पाने' },
+        tagline: { en: '01 â€” SOURCE', mr: 'à¥¦à¥§ â€” à¤ªà¤¾à¤¨à¥‡' },
+        title: { en: 'Assam CTC Tea', mr: 'à¤†à¤¸à¤¾à¤® à¤¸à¥€à¤Ÿà¥€à¤¸à¥€ à¤ªà¤¾à¤¨à¥‡' },
         description: {
           en: 'Dense, brisk CTC granules that give strong amber color and body.',
-          mr: 'चहाला कडक रंग आणि चव देणारी आसामची दाणेदार पाने.'
+          mr: 'à¤šà¤¹à¤¾à¤²à¤¾ à¤•à¤¡à¤• à¤°à¤‚à¤— à¤†à¤£à¤¿ à¤šà¤µ à¤¦à¥‡à¤£à¤¾à¤°à¥€ à¤†à¤¸à¤¾à¤®à¤šà¥€ à¤¦à¤¾à¤£à¥‡à¤¦à¤¾à¤° à¤ªà¤¾à¤¨à¥‡.'
         },
         imageSlotId: 'CRAFT_STAGE_1'
       },
       {
         stageNumber: 2,
-        tagline: { en: '02 — SELECT', mr: '०२ — मसाले' },
-        title: { en: 'Whole Spices & Jaggery', mr: 'अख्खे मसाले व गूळ' },
+        tagline: { en: '02 â€” SELECT', mr: 'à¥¦à¥¨ â€” à¤®à¤¸à¤¾à¤²à¥‡' },
+        title: { en: 'Whole Spices & Jaggery', mr: 'à¤…à¤–à¥à¤–à¥‡ à¤®à¤¸à¤¾à¤²à¥‡ à¤µ à¤—à¥‚à¤³' },
         description: {
           en: 'Cardamom pods, sun-dried ginger, mace, nutmeg, and organic cane jaggery.',
-          mr: 'हिरवी वेलची, सुंठ, जायपत्री, जायफळ आणि शुद्ध गूळ.'
+          mr: 'à¤¹à¤¿à¤°à¤µà¥€ à¤µà¥‡à¤²à¤šà¥€, à¤¸à¥à¤‚à¤ , à¤œà¤¾à¤¯à¤ªà¤¤à¥à¤°à¥€, à¤œà¤¾à¤¯à¤«à¤³ à¤†à¤£à¤¿ à¤¶à¥à¤¦à¥à¤§ à¤—à¥‚à¤³.'
         },
         imageSlotId: 'CRAFT_STAGE_2'
       },
       {
         stageNumber: 3,
-        tagline: { en: '03 — BLEND', mr: '०३ — प्रमाण' },
-        title: { en: 'Measured Blending', mr: 'अचूक मिश्रण' },
+        tagline: { en: '03 â€” BLEND', mr: 'à¥¦à¥© â€” à¤ªà¥à¤°à¤®à¤¾à¤£' },
+        title: { en: 'Measured Blending', mr: 'à¤…à¤šà¥‚à¤• à¤®à¤¿à¤¶à¥à¤°à¤£' },
         description: {
           en: 'Spices and jaggery balanced to prevent milk curdling when boiled.',
-          mr: 'उकळताना दूध फाटणार नाही या अचूक प्रमाणावर तयार केलेले मिश्रण.'
+          mr: 'à¤‰à¤•à¤³à¤¤à¤¾à¤¨à¤¾ à¤¦à¥‚à¤§ à¤«à¤¾à¤Ÿà¤£à¤¾à¤° à¤¨à¤¾à¤¹à¥€ à¤¯à¤¾ à¤…à¤šà¥‚à¤• à¤ªà¥à¤°à¤®à¤¾à¤£à¤¾à¤µà¤° à¤¤à¤¯à¤¾à¤° à¤•à¥‡à¤²à¥‡à¤²à¥‡ à¤®à¤¿à¤¶à¥à¤°à¤£.'
         },
         imageSlotId: 'CRAFT_STAGE_3'
       },
       {
         stageNumber: 4,
-        tagline: { en: '04 — BREW', mr: '०४ — उकळी' },
-        title: { en: '3-Minute Simmer', mr: '३ मिनिटे उकळणे' },
+        tagline: { en: '04 â€” BREW', mr: 'à¥¦à¥ª â€” à¤‰à¤•à¤³à¥€' },
+        title: { en: '3-Minute Simmer', mr: 'à¥© à¤®à¤¿à¤¨à¤¿à¤Ÿà¥‡ à¤‰à¤•à¤³à¤£à¥‡' },
         description: {
           en: 'Mix equal parts water and milk, add Lata Teamix, and boil for 2 to 3 minutes.',
-          mr: 'समान पाणी आणि दूध घ्या, लता टी घाला आणि २ ते ३ मिनिटे उकळा.'
+          mr: 'à¤¸à¤®à¤¾à¤¨ à¤ªà¤¾à¤£à¥€ à¤†à¤£à¤¿ à¤¦à¥‚à¤§ à¤˜à¥à¤¯à¤¾, à¤²à¤¤à¤¾ à¤Ÿà¥€ à¤˜à¤¾à¤²à¤¾ à¤†à¤£à¤¿ à¥¨ à¤¤à¥‡ à¥© à¤®à¤¿à¤¨à¤¿à¤Ÿà¥‡ à¤‰à¤•à¤³à¤¾.'
         },
         imageSlotId: 'CRAFT_STAGE_4'
       },
       {
         stageNumber: 5,
-        tagline: { en: '05 — SERVE', mr: '०५ — सर्व्ह' },
-        title: { en: 'Strain & Enjoy', mr: 'गाळून आस्वाद घ्या' },
+        tagline: { en: '05 â€” SERVE', mr: 'à¥¦à¥« â€” à¤¸à¤°à¥à¤µà¥à¤¹' },
+        title: { en: 'Strain & Enjoy', mr: 'à¤—à¤¾à¤³à¥‚à¤¨ à¤†à¤¸à¥à¤µà¤¾à¤¦ à¤˜à¥à¤¯à¤¾' },
         description: {
           en: 'Strain into cups. Clean jaggery sweetness with aromatic cardamom notes.',
-          mr: 'कपात गाळा. वेलचीचा सुगंध आणि गुळाचा गोडवा अनुभवा.'
+          mr: 'à¤•à¤ªà¤¾à¤¤ à¤—à¤¾à¤³à¤¾. à¤µà¥‡à¤²à¤šà¥€à¤šà¤¾ à¤¸à¥à¤—à¤‚à¤§ à¤†à¤£à¤¿ à¤—à¥à¤³à¤¾à¤šà¤¾ à¤—à¥‹à¤¡à¤µà¤¾ à¤…à¤¨à¥à¤­à¤µà¤¾.'
         },
         imageSlotId: 'CRAFT_STAGE_5'
       }
@@ -597,32 +597,32 @@ export const DEFAULT_STORY_CONTENT: EditorialStoryContent = {
   experience: {
     tagline: {
       en: 'THE CUP',
-      mr: 'अनुभव'
+      mr: 'à¤…à¤¨à¥à¤­à¤µ'
     },
     heading: {
       en: 'Warmth in Every Cup',
-      mr: 'प्रत्येक कपात आपुलकीची उब'
+      mr: 'à¤ªà¥à¤°à¤¤à¥à¤¯à¥‡à¤• à¤•à¤ªà¤¾à¤¤ à¤†à¤ªà¥à¤²à¤•à¥€à¤šà¥€ à¤‰à¤¬'
     },
     subheading: {
       en: 'A comforting cup of spiced tea for morning routines and afternoon breaks.',
-      mr: 'सकाळच्या प्रसन्नतेसाठी आणि दुपारच्या थकव्यासाठी उत्तम चहा.'
+      mr: 'à¤¸à¤•à¤¾à¤³à¤šà¥à¤¯à¤¾ à¤ªà¥à¤°à¤¸à¤¨à¥à¤¨à¤¤à¥‡à¤¸à¤¾à¤ à¥€ à¤†à¤£à¤¿ à¤¦à¥à¤ªà¤¾à¤°à¤šà¥à¤¯à¤¾ à¤¥à¤•à¤µà¥à¤¯à¤¾à¤¸à¤¾à¤ à¥€ à¤‰à¤¤à¥à¤¤à¤® à¤šà¤¹à¤¾.'
     },
     sensoryDescription: {
       en: 'The smell of crushed cardamom in boiling milk, the golden color of Assam leaves, and the gentle caramel note of cane jaggery.',
-      mr: 'उकळत्या दुधातील वेलचीचा दरवळ, आसाम पानांचा तांबूस रंग आणि गुळाचा नैसर्गिक गोडवा.'
+      mr: 'à¤‰à¤•à¤³à¤¤à¥à¤¯à¤¾ à¤¦à¥à¤§à¤¾à¤¤à¥€à¤² à¤µà¥‡à¤²à¤šà¥€à¤šà¤¾ à¤¦à¤°à¤µà¤³, à¤†à¤¸à¤¾à¤® à¤ªà¤¾à¤¨à¤¾à¤‚à¤šà¤¾ à¤¤à¤¾à¤‚à¤¬à¥‚à¤¸ à¤°à¤‚à¤— à¤†à¤£à¤¿ à¤—à¥à¤³à¤¾à¤šà¤¾ à¤¨à¥ˆà¤¸à¤°à¥à¤—à¤¿à¤• à¤—à¥‹à¤¡à¤µà¤¾.'
     },
     ritualSteps: [
       {
-        title: { en: 'Aroma', mr: 'सुगंध' },
-        note: { en: 'Fresh cardamom and warm ginger.', mr: 'ताजी वेलची आणि सुंठीचा सुगंध.' }
+        title: { en: 'Aroma', mr: 'à¤¸à¥à¤—à¤‚à¤§' },
+        note: { en: 'Fresh cardamom and warm ginger.', mr: 'à¤¤à¤¾à¤œà¥€ à¤µà¥‡à¤²à¤šà¥€ à¤†à¤£à¤¿ à¤¸à¥à¤‚à¤ à¥€à¤šà¤¾ à¤¸à¥à¤—à¤‚à¤§.' }
       },
       {
-        title: { en: 'Body', mr: 'घट्टपणा' },
-        note: { en: 'Velvety texture that holds in whole milk.', mr: 'दुधात मिसळणारा मऊ दाटपणा.' }
+        title: { en: 'Body', mr: 'à¤˜à¤Ÿà¥à¤Ÿà¤ªà¤£à¤¾' },
+        note: { en: 'Velvety texture that holds in whole milk.', mr: 'à¤¦à¥à¤§à¤¾à¤¤ à¤®à¤¿à¤¸à¤³à¤£à¤¾à¤°à¤¾ à¤®à¤Š à¤¦à¤¾à¤Ÿà¤ªà¤£à¤¾.' }
       },
       {
-        title: { en: 'Taste', mr: 'चव' },
-        note: { en: 'Clean cane jaggery with zero bitterness.', mr: 'कोणताही कडूपणा नसलेला गुळाचा गोडवा.' }
+        title: { en: 'Taste', mr: 'à¤šà¤µ' },
+        note: { en: 'Clean cane jaggery with zero bitterness.', mr: 'à¤•à¥‹à¤£à¤¤à¤¾à¤¹à¥€ à¤•à¤¡à¥‚à¤ªà¤£à¤¾ à¤¨à¤¸à¤²à¥‡à¤²à¤¾ à¤—à¥à¤³à¤¾à¤šà¤¾ à¤—à¥‹à¤¡à¤µà¤¾.' }
       }
     ],
     imageSlotId: 'STORY_IMAGE_PRIMARY'
@@ -632,49 +632,49 @@ export const DEFAULT_STORY_CONTENT: EditorialStoryContent = {
   whyLata: {
     tagline: {
       en: 'KEY FACTS',
-      mr: 'महत्त्वाचे'
+      mr: 'à¤®à¤¹à¤¤à¥à¤¤à¥à¤µà¤¾à¤šà¥‡'
     },
     heading: {
       en: 'Honest Standards',
-      mr: 'आमची मानके'
+      mr: 'à¤†à¤®à¤šà¥€ à¤®à¤¾à¤¨à¤•à¥‡'
     },
     subheading: {
       en: 'Clear ingredients, no synthetic flavorings.',
-      mr: 'शुद्ध घटक, कोणतेही कृत्रिम फ्लेवर नाही.'
+      mr: 'à¤¶à¥à¤¦à¥à¤§ à¤˜à¤Ÿà¤•, à¤•à¥‹à¤£à¤¤à¥‡à¤¹à¥€ à¤•à¥ƒà¤¤à¥à¤°à¤¿à¤® à¤«à¥à¤²à¥‡à¤µà¤° à¤¨à¤¾à¤¹à¥€.'
     },
     pillars: [
       {
-        title: { en: 'Natural Cane Jaggery', mr: 'नैसर्गिक गूळ' },
+        title: { en: 'Natural Cane Jaggery', mr: 'à¤¨à¥ˆà¤¸à¤°à¥à¤—à¤¿à¤• à¤—à¥‚à¤³' },
         description: { 
           en: 'Sweetened with unrefined jaggery. No white sugar or synthetic syrup.',
-          mr: 'केवळ नैसर्गिक गूळ. पांढरी साखर किंवा सिरप नाही.'
+          mr: 'à¤•à¥‡à¤µà¤³ à¤¨à¥ˆà¤¸à¤°à¥à¤—à¤¿à¤• à¤—à¥‚à¤³. à¤ªà¤¾à¤‚à¤¢à¤°à¥€ à¤¸à¤¾à¤–à¤° à¤•à¤¿à¤‚à¤µà¤¾ à¤¸à¤¿à¤°à¤ª à¤¨à¤¾à¤¹à¥€.'
         },
         metric: '100%',
         icon: 'Leaf'
       },
       {
-        title: { en: 'Non-Curdling Formula', mr: 'दूध न फाटण्याची हमी' },
+        title: { en: 'Non-Curdling Formula', mr: 'à¤¦à¥‚à¤§ à¤¨ à¤«à¤¾à¤Ÿà¤£à¥à¤¯à¤¾à¤šà¥€ à¤¹à¤®à¥€' },
         description: { 
           en: 'Calibrated acidity allows boiling directly in dairy milk.',
-          mr: 'थेट दुधात उकळण्यासाठी संतुलित मिश्रण.'
+          mr: 'à¤¥à¥‡à¤Ÿ à¤¦à¥à¤§à¤¾à¤¤ à¤‰à¤•à¤³à¤£à¥à¤¯à¤¾à¤¸à¤¾à¤ à¥€ à¤¸à¤‚à¤¤à¥à¤²à¤¿à¤¤ à¤®à¤¿à¤¶à¥à¤°à¤£.'
         },
         metric: '0%',
         icon: 'ShieldCheck'
       },
       {
-        title: { en: 'FSSAI Certified Unit', mr: 'प्रमाणित उत्पादन' },
+        title: { en: 'FSSAI Certified Unit', mr: 'à¤ªà¥à¤°à¤®à¤¾à¤£à¤¿à¤¤ à¤‰à¤¤à¥à¤ªà¤¾à¤¦à¤¨' },
         description: { 
           en: 'Blended and packed in our licensed facility.',
-          mr: 'पुण्यातील नोंदणीकृत युनिटमध्ये पॅकिंग.'
+          mr: 'à¤ªà¥à¤£à¥à¤¯à¤¾à¤¤à¥€à¤² à¤¨à¥‹à¤‚à¤¦à¤£à¥€à¤•à¥ƒà¤¤ à¤¯à¥à¤¨à¤¿à¤Ÿà¤®à¤§à¥à¤¯à¥‡ à¤ªà¥…à¤•à¤¿à¤‚à¤—.'
         },
         metric: 'ISO 22000',
         icon: 'Award'
       },
       {
-        title: { en: '3-Minute Brew', mr: '३ मिनिटांत तयार' },
+        title: { en: '3-Minute Brew', mr: 'à¥© à¤®à¤¿à¤¨à¤¿à¤Ÿà¤¾à¤‚à¤¤ à¤¤à¤¯à¤¾à¤°' },
         description: { 
           en: 'Simple 1:1 milk and water boil. Ready fast for homes and offices.',
-          mr: 'पाणी व दुधात ३ मिनिटे उकळा आणि चहा तयार.'
+          mr: 'à¤ªà¤¾à¤£à¥€ à¤µ à¤¦à¥à¤§à¤¾à¤¤ à¥© à¤®à¤¿à¤¨à¤¿à¤Ÿà¥‡ à¤‰à¤•à¤³à¤¾ à¤†à¤£à¤¿ à¤šà¤¹à¤¾ à¤¤à¤¯à¤¾à¤°.'
         },
         metric: '3 Min',
         icon: 'Clock'
@@ -685,16 +685,16 @@ export const DEFAULT_STORY_CONTENT: EditorialStoryContent = {
   // 10 FINAL BRAND STATEMENT
   brandStatement: {
     quote: {
-      en: '“Real tea. Real jaggery. Ready in 3 minutes.”',
-      mr: '“अस्सल चहा. शुद्ध गूळ. अवघ्या ३ मिनिटांत.”'
+      en: 'â€œReal tea. Real jaggery. Ready in 3 minutes.â€',
+      mr: 'â€œà¤…à¤¸à¥à¤¸à¤² à¤šà¤¹à¤¾. à¤¶à¥à¤¦à¥à¤§ à¤—à¥‚à¤³. à¤…à¤µà¤˜à¥à¤¯à¤¾ à¥© à¤®à¤¿à¤¨à¤¿à¤Ÿà¤¾à¤‚à¤¤.â€'
     },
     subtext: {
       en: 'Maharashtra',
-      mr: 'पुणे, महाराष्ट्र'
+      mr: 'à¤ªà¥à¤£à¥‡, à¤®à¤¹à¤¾à¤°à¤¾à¤·à¥à¤Ÿà¥à¤°'
     },
     author: {
       en: 'Lata Teamix',
-      mr: 'लता टी'
+      mr: 'à¤²à¤¤à¤¾ à¤Ÿà¥€'
     }
   },
 
@@ -702,19 +702,19 @@ export const DEFAULT_STORY_CONTENT: EditorialStoryContent = {
   contact: {
     tagline: {
       en: 'COMMERCIAL INQUIRIES',
-      mr: 'व्यावसायिक संपर्क'
+      mr: 'à¤µà¥à¤¯à¤¾à¤µà¤¸à¤¾à¤¯à¤¿à¤• à¤¸à¤‚à¤ªà¤°à¥à¤•'
     },
     heading: {
       en: 'Contact & Sample Requests',
-      mr: 'संपर्क आणि नमुने'
+      mr: 'à¤¸à¤‚à¤ªà¤°à¥à¤• à¤†à¤£à¤¿ à¤¨à¤®à¥à¤¨à¥‡'
     },
     subheading: {
       en: 'For distributor inquiries, hotel partnerships, and sample kits.',
-      mr: 'वितरक, हॉटेल्स आणि मोफत नमुना चहासाठी संपर्क करा.'
+      mr: 'à¤µà¤¿à¤¤à¤°à¤•, à¤¹à¥‰à¤Ÿà¥‡à¤²à¥à¤¸ à¤†à¤£à¤¿ à¤®à¥‹à¤«à¤¤ à¤¨à¤®à¥à¤¨à¤¾ à¤šà¤¹à¤¾à¤¸à¤¾à¤ à¥€ à¤¸à¤‚à¤ªà¤°à¥à¤• à¤•à¤°à¤¾.'
     },
     enquiryNotice: {
       en: 'We respond within 24 business hours.',
-      mr: 'आम्ही २४ तासांत संपर्क करू.'
+      mr: 'à¤†à¤®à¥à¤¹à¥€ à¥¨à¥ª à¤¤à¤¾à¤¸à¤¾à¤‚à¤¤ à¤¸à¤‚à¤ªà¤°à¥à¤• à¤•à¤°à¥‚.'
     }
   },
 
@@ -722,22 +722,22 @@ export const DEFAULT_STORY_CONTENT: EditorialStoryContent = {
   footer: {
     aboutText: {
       en: 'Lata Teamix is manufactured in Maharashtra. Natural jaggery tea and basundi premixes.',
-      mr: 'पुणे, महाराष्ट्र. नैसर्गिक गूळ चहा आणि बासुंदी प्रीमिक्स.'
+      mr: 'à¤ªà¥à¤£à¥‡, à¤®à¤¹à¤¾à¤°à¤¾à¤·à¥à¤Ÿà¥à¤°. à¤¨à¥ˆà¤¸à¤°à¥à¤—à¤¿à¤• à¤—à¥‚à¤³ à¤šà¤¹à¤¾ à¤†à¤£à¤¿ à¤¬à¤¾à¤¸à¥à¤‚à¤¦à¥€ à¤ªà¥à¤°à¥€à¤®à¤¿à¤•à¥à¤¸.'
     },
     copyrightText: {
-      en: '© 2026 Lata Private Limited. All rights reserved.',
-      mr: '© २०२६ लता टीमिक्स. सर्व हक्क राखीव.'
+      en: 'Â© 2026 Lata Private Limited. All rights reserved.',
+      mr: 'Â© à¥¨à¥¦à¥¨à¥¬ à¤²à¤¤à¤¾ à¤Ÿà¥€à¤®à¤¿à¤•à¥à¤¸. à¤¸à¤°à¥à¤µ à¤¹à¤•à¥à¤• à¤°à¤¾à¤–à¥€à¤µ.'
     },
     legalLinks: [
-      { label: { en: 'Privacy Policy', mr: 'गोपनीयता धोरण' }, url: '/privacy' },
-      { label: { en: 'Terms of Service', mr: 'नियम व अटी' }, url: '/terms' },
+      { label: { en: 'Privacy Policy', mr: 'à¤—à¥‹à¤ªà¤¨à¥€à¤¯à¤¤à¤¾ à¤§à¥‹à¤°à¤£' }, url: '/privacy' },
+      { label: { en: 'Terms of Service', mr: 'à¤¨à¤¿à¤¯à¤® à¤µ à¤…à¤Ÿà¥€' }, url: '/terms' },
       
     ]
   }
 };
 
 export const INITIAL_CMS_STATE: CMSState = {
-  version: 8,
+  version: 10,
   status: 'published',
   lastPublishedAt: new Date().toISOString(),
   lastSavedAt: new Date().toISOString(),
@@ -759,9 +759,9 @@ export const INITIAL_CMS_STATE: CMSState = {
     {
       id: 'r1',
       titleEn: 'Gud Basundi Tea',
-      titleMr: 'गूळ बासुंदी चहा',
+      titleMr: 'à¤—à¥‚à¤³ à¤¬à¤¾à¤¸à¥à¤‚à¤¦à¥€ à¤šà¤¹à¤¾',
       instructionsEn: 'STEP 1: Add required quantity of tea mix.\nSTEP 2: Add hot water/milk as applicable.\nSTEP 3: Mix according to the recommended preparation method.\nSTEP 4: Serve.',
-      instructionsMr: 'स्टेप १: आवश्यक प्रमाणात चहा मिक्स घाला.\nस्टेप २: आवश्यकतेनुसार गरम पाणी/दूध घाला.\nस्टेप ३: शिफारस केलेल्या पद्धतीनुसार मिक्स करा.\nस्टेप ४: सर्व्ह करा.',
+      instructionsMr: 'à¤¸à¥à¤Ÿà¥‡à¤ª à¥§: à¤†à¤µà¤¶à¥à¤¯à¤• à¤ªà¥à¤°à¤®à¤¾à¤£à¤¾à¤¤ à¤šà¤¹à¤¾ à¤®à¤¿à¤•à¥à¤¸ à¤˜à¤¾à¤²à¤¾.\nà¤¸à¥à¤Ÿà¥‡à¤ª à¥¨: à¤†à¤µà¤¶à¥à¤¯à¤•à¤¤à¥‡à¤¨à¥à¤¸à¤¾à¤° à¤—à¤°à¤® à¤ªà¤¾à¤£à¥€/à¤¦à¥‚à¤§ à¤˜à¤¾à¤²à¤¾.\nà¤¸à¥à¤Ÿà¥‡à¤ª à¥©: à¤¶à¤¿à¤«à¤¾à¤°à¤¸ à¤•à¥‡à¤²à¥‡à¤²à¥à¤¯à¤¾ à¤ªà¤¦à¥à¤§à¤¤à¥€à¤¨à¥à¤¸à¤¾à¤° à¤®à¤¿à¤•à¥à¤¸ à¤•à¤°à¤¾.\nà¤¸à¥à¤Ÿà¥‡à¤ª à¥ª: à¤¸à¤°à¥à¤µà¥à¤¹ à¤•à¤°à¤¾.',
       displayOrder: 1,
       isVisible: true
     }
@@ -771,28 +771,28 @@ export const INITIAL_CMS_STATE: CMSState = {
       id: 'v1',
       instagramUrl: 'https://www.instagram.com/p/C_mF1GwvqfH/',
       titleEn: 'How to prepare Gud Basundi Tea',
-      titleMr: 'गूळ बासुंदी चहा कसा बनवायचा',
+      titleMr: 'à¤—à¥‚à¤³ à¤¬à¤¾à¤¸à¥à¤‚à¤¦à¥€ à¤šà¤¹à¤¾ à¤•à¤¸à¤¾ à¤¬à¤¨à¤µà¤¾à¤¯à¤šà¤¾',
       descriptionEn: 'A quick guide to making the perfect cup of Lata Teamix.',
-      descriptionMr: 'लता टीमिक्सचा उत्तम चहा बनवण्याची एक द्रुत मार्गदर्शक.',
+      descriptionMr: 'à¤²à¤¤à¤¾ à¤Ÿà¥€à¤®à¤¿à¤•à¥à¤¸à¤šà¤¾ à¤‰à¤¤à¥à¤¤à¤® à¤šà¤¹à¤¾ à¤¬à¤¨à¤µà¤£à¥à¤¯à¤¾à¤šà¥€ à¤à¤• à¤¦à¥à¤°à¥à¤¤ à¤®à¤¾à¤°à¥à¤—à¤¦à¤°à¥à¤¶à¤•.',
       displayOrder: 1,
       isVisible: true,
       thumbnailUrl: 'https://latatea.vercel.app/media_royal_bowl.jpg'
     }
   ],
   processSteps: [
-    { id: 1, titleEn: 'Enquire', titleMr: 'चौकशी करा', descEn: 'Connect with our team.', descMr: 'आमच्या टीमशी संपर्क साधा.' },
-    { id: 2, titleEn: 'Select Products', titleMr: 'उत्पादने निवडा', descEn: 'Choose your tea blend.', descMr: 'तुमचा चहा ब्लेंड निवडा.' },
-    { id: 3, titleEn: 'Confirm Order', titleMr: 'ऑर्डर निश्चित करा', descEn: 'Confirm quantity.', descMr: 'ऑर्डर निश्चित करा.' },
-    { id: 4, titleEn: 'Processing', titleMr: 'प्रक्रिया', descEn: 'Fresh blending.', descMr: 'ताजे ब्लेंडिंग.' },
-    { id: 5, titleEn: 'Packing', titleMr: 'पॅकिंग', descEn: 'Packed for freshness.', descMr: 'ताजेपणासाठी पॅकिंग.' },
-    { id: 6, titleEn: 'Dispatch', titleMr: 'डिस्पॅच', descEn: 'Careful loading.', descMr: 'काळजीपूर्वक लोडिंग.' },
-    { id: 7, titleEn: 'Delivery', titleMr: 'वितरण', descEn: 'Delivered to your location.', descMr: 'तुमच्या स्थानावर वितरण.' }
+    { id: 1, titleEn: 'Enquire', titleMr: 'à¤šà¥Œà¤•à¤¶à¥€ à¤•à¤°à¤¾', descEn: 'Connect with our team.', descMr: 'à¤†à¤®à¤šà¥à¤¯à¤¾ à¤Ÿà¥€à¤®à¤¶à¥€ à¤¸à¤‚à¤ªà¤°à¥à¤• à¤¸à¤¾à¤§à¤¾.' },
+    { id: 2, titleEn: 'Select Products', titleMr: 'à¤‰à¤¤à¥à¤ªà¤¾à¤¦à¤¨à¥‡ à¤¨à¤¿à¤µà¤¡à¤¾', descEn: 'Choose your tea blend.', descMr: 'à¤¤à¥à¤®à¤šà¤¾ à¤šà¤¹à¤¾ à¤¬à¥à¤²à¥‡à¤‚à¤¡ à¤¨à¤¿à¤µà¤¡à¤¾.' },
+    { id: 3, titleEn: 'Confirm Order', titleMr: 'à¤‘à¤°à¥à¤¡à¤° à¤¨à¤¿à¤¶à¥à¤šà¤¿à¤¤ à¤•à¤°à¤¾', descEn: 'Confirm quantity.', descMr: 'à¤‘à¤°à¥à¤¡à¤° à¤¨à¤¿à¤¶à¥à¤šà¤¿à¤¤ à¤•à¤°à¤¾.' },
+    { id: 4, titleEn: 'Processing', titleMr: 'à¤ªà¥à¤°à¤•à¥à¤°à¤¿à¤¯à¤¾', descEn: 'Fresh blending.', descMr: 'à¤¤à¤¾à¤œà¥‡ à¤¬à¥à¤²à¥‡à¤‚à¤¡à¤¿à¤‚à¤—.' },
+    { id: 5, titleEn: 'Packing', titleMr: 'à¤ªà¥…à¤•à¤¿à¤‚à¤—', descEn: 'Packed for freshness.', descMr: 'à¤¤à¤¾à¤œà¥‡à¤ªà¤£à¤¾à¤¸à¤¾à¤ à¥€ à¤ªà¥…à¤•à¤¿à¤‚à¤—.' },
+    { id: 6, titleEn: 'Dispatch', titleMr: 'à¤¡à¤¿à¤¸à¥à¤ªà¥…à¤š', descEn: 'Careful loading.', descMr: 'à¤•à¤¾à¤³à¤œà¥€à¤ªà¥‚à¤°à¥à¤µà¤• à¤²à¥‹à¤¡à¤¿à¤‚à¤—.' },
+    { id: 7, titleEn: 'Delivery', titleMr: 'à¤µà¤¿à¤¤à¤°à¤£', descEn: 'Delivered to your location.', descMr: 'à¤¤à¥à¤®à¤šà¥à¤¯à¤¾ à¤¸à¥à¤¥à¤¾à¤¨à¤¾à¤µà¤° à¤µà¤¿à¤¤à¤°à¤£.' }
   ],
   categories: [
-    { id: 'cat_all', slug: 'all', name: { en: 'All Teas', mr: 'सर्व चहा' }, order: 1, isVisible: true },
-    { id: 'cat_gud', slug: 'gud', name: { en: 'Jaggery Blends', mr: 'गुळाचे ब्लेंड्स' }, order: 2, isVisible: true },
-    { id: 'cat_sugar', slug: 'sugar', name: { en: 'Basundi Series', mr: 'बासुंदी सिरीज' }, order: 4, isVisible: true },
-    { id: 'cat_premixes', slug: 'premixes', name: { en: 'Premixes', mr: 'प्रीमिक्स' }, order: 5, isVisible: true }
+    { id: 'cat_all', slug: 'all', name: { en: 'All Teas', mr: 'à¤¸à¤°à¥à¤µ à¤šà¤¹à¤¾' }, order: 1, isVisible: true },
+    { id: 'cat_gud', slug: 'gud', name: { en: 'Jaggery Blends', mr: 'à¤—à¥à¤³à¤¾à¤šà¥‡ à¤¬à¥à¤²à¥‡à¤‚à¤¡à¥à¤¸' }, order: 2, isVisible: true },
+    { id: 'cat_sugar', slug: 'sugar', name: { en: 'Basundi Series', mr: 'à¤¬à¤¾à¤¸à¥à¤‚à¤¦à¥€ à¤¸à¤¿à¤°à¥€à¤œ' }, order: 4, isVisible: true },
+    { id: 'cat_premixes', slug: 'premixes', name: { en: 'Premixes', mr: 'à¤ªà¥à¤°à¥€à¤®à¤¿à¤•à¥à¤¸' }, order: 5, isVisible: true }
   ],
   domains: DEFAULT_DOMAINS,
   mediaLibrary: DEFAULT_MEDIA_ITEMS,
@@ -828,20 +828,20 @@ export const INITIAL_CMS_STATE: CMSState = {
   },
   seo: {
     seoTitle: {
-      en: 'Lata Teamix — Pure Jaggery Basundi Chai',
-      mr: 'लता टी — अस्सल गूळ बासुंदी चहा'
+      en: 'Lata Teamix â€” Pure Jaggery Basundi Chai',
+      mr: 'à¤²à¤¤à¤¾ à¤Ÿà¥€ â€” à¤…à¤¸à¥à¤¸à¤² à¤—à¥‚à¤³ à¤¬à¤¾à¤¸à¥à¤‚à¤¦à¥€ à¤šà¤¹à¤¾'
     },
     metaDescription: {
       en: 'Assam CTC tea and pure cane jaggery. Ready in 3 minutes. Made in Maharashtra.',
-      mr: 'आसाम चहा आणि शुद्ध गूळ. ३ मिनिटांत तयार. पुणे, महाराष्ट्र.'
+      mr: 'à¤†à¤¸à¤¾à¤® à¤šà¤¹à¤¾ à¤†à¤£à¤¿ à¤¶à¥à¤¦à¥à¤§ à¤—à¥‚à¤³. à¥© à¤®à¤¿à¤¨à¤¿à¤Ÿà¤¾à¤‚à¤¤ à¤¤à¤¯à¤¾à¤°. à¤ªà¥à¤£à¥‡, à¤®à¤¹à¤¾à¤°à¤¾à¤·à¥à¤Ÿà¥à¤°.'
     },
     ogTitle: {
-      en: 'Lata Teamix — Jaggery Basundi Chai',
-      mr: 'लता टी — गूळ बासुंदी चहा'
+      en: 'Lata Teamix â€” Jaggery Basundi Chai',
+      mr: 'à¤²à¤¤à¤¾ à¤Ÿà¥€ â€” à¤—à¥‚à¤³ à¤¬à¤¾à¤¸à¥à¤‚à¤¦à¥€ à¤šà¤¹à¤¾'
     },
     ogDescription: {
       en: 'Authentic Indian jaggery tea and basundi premixes ready in 3 minutes.',
-      mr: '३ मिनिटांत तयार होणारा अस्सल गुळाचा चहा.'
+      mr: 'à¥© à¤®à¤¿à¤¨à¤¿à¤Ÿà¤¾à¤‚à¤¤ à¤¤à¤¯à¤¾à¤° à¤¹à¥‹à¤£à¤¾à¤°à¤¾ à¤…à¤¸à¥à¤¸à¤² à¤—à¥à¤³à¤¾à¤šà¤¾ à¤šà¤¹à¤¾.'
     },
     ogImageSlotId: 'HOME_HERO_PRIMARY',
     canonicalUrl: 'https://latatea.com',
@@ -850,3 +850,4 @@ export const INITIAL_CMS_STATE: CMSState = {
 };
 
 export const BROCHURE_CONTACT_PRESET = INITIAL_CMS_STATE.contact;
+

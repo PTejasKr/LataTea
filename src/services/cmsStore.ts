@@ -1,8 +1,8 @@
-import { CMSState, MediaItem, MediaSlot, TeaStoryItem, ValidationIssue } from '../types/cms';
+﻿import { CMSState, MediaItem, MediaSlot, TeaStoryItem, ValidationIssue } from '../types/cms';
 import { INITIAL_CMS_STATE } from '../data/defaultContent';
 
-const STORAGE_KEY_PUBLISHED = 'latatea_cms_v9_pub';
-const STORAGE_KEY_DRAFT = 'latatea_cms_v9_draft';
+const STORAGE_KEY_PUBLISHED = 'latatea_cms_v10_pub';
+const STORAGE_KEY_DRAFT = 'latatea_cms_v10_draft';
 
 type Listener = () => void;
 const listeners: Set<Listener> = new Set();
@@ -312,3 +312,4 @@ export const cmsStore = {
     return issues;
   }
 };
+
