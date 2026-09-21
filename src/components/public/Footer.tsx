@@ -33,7 +33,7 @@ export const Footer: React.FC = () => {
               <button
                 type="button"
                 onClick={() => setLanguage('en')}
-                className={`px-2.5 py-0.5 rounded text-pub-small transition-colors ${
+                className={`px-3 py-1 rounded text-pub-small transition-colors ${
                   language === 'en'
                     ? 'bg-brand-accent text-white font-bold'
                     : 'bg-brand-primary text-slate-300 hover:text-white border border-brand-border/30'
@@ -44,7 +44,7 @@ export const Footer: React.FC = () => {
               <button
                 type="button"
                 onClick={() => setLanguage('mr')}
-                className={`px-2.5 py-0.5 rounded text-pub-small transition-colors ${
+                className={`px-3 py-1 rounded text-pub-small transition-colors ${
                   language === 'mr'
                     ? 'bg-brand-accent text-white font-bold'
                     : 'bg-brand-primary text-slate-300 hover:text-white border border-brand-border/30'
