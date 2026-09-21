@@ -71,111 +71,34 @@ export const OrderingRoadmap: React.FC = () => {
             ))}
           </div>
 
-          {/* MOBILE SNAKE / ZIG-ZAG LAYOUT */}
-          <div className="md:hidden w-full max-w-[320px] mx-auto flex flex-col pt-4 pb-8">
-            
-            {/* 01 */}
-            <div className="w-32 mx-auto z-10 bg-brand-surface relative group">
-              <div className="relative mb-3 flex flex-col items-center">
-                <div className="w-16 h-16 rounded-full bg-brand-surface border-2 border-brand-accent shadow-sm flex items-center justify-center text-brand-accent">
-                  {ICON_MAP[1] || <CircleDot className="w-5 h-5" />}
+          {/* MOBILE VERTICAL TIMELINE LAYOUT */}
+          <div className="md:hidden relative pl-6 space-y-6">
+            {/* Vertical connector line */}
+            <div className="absolute left-[23px] top-4 bottom-4 w-0.5 bg-brand-accent/30 -z-0"></div>
+
+            {steps.map((step, idx) => (
+              <div key={step.id} className="relative flex items-start gap-4 group">
+                {/* Step badge icon */}
+                <div className="relative shrink-0 z-10">
+                  <div className="w-12 h-12 rounded-full bg-brand-surface border-2 border-brand-accent shadow-xs flex items-center justify-center text-brand-accent">
+                    {ICON_MAP[step.id] || <CircleDot className="w-5 h-5" />}
+                  </div>
+                  <div className="absolute -top-1 -right-1 w-5 h-5 rounded-full bg-brand-accent text-white flex items-center justify-center font-bold text-[10px] shadow-xs">
+                    {step.id}
+                  </div>
                 </div>
-                <div className="absolute -top-1 -right-1 w-6 h-6 rounded-full bg-brand-accent text-white flex items-center justify-center font-bold text-xs shadow-md">1</div>
-              </div>
-              <h3 className="font-rajwada font-bold text-sm text-brand-primary text-center leading-tight mb-1 break-words">{language === 'mr' ? steps[0]?.titleMr : steps[0]?.titleEn}</h3>
-              <p className="text-pub-small text-brand-text-muted font-sans text-center leading-tight break-words">{language === 'mr' ? steps[0]?.descMr : steps[0]?.descEn}</p>
-            </div>
 
-            {/* 1 to 2 */}
-            <div className="border-r-2 border-b-2 border-brand-accent rounded-br-xl -mt-4 -mb-3 z-0 transition-all" style={{ width: 'calc(50% - 64px)', marginLeft: '64px', height: '48px' }} />
-
-            {/* 02 */}
-            <div className="w-32 mr-auto z-10 bg-brand-surface relative group">
-              <div className="relative mb-3 flex flex-col items-center">
-                <div className="w-16 h-16 rounded-full bg-brand-surface border-2 border-brand-accent shadow-sm flex items-center justify-center text-brand-accent">
-                  {ICON_MAP[2] || <CircleDot className="w-5 h-5" />}
+                {/* Step content */}
+                <div className="flex-1 pt-1">
+                  <h3 className="font-rajwada font-bold text-base text-brand-primary leading-snug mb-1">
+                    {language === 'mr' ? step.titleMr : step.titleEn}
+                  </h3>
+                  <p className="text-xs text-brand-text-muted font-sans leading-relaxed">
+                    {language === 'mr' ? step.descMr : step.descEn}
+                  </p>
                 </div>
-                <div className="absolute -top-1 -right-1 w-6 h-6 rounded-full bg-brand-accent text-white flex items-center justify-center font-bold text-xs shadow-md">2</div>
               </div>
-              <h3 className="font-rajwada font-bold text-sm text-brand-primary text-center leading-tight mb-1 break-words">{language === 'mr' ? steps[1]?.titleMr : steps[1]?.titleEn}</h3>
-              <p className="text-pub-small text-brand-text-muted font-sans text-center leading-tight break-words">{language === 'mr' ? steps[1]?.descMr : steps[1]?.descEn}</p>
-            </div>
-
-            {/* 2 to 3 */}
-            <div className="border-l-2 border-b-2 border-brand-accent rounded-bl-xl -mt-4 -mb-3 z-0 transition-all" style={{ width: 'calc(100% - 128px)', marginLeft: '64px', height: '48px' }} />
-
-            {/* 03 */}
-            <div className="w-32 ml-auto z-10 bg-brand-surface relative group">
-              <div className="relative mb-3 flex flex-col items-center">
-                <div className="w-16 h-16 rounded-full bg-brand-surface border-2 border-brand-accent shadow-sm flex items-center justify-center text-brand-accent">
-                  {ICON_MAP[3] || <CircleDot className="w-5 h-5" />}
-                </div>
-                <div className="absolute -top-1 -right-1 w-6 h-6 rounded-full bg-brand-accent text-white flex items-center justify-center font-bold text-xs shadow-md">3</div>
-              </div>
-              <h3 className="font-rajwada font-bold text-sm text-brand-primary text-center leading-tight mb-1 break-words">{language === 'mr' ? steps[2]?.titleMr : steps[2]?.titleEn}</h3>
-              <p className="text-pub-small text-brand-text-muted font-sans text-center leading-tight break-words">{language === 'mr' ? steps[2]?.descMr : steps[2]?.descEn}</p>
-            </div>
-
-            {/* 3 to 4 */}
-            <div className="border-r-2 border-b-2 border-brand-accent rounded-br-xl -mt-4 -mb-3 z-0 transition-all" style={{ width: 'calc(100% - 128px)', marginLeft: '64px', height: '48px' }} />
-
-            {/* 04 */}
-            <div className="w-32 mr-auto z-10 bg-brand-surface relative group">
-              <div className="relative mb-3 flex flex-col items-center">
-                <div className="w-16 h-16 rounded-full bg-brand-surface border-2 border-brand-accent shadow-sm flex items-center justify-center text-brand-accent">
-                  {ICON_MAP[4] || <CircleDot className="w-5 h-5" />}
-                </div>
-                <div className="absolute -top-1 -right-1 w-6 h-6 rounded-full bg-brand-accent text-white flex items-center justify-center font-bold text-xs shadow-md">4</div>
-              </div>
-              <h3 className="font-rajwada font-bold text-sm text-brand-primary text-center leading-tight mb-1 break-words">{language === 'mr' ? steps[3]?.titleMr : steps[3]?.titleEn}</h3>
-              <p className="text-pub-small text-brand-text-muted font-sans text-center leading-tight break-words">{language === 'mr' ? steps[3]?.descMr : steps[3]?.descEn}</p>
-            </div>
-
-            {/* 4 to 5 */}
-            <div className="border-l-2 border-b-2 border-brand-accent rounded-bl-xl -mt-4 -mb-3 z-0 transition-all" style={{ width: 'calc(100% - 128px)', marginLeft: '64px', height: '48px' }} />
-
-            {/* 05 */}
-            <div className="w-32 ml-auto z-10 bg-brand-surface relative group">
-              <div className="relative mb-3 flex flex-col items-center">
-                <div className="w-16 h-16 rounded-full bg-brand-surface border-2 border-brand-accent shadow-sm flex items-center justify-center text-brand-accent">
-                  {ICON_MAP[5] || <CircleDot className="w-5 h-5" />}
-                </div>
-                <div className="absolute -top-1 -right-1 w-6 h-6 rounded-full bg-brand-accent text-white flex items-center justify-center font-bold text-xs shadow-md">5</div>
-              </div>
-              <h3 className="font-rajwada font-bold text-sm text-brand-primary text-center leading-tight mb-1 break-words">{language === 'mr' ? steps[4]?.titleMr : steps[4]?.titleEn}</h3>
-              <p className="text-pub-small text-brand-text-muted font-sans text-center leading-tight break-words">{language === 'mr' ? steps[4]?.descMr : steps[4]?.descEn}</p>
-            </div>
-
-            {/* 5 to 6 */}
-            <div className="border-r-2 border-b-2 border-brand-accent rounded-br-xl -mt-4 -mb-3 z-0 transition-all" style={{ width: 'calc(100% - 128px)', marginLeft: '64px', height: '48px' }} />
-
-            {/* 06 */}
-            <div className="w-32 mr-auto z-10 bg-brand-surface relative group">
-              <div className="relative mb-3 flex flex-col items-center">
-                <div className="w-16 h-16 rounded-full bg-brand-surface border-2 border-brand-accent shadow-sm flex items-center justify-center text-brand-accent">
-                  {ICON_MAP[6] || <CircleDot className="w-5 h-5" />}
-                </div>
-                <div className="absolute -top-1 -right-1 w-6 h-6 rounded-full bg-brand-accent text-white flex items-center justify-center font-bold text-xs shadow-md">6</div>
-              </div>
-              <h3 className="font-rajwada font-bold text-sm text-brand-primary text-center leading-tight mb-1 break-words">{language === 'mr' ? steps[5]?.titleMr : steps[5]?.titleEn}</h3>
-              <p className="text-pub-small text-brand-text-muted font-sans text-center leading-tight break-words">{language === 'mr' ? steps[5]?.descMr : steps[5]?.descEn}</p>
-            </div>
-
-            {/* 6 to 7 */}
-            <div className="border-l-2 border-b-2 border-brand-accent rounded-bl-xl -mt-4 -mb-3 z-0 transition-all" style={{ width: 'calc(50% - 64px)', marginLeft: '64px', height: '48px' }} />
-
-            {/* 07 */}
-            <div className="w-32 mx-auto z-10 bg-brand-surface relative group">
-              <div className="relative mb-3 flex flex-col items-center">
-                <div className="w-16 h-16 rounded-full bg-brand-surface border-2 border-brand-accent shadow-sm flex items-center justify-center text-brand-accent">
-                  {ICON_MAP[7] || <CircleDot className="w-5 h-5" />}
-                </div>
-                <div className="absolute -top-1 -right-1 w-6 h-6 rounded-full bg-brand-accent text-white flex items-center justify-center font-bold text-xs shadow-md">7</div>
-              </div>
-              <h3 className="font-rajwada font-bold text-sm text-brand-primary text-center leading-tight mb-1 break-words">{language === 'mr' ? steps[6]?.titleMr : steps[6]?.titleEn}</h3>
-              <p className="text-pub-small text-brand-text-muted font-sans text-center leading-tight break-words">{language === 'mr' ? steps[6]?.descMr : steps[6]?.descEn}</p>
-            </div>
-
+            ))}
           </div>
 
         </div>

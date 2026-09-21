@@ -47,23 +47,23 @@ export default {
       },
       fontSize: {
         // --- PUBLIC WEBSITE TOKENS ---
-        'pub-hero': ['clamp(2rem, 5vw, 4.5rem)', { lineHeight: '1.1', letterSpacing: '-0.02em' }], // 32px to 72px
-        'pub-section': ['clamp(1.75rem, 4vw, 3rem)', { lineHeight: '1.2', letterSpacing: '-0.01em' }], // 28px to 48px
-        'pub-sub': ['clamp(1.1875rem, 2.5vw, 1.75rem)', { lineHeight: '1.3' }], // 19px to 28px
-        'pub-body': ['clamp(1rem, 1.5vw, 1.125rem)', { lineHeight: '1.625' }], // 16px to 18px
-        'pub-nav': ['clamp(0.9375rem, 1.2vw, 1.0625rem)', { lineHeight: '1.5', fontWeight: '500' }], // 15px to 17px
-        'pub-btn': ['clamp(0.9375rem, 1.2vw, 1.0625rem)', { lineHeight: '1.5', fontWeight: '600' }], // 15px to 17px
-        'pub-small': ['clamp(0.875rem, 1vw, 0.9375rem)', { lineHeight: '1.5' }], // 14px to 15px
+        'pub-hero': ['clamp(1.875rem, 4.2vw, 3.5rem)', { lineHeight: '1.18', letterSpacing: '-0.02em' }],
+        'pub-section': ['clamp(1.375rem, 3vw, 2.375rem)', { lineHeight: '1.25', letterSpacing: '-0.015em' }],
+        'pub-sub': ['clamp(1.0625rem, 2vw, 1.4375rem)', { lineHeight: '1.35' }],
+        'pub-body': ['clamp(0.9375rem, 1.1vw, 1.0625rem)', { lineHeight: '1.65' }],
+        'pub-nav': ['0.875rem', { lineHeight: '1.5', letterSpacing: '0.04em', fontWeight: '600' }],
+        'pub-btn': ['0.875rem', { lineHeight: '1.5', letterSpacing: '0.05em', fontWeight: '700' }],
+        'pub-small': ['0.8125rem', { lineHeight: '1.5' }],
         
         // --- CMS TOKENS ---
-        'cms-page': ['clamp(1.5rem, 2.5vw, 1.875rem)', { lineHeight: '1.2', fontWeight: '700' }], // 24px to 30px
-        'cms-section': ['clamp(1.25rem, 2vw, 1.5rem)', { lineHeight: '1.3', fontWeight: '600' }], // 20px to 24px
-        'cms-card': ['clamp(1.125rem, 1.8vw, 1.375rem)', { lineHeight: '1.4', fontWeight: '600' }], // 18px to 22px
-        'cms-body': ['clamp(1rem, 1.2vw, 1.0625rem)', { lineHeight: '1.6' }], // 16px to 17px
-        'cms-label': ['clamp(0.9375rem, 1.1vw, 1rem)', { lineHeight: '1.5', fontWeight: '500' }], // 15px to 16px
-        'cms-input': ['clamp(1rem, 1.2vw, 1.125rem)', { lineHeight: '1.5' }], // 16px to 18px
-        'cms-btn': ['clamp(0.9375rem, 1.1vw, 1.0625rem)', { lineHeight: '1.5', fontWeight: '600' }], // 15px to 17px
-        'cms-small': ['0.875rem', { lineHeight: '1.4' }], // 14px
+        'cms-page': ['clamp(1.375rem, 2.2vw, 1.75rem)', { lineHeight: '1.2', fontWeight: '700' }],
+        'cms-section': ['clamp(1.1875rem, 1.8vw, 1.375rem)', { lineHeight: '1.3', fontWeight: '600' }],
+        'cms-card': ['clamp(1.0625rem, 1.5vw, 1.25rem)', { lineHeight: '1.4', fontWeight: '600' }],
+        'cms-body': ['clamp(0.9375rem, 1.1vw, 1rem)', { lineHeight: '1.6' }],
+        'cms-label': ['0.8125rem', { lineHeight: '1.5', fontWeight: '600' }],
+        'cms-input': ['0.875rem', { lineHeight: '1.5' }],
+        'cms-btn': ['0.8125rem', { lineHeight: '1.5', fontWeight: '600' }],
+        'cms-small': ['0.75rem', { lineHeight: '1.4' }],
       }
     },
   },
