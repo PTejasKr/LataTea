@@ -128,6 +128,32 @@ export const DEFAULT_MEDIA_SLOTS: Record<string, MediaSlot> = {
     objectFit: 'contain',
     aspectRatioHint: '16:9'
   },
+  
+  STORY_IMAGE_SUGAR: {
+    id: 'slot_story_sugar',
+    slotKey: 'STORY_IMAGE_SUGAR',
+    label: 'Sugar Basundi Packaging',
+    category: 'story',
+    desktopImageId: 'media_packaging_sugar',
+    mobileImageId: 'media_packaging_sugar',
+    focalX: 50,
+    focalY: 50,
+    objectFit: 'contain',
+    description: 'Packaging image for Sugar Basundi',
+  },
+  STORY_IMAGE_PREMIX: {
+    id: 'slot_story_premix',
+    slotKey: 'STORY_IMAGE_PREMIX',
+    label: 'Premix Packaging',
+    category: 'story',
+    desktopImageId: 'media_packaging_premix',
+    mobileImageId: 'media_packaging_premix',
+    focalX: 50,
+    focalY: 50,
+    objectFit: 'contain',
+    description: 'Packaging image for Basundi Premix',
+  },
+
   STORY_IMAGE_PACKAGING: {
     id: 'slot_story_packaging',
     slotKey: 'STORY_IMAGE_PACKAGING',
@@ -327,7 +353,7 @@ export const DEFAULT_TEA_STORIES: TeaStoryItem[] = [
       en: 'Boil with whole milk for 3 minutes.',
       mr: 'दुधात ३ मिनिटे उकळा.'
     },
-    imageSlotId: 'STORY_IMAGE_PRIMARY',
+    imageSlotId: 'STORY_IMAGE_SUGAR',
     displayOrder: 4,
     isFeatured: true,
     isVisible: true
@@ -374,7 +400,7 @@ export const DEFAULT_TEA_STORIES: TeaStoryItem[] = [
       en: 'Add 14g to 80ml hot water and stir.',
       mr: '८० मिली गरम पाण्यात १४ ग्रॅम घालून ढवळा.'
     },
-    imageSlotId: 'STORY_IMAGE_PRIMARY',
+    imageSlotId: 'STORY_IMAGE_PREMIX',
     displayOrder: 5,
     isFeatured: true,
     isVisible: true
