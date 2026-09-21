@@ -34,11 +34,11 @@ export const BrandSettingsView: React.FC = () => {
   const logoLight = resolveSlotImage(brand.lightLogoSlotId || 'BRAND_LOGO_LIGHT', false, true);
 
   return (
-    <div className="space-y-6 animate-in fade-in duration-150">
+    <div className="space-y-6 animate-in fade-in duration-150 max-w-5xl">
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-[#222]">
         <div>
           <h2 className="text-cms-section text-white flex items-center gap-2">
-            <Palette className="w-5 h-5 text-white" />
+            <Palette className="w-5 h-5 text-purple-400" />
             <span>Brand Styling & Design System</span>
           </h2>
           <p className="text-cms-small text-neutral-400 mt-1">
@@ -48,7 +48,7 @@ export const BrandSettingsView: React.FC = () => {
 
         <button
           onClick={handleResetBrochureColors}
-          className="px-4 py-2 rounded-sm bg-[#111111] hover:bg-[#222222] text-neutral-300 text-cms-btn flex items-center gap-1.5 self-start"
+          className="px-4 py-2 rounded-sm bg-[#111111] hover:bg-[#222222] text-neutral-200 hover:text-white border border-[#333] text-cms-btn flex items-center gap-1.5 self-start cursor-pointer transition-colors"
         >
           <RefreshCw className="w-3.5 h-3.5" />
           <span>Restore Brochure Colors</span>
@@ -58,15 +58,14 @@ export const BrandSettingsView: React.FC = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         
         {/* Color Palette Controls */}
-        <div className="p-6 sm:p-8 rounded-3xl bg-[#0a0a0a] border border-[#222]  space-y-5">
+        <div className="p-6 rounded-sm bg-[#111111] border border-[#222] space-y-5">
           <h3 className="text-cms-body font-bold text-white mb-2 flex items-center gap-2">
-            
             <span>Brand Palette (Brochure Spec)</span>
           </h3>
 
           <div className="space-y-4 text-cms-small">
             {/* Primary Green */}
-            <div className="p-4 rounded-sm bg-[#0a0a0a] border border-slate-800 flex items-center justify-between">
+            <div className="p-4 rounded-sm bg-[#0a0a0a] border border-[#222] flex items-center justify-between">
               <div>
                 <div className="font-bold text-white">Primary Brand Green</div>
                 <div className="text-cms-small text-neutral-400">Main header, banners, deep brand identity</div>
@@ -76,19 +75,19 @@ export const BrandSettingsView: React.FC = () => {
                   type="color"
                   value={brand.primaryColor}
                   onChange={e => handleColorChange('primaryColor', e.target.value)}
-                  className="w-9 h-9 rounded-sm border border-[#222] bg-transparent cursor-pointer"
+                  className="w-9 h-9 rounded-sm border border-[#333] bg-transparent cursor-pointer"
                 />
                 <input
                   type="text"
                   value={brand.primaryColor}
                   onChange={e => handleColorChange('primaryColor', e.target.value)}
-                  className="w-24 px-2.5 py-1.5 rounded-sm bg-[#111111] border border-[#222] font-mono text-white text-cms-small uppercase"
+                  className="w-24 px-2.5 py-1.5 rounded-sm bg-[#111111] border border-[#333] font-mono text-white text-cms-small uppercase focus:border-white focus:outline-none"
                 />
               </div>
             </div>
 
             {/* Accent Ochre/Marigold */}
-            <div className="p-4 rounded-sm bg-[#0a0a0a] border border-slate-800 flex items-center justify-between">
+            <div className="p-4 rounded-sm bg-[#0a0a0a] border border-[#222] flex items-center justify-between">
               <div>
                 <div className="font-bold text-white">Accent Gold / Marigold</div>
                 <div className="text-cms-small text-neutral-400">Teamix pill badge, CTA buttons, highlights</div>
@@ -98,19 +97,19 @@ export const BrandSettingsView: React.FC = () => {
                   type="color"
                   value={brand.accentColor}
                   onChange={e => handleColorChange('accentColor', e.target.value)}
-                  className="w-9 h-9 rounded-sm border border-[#222] bg-transparent cursor-pointer"
+                  className="w-9 h-9 rounded-sm border border-[#333] bg-transparent cursor-pointer"
                 />
                 <input
                   type="text"
                   value={brand.accentColor}
                   onChange={e => handleColorChange('accentColor', e.target.value)}
-                  className="w-24 px-2.5 py-1.5 rounded-sm bg-[#111111] border border-[#222] font-mono text-white text-cms-small uppercase"
+                  className="w-24 px-2.5 py-1.5 rounded-sm bg-[#111111] border border-[#333] font-mono text-white text-cms-small uppercase focus:border-white focus:outline-none"
                 />
               </div>
             </div>
 
             {/* Secondary Leaf Green */}
-            <div className="p-4 rounded-sm bg-[#0a0a0a] border border-slate-800 flex items-center justify-between">
+            <div className="p-4 rounded-sm bg-[#0a0a0a] border border-[#222] flex items-center justify-between">
               <div>
                 <div className="font-bold text-white">Secondary Leaf Green</div>
                 <div className="text-cms-small text-neutral-400">Sprout leaves, badges, positive status</div>
@@ -120,19 +119,19 @@ export const BrandSettingsView: React.FC = () => {
                   type="color"
                   value={brand.secondaryColor}
                   onChange={e => handleColorChange('secondaryColor', e.target.value)}
-                  className="w-9 h-9 rounded-sm border border-[#222] bg-transparent cursor-pointer"
+                  className="w-9 h-9 rounded-sm border border-[#333] bg-transparent cursor-pointer"
                 />
                 <input
                   type="text"
                   value={brand.secondaryColor}
                   onChange={e => handleColorChange('secondaryColor', e.target.value)}
-                  className="w-24 px-2.5 py-1.5 rounded-sm bg-[#111111] border border-[#222] font-mono text-white text-cms-small uppercase"
+                  className="w-24 px-2.5 py-1.5 rounded-sm bg-[#111111] border border-[#333] font-mono text-white text-cms-small uppercase focus:border-white focus:outline-none"
                 />
               </div>
             </div>
 
             {/* Background Cream */}
-            <div className="p-4 rounded-sm bg-[#0a0a0a] border border-slate-800 flex items-center justify-between">
+            <div className="p-4 rounded-sm bg-[#0a0a0a] border border-[#222] flex items-center justify-between">
               <div>
                 <div className="font-bold text-white">Background Warm Cream</div>
                 <div className="text-cms-small text-neutral-400">Body backdrop, card containers</div>
@@ -142,13 +141,13 @@ export const BrandSettingsView: React.FC = () => {
                   type="color"
                   value={brand.backgroundColor}
                   onChange={e => handleColorChange('backgroundColor', e.target.value)}
-                  className="w-9 h-9 rounded-sm border border-[#222] bg-transparent cursor-pointer"
+                  className="w-9 h-9 rounded-sm border border-[#333] bg-transparent cursor-pointer"
                 />
                 <input
                   type="text"
                   value={brand.backgroundColor}
                   onChange={e => handleColorChange('backgroundColor', e.target.value)}
-                  className="w-24 px-2.5 py-1.5 rounded-sm bg-[#111111] border border-[#222] font-mono text-white text-cms-small uppercase"
+                  className="w-24 px-2.5 py-1.5 rounded-sm bg-[#111111] border border-[#333] font-mono text-white text-cms-small uppercase focus:border-white focus:outline-none"
                 />
               </div>
             </div>
@@ -156,14 +155,14 @@ export const BrandSettingsView: React.FC = () => {
         </div>
 
         {/* Logo Slots & Typography */}
-        <div className="p-6 sm:p-8 rounded-3xl bg-[#0a0a0a] border border-[#222]  space-y-5">
+        <div className="p-6 rounded-sm bg-[#111111] border border-[#222] space-y-5">
           <h3 className="text-cms-body font-bold text-white mb-2">Logo & Typography Bindings</h3>
 
           <div className="space-y-4 text-cms-small">
             {/* Primary Logo */}
-            <div className="p-4 rounded-sm bg-[#0a0a0a] border border-slate-800 space-y-2">
+            <div className="p-4 rounded-sm bg-[#0a0a0a] border border-[#222] space-y-2">
               <div className="font-bold text-white">Primary Crest Logo</div>
-              <div className="h-20 w-full rounded-sm bg-latagreen-800 flex items-center justify-center p-2">
+              <div className="h-20 w-full rounded-sm bg-[#161616] border border-[#262626] flex items-center justify-center p-2">
                 {logoPrimary.url ? (
                   <img src={logoPrimary.url} alt="Logo" className="max-h-full max-w-full object-contain" />
                 ) : (
@@ -173,9 +172,9 @@ export const BrandSettingsView: React.FC = () => {
             </div>
 
             {/* Light Logo */}
-            <div className="p-4 rounded-sm bg-[#0a0a0a] border border-slate-800 space-y-2">
+            <div className="p-4 rounded-sm bg-[#0a0a0a] border border-[#222] space-y-2">
               <div className="font-bold text-white">Light Monochrome / Footer Logo</div>
-              <div className="h-20 w-full rounded-sm bg-slate-950 flex items-center justify-center p-2">
+              <div className="h-20 w-full rounded-sm bg-[#0d0d0d] border border-[#262626] flex items-center justify-center p-2">
                 {logoLight.url ? (
                   <img src={logoLight.url} alt="Logo Light" className="max-h-full max-w-full object-contain" />
                 ) : (
@@ -193,7 +192,7 @@ export const BrandSettingsView: React.FC = () => {
                 type="text"
                 value={brand.fontHeading}
                 onChange={e => handleColorChange('fontHeading', e.target.value)}
-                className="w-full px-3 py-2 rounded-sm bg-[#0a0a0a] border border-[#222] text-white font-mono text-cms-small"
+                className="w-full px-3 py-2 rounded-sm bg-[#0a0a0a] border border-[#333] text-white font-mono text-cms-small focus:border-white focus:outline-none"
               />
             </div>
           </div>

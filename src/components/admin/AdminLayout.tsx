@@ -1,5 +1,4 @@
-import React, { useState } from 'react';
-import { BrandLogo } from '../common/BrandLogo';
+import React, { useState, useEffect, useMemo } from 'react';
 import { useCMS } from '../../context/CMSContext';
 import { 
   LayoutDashboard, 
@@ -18,26 +17,50 @@ import {
   Globe, 
   ChevronLeft, 
   ChevronRight,
+  ChevronDown,
   LogOut,
   Network,
-  FolderTree
+  FolderTree,
+  Palette,
+  Sparkles,
+  Settings,
+  LayoutTemplate,
+  CheckCircle2,
+  X
 } from 'lucide-react';
 
 export type AdminTab = 
   | 'dashboard'
   | 'story'
   | 'craft'
+  | 'process-steps'
   | 'tea-stories'
   | 'categories'
-  | 'process-steps'
-  | 'languages'
-  | 'navigation'
-  | 'domains'
   | 'media-library'
   | 'image-position'
+  | 'navigation'
   | 'sections'
+  | 'brand'
+  | 'languages'
+  | 'seo'
   | 'contact'
-  | 'seo';
+  | 'domains';
+
+export interface NavItem {
+  id: AdminTab;
+  label: string;
+  shortLabel?: string;
+  icon: React.ReactNode;
+  badge?: string;
+  description?: string;
+}
+
+export interface NavCategory {
+  id: string;
+  label: string;
+  icon: React.ReactNode;
+  items: NavItem[];
+}
 
 interface AdminLayoutProps {
   activeTab: AdminTab;
@@ -62,61 +85,235 @@ export const AdminLayout: React.FC<AdminLayoutProps> = ({
   } = useCMS();
 
   const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
+  const [searchQuery, setSearchQuery] = useState('');
 
-  const navLinks: { id: AdminTab; label: string; icon: React.ReactNode; badge?: string }[] = [
-    { id: 'dashboard', label: 'Dashboard', icon: <LayoutDashboard className="w-4 h-4" /> },
-    { id: 'story', label: 'Story & Heritage', icon: <BookOpen className="w-4 h-4 text-white" /> },
-    { id: 'craft', label: 'The Craft / Process', icon: <Sliders className="w-4 h-4 text-neutral-300" /> },
-    { id: 'tea-stories', label: 'Tea Stories', icon: <Coffee className="w-4 h-4 text-white" />, badge: `${(draftState.teaStories || []).length}` },
-    { id: 'categories', label: 'Product Categories', icon: <FolderTree className="w-4 h-4 text-neutral-300" /> },
-    { id: 'process-steps', label: 'Process Page', icon: <Layers className="w-4 h-4 text-white" /> },
-    { id: 'languages', label: 'Languages (EN & MR)', icon: <Globe className="w-4 h-4 text-neutral-300" /> },
-    { id: 'navigation', label: 'Navigation Manager', icon: <MenuIcon className="w-4 h-4" /> },
-    { id: 'domains', label: 'Domain Management', icon: <Network className="w-4 h-4 text-neutral-300" />, badge: `${(draftState.domains || []).length}` },
-    { id: 'media-library', label: 'Media Library', icon: <ImageIcon className="w-4 h-4" /> },
-    { id: 'image-position', label: 'Image Focal Points', icon: <Crosshair className="w-4 h-4 text-white" /> },
-    { id: 'contact', label: 'Contact & Statutory', icon: <Phone className="w-4 h-4" /> },
-    { id: 'seo', label: 'SEO Settings', icon: <Search className="w-4 h-4" /> },
-    { id: 'sections', label: 'Section Manager', icon: <Layers className="w-4 h-4" /> }
-  ];
+  // Define professional navigation categories according to industry standards
+  const navigationCategories: NavCategory[] = useMemo(() => [
+    {
+      id: 'editorial',
+      label: 'Editorial & Stories',
+      icon: <BookOpen className="w-4 h-4 text-emerald-400" />,
+      items: [
+        { 
+          id: 'story', 
+          label: 'Story & Heritage', 
+          shortLabel: 'Heritage',
+          icon: <BookOpen className="w-4 h-4" />, 
+          description: 'Brand origins, values & milestone timeline' 
+        },
+        { 
+          id: 'craft', 
+          label: 'The Craft Process', 
+          shortLabel: 'The Craft',
+          icon: <Sliders className="w-4 h-4" />, 
+          description: '5 sequential artisanal craft stages' 
+        },
+        { 
+          id: 'process-steps', 
+          label: 'Process & Brewing Page', 
+          shortLabel: 'Brewing Guide',
+          icon: <Sparkles className="w-4 h-4" />, 
+          description: 'Interactive recipes, reels & video modules' 
+        },
+        { 
+          id: 'tea-stories', 
+          label: 'Tea Blend Profiles', 
+          shortLabel: 'Tea Blends',
+          icon: <Coffee className="w-4 h-4" />, 
+          badge: `${(draftState.teaStories || []).length}`,
+          description: 'Tasting notes, flavor cards & origins' 
+        },
+      ]
+    },
+    {
+      id: 'catalogue',
+      label: 'Catalogue & Taxonomy',
+      icon: <FolderTree className="w-4 h-4 text-amber-400" />,
+      items: [
+        { 
+          id: 'categories', 
+          label: 'Product Categories', 
+          shortLabel: 'Categories',
+          icon: <FolderTree className="w-4 h-4" />, 
+          badge: `${(draftState.categories || []).length}`,
+          description: 'Catalogue segments & Marathi taxonomy' 
+        },
+      ]
+    },
+    {
+      id: 'assets',
+      label: 'Media & Assets',
+      icon: <ImageIcon className="w-4 h-4 text-sky-400" />,
+      items: [
+        { 
+          id: 'media-library', 
+          label: 'Media Library', 
+          shortLabel: 'Media',
+          icon: <ImageIcon className="w-4 h-4" />, 
+          badge: `${(draftState.mediaLibrary || []).length}`,
+          description: 'Asset uploads, banners & SVG vectors' 
+        },
+        { 
+          id: 'image-position', 
+          label: 'Image Focal Points', 
+          shortLabel: 'Focal Points',
+          icon: <Crosshair className="w-4 h-4" />, 
+          description: 'Responsive framing & viewport crops' 
+        },
+      ]
+    },
+    {
+      id: 'structure',
+      label: 'Site Structure & Design',
+      icon: <LayoutTemplate className="w-4 h-4 text-purple-400" />,
+      items: [
+        { 
+          id: 'navigation', 
+          label: 'Navigation Menus', 
+          shortLabel: 'Navigation',
+          icon: <MenuIcon className="w-4 h-4" />, 
+          description: 'Header & footer links hierarchy' 
+        },
+        { 
+          id: 'sections', 
+          label: 'Homepage Sections', 
+          shortLabel: 'Sections',
+          icon: <Layers className="w-4 h-4" />, 
+          description: 'Section ordering & display toggles' 
+        },
+        { 
+          id: 'brand', 
+          label: 'Brand & Brochure Colors', 
+          shortLabel: 'Brand Colors',
+          icon: <Palette className="w-4 h-4" />, 
+          description: 'Brochure palette & typography spec' 
+        },
+      ]
+    },
+    {
+      id: 'system',
+      label: 'System & Localization',
+      icon: <Settings className="w-4 h-4 text-neutral-400" />,
+      items: [
+        { 
+          id: 'languages', 
+          label: 'Languages (EN & MR)', 
+          shortLabel: 'Localization',
+          icon: <Globe className="w-4 h-4" />, 
+          description: 'Bilingual translation coverage' 
+        },
+        { 
+          id: 'seo', 
+          label: 'SEO & Social Meta', 
+          shortLabel: 'SEO Settings',
+          icon: <Search className="w-4 h-4" />, 
+          description: 'Google search tags & OpenGraph' 
+        },
+        { 
+          id: 'contact', 
+          label: 'Contact & Statutory', 
+          shortLabel: 'Contact & Legal',
+          icon: <Phone className="w-4 h-4" />, 
+          description: 'HQ address, WhatsApp & FSSAI' 
+        },
+        { 
+          id: 'domains', 
+          label: 'Domain Management', 
+          shortLabel: 'Domains',
+          icon: <Network className="w-4 h-4" />, 
+          badge: `${(draftState.domains || []).length}`,
+          description: 'Custom domain DNS & SSL status' 
+        },
+      ]
+    }
+  ], [draftState]);
+
+  // Track expanded groups. Auto-expand the category of the active tab
+  const [expandedCategories, setExpandedCategories] = useState<Record<string, boolean>>({
+    editorial: true,
+    catalogue: true,
+    assets: false,
+    structure: false,
+    system: false
+  });
+
+  // Whenever activeTab changes, make sure its parent category is expanded
+  useEffect(() => {
+    const parentCategory = navigationCategories.find(cat => 
+      cat.items.some(item => item.id === activeTab)
+    );
+    if (parentCategory) {
+      setExpandedCategories(prev => ({
+        ...prev,
+        [parentCategory.id]: true
+      }));
+    }
+  }, [activeTab, navigationCategories]);
+
+  const toggleCategory = (catId: string) => {
+    setExpandedCategories(prev => ({
+      ...prev,
+      [catId]: !prev[catId]
+    }));
+  };
+
+  // Find active item & category for breadcrumbs and context
+  const currentCategory = navigationCategories.find(c => c.items.some(i => i.id === activeTab));
+  const currentItem = currentCategory?.items.find(i => i.id === activeTab);
+
+  // Filter items by search query
+  const filteredCategories = useMemo(() => {
+    if (!searchQuery.trim()) return navigationCategories;
+    const q = searchQuery.toLowerCase().trim();
+    return navigationCategories.map(cat => {
+      const matchingItems = cat.items.filter(item => 
+        item.label.toLowerCase().includes(q) || 
+        (item.description && item.description.toLowerCase().includes(q))
+      );
+      return {
+        ...cat,
+        items: matchingItems
+      };
+    }).filter(cat => cat.items.length > 0);
+  }, [navigationCategories, searchQuery]);
 
   return (
-    <div className="min-h-screen bg-black text-white flex flex-col font-sans">
+    <div className="min-h-screen bg-[#050505] text-white flex flex-col font-sans selection:bg-neutral-800 selection:text-white">
       {/* Top Application Bar */}
-      <header className="h-16 bg-[#0a0a0a] border-b border-[#222] px-4 sm:px-6 flex items-center justify-between z-30 sticky top-0">
+      <header className="h-16 bg-[#0a0a0a] border-b border-[#1f1f1f] px-4 sm:px-6 flex items-center justify-between z-30 sticky top-0 backdrop-blur-md">
         <div className="flex items-center gap-3">
           <button
             type="button"
             onClick={() => setSidebarCollapsed(!sidebarCollapsed)}
-            className="p-2 rounded-sm bg-[#111111] hover:bg-[#222222] text-neutral-300 transition-colors cursor-pointer"
+            className="p-2 rounded-sm bg-[#141414] hover:bg-[#222222] text-neutral-300 transition-colors cursor-pointer border border-[#262626]"
             title="Toggle Sidebar"
           >
             {sidebarCollapsed ? <ChevronRight className="w-4 h-4" /> : <ChevronLeft className="w-4 h-4" />}
           </button>
           
           <div className="flex items-center gap-2.5">
-            <div className="w-8 h-8 rounded-sm bg-white flex items-center justify-center font-serif font-black text-black text-cms-body border border-[#333]">
+            <div className="w-8 h-8 rounded-sm bg-white flex items-center justify-center font-serif font-black text-black text-sm border border-[#333] shadow-xs">
               LT
             </div>
             <div>
-              <div className="font-bold text-cms-body text-white tracking-wide flex items-center gap-2">
+              <div className="font-bold text-sm text-white tracking-wide flex items-center gap-2">
                 <span>Storytelling CMS</span>
-                <span className="text-cms-small uppercase font-bold tracking-wider px-2 py-0.5 rounded bg-white text-black border border-[#333]">
-                  Editorial Suite
+                <span className="text-[10px] uppercase font-bold tracking-widest px-2 py-0.5 rounded-sm bg-neutral-900 text-neutral-300 border border-[#333]">
+                  Enterprise Suite
                 </span>
               </div>
-              <div className="text-cms-small text-neutral-400">
-                Logged in as: <span className="text-white font-semibold">Murjo Basu</span>
+              <div className="text-xs text-neutral-400">
+                Editorial Manager: <span className="text-white font-medium">Murjo Basu</span>
               </div>
             </div>
           </div>
         </div>
 
         {/* Center/Right Status & Action Buttons */}
-        <div className="flex items-center gap-2 sm:gap-4">
-          <div className="hidden md:flex items-center gap-2 px-3 py-1.5 rounded-sm bg-[#0a0a0a]/80 border border-[#222] text-cms-small">
-            <span className={`w-2.5 h-2.5 rounded-sm ${hasDraftChanges ? 'bg-white text-black animate-pulse' : 'bg-[#111111]'}`} />
-            <span className="font-semibold text-neutral-300">
+        <div className="flex items-center gap-2 sm:gap-3">
+          <div className="hidden lg:flex items-center gap-2 px-3 py-1.5 rounded-sm bg-[#111111] border border-[#222] text-xs">
+            <span className={`w-2 h-2 rounded-full ${hasDraftChanges ? 'bg-amber-400 animate-pulse' : 'bg-emerald-400'}`} />
+            <span className="font-medium text-neutral-300">
               {hasDraftChanges ? 'Draft Edits Pending' : 'Live & Published'}
             </span>
           </div>
@@ -129,21 +326,21 @@ export const AdminLayout: React.FC<AdminLayoutProps> = ({
                   discardDraft();
                 }
               }}
-              className="px-3 py-1.5 rounded-sm text-cms-btn bg-neutral-800 text-white/20 hover:bg-neutral-800 text-white/30 text-white border border-[#333] transition-all flex items-center gap-1.5 cursor-pointer"
+              className="px-3 py-1.5 rounded-sm text-xs font-semibold bg-[#161616] hover:bg-[#222] text-neutral-300 hover:text-white border border-[#333] transition-all flex items-center gap-1.5 cursor-pointer"
               title="Discard all pending draft edits"
             >
-              <RotateCcw className="w-3.5 h-3.5" />
-              <span className="hidden sm:inline">Discard Draft</span>
+              <RotateCcw className="w-3.5 h-3.5 text-neutral-400" />
+              <span className="hidden sm:inline">Discard</span>
             </button>
           )}
 
           <button
             type="button"
             onClick={() => setShowPreviewModal(true)}
-            className="px-3 sm:px-4 py-1.5 rounded-sm text-cms-small font-bold bg-[#111111] hover:bg-[#222222] text-neutral-200 border border-[#333] transition-all flex items-center gap-1.5 cursor-pointer"
+            className="px-3 sm:px-3.5 py-1.5 rounded-sm text-xs font-semibold bg-[#141414] hover:bg-[#222222] text-neutral-200 border border-[#333] transition-all flex items-center gap-1.5 cursor-pointer"
             title="Preview live changes across devices"
           >
-            <Eye className="w-3.5 h-3.5 text-white" />
+            <Eye className="w-3.5 h-3.5 text-neutral-300" />
             <span className="hidden sm:inline">Preview</span>
           </button>
 
@@ -151,20 +348,22 @@ export const AdminLayout: React.FC<AdminLayoutProps> = ({
             type="button"
             onClick={onOpenPublishModal}
             disabled={!hasDraftChanges}
-            className={`px-4 py-1.5 rounded-sm text-cms-small font-bold flex items-center gap-1.5 transition-all  cursor-pointer ${
+            className={`px-3.5 sm:px-4 py-1.5 rounded-sm text-xs font-bold uppercase tracking-wider flex items-center gap-1.5 transition-all cursor-pointer ${
               hasDraftChanges
-                ? 'bg-white text-black hover:bg-neutral-200'
-                : 'bg-[#222222] text-neutral-400 cursor-not-allowed'
+                ? 'bg-white text-black hover:bg-neutral-200 shadow-sm'
+                : 'bg-[#181818] text-neutral-500 border border-[#262626] cursor-not-allowed'
             }`}
           >
-            <UploadCloud className="w-4 h-4" />
+            <UploadCloud className="w-3.5 h-3.5" />
             <span>Publish</span>
           </button>
+
+          <div className="h-5 w-px bg-[#262626] mx-1 hidden sm:block" />
 
           <button
             type="button"
             onClick={exitCms}
-            className="flex items-center gap-1.5 px-3 py-1.5 rounded-sm text-cms-btn font-semibold text-neutral-200 hover:text-white bg-[#111111] hover:bg-[#222222] border border-[#333] transition-all cursor-pointer shadow-xs"
+            className="flex items-center gap-1.5 px-3 py-1.5 rounded-sm text-xs font-medium text-neutral-200 hover:text-white bg-[#141414] hover:bg-[#222222] border border-[#2d2d2d] transition-all cursor-pointer"
             title="Exit CMS and return to live website"
           >
             <Globe className="w-3.5 h-3.5 text-emerald-400" />
@@ -175,7 +374,7 @@ export const AdminLayout: React.FC<AdminLayoutProps> = ({
           <button
             type="button"
             onClick={logoutCms}
-            className="p-1.5 rounded-sm text-neutral-400 hover:text-neutral-400 hover:text-white hover:bg-neutral-800 text-white/10 transition-colors cursor-pointer"
+            className="p-1.5 rounded-sm text-neutral-400 hover:text-white hover:bg-[#1a1a1a] transition-colors cursor-pointer"
             title="Log Out"
           >
             <LogOut className="w-4 h-4" />
@@ -183,61 +382,201 @@ export const AdminLayout: React.FC<AdminLayoutProps> = ({
         </div>
       </header>
 
-      {/* Body: Sidebar + Dynamic Workspace Pane */}
+      {/* Body: Structured Minimal Sidebar + Dynamic Workspace */}
       <div className="flex-1 flex overflow-hidden">
         {/* Navigation Sidebar */}
         <aside
-          className={`bg-[#0a0a0a] border-r border-[#222] transition-all duration-300 flex flex-col justify-between shrink-0 ${
-            sidebarCollapsed ? 'w-16' : 'w-64'
+          className={`bg-[#0a0a0a] border-r border-[#1f1f1f] transition-all duration-300 flex flex-col justify-between shrink-0 select-none ${
+            sidebarCollapsed ? 'w-[68px]' : 'w-72'
           }`}
         >
-          <div className="py-4 px-2 space-y-1">
-            <div className={`px-3 py-2 text-cms-small uppercase font-bold text-neutral-400 tracking-wider ${sidebarCollapsed ? 'hidden' : 'block'}`}>
-              Storytelling Modules
+          {/* Top of Sidebar: Search & Overview */}
+          <div className="flex flex-col flex-1 overflow-y-auto overflow-x-hidden p-2.5 space-y-3">
+            
+            {/* Minimal Filter Input (when expanded) */}
+            {!sidebarCollapsed && (
+              <div className="relative mb-1">
+                <Search className="w-3.5 h-3.5 text-neutral-500 absolute left-2.5 top-1/2 -translate-y-1/2" />
+                <input
+                  type="text"
+                  placeholder="Quick jump / search..."
+                  value={searchQuery}
+                  onChange={e => setSearchQuery(e.target.value)}
+                  className="w-full bg-[#111111] border border-[#262626] rounded-sm pl-8 pr-7 py-1.5 text-xs text-white placeholder:text-neutral-500 focus:outline-none focus:border-neutral-400 transition-colors"
+                />
+                {searchQuery && (
+                  <button 
+                    onClick={() => setSearchQuery('')}
+                    className="absolute right-2 top-1/2 -translate-y-1/2 text-neutral-500 hover:text-white cursor-pointer"
+                  >
+                    <X className="w-3 h-3" />
+                  </button>
+                )}
+              </div>
+            )}
+
+            {/* Root Hub: Overview / Dashboard */}
+            <div className="space-y-1">
+              <button
+                type="button"
+                onClick={() => onSelectTab('dashboard')}
+                title={sidebarCollapsed ? 'Dashboard & Health' : undefined}
+                className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-sm text-xs transition-all cursor-pointer group ${
+                  activeTab === 'dashboard'
+                    ? 'bg-white text-black font-bold shadow-xs'
+                    : 'text-neutral-300 hover:bg-[#141414] hover:text-white'
+                } ${sidebarCollapsed ? 'justify-center px-0' : ''}`}
+              >
+                <LayoutDashboard className={`w-4 h-4 shrink-0 ${activeTab === 'dashboard' ? 'text-black' : 'text-neutral-400 group-hover:text-white'}`} />
+                {!sidebarCollapsed && (
+                  <div className="flex-1 text-left flex items-center justify-between">
+                    <span className="font-semibold">Dashboard & Health</span>
+                    {hasDraftChanges && (
+                      <span className="w-2 h-2 rounded-full bg-amber-400 animate-pulse" />
+                    )}
+                  </div>
+                )}
+              </button>
             </div>
 
-            {navLinks.map(link => {
-              const isActive = activeTab === link.id;
-              return (
-                <button
-                  key={link.id}
-                  type="button"
-                  onClick={() => onSelectTab(link.id)}
-                  title={sidebarCollapsed ? link.label : undefined}
-                  className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-sm text-cms-btn transition-all cursor-pointer ${
-                    isActive
-                      ? 'bg-white text-black font-bold '
-                      : 'text-neutral-300 hover:bg-[#111111] hover:text-white'
-                  } ${sidebarCollapsed ? 'justify-center px-0' : ''}`}
-                >
-                  <span className={isActive ? '' : 'text-neutral-400'}>{link.icon}</span>
-                  {!sidebarCollapsed && (
-                    <span className="flex-1 text-left truncate">{link.label}</span>
-                  )}
-                  {!sidebarCollapsed && link.badge && (
-                    <span className={`text-cms-small px-1.5 py-0.5 rounded-sm font-mono ${
-                      isActive ? 'bg-slate-950 text-white' : 'bg-[#222222] text-neutral-300'
-                    }`}>
-                      {link.badge}
-                    </span>
-                  )}
-                </button>
-              );
-            })}
+            <div className="h-px bg-[#1f1f1f] my-1" />
+
+            {/* Categorized Submenus */}
+            <div className="space-y-2">
+              {filteredCategories.map(category => {
+                const isExpanded = expandedCategories[category.id] || searchQuery.length > 0;
+                const hasActiveChild = category.items.some(i => i.id === activeTab);
+
+                return (
+                  <div key={category.id} className="space-y-1">
+                    {/* Category Group Header Button */}
+                    {!sidebarCollapsed ? (
+                      <button
+                        type="button"
+                        onClick={() => toggleCategory(category.id)}
+                        className="w-full flex items-center justify-between px-2.5 py-1.5 text-[11px] font-bold uppercase tracking-wider text-neutral-400 hover:text-neutral-200 transition-colors cursor-pointer group"
+                      >
+                        <div className="flex items-center gap-2">
+                          <span className="shrink-0">{category.icon}</span>
+                          <span className="truncate">{category.label}</span>
+                        </div>
+                        <ChevronDown 
+                          className={`w-3.5 h-3.5 text-neutral-500 group-hover:text-neutral-300 transition-transform duration-200 ${
+                            isExpanded ? 'rotate-0' : '-rotate-90'
+                          }`}
+                        />
+                      </button>
+                    ) : (
+                      <div className="h-px bg-[#1a1a1a] my-1" />
+                    )}
+
+                    {/* Submenu Items List */}
+                    {(isExpanded || sidebarCollapsed) && (
+                      <div className={`space-y-0.5 ${!sidebarCollapsed ? 'pl-2 border-l border-[#1f1f1f] ml-3.5' : ''}`}>
+                        {category.items.map(item => {
+                          const isActive = activeTab === item.id;
+
+                          return (
+                            <button
+                              key={item.id}
+                              type="button"
+                              onClick={() => onSelectTab(item.id)}
+                              title={sidebarCollapsed ? `${category.label} > ${item.label}` : item.description}
+                              className={`w-full flex items-center gap-2.5 px-2.5 py-2 rounded-sm text-xs transition-all cursor-pointer group relative ${
+                                isActive
+                                  ? 'bg-[#1e1e1e] text-white font-semibold border border-[#333] shadow-xs'
+                                  : 'text-neutral-400 hover:text-neutral-200 hover:bg-[#121212]'
+                              } ${sidebarCollapsed ? 'justify-center px-0' : ''}`}
+                            >
+                              <span className={`shrink-0 transition-colors ${
+                                isActive ? 'text-white' : 'text-neutral-400 group-hover:text-neutral-200'
+                              }`}>
+                                {item.icon}
+                              </span>
+
+                              {!sidebarCollapsed && (
+                                <>
+                                  <span className="flex-1 text-left truncate">
+                                    {item.label}
+                                  </span>
+                                  {item.badge && (
+                                    <span className={`text-[10px] px-1.5 py-0.2 rounded-sm font-mono shrink-0 ${
+                                      isActive 
+                                        ? 'bg-neutral-800 text-neutral-200 border border-neutral-700' 
+                                        : 'bg-[#1a1a1a] text-neutral-400 border border-[#262626]'
+                                    }`}>
+                                      {item.badge}
+                                    </span>
+                                  )}
+                                </>
+                              )}
+
+                              {/* Active marker pill when collapsed */}
+                              {sidebarCollapsed && isActive && (
+                                <span className="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-4 bg-white rounded-r-sm" />
+                              )}
+                            </button>
+                          );
+                        })}
+                      </div>
+                    )}
+                  </div>
+                );
+              })}
+            </div>
           </div>
 
-          <div className="p-3 border-t border-[#222]/60 text-center">
-            {!sidebarCollapsed && (
-              <div className="text-cms-small text-neutral-500 font-mono">
-                Lata Private Limited CMS â€¢ Multilingual
+          {/* Footer of Sidebar */}
+          <div className="p-3 border-t border-[#1f1f1f] bg-[#080808]">
+            {!sidebarCollapsed ? (
+              <div className="flex items-center justify-between text-[11px] text-neutral-400">
+                <div className="flex items-center gap-1.5 font-medium">
+                  <CheckCircle2 className="w-3.5 h-3.5 text-emerald-500" />
+                  <span>v1.2 Sovereign</span>
+                </div>
+                <span className="font-mono text-[10px] text-neutral-400">EN / MR</span>
+              </div>
+            ) : (
+              <div className="flex justify-center text-neutral-400">
+                <CheckCircle2 className="w-3.5 h-3.5 text-emerald-500" />
               </div>
             )}
           </div>
         </aside>
 
         {/* Content View Pane */}
-        <main className="flex-1 overflow-y-auto p-4 sm:p-6 lg:p-8 bg-black">
-          {children}
+        <main className="flex-1 overflow-y-auto bg-[#000000] flex flex-col">
+          {/* Minimal Breadcrumb & Context Header */}
+          {activeTab !== 'dashboard' && currentCategory && currentItem && (
+            <div className="px-6 py-3 border-b border-[#181818] bg-[#080808]/80 backdrop-blur-xs flex items-center justify-between">
+              <div className="flex items-center gap-2 text-xs text-neutral-400 font-medium">
+                <button 
+                  onClick={() => onSelectTab('dashboard')} 
+                  className="hover:text-white transition-colors cursor-pointer"
+                >
+                  CMS
+                </button>
+                <span className="text-neutral-600">/</span>
+                <span className="text-neutral-300">{currentCategory.label}</span>
+                <span className="text-neutral-600">/</span>
+                <span className="text-white font-semibold flex items-center gap-1.5">
+                  {currentItem.label}
+                </span>
+              </div>
+
+              <div className="hidden sm:flex items-center gap-2 text-[11px] text-neutral-400">
+                <span>Scope:</span>
+                <span className="px-2 py-0.5 rounded-sm bg-[#141414] border border-[#262626] font-mono text-neutral-300 uppercase">
+                  {currentCategory.id}
+                </span>
+              </div>
+            </div>
+          )}
+
+          {/* View Container */}
+          <div className="p-4 sm:p-6 lg:p-8 flex-1">
+            {children}
+          </div>
         </main>
       </div>
     </div>

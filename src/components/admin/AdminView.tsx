@@ -1,4 +1,4 @@
-﻿import React, { useState } from 'react';
+import React, { useState } from 'react';
 import { AdminLayout, AdminTab } from './AdminLayout';
 import { DashboardView } from './DashboardView';
 import { StoryManagerView } from './StoryManagerView';
@@ -14,6 +14,7 @@ import { MediaLibraryView } from './MediaLibraryView';
 import { SectionManagerView } from './SectionManagerView';
 import { ContactManagerView } from './ContactManagerView';
 import { SeoManagerView } from './SeoManagerView';
+import { BrandSettingsView } from './BrandSettingsView';
 import { PublishModal } from './PublishModal';
 import { PreviewModal } from './PreviewModal';
 import { CmsLoginView } from './CmsLoginView';
@@ -52,6 +53,7 @@ export const AdminView: React.FC = () => {
         {activeTab === 'sections' && <SectionManagerView />}
         {activeTab === 'contact' && <ContactManagerView />}
         {activeTab === 'seo' && <SeoManagerView />}
+        {activeTab === 'brand' && <BrandSettingsView />}
       </AdminLayout>
 
       {/* Preview Modal */}

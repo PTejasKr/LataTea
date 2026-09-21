@@ -14,7 +14,8 @@ import {
   Activity,
   Sliders,
   Globe,
-  Network
+  Network,
+  FolderTree
 } from 'lucide-react';
 import { AdminTab } from './AdminLayout';
 
@@ -191,52 +192,217 @@ export const DashboardView: React.FC<DashboardViewProps> = ({ onSelectTab, onOpe
 
       </div>
 
-      {/* Quick Access Editorial Cards */}
-      <div className="bg-[#111111] rounded-sm p-6 sm:p-8 border border-[#222] space-y-6">
-        <h3 className="text-cms-card text-white font-serif">
-          Quick Story Editing Modules
-        </h3>
+      {/* Categorized Management Hubs */}
+      <div className="space-y-6">
+        <div className="flex items-center justify-between pb-2 border-b border-[#222]">
+          <h3 className="text-sm font-bold uppercase tracking-wider text-neutral-400">
+            Categorized Editorial Suite
+          </h3>
+          <span className="text-xs text-neutral-500 font-mono">5 Core Domains</span>
+        </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-          <button
-            type="button"
-            onClick={() => onSelectTab('story')}
-            className="p-5 rounded-sm border border-[#222] hover:border-[#444] bg-[#0a0a0a] hover:bg-[#161616] text-left transition-all group cursor-pointer"
-          >
-            <BookOpen className="w-5 h-5 text-white mb-2 group-hover:scale-110 transition-transform" />
-            <h4 className="font-bold text-cms-body text-white font-serif">Story & Heritage</h4>
-            <p className="text-cms-small text-neutral-400 mt-1">Origins, founding convictions, and milestone timeline.</p>
-          </button>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+          {/* Category 1: Editorial & Stories */}
+          <div className="bg-[#111111] rounded-sm p-6 border border-[#222] space-y-4 hover:border-[#333] transition-colors">
+            <div className="flex items-center justify-between">
+              <div className="flex items-center gap-2 text-white font-serif font-bold text-base">
+                <BookOpen className="w-4 h-4 text-emerald-400" />
+                <span>Editorial & Stories</span>
+              </div>
+              <span className="text-[10px] uppercase font-bold tracking-widest px-2 py-0.5 rounded-sm bg-[#161616] text-emerald-400 border border-emerald-950">
+                Core Narrative
+              </span>
+            </div>
+            <p className="text-xs text-neutral-400">
+              Founding history, 5-stage craftsmanship narrative, brewing processes, and tea tasting profiles.
+            </p>
+            <div className="grid grid-cols-2 gap-2 pt-2">
+              <button
+                type="button"
+                onClick={() => onSelectTab('story')}
+                className="px-3 py-2 rounded-sm bg-[#0a0a0a] hover:bg-[#161616] border border-[#222] hover:border-[#333] text-left text-xs text-white transition-all group cursor-pointer flex items-center justify-between"
+              >
+                <span>Heritage & Origins</span>
+                <ArrowRight className="w-3 h-3 text-neutral-500 group-hover:text-white group-hover:translate-x-0.5 transition-all" />
+              </button>
+              <button
+                type="button"
+                onClick={() => onSelectTab('craft')}
+                className="px-3 py-2 rounded-sm bg-[#0a0a0a] hover:bg-[#161616] border border-[#222] hover:border-[#333] text-left text-xs text-white transition-all group cursor-pointer flex items-center justify-between"
+              >
+                <span>The Craft (5 Stages)</span>
+                <ArrowRight className="w-3 h-3 text-neutral-500 group-hover:text-white group-hover:translate-x-0.5 transition-all" />
+              </button>
+              <button
+                type="button"
+                onClick={() => onSelectTab('process-steps')}
+                className="px-3 py-2 rounded-sm bg-[#0a0a0a] hover:bg-[#161616] border border-[#222] hover:border-[#333] text-left text-xs text-white transition-all group cursor-pointer flex items-center justify-between"
+              >
+                <span>Brewing Page</span>
+                <ArrowRight className="w-3 h-3 text-neutral-500 group-hover:text-white group-hover:translate-x-0.5 transition-all" />
+              </button>
+              <button
+                type="button"
+                onClick={() => onSelectTab('tea-stories')}
+                className="px-3 py-2 rounded-sm bg-[#0a0a0a] hover:bg-[#161616] border border-[#222] hover:border-[#333] text-left text-xs text-white transition-all group cursor-pointer flex items-center justify-between"
+              >
+                <span>Tea Blends ({teaStoriesCount})</span>
+                <ArrowRight className="w-3 h-3 text-neutral-500 group-hover:text-white group-hover:translate-x-0.5 transition-all" />
+              </button>
+            </div>
+          </div>
 
-          <button
-            type="button"
-            onClick={() => onSelectTab('craft')}
-            className="p-5 rounded-sm border border-[#222] hover:border-[#444] bg-[#0a0a0a] hover:bg-[#161616] text-left transition-all group cursor-pointer"
-          >
-            <Sliders className="w-5 h-5 text-white mb-2 group-hover:scale-110 transition-transform" />
-            <h4 className="font-bold text-cms-body text-white font-serif">The Craft (5 Stages)</h4>
-            <p className="text-cms-small text-neutral-400 mt-1">Source, Select, Blend, Prepare, Experience stages.</p>
-          </button>
+          {/* Category 2: Catalogue & Taxonomy */}
+          <div className="bg-[#111111] rounded-sm p-6 border border-[#222] space-y-4 hover:border-[#333] transition-colors">
+            <div className="flex items-center justify-between">
+              <div className="flex items-center gap-2 text-white font-serif font-bold text-base">
+                <FolderTree className="w-4 h-4 text-amber-400" />
+                <span>Catalogue & Taxonomy</span>
+              </div>
+              <span className="text-[10px] uppercase font-bold tracking-widest px-2 py-0.5 rounded-sm bg-[#161616] text-amber-400 border border-amber-950">
+                Structure
+              </span>
+            </div>
+            <p className="text-xs text-neutral-400">
+              Manage product categories, Marathi translations, ordering, and public display filters.
+            </p>
+            <div className="pt-2">
+              <button
+                type="button"
+                onClick={() => onSelectTab('categories')}
+                className="w-full px-3 py-2.5 rounded-sm bg-[#0a0a0a] hover:bg-[#161616] border border-[#222] hover:border-[#333] text-left text-xs text-white transition-all group cursor-pointer flex items-center justify-between"
+              >
+                <span>Product Categories Manager</span>
+                <ArrowRight className="w-3.5 h-3.5 text-neutral-500 group-hover:text-white group-hover:translate-x-0.5 transition-all" />
+              </button>
+            </div>
+          </div>
 
-          <button
-            type="button"
-            onClick={() => onSelectTab('tea-stories')}
-            className="p-5 rounded-sm border border-[#222] hover:border-[#444] bg-[#0a0a0a] hover:bg-[#161616] text-left transition-all group cursor-pointer"
-          >
-            <Coffee className="w-5 h-5 text-white mb-2 group-hover:scale-110 transition-transform" />
-            <h4 className="font-bold text-cms-body text-white font-serif">Tea Stories</h4>
-            <p className="text-cms-small text-neutral-400 mt-1">Tasting notes, origins, and non-commerce stories.</p>
-          </button>
+          {/* Category 3: Media & Assets */}
+          <div className="bg-[#111111] rounded-sm p-6 border border-[#222] space-y-4 hover:border-[#333] transition-colors">
+            <div className="flex items-center justify-between">
+              <div className="flex items-center gap-2 text-white font-serif font-bold text-base">
+                <ImageIcon className="w-4 h-4 text-sky-400" />
+                <span>Media & Assets</span>
+              </div>
+              <span className="text-[10px] uppercase font-bold tracking-widest px-2 py-0.5 rounded-sm bg-[#161616] text-sky-400 border border-sky-950">
+                Visuals
+              </span>
+            </div>
+            <p className="text-xs text-neutral-400">
+              Asset uploads, banner graphics, SVG vectors, and responsive device crop focal points.
+            </p>
+            <div className="grid grid-cols-2 gap-2 pt-2">
+              <button
+                type="button"
+                onClick={() => onSelectTab('media-library')}
+                className="px-3 py-2 rounded-sm bg-[#0a0a0a] hover:bg-[#161616] border border-[#222] hover:border-[#333] text-left text-xs text-white transition-all group cursor-pointer flex items-center justify-between"
+              >
+                <span>Media Library</span>
+                <ArrowRight className="w-3 h-3 text-neutral-500 group-hover:text-white group-hover:translate-x-0.5 transition-all" />
+              </button>
+              <button
+                type="button"
+                onClick={() => onSelectTab('image-position')}
+                className="px-3 py-2 rounded-sm bg-[#0a0a0a] hover:bg-[#161616] border border-[#222] hover:border-[#333] text-left text-xs text-white transition-all group cursor-pointer flex items-center justify-between"
+              >
+                <span>Focal Points</span>
+                <ArrowRight className="w-3 h-3 text-neutral-500 group-hover:text-white group-hover:translate-x-0.5 transition-all" />
+              </button>
+            </div>
+          </div>
 
-          <button
-            type="button"
-            onClick={() => onSelectTab('languages')}
-            className="p-5 rounded-sm border border-[#222] hover:border-[#444] bg-[#0a0a0a] hover:bg-[#161616] text-left transition-all group cursor-pointer"
-          >
-            <Globe className="w-5 h-5 text-white mb-2 group-hover:scale-110 transition-transform" />
-            <h4 className="font-bold text-cms-body text-white font-serif">Languages (EN & MR)</h4>
-            <p className="text-cms-small text-neutral-400 mt-1">Audit and update English and Marathi texts.</p>
-          </button>
+          {/* Category 4: Site Structure & Design */}
+          <div className="bg-[#111111] rounded-sm p-6 border border-[#222] space-y-4 hover:border-[#333] transition-colors">
+            <div className="flex items-center justify-between">
+              <div className="flex items-center gap-2 text-white font-serif font-bold text-base">
+                <Sliders className="w-4 h-4 text-purple-400" />
+                <span>Site Structure & Design</span>
+              </div>
+              <span className="text-[10px] uppercase font-bold tracking-widest px-2 py-0.5 rounded-sm bg-[#161616] text-purple-400 border border-purple-950">
+                Layout
+              </span>
+            </div>
+            <p className="text-xs text-neutral-400">
+              Header/footer navigation hierarchy, homepage section visibility, and brochure color themes.
+            </p>
+            <div className="grid grid-cols-3 gap-2 pt-2">
+              <button
+                type="button"
+                onClick={() => onSelectTab('navigation')}
+                className="px-2.5 py-2 rounded-sm bg-[#0a0a0a] hover:bg-[#161616] border border-[#222] hover:border-[#333] text-left text-xs text-white transition-all group cursor-pointer flex items-center justify-between"
+              >
+                <span>Navigation</span>
+                <ArrowRight className="w-3 h-3 text-neutral-500 group-hover:text-white" />
+              </button>
+              <button
+                type="button"
+                onClick={() => onSelectTab('sections')}
+                className="px-2.5 py-2 rounded-sm bg-[#0a0a0a] hover:bg-[#161616] border border-[#222] hover:border-[#333] text-left text-xs text-white transition-all group cursor-pointer flex items-center justify-between"
+              >
+                <span>Sections</span>
+                <ArrowRight className="w-3 h-3 text-neutral-500 group-hover:text-white" />
+              </button>
+              <button
+                type="button"
+                onClick={() => onSelectTab('brand')}
+                className="px-2.5 py-2 rounded-sm bg-[#0a0a0a] hover:bg-[#161616] border border-[#222] hover:border-[#333] text-left text-xs text-white transition-all group cursor-pointer flex items-center justify-between"
+              >
+                <span>Brand Style</span>
+                <ArrowRight className="w-3 h-3 text-neutral-500 group-hover:text-white" />
+              </button>
+            </div>
+          </div>
+
+          {/* Category 5: System & Localization */}
+          <div className="bg-[#111111] rounded-sm p-6 border border-[#222] space-y-4 hover:border-[#333] transition-colors md:col-span-2">
+            <div className="flex items-center justify-between">
+              <div className="flex items-center gap-2 text-white font-serif font-bold text-base">
+                <Globe className="w-4 h-4 text-neutral-300" />
+                <span>System, Localization & Infrastructure</span>
+              </div>
+              <span className="text-[10px] uppercase font-bold tracking-widest px-2 py-0.5 rounded-sm bg-[#161616] text-neutral-300 border border-[#333]">
+                Settings & Legal
+              </span>
+            </div>
+            <p className="text-xs text-neutral-400">
+              Bilingual English/Marathi verification, Google SEO meta tags, corporate contacts, and domain DNS.
+            </p>
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 pt-2">
+              <button
+                type="button"
+                onClick={() => onSelectTab('languages')}
+                className="px-3 py-2 rounded-sm bg-[#0a0a0a] hover:bg-[#161616] border border-[#222] hover:border-[#333] text-left text-xs text-white transition-all group cursor-pointer flex items-center justify-between"
+              >
+                <span>Languages (EN/MR)</span>
+                <ArrowRight className="w-3 h-3 text-neutral-500 group-hover:text-white" />
+              </button>
+              <button
+                type="button"
+                onClick={() => onSelectTab('seo')}
+                className="px-3 py-2 rounded-sm bg-[#0a0a0a] hover:bg-[#161616] border border-[#222] hover:border-[#333] text-left text-xs text-white transition-all group cursor-pointer flex items-center justify-between"
+              >
+                <span>SEO & Meta</span>
+                <ArrowRight className="w-3 h-3 text-neutral-500 group-hover:text-white" />
+              </button>
+              <button
+                type="button"
+                onClick={() => onSelectTab('contact')}
+                className="px-3 py-2 rounded-sm bg-[#0a0a0a] hover:bg-[#161616] border border-[#222] hover:border-[#333] text-left text-xs text-white transition-all group cursor-pointer flex items-center justify-between"
+              >
+                <span>Contact & Legal</span>
+                <ArrowRight className="w-3 h-3 text-neutral-500 group-hover:text-white" />
+              </button>
+              <button
+                type="button"
+                onClick={() => onSelectTab('domains')}
+                className="px-3 py-2 rounded-sm bg-[#0a0a0a] hover:bg-[#161616] border border-[#222] hover:border-[#333] text-left text-xs text-white transition-all group cursor-pointer flex items-center justify-between"
+              >
+                <span>Domains ({draftState.domains?.length || 1})</span>
+                <ArrowRight className="w-3 h-3 text-neutral-500 group-hover:text-white" />
+              </button>
+            </div>
+          </div>
         </div>
       </div>
     </div>
