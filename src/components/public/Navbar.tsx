@@ -104,7 +104,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenInquiry, isDraftPreview = 
                 <button
                   type="button"
                   onClick={() => setLanguage('en')}
-                  className={`px-2.5 py-1 rounded-full text-[11px] font-bold tracking-wider uppercase transition-all cursor-pointer ${
+                  className={`px-3 py-1.5 rounded-full text-[11px] font-bold tracking-wider uppercase transition-all cursor-pointer ${
                     language === 'en'
                       ? 'bg-brand-accent text-white shadow-xs'
                       : 'text-white/70 hover:text-white'
@@ -115,7 +115,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenInquiry, isDraftPreview = 
                 <button
                   type="button"
                   onClick={() => setLanguage('mr')}
-                  className={`px-2.5 py-1 rounded-full text-[11px] font-bold tracking-wider transition-all cursor-pointer ${
+                  className={`px-3 py-1.5 rounded-full text-[11px] font-bold tracking-wider transition-all cursor-pointer ${
                     language === 'mr'
                       ? 'bg-brand-accent text-white shadow-xs'
                       : 'text-white/70 hover:text-white'

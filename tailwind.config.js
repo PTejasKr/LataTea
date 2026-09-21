@@ -47,17 +47,17 @@ export default {
       },
       fontSize: {
         // --- PUBLIC WEBSITE TOKENS ---
-        'pub-hero': ['clamp(1.875rem, 4.2vw, 3.5rem)', { lineHeight: '1.18', letterSpacing: '-0.02em' }],
-        'pub-section': ['clamp(1.375rem, 3vw, 2.375rem)', { lineHeight: '1.25', letterSpacing: '-0.015em' }],
-        'pub-sub': ['clamp(1.0625rem, 2vw, 1.4375rem)', { lineHeight: '1.35' }],
-        'pub-body': ['clamp(0.9375rem, 1.1vw, 1.0625rem)', { lineHeight: '1.65' }],
+        'pub-hero': ['clamp(1.875rem, 4.2vw, 3.5rem)', { lineHeight: '1.4', letterSpacing: 'normal' }],
+        'pub-section': ['clamp(1.375rem, 3vw, 2.375rem)', { lineHeight: '1.4', letterSpacing: 'normal' }],
+        'pub-sub': ['clamp(1.0625rem, 2vw, 1.4375rem)', { lineHeight: '1.5' }],
+        'pub-body': ['clamp(0.9375rem, 1.1vw, 1.0625rem)', { lineHeight: '1.7' }],
         'pub-nav': ['0.875rem', { lineHeight: '1.5', letterSpacing: '0.04em', fontWeight: '600' }],
         'pub-btn': ['0.875rem', { lineHeight: '1.5', letterSpacing: '0.05em', fontWeight: '700' }],
         'pub-small': ['0.8125rem', { lineHeight: '1.5' }],
         
         // --- CMS TOKENS ---
-        'cms-page': ['clamp(1.375rem, 2.2vw, 1.75rem)', { lineHeight: '1.2', fontWeight: '700' }],
-        'cms-section': ['clamp(1.1875rem, 1.8vw, 1.375rem)', { lineHeight: '1.3', fontWeight: '600' }],
+        'cms-page': ['clamp(1.375rem, 2.2vw, 1.75rem)', { lineHeight: '1.4', fontWeight: '700', letterSpacing: 'normal' }],
+        'cms-section': ['clamp(1.1875rem, 1.8vw, 1.375rem)', { lineHeight: '1.4', fontWeight: '600', letterSpacing: 'normal' }],
         'cms-card': ['clamp(1.0625rem, 1.5vw, 1.25rem)', { lineHeight: '1.4', fontWeight: '600' }],
         'cms-body': ['clamp(0.9375rem, 1.1vw, 1rem)', { lineHeight: '1.6' }],
         'cms-label': ['0.8125rem', { lineHeight: '1.5', fontWeight: '600' }],
