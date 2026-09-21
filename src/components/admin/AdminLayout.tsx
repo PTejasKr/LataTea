@@ -26,7 +26,8 @@ import {
   Settings,
   LayoutTemplate,
   CheckCircle2,
-  X
+  X,
+  MoreVertical
 } from 'lucide-react';
 
 export type AdminTab = 
@@ -85,6 +86,8 @@ export const AdminLayout: React.FC<AdminLayoutProps> = ({
   } = useCMS();
 
   const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [mobileMoreOpen, setMobileMoreOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
 
   // Define professional navigation categories according to industry standards
@@ -228,7 +231,7 @@ export const AdminLayout: React.FC<AdminLayoutProps> = ({
     }
   ], [draftState]);
 
-  // Track expanded groups. Auto-expand the category of the active tab
+  // Track expanded groups
   const [expandedCategories, setExpandedCategories] = useState<Record<string, boolean>>({
     editorial: true,
     catalogue: true,
@@ -237,7 +240,7 @@ export const AdminLayout: React.FC<AdminLayoutProps> = ({
     system: false
   });
 
-  // Whenever activeTab changes, make sure its parent category is expanded
+  // Auto-expand active tab's parent category
   useEffect(() => {
     const parentCategory = navigationCategories.find(cat => 
       cat.items.some(item => item.id === activeTab)
@@ -257,7 +260,12 @@ export const AdminLayout: React.FC<AdminLayoutProps> = ({
     }));
   };
 
-  // Find active item & category for breadcrumbs and context
+  const handleSelectNav = (tabId: AdminTab) => {
+    onSelectTab(tabId);
+    setMobileMenuOpen(false);
+  };
+
+  // Current category & item for breadcrumb
   const currentCategory = navigationCategories.find(c => c.items.some(i => i.id === activeTab));
   const currentItem = currentCategory?.items.find(i => i.id === activeTab);
 
@@ -280,44 +288,60 @@ export const AdminLayout: React.FC<AdminLayoutProps> = ({
   return (
     <div className="min-h-screen bg-[#050505] text-white flex flex-col font-sans selection:bg-neutral-800 selection:text-white">
       {/* Top Application Bar */}
-      <header className="h-16 bg-[#0a0a0a] border-b border-[#1f1f1f] px-4 sm:px-6 flex items-center justify-between z-30 sticky top-0 backdrop-blur-md">
-        <div className="flex items-center gap-3">
+      <header className="h-14 sm:h-16 bg-[#0a0a0a] border-b border-[#1f1f1f] px-3 sm:px-6 flex items-center justify-between z-30 sticky top-0 backdrop-blur-md">
+        {/* Left: Mobile Drawer Trigger / Desktop Collapse & Logo */}
+        <div className="flex items-center gap-2 sm:gap-3">
+          {/* Mobile Menu Hamburger */}
+          <button
+            type="button"
+            onClick={() => setMobileMenuOpen(true)}
+            className="md:hidden p-2 rounded-sm bg-[#141414] hover:bg-[#222222] text-neutral-300 transition-colors cursor-pointer border border-[#262626] min-w-[38px] min-h-[38px] flex items-center justify-center"
+            title="Open Mobile Menu"
+            aria-label="Open Mobile Menu"
+          >
+            <MenuIcon className="w-4 h-4" />
+          </button>
+
+          {/* Desktop Sidebar Toggle */}
           <button
             type="button"
             onClick={() => setSidebarCollapsed(!sidebarCollapsed)}
-            className="p-2 rounded-sm bg-[#141414] hover:bg-[#222222] text-neutral-300 transition-colors cursor-pointer border border-[#262626]"
+            className="hidden md:flex p-2 rounded-sm bg-[#141414] hover:bg-[#222222] text-neutral-300 transition-colors cursor-pointer border border-[#262626] items-center justify-center"
             title="Toggle Sidebar"
           >
             {sidebarCollapsed ? <ChevronRight className="w-4 h-4" /> : <ChevronLeft className="w-4 h-4" />}
           </button>
           
-          <div className="flex items-center gap-2.5">
-            <div className="w-8 h-8 rounded-sm bg-white flex items-center justify-center font-serif font-black text-black text-sm border border-[#333] shadow-xs">
+          {/* Brand Identity */}
+          <div className="flex items-center gap-2 sm:gap-2.5">
+            <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-sm bg-white flex items-center justify-center font-serif font-black text-black text-xs sm:text-sm border border-[#333] shadow-xs">
               LT
             </div>
             <div>
-              <div className="font-bold text-sm text-white tracking-wide flex items-center gap-2">
-                <span>Storytelling CMS</span>
-                <span className="text-[10px] uppercase font-bold tracking-widest px-2 py-0.5 rounded-sm bg-neutral-900 text-neutral-300 border border-[#333]">
-                  Enterprise Suite
+              <div className="font-bold text-xs sm:text-sm text-white tracking-wide flex items-center gap-1.5 sm:gap-2">
+                <span>Lata Tea CMS</span>
+                <span className="hidden sm:inline-block text-[9px] uppercase font-bold tracking-widest px-1.5 py-0.5 rounded-sm bg-neutral-900 text-neutral-400 border border-[#2d2d2d]">
+                  Suite
                 </span>
               </div>
-              <div className="text-xs text-neutral-400">
-                Editorial Manager: <span className="text-white font-medium">Murjo Basu</span>
+              <div className="text-[10px] sm:text-xs text-neutral-400 hidden xs:block truncate max-w-[130px] sm:max-w-none">
+                Editor: <span className="text-white font-medium">Murjo Basu</span>
               </div>
             </div>
           </div>
         </div>
 
-        {/* Center/Right Status & Action Buttons */}
-        <div className="flex items-center gap-2 sm:gap-3">
-          <div className="hidden lg:flex items-center gap-2 px-3 py-1.5 rounded-sm bg-[#111111] border border-[#222] text-xs">
+        {/* Right: Actions Bar */}
+        <div className="flex items-center gap-1.5 sm:gap-2.5">
+          {/* Pending Status Badge (Desktop) */}
+          <div className="hidden lg:flex items-center gap-2 px-2.5 py-1.5 rounded-sm bg-[#111111] border border-[#222] text-xs">
             <span className={`w-2 h-2 rounded-full ${hasDraftChanges ? 'bg-amber-400 animate-pulse' : 'bg-emerald-400'}`} />
-            <span className="font-medium text-neutral-300">
-              {hasDraftChanges ? 'Draft Edits Pending' : 'Live & Published'}
+            <span className="font-medium text-neutral-300 text-[11px]">
+              {hasDraftChanges ? 'Draft Pending' : 'Published'}
             </span>
           </div>
 
+          {/* Discard Draft (Desktop/Tablet) */}
           {hasDraftChanges && (
             <button
               type="button"
@@ -326,29 +350,31 @@ export const AdminLayout: React.FC<AdminLayoutProps> = ({
                   discardDraft();
                 }
               }}
-              className="px-3 py-1.5 rounded-sm text-xs font-semibold bg-[#161616] hover:bg-[#222] text-neutral-300 hover:text-white border border-[#333] transition-all flex items-center gap-1.5 cursor-pointer"
+              className="hidden sm:flex px-2.5 py-1.5 rounded-sm text-xs font-semibold bg-[#161616] hover:bg-[#222] text-neutral-300 hover:text-white border border-[#333] transition-all items-center gap-1.5 cursor-pointer"
               title="Discard all pending draft edits"
             >
               <RotateCcw className="w-3.5 h-3.5 text-neutral-400" />
-              <span className="hidden sm:inline">Discard</span>
+              <span>Discard</span>
             </button>
           )}
 
+          {/* Live Preview Button */}
           <button
             type="button"
             onClick={() => setShowPreviewModal(true)}
-            className="px-3 sm:px-3.5 py-1.5 rounded-sm text-xs font-semibold bg-[#141414] hover:bg-[#222222] text-neutral-200 border border-[#333] transition-all flex items-center gap-1.5 cursor-pointer"
+            className="p-2 sm:px-3 sm:py-1.5 rounded-sm text-xs font-semibold bg-[#141414] hover:bg-[#222222] text-neutral-200 border border-[#333] transition-all flex items-center gap-1.5 cursor-pointer min-h-[36px] min-w-[36px] justify-center"
             title="Preview live changes across devices"
           >
             <Eye className="w-3.5 h-3.5 text-neutral-300" />
-            <span className="hidden sm:inline">Preview</span>
+            <span className="hidden md:inline">Preview</span>
           </button>
 
+          {/* Publish Button */}
           <button
             type="button"
             onClick={onOpenPublishModal}
             disabled={!hasDraftChanges}
-            className={`px-3.5 sm:px-4 py-1.5 rounded-sm text-xs font-bold uppercase tracking-wider flex items-center gap-1.5 transition-all cursor-pointer ${
+            className={`px-3 sm:px-4 py-1.5 rounded-sm text-xs font-bold uppercase tracking-wider flex items-center gap-1.5 transition-all cursor-pointer min-h-[36px] ${
               hasDraftChanges
                 ? 'bg-white text-black hover:bg-neutral-200 shadow-sm'
                 : 'bg-[#181818] text-neutral-500 border border-[#262626] cursor-not-allowed'
@@ -356,25 +382,72 @@ export const AdminLayout: React.FC<AdminLayoutProps> = ({
           >
             <UploadCloud className="w-3.5 h-3.5" />
             <span>Publish</span>
+            {hasDraftChanges && <span className="w-1.5 h-1.5 rounded-full bg-amber-500 md:hidden" />}
           </button>
 
-          <div className="h-5 w-px bg-[#262626] mx-1 hidden sm:block" />
-
+          {/* Exit to Site Button (Desktop) */}
           <button
             type="button"
             onClick={exitCms}
-            className="flex items-center gap-1.5 px-3 py-1.5 rounded-sm text-xs font-medium text-neutral-200 hover:text-white bg-[#141414] hover:bg-[#222222] border border-[#2d2d2d] transition-all cursor-pointer"
+            className="hidden sm:flex items-center gap-1.5 px-3 py-1.5 rounded-sm text-xs font-medium text-neutral-200 hover:text-white bg-[#141414] hover:bg-[#222222] border border-[#2d2d2d] transition-all cursor-pointer min-h-[36px]"
             title="Exit CMS and return to live website"
           >
             <Globe className="w-3.5 h-3.5 text-emerald-400" />
-            <span className="hidden sm:inline">Exit to Site</span>
-            <span className="sm:hidden">Exit</span>
+            <span>Exit to Site</span>
           </button>
 
+          {/* Mobile More Options Dropdown Toggle */}
+          <div className="relative sm:hidden">
+            <button
+              type="button"
+              onClick={() => setMobileMoreOpen(!mobileMoreOpen)}
+              className="p-2 rounded-sm bg-[#141414] text-neutral-300 border border-[#262626] min-h-[36px] min-w-[36px] flex items-center justify-center cursor-pointer"
+              title="More Options"
+            >
+              <MoreVertical className="w-4 h-4" />
+            </button>
+
+            {mobileMoreOpen && (
+              <div 
+                className="absolute right-0 top-full mt-2 w-48 bg-[#111111] border border-[#333] rounded-sm shadow-2xl p-1.5 z-50 space-y-1 animate-in fade-in"
+                onClick={() => setMobileMoreOpen(false)}
+              >
+                <button
+                  onClick={exitCms}
+                  className="w-full flex items-center gap-2 px-3 py-2 text-xs text-neutral-200 hover:bg-[#1f1f1f] rounded-sm text-left"
+                >
+                  <Globe className="w-3.5 h-3.5 text-emerald-400" />
+                  <span>Exit to Live Site</span>
+                </button>
+                {hasDraftChanges && (
+                  <button
+                    onClick={() => {
+                      if (window.confirm('Discard all uncommitted draft changes?')) {
+                        discardDraft();
+                      }
+                    }}
+                    className="w-full flex items-center gap-2 px-3 py-2 text-xs text-amber-400 hover:bg-[#1f1f1f] rounded-sm text-left"
+                  >
+                    <RotateCcw className="w-3.5 h-3.5" />
+                    <span>Discard Draft</span>
+                  </button>
+                )}
+                <button
+                  onClick={logoutCms}
+                  className="w-full flex items-center gap-2 px-3 py-2 text-xs text-red-400 hover:bg-[#1f1f1f] rounded-sm text-left"
+                >
+                  <LogOut className="w-3.5 h-3.5" />
+                  <span>Log Out</span>
+                </button>
+              </div>
+            )}
+          </div>
+
+          {/* Desktop Logout Button */}
           <button
             type="button"
             onClick={logoutCms}
-            className="p-1.5 rounded-sm text-neutral-400 hover:text-white hover:bg-[#1a1a1a] transition-colors cursor-pointer"
+            className="hidden sm:flex p-2 rounded-sm text-neutral-400 hover:text-white hover:bg-[#1a1a1a] transition-colors cursor-pointer min-h-[36px] min-w-[36px] items-center justify-center"
             title="Log Out"
           >
             <LogOut className="w-4 h-4" />
@@ -382,19 +455,51 @@ export const AdminLayout: React.FC<AdminLayoutProps> = ({
         </div>
       </header>
 
-      {/* Body: Structured Minimal Sidebar + Dynamic Workspace */}
-      <div className="flex-1 flex overflow-hidden">
-        {/* Navigation Sidebar */}
+      {/* Body: Sidebar + Dynamic Workspace */}
+      <div className="flex-1 flex overflow-hidden relative">
+        
+        {/* Mobile Backdrop Overlay */}
+        {mobileMenuOpen && (
+          <div 
+            className="fixed inset-0 bg-black/80 backdrop-blur-xs z-40 md:hidden transition-opacity"
+            onClick={() => setMobileMenuOpen(false)}
+          />
+        )}
+
+        {/* Navigation Sidebar (Desktop + Mobile Drawer) */}
         <aside
-          className={`bg-[#0a0a0a] border-r border-[#1f1f1f] transition-all duration-300 flex flex-col justify-between shrink-0 select-none ${
-            sidebarCollapsed ? 'w-[68px]' : 'w-72'
+          className={`bg-[#0a0a0a] border-r border-[#1f1f1f] flex flex-col justify-between shrink-0 select-none z-50 md:z-auto transition-all duration-300 ${
+            // Mobile Drawer classes:
+            mobileMenuOpen 
+              ? 'fixed inset-y-0 left-0 w-72 max-w-[85vw] shadow-2xl translate-x-0'
+              : 'fixed inset-y-0 left-0 w-72 -translate-x-full md:translate-x-0 md:static'
+          } ${
+            // Desktop width classes:
+            sidebarCollapsed ? 'md:w-[68px]' : 'md:w-72'
           }`}
         >
+          {/* Mobile Drawer Header with Close Button */}
+          <div className="md:hidden flex items-center justify-between p-3.5 border-b border-[#1f1f1f] bg-[#0d0d0d]">
+            <div className="flex items-center gap-2">
+              <div className="w-6 h-6 rounded-sm bg-white text-black font-bold text-xs flex items-center justify-center font-serif">
+                LT
+              </div>
+              <span className="font-bold text-xs text-white">Editorial Modules</span>
+            </div>
+            <button
+              type="button"
+              onClick={() => setMobileMenuOpen(false)}
+              className="p-1.5 rounded-sm bg-[#161616] text-neutral-400 hover:text-white"
+            >
+              <X className="w-4 h-4" />
+            </button>
+          </div>
+
           {/* Top of Sidebar: Search & Overview */}
           <div className="flex flex-col flex-1 overflow-y-auto overflow-x-hidden p-2.5 space-y-3">
             
-            {/* Minimal Filter Input (when expanded) */}
-            {!sidebarCollapsed && (
+            {/* Minimal Filter Input (when expanded or on mobile) */}
+            {(!sidebarCollapsed || mobileMenuOpen) && (
               <div className="relative mb-1">
                 <Search className="w-3.5 h-3.5 text-neutral-500 absolute left-2.5 top-1/2 -translate-y-1/2" />
                 <input
@@ -402,12 +507,12 @@ export const AdminLayout: React.FC<AdminLayoutProps> = ({
                   placeholder="Quick jump / search..."
                   value={searchQuery}
                   onChange={e => setSearchQuery(e.target.value)}
-                  className="w-full bg-[#111111] border border-[#262626] rounded-sm pl-8 pr-7 py-1.5 text-xs text-white placeholder:text-neutral-500 focus:outline-none focus:border-neutral-400 transition-colors"
+                  className="w-full bg-[#111111] border border-[#262626] rounded-sm pl-8 pr-7 py-2 md:py-1.5 text-xs text-white placeholder:text-neutral-500 focus:outline-none focus:border-neutral-400 transition-colors"
                 />
                 {searchQuery && (
                   <button 
                     onClick={() => setSearchQuery('')}
-                    className="absolute right-2 top-1/2 -translate-y-1/2 text-neutral-500 hover:text-white cursor-pointer"
+                    className="absolute right-2 top-1/2 -translate-y-1/2 text-neutral-500 hover:text-white cursor-pointer p-1"
                   >
                     <X className="w-3 h-3" />
                   </button>
@@ -419,16 +524,16 @@ export const AdminLayout: React.FC<AdminLayoutProps> = ({
             <div className="space-y-1">
               <button
                 type="button"
-                onClick={() => onSelectTab('dashboard')}
-                title={sidebarCollapsed ? 'Dashboard & Health' : undefined}
-                className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-sm text-xs transition-all cursor-pointer group ${
+                onClick={() => handleSelectNav('dashboard')}
+                title={sidebarCollapsed && !mobileMenuOpen ? 'Dashboard & Health' : undefined}
+                className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-sm text-xs transition-all cursor-pointer group min-h-[40px] ${
                   activeTab === 'dashboard'
                     ? 'bg-white text-black font-bold shadow-xs'
                     : 'text-neutral-300 hover:bg-[#141414] hover:text-white'
-                } ${sidebarCollapsed ? 'justify-center px-0' : ''}`}
+                } ${sidebarCollapsed && !mobileMenuOpen ? 'justify-center px-0' : ''}`}
               >
                 <LayoutDashboard className={`w-4 h-4 shrink-0 ${activeTab === 'dashboard' ? 'text-black' : 'text-neutral-400 group-hover:text-white'}`} />
-                {!sidebarCollapsed && (
+                {(!sidebarCollapsed || mobileMenuOpen) && (
                   <div className="flex-1 text-left flex items-center justify-between">
                     <span className="font-semibold">Dashboard & Health</span>
                     {hasDraftChanges && (
@@ -450,11 +555,11 @@ export const AdminLayout: React.FC<AdminLayoutProps> = ({
                 return (
                   <div key={category.id} className="space-y-1">
                     {/* Category Group Header Button */}
-                    {!sidebarCollapsed ? (
+                    {(!sidebarCollapsed || mobileMenuOpen) ? (
                       <button
                         type="button"
                         onClick={() => toggleCategory(category.id)}
-                        className="w-full flex items-center justify-between px-2.5 py-1.5 text-[11px] font-bold uppercase tracking-wider text-neutral-400 hover:text-neutral-200 transition-colors cursor-pointer group"
+                        className="w-full flex items-center justify-between px-2.5 py-1.5 text-[11px] font-bold uppercase tracking-wider text-neutral-400 hover:text-neutral-200 transition-colors cursor-pointer group min-h-[32px]"
                       >
                         <div className="flex items-center gap-2">
                           <span className="shrink-0">{category.icon}</span>
@@ -471,8 +576,8 @@ export const AdminLayout: React.FC<AdminLayoutProps> = ({
                     )}
 
                     {/* Submenu Items List */}
-                    {(isExpanded || sidebarCollapsed) && (
-                      <div className={`space-y-0.5 ${!sidebarCollapsed ? 'pl-2 border-l border-[#1f1f1f] ml-3.5' : ''}`}>
+                    {(isExpanded || (sidebarCollapsed && !mobileMenuOpen)) && (
+                      <div className={`space-y-0.5 ${(!sidebarCollapsed || mobileMenuOpen) ? 'pl-2 border-l border-[#1f1f1f] ml-3.5' : ''}`}>
                         {category.items.map(item => {
                           const isActive = activeTab === item.id;
 
@@ -480,13 +585,13 @@ export const AdminLayout: React.FC<AdminLayoutProps> = ({
                             <button
                               key={item.id}
                               type="button"
-                              onClick={() => onSelectTab(item.id)}
-                              title={sidebarCollapsed ? `${category.label} > ${item.label}` : item.description}
-                              className={`w-full flex items-center gap-2.5 px-2.5 py-2 rounded-sm text-xs transition-all cursor-pointer group relative ${
+                              onClick={() => handleSelectNav(item.id)}
+                              title={sidebarCollapsed && !mobileMenuOpen ? `${category.label} > ${item.label}` : item.description}
+                              className={`w-full flex items-center gap-2.5 px-2.5 py-2.5 md:py-2 rounded-sm text-xs transition-all cursor-pointer group relative min-h-[38px] ${
                                 isActive
                                   ? 'bg-[#1e1e1e] text-white font-semibold border border-[#333] shadow-xs'
                                   : 'text-neutral-400 hover:text-neutral-200 hover:bg-[#121212]'
-                              } ${sidebarCollapsed ? 'justify-center px-0' : ''}`}
+                              } ${sidebarCollapsed && !mobileMenuOpen ? 'justify-center px-0' : ''}`}
                             >
                               <span className={`shrink-0 transition-colors ${
                                 isActive ? 'text-white' : 'text-neutral-400 group-hover:text-neutral-200'
@@ -494,7 +599,7 @@ export const AdminLayout: React.FC<AdminLayoutProps> = ({
                                 {item.icon}
                               </span>
 
-                              {!sidebarCollapsed && (
+                              {(!sidebarCollapsed || mobileMenuOpen) && (
                                 <>
                                   <span className="flex-1 text-left truncate">
                                     {item.label}
@@ -512,7 +617,7 @@ export const AdminLayout: React.FC<AdminLayoutProps> = ({
                               )}
 
                               {/* Active marker pill when collapsed */}
-                              {sidebarCollapsed && isActive && (
+                              {sidebarCollapsed && !mobileMenuOpen && isActive && (
                                 <span className="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-4 bg-white rounded-r-sm" />
                               )}
                             </button>
@@ -528,7 +633,7 @@ export const AdminLayout: React.FC<AdminLayoutProps> = ({
 
           {/* Footer of Sidebar */}
           <div className="p-3 border-t border-[#1f1f1f] bg-[#080808]">
-            {!sidebarCollapsed ? (
+            {(!sidebarCollapsed || mobileMenuOpen) ? (
               <div className="flex items-center justify-between text-[11px] text-neutral-400">
                 <div className="flex items-center gap-1.5 font-medium">
                   <CheckCircle2 className="w-3.5 h-3.5 text-emerald-500" />
@@ -545,27 +650,27 @@ export const AdminLayout: React.FC<AdminLayoutProps> = ({
         </aside>
 
         {/* Content View Pane */}
-        <main className="flex-1 overflow-y-auto bg-[#000000] flex flex-col">
+        <main className="flex-1 overflow-y-auto bg-[#000000] flex flex-col min-w-0">
           {/* Minimal Breadcrumb & Context Header */}
           {activeTab !== 'dashboard' && currentCategory && currentItem && (
-            <div className="px-6 py-3 border-b border-[#181818] bg-[#080808]/80 backdrop-blur-xs flex items-center justify-between">
-              <div className="flex items-center gap-2 text-xs text-neutral-400 font-medium">
+            <div className="px-3 sm:px-6 py-2.5 sm:py-3 border-b border-[#181818] bg-[#080808]/80 backdrop-blur-xs flex items-center justify-between gap-2">
+              <div className="flex items-center gap-1.5 sm:gap-2 text-[11px] sm:text-xs text-neutral-400 font-medium overflow-hidden">
                 <button 
                   onClick={() => onSelectTab('dashboard')} 
-                  className="hover:text-white transition-colors cursor-pointer"
+                  className="hover:text-white transition-colors cursor-pointer shrink-0"
                 >
                   CMS
                 </button>
                 <span className="text-neutral-600">/</span>
-                <span className="text-neutral-300">{currentCategory.label}</span>
-                <span className="text-neutral-600">/</span>
-                <span className="text-white font-semibold flex items-center gap-1.5">
+                <span className="text-neutral-300 hidden xs:inline truncate">{currentCategory.label}</span>
+                <span className="text-neutral-600 hidden xs:inline">/</span>
+                <span className="text-white font-semibold flex items-center gap-1.5 truncate">
                   {currentItem.label}
                 </span>
               </div>
 
-              <div className="hidden sm:flex items-center gap-2 text-[11px] text-neutral-400">
-                <span>Scope:</span>
+              <div className="flex items-center gap-2 text-[10px] sm:text-[11px] text-neutral-400 shrink-0">
+                <span className="hidden sm:inline">Scope:</span>
                 <span className="px-2 py-0.5 rounded-sm bg-[#141414] border border-[#262626] font-mono text-neutral-300 uppercase">
                   {currentCategory.id}
                 </span>
@@ -574,7 +679,7 @@ export const AdminLayout: React.FC<AdminLayoutProps> = ({
           )}
 
           {/* View Container */}
-          <div className="p-4 sm:p-6 lg:p-8 flex-1">
+          <div className="p-3.5 sm:p-6 lg:p-8 flex-1 max-w-full overflow-x-hidden">
             {children}
           </div>
         </main>

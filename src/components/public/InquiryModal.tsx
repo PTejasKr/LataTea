@@ -185,7 +185,7 @@ export const InquiryModal: React.FC<InquiryModalProps> = ({ isOpen, onClose, def
                 </label>
                 <textarea
                   rows={2}
-                  placeholder="e.g. Delivery to Maharashtra branch"
+                  placeholder="e.g. Delivery to Pune / Mumbai branch"
                   value={notes}
                   onChange={e => setNotes(e.target.value)}
                   className="w-full px-4 py-2.5 rounded-xl border border-amber-200 bg-white text-slate-900 focus:outline-none focus:ring-2 focus:ring-lataamber-500 font-sans text-sm"

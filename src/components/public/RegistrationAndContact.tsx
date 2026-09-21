@@ -49,7 +49,7 @@ export const RegistrationAndContact: React.FC<RegistrationAndContactProps> = ({ 
                   {t('Address:')}
                 </span>
                 <p className="text-xs text-brand-text-muted font-sans leading-relaxed font-medium">
-                  <strong className="text-brand-primary block mb-0.5">{contact.companyName || 'Lata Private Limited'}</strong>
+                  <strong className="text-brand-primary block mb-0.5">{contact.companyName || 'Lata Teamix'}</strong>
                   {contact.address || '679/2, Chakan - Alandi Rd, Alandi Fata, Kurli, Maharashtra 410501'}
                 </p>
               </div>

@@ -23,7 +23,7 @@ export const Footer: React.FC = () => {
 
             <p className="text-pub-small text-slate-300 font-sans leading-relaxed max-w-sm">
               {language === 'en' 
-                ? contact.companyName ? contact.companyName + ' operates in Maharashtra. Natural jaggery tea and basundi premixes.' : 'Lata Private Limited operates in Maharashtra. Natural jaggery tea and basundi premixes.' 
+                ? 'Lata Teamix is manufactured in Pune, Maharashtra. Natural jaggery tea and basundi premixes.' 
                 : 'पुणे, महाराष्ट्र. नैसर्गिक गूळ चहा आणि बासुंदी प्रीमिक्स.'}
             </p>
 
@@ -113,7 +113,7 @@ export const Footer: React.FC = () => {
         <div className="pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-pub-small font-sans text-slate-400">
           <div>
             {language === 'en' 
-              ? '© 2026 Lata Private Limited. All rights reserved.' 
+              ? '© 2026 Lata Teamix. All rights reserved.' 
               : '© २०२६ लता टीमिक्स. सर्व हक्क राखीव.'}
           </div>
 
