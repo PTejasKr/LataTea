@@ -125,5 +125,15 @@ export const DEFAULT_MEDIA_ITEMS: MediaItem[] = [
     fileSize: '3.8 KB',
     mediaType: 'image/svg+xml',
     uploadedAt: '2026-09-01T00:00:00.000Z'
+  },
+  {
+    id: 'media_packaging_gud',
+    filename: 'packaging_gud.jpeg',
+    url: '/assets/images/packaging_gud.jpeg',
+    alt: 'Lata Teamix Gud Tea Range Packaging',
+    dimensions: { width: 1414, height: 1414 },
+    fileSize: '150 KB',
+    mediaType: 'image/jpeg',
+    uploadedAt: new Date().toISOString()
   }
 ];

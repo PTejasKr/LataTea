@@ -127,6 +127,19 @@ export const DEFAULT_MEDIA_SLOTS: Record<string, MediaSlot> = {
     focalY: 50,
     objectFit: 'contain',
     aspectRatioHint: '16:9'
+  },
+  STORY_IMAGE_PACKAGING: {
+    id: 'slot_story_packaging',
+    slotKey: 'STORY_IMAGE_PACKAGING',
+    label: 'Product Packaging',
+    description: 'Packaging image for the Gud Tea range',
+    category: 'story',
+    desktopImageId: 'media_packaging_gud',
+    mobileImageId: 'media_packaging_gud',
+    focalX: 50,
+    focalY: 50,
+    objectFit: 'contain',
+    aspectRatioHint: '1:1'
   }
 };
 
@@ -221,7 +234,7 @@ export const DEFAULT_TEA_STORIES: TeaStoryItem[] = [
       en: 'Simmer with equal parts water and milk for 2 to 3 minutes.',
       mr: 'समान प्रमाणात पाणी व दूध एकत्र करून २ ते ३ मिनिटे उकळा.'
     },
-    imageSlotId: 'STORY_IMAGE_PRIMARY',
+    imageSlotId: 'STORY_IMAGE_PACKAGING',
     displayOrder: 1,
     isFeatured: true,
     isVisible: true
@@ -267,7 +280,7 @@ export const DEFAULT_TEA_STORIES: TeaStoryItem[] = [
       en: 'Boil in milk for 2 to 3 minutes.',
       mr: 'दुधात २ ते ३ मिनिटे उकळा.'
     },
-    imageSlotId: 'STORY_IMAGE_PRIMARY',
+    imageSlotId: 'STORY_IMAGE_PACKAGING',
     displayOrder: 2,
     isFeatured: false,
     isVisible: true
