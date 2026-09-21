@@ -22,7 +22,7 @@ import {
   Network,
   FolderTree,
   Palette,
-  Sparkles,
+  List,
   Settings,
   LayoutTemplate,
   CheckCircle2,
@@ -95,7 +95,7 @@ export const AdminLayout: React.FC<AdminLayoutProps> = ({
     {
       id: 'editorial',
       label: 'Editorial & Stories',
-      icon: <BookOpen className="w-4 h-4 text-emerald-400" />,
+      icon: <BookOpen className="w-4 h-4 text-gray-400" />,
       items: [
         { 
           id: 'story', 
@@ -115,7 +115,7 @@ export const AdminLayout: React.FC<AdminLayoutProps> = ({
           id: 'process-steps', 
           label: 'Process & Brewing Page', 
           shortLabel: 'Brewing Guide',
-          icon: <Sparkles className="w-4 h-4" />, 
+          icon: <List className="w-4 h-4" />, 
           description: 'Interactive recipes, reels & video modules' 
         },
         { 
@@ -131,7 +131,7 @@ export const AdminLayout: React.FC<AdminLayoutProps> = ({
     {
       id: 'catalogue',
       label: 'Catalogue & Taxonomy',
-      icon: <FolderTree className="w-4 h-4 text-amber-400" />,
+      icon: <FolderTree className="w-4 h-4 text-gray-300" />,
       items: [
         { 
           id: 'categories', 
@@ -168,7 +168,7 @@ export const AdminLayout: React.FC<AdminLayoutProps> = ({
     {
       id: 'structure',
       label: 'Site Structure & Design',
-      icon: <LayoutTemplate className="w-4 h-4 text-purple-400" />,
+      icon: <LayoutTemplate className="w-4 h-4 text-gray-300" />,
       items: [
         { 
           id: 'navigation', 
@@ -335,7 +335,7 @@ export const AdminLayout: React.FC<AdminLayoutProps> = ({
         <div className="flex items-center gap-1.5 sm:gap-2.5">
           {/* Pending Status Badge (Desktop) */}
           <div className="hidden lg:flex items-center gap-2 px-2.5 py-1.5 rounded-sm bg-[#111111] border border-[#222] text-xs">
-            <span className={`w-2 h-2 rounded-full ${hasDraftChanges ? 'bg-amber-400 animate-pulse' : 'bg-emerald-400'}`} />
+            <span className={`w-2 h-2 rounded-full ${hasDraftChanges ? 'bg-gray-400 animate-pulse' : 'bg-gray-400'}`} />
             <span className="font-medium text-neutral-300 text-[11px]">
               {hasDraftChanges ? 'Draft Pending' : 'Published'}
             </span>
@@ -382,7 +382,7 @@ export const AdminLayout: React.FC<AdminLayoutProps> = ({
           >
             <UploadCloud className="w-3.5 h-3.5" />
             <span>Publish</span>
-            {hasDraftChanges && <span className="w-1.5 h-1.5 rounded-full bg-amber-500 md:hidden" />}
+            {hasDraftChanges && <span className="w-1.5 h-1.5 rounded-full bg-gray-400 md:hidden" />}
           </button>
 
           {/* Exit to Site Button (Desktop) */}
@@ -392,7 +392,7 @@ export const AdminLayout: React.FC<AdminLayoutProps> = ({
             className="hidden sm:flex items-center gap-1.5 px-3 py-1.5 rounded-sm text-xs font-medium text-neutral-200 hover:text-white bg-[#141414] hover:bg-[#222222] border border-[#2d2d2d] transition-all cursor-pointer min-h-[36px]"
             title="Exit CMS and return to live website"
           >
-            <Globe className="w-3.5 h-3.5 text-emerald-400" />
+            <Globe className="w-3.5 h-3.5 text-gray-400" />
             <span>Exit to Site</span>
           </button>
 
@@ -416,7 +416,7 @@ export const AdminLayout: React.FC<AdminLayoutProps> = ({
                   onClick={exitCms}
                   className="w-full flex items-center gap-2 px-3 py-2 text-xs text-neutral-200 hover:bg-[#1f1f1f] rounded-sm text-left"
                 >
-                  <Globe className="w-3.5 h-3.5 text-emerald-400" />
+                  <Globe className="w-3.5 h-3.5 text-gray-400" />
                   <span>Exit to Live Site</span>
                 </button>
                 {hasDraftChanges && (
@@ -426,7 +426,7 @@ export const AdminLayout: React.FC<AdminLayoutProps> = ({
                         discardDraft();
                       }
                     }}
-                    className="w-full flex items-center gap-2 px-3 py-2 text-xs text-amber-400 hover:bg-[#1f1f1f] rounded-sm text-left"
+                    className="w-full flex items-center gap-2 px-3 py-2 text-xs text-gray-300 hover:bg-[#1f1f1f] rounded-sm text-left"
                   >
                     <RotateCcw className="w-3.5 h-3.5" />
                     <span>Discard Draft</span>
@@ -537,7 +537,7 @@ export const AdminLayout: React.FC<AdminLayoutProps> = ({
                   <div className="flex-1 text-left flex items-center justify-between">
                     <span className="font-semibold">Dashboard & Health</span>
                     {hasDraftChanges && (
-                      <span className="w-2 h-2 rounded-full bg-amber-400 animate-pulse" />
+                      <span className="w-2 h-2 rounded-full bg-gray-400 animate-pulse" />
                     )}
                   </div>
                 )}
@@ -636,14 +636,14 @@ export const AdminLayout: React.FC<AdminLayoutProps> = ({
             {(!sidebarCollapsed || mobileMenuOpen) ? (
               <div className="flex items-center justify-between text-[11px] text-neutral-400">
                 <div className="flex items-center gap-1.5 font-medium">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-emerald-500" />
+                  <CheckCircle2 className="w-3.5 h-3.5 text-gray-400" />
                   <span>v1.2 Sovereign</span>
                 </div>
                 <span className="font-mono text-[10px] text-neutral-400">EN / MR</span>
               </div>
             ) : (
               <div className="flex justify-center text-neutral-400">
-                <CheckCircle2 className="w-3.5 h-3.5 text-emerald-500" />
+                <CheckCircle2 className="w-3.5 h-3.5 text-gray-400" />
               </div>
             )}
           </div>

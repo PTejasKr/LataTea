@@ -173,7 +173,7 @@ export const TeaStoriesManagerView: React.FC = () => {
                   onClick={() => updateActiveTea('isVisible', !activeTea.isVisible)}
                   className={`p-2 rounded-sm text-cms-small font-bold flex items-center gap-1.5 border transition-all cursor-pointer ${
                     activeTea.isVisible
-                      ? 'bg-emerald-500/20 text-emerald-400 border-emerald-500/40'
+                      ? 'bg-gray-400/20 text-gray-400 border-emerald-500/40'
                       : 'bg-[#0a0a0a] text-neutral-400 border-[#222]'
                   }`}
                 >

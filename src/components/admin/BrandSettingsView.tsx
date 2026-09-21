@@ -38,7 +38,7 @@ export const BrandSettingsView: React.FC = () => {
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-[#222]">
         <div>
           <h2 className="text-cms-section text-white flex items-center gap-2">
-            <Palette className="w-5 h-5 text-purple-400" />
+            <Palette className="w-5 h-5 text-gray-300" />
             <span>Brand Styling & Design System</span>
           </h2>
           <p className="text-cms-small text-neutral-400 mt-1">

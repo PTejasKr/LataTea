@@ -206,10 +206,10 @@ export const DashboardView: React.FC<DashboardViewProps> = ({ onSelectTab, onOpe
           <div className="bg-[#111111] rounded-sm p-6 border border-[#222] space-y-4 hover:border-[#333] transition-colors">
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-2 text-white font-serif font-bold text-base">
-                <BookOpen className="w-4 h-4 text-emerald-400" />
+                <BookOpen className="w-4 h-4 text-gray-400" />
                 <span>Editorial & Stories</span>
               </div>
-              <span className="text-[10px] uppercase font-bold tracking-widest px-2 py-0.5 rounded-sm bg-[#161616] text-emerald-400 border border-emerald-950">
+              <span className="text-[10px] uppercase font-bold tracking-widest px-2 py-0.5 rounded-sm bg-[#161616] text-gray-400 border border-emerald-950">
                 Core Narrative
               </span>
             </div>
@@ -256,10 +256,10 @@ export const DashboardView: React.FC<DashboardViewProps> = ({ onSelectTab, onOpe
           <div className="bg-[#111111] rounded-sm p-6 border border-[#222] space-y-4 hover:border-[#333] transition-colors">
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-2 text-white font-serif font-bold text-base">
-                <FolderTree className="w-4 h-4 text-amber-400" />
+                <FolderTree className="w-4 h-4 text-gray-300" />
                 <span>Catalogue & Taxonomy</span>
               </div>
-              <span className="text-[10px] uppercase font-bold tracking-widest px-2 py-0.5 rounded-sm bg-[#161616] text-amber-400 border border-amber-950">
+              <span className="text-[10px] uppercase font-bold tracking-widest px-2 py-0.5 rounded-sm bg-[#161616] text-gray-300 border border-gray-500">
                 Structure
               </span>
             </div>
@@ -316,10 +316,10 @@ export const DashboardView: React.FC<DashboardViewProps> = ({ onSelectTab, onOpe
           <div className="bg-[#111111] rounded-sm p-6 border border-[#222] space-y-4 hover:border-[#333] transition-colors">
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-2 text-white font-serif font-bold text-base">
-                <Sliders className="w-4 h-4 text-purple-400" />
+                <Sliders className="w-4 h-4 text-gray-300" />
                 <span>Site Structure & Design</span>
               </div>
-              <span className="text-[10px] uppercase font-bold tracking-widest px-2 py-0.5 rounded-sm bg-[#161616] text-purple-400 border border-purple-950">
+              <span className="text-[10px] uppercase font-bold tracking-widest px-2 py-0.5 rounded-sm bg-[#161616] text-gray-300 border border-gray-500">
                 Layout
               </span>
             </div>
