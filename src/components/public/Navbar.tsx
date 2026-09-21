@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useCMS } from '../../context/CMSContext';
 import { useRouter, Link } from '../../router/Router';
 import { BrandLogo } from '../common/BrandLogo';
-import { Menu as MenuIcon, X, ArrowRight, MessageCircle, Sparkles } from 'lucide-react';
+import { Menu as MenuIcon, X, ArrowRight, MessageCircle } from 'lucide-react';
 
 interface NavbarProps {
   onOpenInquiry?: (teaSlug?: string) => void;
@@ -129,9 +129,8 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenInquiry, isDraftPreview = 
               <button
                 type="button"
                 onClick={() => onOpenInquiry?.()}
-                className="hidden sm:inline-flex items-center gap-1.5 px-4 sm:px-5 py-2 rounded-full text-xs font-bold uppercase tracking-wider bg-gradient-to-r from-brand-accent to-[#e68310] hover:from-brand-accent-hover hover:to-brand-accent text-white shadow-md hover:shadow-brand-accent/20 transition-all duration-200 cursor-pointer active:scale-95"
+                className="hidden sm:inline-flex items-center px-4 sm:px-5 py-2 rounded-full text-xs font-bold uppercase tracking-wider bg-gradient-to-r from-brand-accent to-[#e68310] hover:from-brand-accent-hover hover:to-brand-accent text-white shadow-md hover:shadow-brand-accent/20 transition-all duration-200 cursor-pointer active:scale-95"
               >
-                <Sparkles className="w-3.5 h-3.5" />
                 <span>{t('Request Samples')}</span>
               </button>
 
@@ -205,9 +204,8 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenInquiry, isDraftPreview = 
                   setMobileMenuOpen(false);
                   onOpenInquiry?.();
                 }}
-                className="w-full py-3 px-4 rounded-xl bg-gradient-to-r from-brand-accent to-[#e68310] text-white text-xs font-bold uppercase tracking-wider text-center shadow-lg flex items-center justify-center gap-2"
+                className="w-full py-3 px-4 rounded-xl bg-gradient-to-r from-brand-accent to-[#e68310] text-white text-xs font-bold uppercase tracking-wider text-center shadow-lg flex items-center justify-center"
               >
-                <Sparkles className="w-4 h-4" />
                 <span>{t('Request Samples')}</span>
               </button>
 

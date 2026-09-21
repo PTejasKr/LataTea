@@ -13,7 +13,6 @@ import {
   Check, 
   ExternalLink, 
   Trash2, 
-  Star, 
   RefreshCw, 
   ArrowRight,
   Server,
@@ -230,7 +229,7 @@ export const DomainManagerView: React.FC = () => {
           <div className="p-4 rounded-sm bg-[#0a0a0a]/60 border border-slate-800">
             <div className="text-cms-btn text-neutral-400">Primary Canonical Domain</div>
             <div className="text-base font-bold text-white mt-1 flex items-center gap-2">
-              <Star className="w-4 h-4 text-white fill-gray-400" />
+              <Globe className="w-4 h-4 text-white" />
               <span>{primaryDomain ? primaryDomain.hostname : 'latatea.com'}</span>
             </div>
           </div>
@@ -276,7 +275,7 @@ export const DomainManagerView: React.FC = () => {
                   
                   {dom.isPrimary ? (
                     <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-sm text-cms-small font-bold bg-white text-black/20 text-white border border-[#333]">
-                      <Star className="w-3 h-3 fill-gray-400" /> PRIMARY
+                      <CheckCircle2 className="w-3 h-3 text-white" /> PRIMARY
                     </span>
                   ) : dom.type === 'redirect' ? (
                     <span className="px-2.5 py-0.5 rounded-sm text-cms-small font-bold bg-white text-black/20 text-white border border-[#333]">
