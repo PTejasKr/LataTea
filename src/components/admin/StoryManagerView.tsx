@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useCMS } from '../../context/CMSContext';
 import { MilestoneItem } from '../../types/cms';
 import { BookOpen, Plus, Trash2, Globe } from 'lucide-react';
+import { ImageSlotPicker } from './ImageSlotPicker';
 
 export const StoryManagerView: React.FC = () => {
   const { draftState, updateDraft } = useCMS();
@@ -239,11 +240,20 @@ export const StoryManagerView: React.FC = () => {
               />
             </div>
           </div>
+
+          {/* Story Visual Imagery Slot */}
+          <div className="pt-2">
+            <ImageSlotPicker
+              slotKey="STORY_IMAGE_PRIMARY"
+              label="Brand Story Image (Copper Bowl / Chai)"
+              helperText="This image is displayed on the Homepage Story section and About page."
+            />
+          </div>
         </div>
       </div>
 
       {/* Part 2: Heritage & Milestones */}
-      <div className="bg-[#111111] rounded-sm p-6 sm:p-8 border border-[#222] space-y-6">
+      <div className="bg-[#111111] rounded-sm p-4 sm:p-6 lg:p-8 border border-[#222] space-y-6">
         <div className="flex items-center justify-between pb-3 border-b border-[#222]">
           <h2 className="text-cms-card text-white font-serif flex items-center gap-2">
             <BookOpen className="w-4 h-4 text-white" />
@@ -305,6 +315,15 @@ export const StoryManagerView: React.FC = () => {
                 className="w-full px-4 py-2.5 rounded-sm border border-[#333] bg-[#0a0a0a] text-white placeholder:text-neutral-600 text-cms-body focus:border-white focus:outline-none leading-relaxed"
               />
             </div>
+          </div>
+
+          {/* Heritage Imagery Slot */}
+          <div className="pt-2">
+            <ImageSlotPicker
+              slotKey="HERITAGE_IMAGE"
+              label="Heritage & Origins Image (Spices & Leaves)"
+              helperText="Displayed in the Heritage / Roots section of the homepage."
+            />
           </div>
         </div>
 

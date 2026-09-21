@@ -1,5 +1,6 @@
 import React, { useState, useRef } from 'react';
 import { useCMS } from '../../context/CMSContext';
+import { cmsStore } from '../../services/cmsStore';
 import { MediaSlot, ObjectFitMode } from '../../types/cms';
 import { 
   Crosshair, 
@@ -230,12 +231,34 @@ export const ImagePositionEditorView: React.FC = () => {
                   <span>{isEditingMobileOverrides ? 'Mobile Override (Active)' : 'Edit Mobile Override'}</span>
                 </button>
 
+                {/* Direct Upload & Replace Buttons */}
+                <input
+                  type="file"
+                  id="image-position-upload"
+                  accept="image/*"
+                  className="hidden"
+                  onChange={async (e) => {
+                    const file = e.target.files?.[0];
+                    if (!file) return;
+                    const newMedia = await cmsStore.uploadFile(file);
+                    handleAssignMedia(newMedia.id);
+                  }}
+                />
+
+                <label
+                  htmlFor="image-position-upload"
+                  className="px-3 py-1.5 rounded-sm bg-white text-black text-xs font-semibold uppercase tracking-wider transition-all flex items-center gap-1.5 cursor-pointer hover:bg-neutral-200"
+                >
+                  <Upload className="w-3.5 h-3.5" />
+                  <span>Upload Image</span>
+                </label>
+
                 <button
                   onClick={() => setShowMediaPicker(true)}
-                  className="px-3.5 py-1.5 rounded-sm bg-white text-black text-cms-btn uppercase tracking-wider transition-all flex items-center gap-1.5 "
+                  className="px-3 py-1.5 rounded-sm bg-[#161616] hover:bg-[#222] text-neutral-200 border border-[#333] text-xs font-medium uppercase tracking-wider transition-all flex items-center gap-1.5 cursor-pointer"
                 >
                   <FolderOpen className="w-3.5 h-3.5" />
-                  <span>Replace Image</span>
+                  <span>Library</span>
                 </button>
               </div>
             </div>

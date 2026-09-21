@@ -205,28 +205,132 @@ export const cmsStore = {
     return new Promise((resolve, reject) => {
       const reader = new FileReader();
       reader.onload = () => {
-        const base64 = reader.result as string;
-        const newMedia: MediaItem = {
-          id: `media_${Date.now()}`,
-          filename: file.name,
-          url: base64,
-          alt: file.name.replace(/\.[^/.]+$/, '').replace(/[_-]/g, ' '),
-          fileSize: `${Math.round(file.size / 1024)} KB`,
-          mediaType: (file.type as any) || 'image/png',
-          uploadedAt: new Date().toISOString()
-        };
+        const rawResult = reader.result as string;
+        
+        // If it's an SVG, don't compress through canvas
+        if (file.type === 'image/svg+xml' || file.name.endsWith('.svg')) {
+          const newMedia: MediaItem = {
+            id: `media_${Date.now()}_${Math.random().toString(36).substring(2, 7)}`,
+            filename: file.name,
+            url: rawResult,
+            alt: file.name.replace(/\.[^/.]+$/, '').replace(/[_-]/g, ' '),
+            fileSize: `${Math.round(file.size / 1024)} KB`,
+            mediaType: 'image/svg+xml',
+            uploadedAt: new Date().toISOString()
+          };
 
-        const draft = this.getDraftState();
-        const updated = {
-          ...draft,
-          mediaLibrary: [newMedia, ...draft.mediaLibrary]
+          const draft = this.getDraftState();
+          const updated = {
+            ...draft,
+            mediaLibrary: [newMedia, ...draft.mediaLibrary]
+          };
+          this.saveDraftState(updated);
+          resolve(newMedia);
+          return;
+        }
+
+        // For raster images (JPEG, PNG, WebP), compress via canvas to max 1600px
+        const img = new Image();
+        img.onload = () => {
+          const maxDim = 1400;
+          let width = img.width;
+          let height = img.height;
+
+          if (width > maxDim || height > maxDim) {
+            if (width > height) {
+              height = Math.round((height * maxDim) / width);
+              width = maxDim;
+            } else {
+              width = Math.round((width * maxDim) / height);
+              height = maxDim;
+            }
+          }
+
+          const canvas = document.createElement('canvas');
+          canvas.width = width;
+          canvas.height = height;
+          const ctx = canvas.getContext('2d');
+          if (ctx) {
+            ctx.drawImage(img, 0, 0, width, height);
+            // Compress to WebP or JPEG
+            const compressedBase64 = canvas.toDataURL('image/jpeg', 0.85);
+            const estKb = Math.round((compressedBase64.length * 3) / 4 / 1024);
+
+            const newMedia: MediaItem = {
+              id: `media_${Date.now()}_${Math.random().toString(36).substring(2, 7)}`,
+              filename: file.name,
+              url: compressedBase64,
+              alt: file.name.replace(/\.[^/.]+$/, '').replace(/[_-]/g, ' '),
+              dimensions: { width, height },
+              fileSize: `${estKb} KB`,
+              mediaType: 'image/jpeg',
+              uploadedAt: new Date().toISOString()
+            };
+
+            const draft = this.getDraftState();
+            const updated = {
+              ...draft,
+              mediaLibrary: [newMedia, ...draft.mediaLibrary]
+            };
+            this.saveDraftState(updated);
+            resolve(newMedia);
+          } else {
+            // Fallback to raw
+            const newMedia: MediaItem = {
+              id: `media_${Date.now()}`,
+              filename: file.name,
+              url: rawResult,
+              alt: file.name.replace(/\.[^/.]+$/, '').replace(/[_-]/g, ' '),
+              fileSize: `${Math.round(file.size / 1024)} KB`,
+              mediaType: (file.type as any) || 'image/jpeg',
+              uploadedAt: new Date().toISOString()
+            };
+            const draft = this.getDraftState();
+            this.saveDraftState({ ...draft, mediaLibrary: [newMedia, ...draft.mediaLibrary] });
+            resolve(newMedia);
+          }
         };
-        this.saveDraftState(updated);
-        resolve(newMedia);
+        img.onerror = () => {
+          const newMedia: MediaItem = {
+            id: `media_${Date.now()}`,
+            filename: file.name,
+            url: rawResult,
+            alt: file.name.replace(/\.[^/.]+$/, '').replace(/[_-]/g, ' '),
+            fileSize: `${Math.round(file.size / 1024)} KB`,
+            mediaType: (file.type as any) || 'image/jpeg',
+            uploadedAt: new Date().toISOString()
+          };
+          const draft = this.getDraftState();
+          this.saveDraftState({ ...draft, mediaLibrary: [newMedia, ...draft.mediaLibrary] });
+          resolve(newMedia);
+        };
+        img.src = rawResult;
       };
       reader.onerror = reject;
       reader.readAsDataURL(file);
     });
+  },
+
+  addMediaByUrl(url: string, filename?: string, alt?: string): MediaItem {
+    const cleanUrl = url.trim();
+    const name = filename?.trim() || cleanUrl.split('/').pop()?.split('?')[0] || 'custom-image.jpg';
+    const newMedia: MediaItem = {
+      id: `media_${Date.now()}_${Math.random().toString(36).substring(2, 7)}`,
+      filename: name,
+      url: cleanUrl,
+      alt: alt?.trim() || name.replace(/\.[^/.]+$/, '').replace(/[_-]/g, ' '),
+      fileSize: 'URL Asset',
+      mediaType: 'image/jpeg',
+      uploadedAt: new Date().toISOString()
+    };
+
+    const draft = this.getDraftState();
+    const updated = {
+      ...draft,
+      mediaLibrary: [newMedia, ...draft.mediaLibrary]
+    };
+    this.saveDraftState(updated);
+    return newMedia;
   },
 
   calculateCompleteness(state: CMSState): { 

@@ -4,8 +4,9 @@ import { Link } from '../router/Router';
 import { ShieldCheck, Award, Leaf } from 'lucide-react';
 
 export const AboutPage: React.FC = () => {
-  const { publishedState, t } = useCMS();
+  const { publishedState, resolveSlotImage, t } = useCMS();
   const contact = publishedState.contact;
+  const storyImage = resolveSlotImage('STORY_IMAGE_PRIMARY', false, false);
 
   return (
     <div className="pt-20 pb-20 bg-brand-background text-brand-primary min-h-screen">
@@ -29,14 +30,14 @@ export const AboutPage: React.FC = () => {
       <section className="py-14 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-10 items-center">
           
-          <div className="md:col-span-7 space-y-3">
-            <span className="text-pub-small font-bold tracking-widest text-brand-accent uppercase font-sans">
-              {t('PURPOSE & STANDARDS')}
+          <div className="md:col-span-7 space-y-4">
+            <span className="text-pub-small font-sans font-semibold tracking-widest text-brand-accent uppercase block">
+              {t('PURPOSE & ORIGIN')}
             </span>
-            <h2 className="font-rajwada text-pub-section font-bold text-brand-primary-dark leading-snug">
-              {t('Unadulterated Tea in Every Boiling Cup')}
+            <h2 className="font-rajwada text-2xl sm:text-3xl font-bold text-brand-primary-dark tracking-tight">
+              {t('Authentic Jaggery Chai for Every Kitchen')}
             </h2>
-            <p className="text-pub-body text-brand-primary leading-relaxed font-sans">
+            <p className="text-pub-body text-brand-text-muted leading-relaxed font-sans">
               Lata Teamix was established to solve an everyday challenge: giving families, cafés, and corporate workplaces access to authentic jaggery chai without curdling milk or burning sweetness.
             </p>
             <p className="text-pub-body text-brand-text-muted leading-relaxed font-sans">
@@ -58,8 +59,9 @@ export const AboutPage: React.FC = () => {
           <div className="md:col-span-5">
             <div className="rounded-xl overflow-hidden border border-brand-border aspect-[4/3] bg-brand-surface shadow-xs">
               <img
-                src="/assets/images/royal_tea_bowl.jpg"
-                alt="Lata Teamix Blends"
+                src={storyImage.url || '/assets/images/royal_tea_bowl.jpg'}
+                alt={storyImage.alt || 'Lata Teamix Blends'}
+                style={storyImage.style}
                 className="w-full h-full object-cover"
               />
             </div>

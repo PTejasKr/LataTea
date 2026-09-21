@@ -41,53 +41,49 @@ export const DashboardView: React.FC<DashboardViewProps> = ({ onSelectTab, onOpe
     : 'Not published yet';
 
   return (
-    <div className="space-y-8 animate-fade-in">
+    <div className="space-y-6 sm:space-y-8 animate-fade-in w-full max-w-full overflow-x-hidden">
       {/* Top Banner Card */}
-      <div className="p-6 sm:p-8 rounded-3xl bg-gradient-to-br from-[#1E293B] to-[#0F172A] border border-[#222] shadow-2xl relative overflow-hidden">
-        <div className="absolute top-0 right-0 p-8 opacity-10 pointer-events-none">
-          
-        </div>
-
-        <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6 relative z-10">
-          <div>
-            <div className="flex items-center gap-2 text-cms-small font-bold tracking-widest text-white uppercase mb-2">
-              <Activity className="w-4 h-4" />
+      <div className="p-4 sm:p-6 lg:p-8 rounded-xl sm:rounded-2xl bg-gradient-to-br from-[#1E293B] to-[#0F172A] border border-[#222] shadow-2xl relative overflow-hidden">
+        <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-5 relative z-10">
+          <div className="space-y-2">
+            <div className="flex items-center gap-2 text-xs font-bold tracking-widest text-neutral-300 uppercase">
+              <Activity className="w-3.5 h-3.5 text-emerald-400" />
               <span>EDITORIAL STORYTELLING PLATFORM</span>
             </div>
 
-            <div className="flex items-center gap-3">
-              <h2 className="text-cms-section font-bold font-serif text-white">
-                Lata Private Limited Sovereign Platform
+            <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3">
+              <h2 className="text-lg sm:text-2xl font-bold font-serif text-white tracking-tight">
+                Lata Sovereign Platform
               </h2>
-              <span className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-sm text-cms-btn uppercase tracking-wider ${
+              <span className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-sm text-[11px] uppercase tracking-wider font-semibold self-start sm:self-auto ${
                 hasDraftChanges 
-                  ? 'bg-white text-black/20 text-white border border-[#333]'
-                  : 'bg-white text-black/20 text-white border border-[#333]'
+                  ? 'bg-amber-950/60 text-amber-300 border border-amber-800/60'
+                  : 'bg-emerald-950/60 text-emerald-300 border border-emerald-800/60'
               }`}>
-                <span className={`w-2 h-2 rounded-sm ${hasDraftChanges ? 'bg-white text-black' : 'bg-[#111111]'}`} />
+                <span className={`w-1.5 h-1.5 rounded-full ${hasDraftChanges ? 'bg-amber-400 animate-pulse' : 'bg-emerald-400'}`} />
                 {hasDraftChanges ? 'Draft Edits Pending' : 'Live & Published'}
               </span>
             </div>
 
-            <div className="flex items-center gap-4 text-cms-small text-neutral-400 mt-2 font-mono">
+            <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-xs text-neutral-300 font-mono pt-1">
               <div className="flex items-center gap-1.5">
-                <Clock className="w-3.5 h-3.5 text-neutral-500" />
-                <span>Last Published: {lastPublishedFormatted}</span>
+                <Clock className="w-3.5 h-3.5 text-neutral-400" />
+                <span>Published: {lastPublishedFormatted}</span>
               </div>
               <div className="flex items-center gap-1.5">
-                <Globe className="w-3.5 h-3.5 text-neutral-300" />
-                <span>Active Domain: {primaryDomain?.hostname || 'latatea.com'}</span>
+                <Globe className="w-3.5 h-3.5 text-emerald-400" />
+                <span>Domain: {primaryDomain?.hostname || 'latatea.com'}</span>
               </div>
             </div>
           </div>
 
-          <div className="flex items-center gap-3">
+          <div className="flex flex-wrap items-center gap-2.5 pt-2 lg:pt-0">
             <button
               type="button"
               onClick={() => setShowPreviewModal(true)}
-              className="px-5 py-3 rounded-sm bg-white/10 hover:bg-white/15 text-white text-cms-btn uppercase tracking-wider flex items-center gap-2 border border-white/20 transition-all cursor-pointer"
+              className="px-4 py-2.5 rounded-sm bg-white/10 hover:bg-white/15 text-white text-xs font-semibold uppercase tracking-wider flex items-center gap-2 border border-white/20 transition-all cursor-pointer min-h-[38px]"
             >
-              <Eye className="w-4 h-4 text-white" />
+              <Eye className="w-3.5 h-3.5 text-white" />
               <span>Live Preview</span>
             </button>
 
@@ -95,10 +91,10 @@ export const DashboardView: React.FC<DashboardViewProps> = ({ onSelectTab, onOpe
               type="button"
               onClick={onOpenPublishModal}
               disabled={!hasDraftChanges}
-              className={`px-6 py-3 rounded-sm text-cms-btn uppercase tracking-wider flex items-center gap-2  transition-all cursor-pointer ${
+              className={`px-4 sm:px-5 py-2.5 rounded-sm text-xs font-bold uppercase tracking-wider flex items-center gap-2 transition-all cursor-pointer min-h-[38px] ${
                 hasDraftChanges
-                  ? 'bg-white text-black hover:bg-neutral-200  scale-102'
-                  : 'bg-[#222222] text-neutral-400 cursor-not-allowed'
+                  ? 'bg-white text-black hover:bg-neutral-200 shadow-md'
+                  : 'bg-[#222222] text-neutral-500 cursor-not-allowed border border-[#333]'
               }`}
             >
               <UploadCloud className="w-4 h-4" />
@@ -109,7 +105,7 @@ export const DashboardView: React.FC<DashboardViewProps> = ({ onSelectTab, onOpe
       </div>
 
       {/* 4 Core Metrics Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3.5 sm:gap-5">
         
         {/* Metric 1: Story Completeness */}
         <div className="bg-[#111111] rounded-sm p-6 border border-[#222] space-y-3">

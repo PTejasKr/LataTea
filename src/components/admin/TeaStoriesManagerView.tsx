@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useCMS } from '../../context/CMSContext';
 import { TeaStoryItem } from '../../types/cms';
 import { Coffee, Globe, Plus, Trash2, MapPin, Eye, EyeOff } from 'lucide-react';
+import { ImageSlotPicker } from './ImageSlotPicker';
 
 export const TeaStoriesManagerView: React.FC = () => {
   const { draftState, updateDraft } = useCMS();
@@ -332,6 +333,16 @@ export const TeaStoriesManagerView: React.FC = () => {
                   />
                 </div>
               </div>
+            </div>
+
+            {/* Blend Imagery Slot */}
+            <div className="pt-2">
+              <ImageSlotPicker
+                slotKey={activeTea.imageSlotId || 'STORY_IMAGE_PRIMARY'}
+                label={`${activeTea.name.en || 'Tea Blend'} Imagery`}
+                helperText="Displayed across the public tea catalog, detail pages, and story reels."
+                compact={true}
+              />
             </div>
 
           </div>
