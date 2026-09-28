@@ -16,9 +16,6 @@ export const CraftSection: React.FC<CraftSectionProps> = ({ isDraftPreview = fal
         
         {/* Section Header */}
         <div className="max-w-xl mb-10">
-          <span className="text-pub-small font-sans font-semibold tracking-widest text-[#F89E22] uppercase block mb-1">
-            {t(craft.tagline)}
-          </span>
           <h2 className="font-rajwada text-pub-section font-bold text-[#1B4332] tracking-tight">
             {t(craft.heading)}
           </h2>
@@ -47,10 +44,6 @@ export const CraftSection: React.FC<CraftSectionProps> = ({ isDraftPreview = fal
                       loading="lazy"
                     />
                   </div>
-
-                  <span className="text-pub-small font-mono text-[#F89E22] font-bold uppercase block mb-1">
-                    {t(stage.tagline)}
-                  </span>
                   
                   <h3 className="font-rajwada text-pub-body font-bold text-[#1B4332] leading-snug mb-1">
                     {t(stage.title)}

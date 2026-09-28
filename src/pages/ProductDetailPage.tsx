@@ -70,9 +70,6 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({ slug, onOp
             
             {/* Header: Product Name & Short Descriptor */}
             <div>
-              <span className="text-pub-small font-mono uppercase tracking-wider text-[#F89E22] font-semibold block mb-1">
-                {t(tea.categoryName)}
-              </span>
               <h1 className="font-rajwada text-pub-section font-bold text-[#1B4332]">
                 {t(tea.name)}
               </h1>

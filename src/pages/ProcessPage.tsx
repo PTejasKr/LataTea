@@ -19,9 +19,6 @@ export const ProcessPage: React.FC = () => {
       <div className="py-16 sm:py-24 bg-[#0a2318] text-center relative overflow-hidden">
         <div className="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-white via-transparent to-transparent"></div>
         <div className="relative z-10 max-w-4xl mx-auto px-4">
-          <span className="text-pub-small font-sans font-semibold tracking-widest text-brand-accent uppercase mb-3 block">
-            {language === 'mr' ? 'लता टीमिक्स कार्यपद्धती' : 'HOW LATA TEAMIX WORKS'}
-          </span>
           <h1 className="text-pub-hero font-rajwada font-bold text-white mb-4">
             {language === 'mr' ? 'आमची प्रक्रिया' : 'Our Process'}
           </h1>

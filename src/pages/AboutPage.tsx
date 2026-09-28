@@ -9,18 +9,18 @@ export const AboutPage: React.FC = () => {
   const storyImage = resolveSlotImage('STORY_IMAGE_PRIMARY', false, false);
 
   return (
-    <div className="pt-20 pb-20 bg-brand-background text-brand-primary min-h-screen">
+    <div className="pb-20 bg-brand-background text-brand-primary min-h-screen">
       
       {/* Page Hero Header */}
-      <section className="py-14 bg-brand-primary-dark text-white text-center">
+      <section className="pt-24 sm:pt-32 pb-12 sm:pb-16 bg-[#0A2318] text-white text-center relative overflow-hidden">
         <div className="max-w-4xl mx-auto px-4 sm:px-6">
-          <span className="text-pub-small font-sans font-semibold tracking-widest text-brand-accent uppercase block mb-1">
+          <span className="text-[11px] sm:text-xs font-sans font-semibold tracking-widest text-brand-accent uppercase block mb-2">
             {t('ABOUT LATA TEAMIX')}
           </span>
-          <h1 className="font-rajwada text-3xl sm:text-5xl font-bold text-white tracking-tight">
+          <h1 className="font-rajwada text-2xl sm:text-4xl md:text-5xl font-bold text-white tracking-tight leading-tight">
             {t('Indian Tea & Jaggery Blends')}
           </h1>
-          <p className="mt-2 text-pub-body text-slate-200 font-sans max-w-xl mx-auto">
+          <p className="mt-2.5 text-sm sm:text-base text-slate-200 font-sans max-w-xl mx-auto leading-relaxed">
             {t('Manufactured with pride in Pune, Maharashtra.')}
           </p>
         </div>
@@ -31,9 +31,6 @@ export const AboutPage: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-10 items-center">
           
           <div className="md:col-span-7 space-y-4">
-            <span className="text-pub-small font-sans font-semibold tracking-widest text-brand-accent uppercase block">
-              {t('PURPOSE & ORIGIN')}
-            </span>
             <h2 className="font-rajwada text-2xl sm:text-3xl font-bold text-brand-primary-dark tracking-tight">
               {t('Authentic Jaggery Chai for Every Kitchen')}
             </h2>
@@ -74,9 +71,6 @@ export const AboutPage: React.FC = () => {
       <section className="py-14 bg-brand-surface border-y border-brand-border">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-xl mb-10">
-            <span className="text-pub-small font-sans font-semibold tracking-widest text-brand-accent uppercase block mb-1">
-              {t('HYGIENE & STANDARDS')}
-            </span>
             <h2 className="font-rajwada text-pub-section font-bold text-brand-primary-dark">
               {t('Controlled Production')}
             </h2>
@@ -120,7 +114,7 @@ export const AboutPage: React.FC = () => {
             </div>
           </div>
 
-          <div className="mt-10 p-6 rounded-xl bg-brand-primary-dark text-white flex flex-col sm:flex-row items-center justify-between gap-4">
+          <div className="mt-10 p-6 sm:p-8 rounded-xl bg-[#0A2318] border border-white/10 text-white flex flex-col sm:flex-row items-center justify-between gap-4">
             <div>
               <h4 className="font-rajwada text-lg font-bold text-white">
                 {t('Request a Tasting Kit for Your Business')}

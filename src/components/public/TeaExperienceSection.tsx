@@ -13,10 +13,6 @@ export const TeaExperienceSection: React.FC<TeaExperienceSectionProps> = ({ isDr
   return (
     <section id="experience" className="py-14 sm:py-16 bg-[#142615] text-white">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
-        
-        <span className="text-pub-small font-sans font-semibold tracking-[0.25em] text-amber-400 uppercase">
-          {t(exp.tagline)}
-        </span>
 
         <h2 className="font-rajwada text-pub-section font-bold text-white max-w-xl mx-auto leading-tight">
           {t(exp.heading)}

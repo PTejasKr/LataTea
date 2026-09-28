@@ -34,9 +34,6 @@ export const BrandStorySection: React.FC<BrandStorySectionProps> = ({ isDraftPre
 
           {/* Narrative: 2-3 short, clear blocks */}
           <div className="md:col-span-7 space-y-3">
-            <span className="text-pub-small font-bold tracking-widest text-brand-accent uppercase font-sans">
-              {t(story.tagline)}
-            </span>
 
             <h2 className="font-rajwada text-pub-section font-bold text-brand-primary-dark leading-snug">
               {t(story.heading)}

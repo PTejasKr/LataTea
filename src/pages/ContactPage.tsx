@@ -28,9 +28,6 @@ export const ContactPage: React.FC = () => {
       {/* Contact Hero */}
       <section className="py-14 bg-brand-primary-dark text-white text-center">
         <div className="max-w-4xl mx-auto px-4 sm:px-6">
-          <span className="text-pub-small font-sans font-semibold tracking-widest text-brand-accent uppercase block mb-1">
-            PARTNER WITH US
-          </span>
           <h1 className="font-rajwada text-3xl sm:text-5xl font-bold text-white tracking-tight">
             Distributor & Wholesale Enquiries
           </h1>

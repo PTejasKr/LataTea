@@ -17,9 +17,6 @@ export const HelpfulVideosSection: React.FC<Props> = ({ isDraftPreview = false }
     <section className="py-16 sm:py-24 bg-white border-y border-brand-border/30">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <span className="text-pub-small font-sans font-semibold tracking-widest text-brand-accent uppercase block mb-2">
-            {language === 'mr' ? 'उपयुक्त व्हिडिओ' : 'HELPFUL VIDEOS'}
-          </span>
           <h2 className="font-rajwada text-pub-section font-bold text-brand-primary tracking-tight">
             {language === 'mr' ? 'प्रात्यक्षिक आणि मार्गदर्शक' : 'Watch & Learn'}
           </h2>

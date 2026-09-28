@@ -20,9 +20,6 @@ export const RegistrationAndContact: React.FC<RegistrationAndContactProps> = ({ 
         
         {/* Section Header */}
         <div className="max-w-xl mb-10">
-          <span className="text-pub-small font-sans font-semibold tracking-widest text-brand-accent uppercase block mb-1">
-            {t('GET IN TOUCH')}
-          </span>
           <h2 className="font-rajwada text-pub-section font-bold text-brand-primary tracking-tight">
             {t('Business Inquiries')}
           </h2>

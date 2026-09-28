@@ -40,9 +40,6 @@ export const WhyLataSection: React.FC<WhyLataSectionProps> = ({ isDraftPreview =
         
         {/* Section Header */}
         <div className="max-w-xl mb-10">
-          <span className="text-pub-small font-sans font-semibold tracking-widest text-[#F89E22] uppercase block mb-1">
-            {t('WHY LATA TEAMIX')}
-          </span>
           <h2 className="font-rajwada text-pub-section font-bold text-[#1B4332] tracking-tight">
             {t('Why Business & Families Choose Us')}
           </h2>

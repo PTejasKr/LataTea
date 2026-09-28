@@ -32,9 +32,6 @@ export const OrderingRoadmap: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <div className="text-center max-w-2xl mx-auto mb-16">
-          <span className="text-pub-small font-sans font-semibold tracking-widest text-brand-accent uppercase block mb-2">
-            {t('The Process')}
-          </span>
           <h2 className="font-rajwada text-pub-section font-bold text-brand-primary tracking-tight">
             {t('From Order to Delivery')}
           </h2>

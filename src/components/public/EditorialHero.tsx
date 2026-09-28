@@ -33,9 +33,6 @@ export const EditorialHero: React.FC<EditorialHeroProps> = ({ isDraftPreview = f
 
       {/* Content Container */}
       <div className="relative z-10 max-w-4xl mx-auto px-6 py-20 text-center flex flex-col items-center animate-fade-in-up">
-        <span className="text-xs font-sans font-bold tracking-[0.3em] text-brand-accent uppercase mb-4 opacity-90">
-          {t(hero.tagline)}
-        </span>
 
         <h1 className="font-rajwada text-pub-hero font-bold tracking-tight text-white leading-[1.1] drop-shadow-lg mb-6 whitespace-pre-line">
           {t(hero.headline)}

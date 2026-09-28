@@ -91,9 +91,6 @@ export const TeaStoryCollection: React.FC<TeaStoryCollectionProps> = ({
                 {/* Compact Info Block */}
                 <div className="p-2 sm:p-3 flex-1 flex flex-col justify-between">
                   <div>
-                    <span className="text-pub-small font-bold uppercase tracking-wider text-brand-text-muted block">
-                      LATA TEAMIX
-                    </span>
                     <h3 className="font-bold text-pub-body text-brand-primary-dark group-hover:text-brand-accent transition-colors truncate mt-0.5">
                       {t(tea.name)}
                     </h3>

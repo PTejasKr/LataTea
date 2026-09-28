@@ -16,9 +16,6 @@ export const ProductsPage: React.FC<ProductsPageProps> = ({ onOpenInquiry }) => 
       {/* Header Banner */}
       <section className="py-14 bg-[#1B4332] text-white text-center">
         <div className="max-w-4xl mx-auto px-4 sm:px-6">
-          <span className="text-pub-small font-sans font-semibold tracking-widest text-[#A5D6A7] uppercase block mb-1">
-            {t('PRODUCT CATALOGUE')}
-          </span>
           <h1 className="font-rajwada text-3xl sm:text-5xl font-bold text-white tracking-tight">
             {t('Explore All Lata Teamixs')}
           </h1>
