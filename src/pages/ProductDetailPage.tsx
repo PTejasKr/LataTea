@@ -61,6 +61,7 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({ slug, onOp
                 style={teaImage.style}
                 className="w-full h-full object-cover"
                 loading="eager"
+                decoding="async"
               />
             </div>
           </div>

@@ -815,7 +815,7 @@ export const INITIAL_CMS_STATE: CMSState = {
       descriptionMr: 'लता प्रायव्हेट लिमिटेडचा उत्तम चहा बनवण्याची एक द्रुत मार्गदर्शक.',
       displayOrder: 1,
       isVisible: true,
-      thumbnailUrl: 'https://latatea.vercel.app/media_royal_bowl.jpg'
+      thumbnailUrl: '/assets/images/royal_tea_bowl.webp'
     }
   ],
   processSteps: [

@@ -42,6 +42,7 @@ export const CraftSection: React.FC<CraftSectionProps> = ({ isDraftPreview = fal
                       style={stageImage.style}
                       className="w-full h-full object-cover"
                       loading="lazy"
+                      decoding="async"
                     />
                   </div>
                   

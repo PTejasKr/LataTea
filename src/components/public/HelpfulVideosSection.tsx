@@ -47,7 +47,7 @@ const VideoCard: React.FC<{ video: any, language: string }> = ({ video, language
       <div className="relative aspect-[4/5] bg-slate-900 overflow-hidden cursor-pointer" onClick={() => window.open(video.instagramUrl, '_blank')}>
         <div className="absolute inset-0 w-full h-full transition-transform duration-700 ease-out group-hover:scale-[1.02]">
            {video.thumbnailUrl ? (
-             <img src={video.thumbnailUrl} alt={video.titleEn} className="w-full h-full object-cover opacity-90 group-hover:opacity-100" />
+             <img src={video.thumbnailUrl} alt={video.titleEn} className="w-full h-full object-cover opacity-90 group-hover:opacity-100" loading="lazy" decoding="async" />
            ) : (
              <div className="w-full h-full bg-slate-800 flex items-center justify-center">
                <PlayCircle className="w-12 h-12 text-slate-600" />

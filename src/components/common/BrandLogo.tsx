@@ -22,6 +22,7 @@ export const BrandLogo: React.FC<BrandLogoProps> = ({ className = 'h-10 w-auto',
       alt={logoAlt} 
       className={`object-contain ${className}`}
       loading="eager"
+      decoding="async"
     />
   );
 };

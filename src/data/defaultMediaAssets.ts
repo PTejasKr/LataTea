@@ -1,7 +1,7 @@
 import { MediaItem } from '../types/cms';
 
-export const ROYAL_PANORAMIC_IMG = '/assets/images/hero_tea_panoramic.png';
-export const ROYAL_BOWL_IMG = '/assets/images/royal_tea_bowl.jpg';
+export const ROYAL_PANORAMIC_IMG = '/assets/images/hero_tea_panoramic.webp';
+export const ROYAL_BOWL_IMG = '/assets/images/royal_tea_bowl.webp';
 export const TEA_LEAF_IMG = '/assets/images/logo-teamix.png';
 
 export const LOGO_PRIMARY_SVG = `data:image/svg+xml;utf8,${encodeURIComponent(`
@@ -78,22 +78,22 @@ export const LOGO_LIGHT_SVG = `data:image/svg+xml;utf8,${encodeURIComponent(`
 export const DEFAULT_MEDIA_ITEMS: MediaItem[] = [
   {
     id: 'media_royal_panoramic',
-    filename: 'hero_tea_panoramic.png',
+    filename: 'hero_tea_panoramic.webp',
     url: ROYAL_PANORAMIC_IMG,
     alt: 'Authentic Indian Royal Tea Leaves, Spices, and Brass Kulhad',
     dimensions: { width: 1920, height: 720 },
-    fileSize: '820 KB',
-    mediaType: 'image/png',
+    fileSize: '58 KB',
+    mediaType: 'image/webp',
     uploadedAt: '2026-09-01T00:00:00.000Z'
   },
   {
     id: 'media_royal_bowl',
-    filename: 'royal_tea_bowl.jpg',
+    filename: 'royal_tea_bowl.webp',
     url: ROYAL_BOWL_IMG,
     alt: 'Carved Antique Copper Bowl with Premium Ground Lata Tea and Whole Spices',
     dimensions: { width: 1024, height: 1024 },
-    fileSize: '540 KB',
-    mediaType: 'image/jpeg',
+    fileSize: '9 KB',
+    mediaType: 'image/webp',
     uploadedAt: '2026-09-01T00:00:00.000Z'
   },
   {
@@ -102,7 +102,7 @@ export const DEFAULT_MEDIA_ITEMS: MediaItem[] = [
     url: TEA_LEAF_IMG,
     alt: 'Authentic Fresh Green Tea Leaf',
     dimensions: { width: 512, height: 512 },
-    fileSize: '45 KB',
+    fileSize: '68 KB',
     mediaType: 'image/png',
     uploadedAt: '2026-09-01T00:00:00.000Z'
   },
@@ -128,32 +128,32 @@ export const DEFAULT_MEDIA_ITEMS: MediaItem[] = [
   },
   {
     id: 'media_packaging_gud',
-    filename: 'packaging_gud.jpeg',
-    url: '/assets/images/packaging_gud.jpeg',
+    filename: 'packaging_gud.webp',
+    url: '/assets/images/packaging_gud.webp',
     alt: 'Lata Private Limited Gud Tea Range Packaging',
-    dimensions: { width: 1414, height: 1414 },
-    fileSize: '150 KB',
-    mediaType: 'image/jpeg',
+    dimensions: { width: 1200, height: 1200 },
+    fileSize: '46 KB',
+    mediaType: 'image/webp',
     uploadedAt: new Date().toISOString()
   },
   {
     id: 'media_packaging_sugar',
-    filename: 'packaging_sugar.jpeg',
-    url: '/assets/images/catalogue/page2_img3.jpeg',
+    filename: 'packaging_sugar.webp',
+    url: '/assets/images/catalogue/page2_img3.webp',
     alt: 'Lata Private Limited Sugar Tea Range Packaging',
-    dimensions: { width: 918, height: 918 },
-    fileSize: '110 KB',
-    mediaType: 'image/jpeg',
+    dimensions: { width: 900, height: 900 },
+    fileSize: '52 KB',
+    mediaType: 'image/webp',
     uploadedAt: new Date().toISOString()
   },
   {
     id: 'media_packaging_premix',
-    filename: 'packaging_premix.jpeg',
-    url: '/assets/images/catalogue/page2_img5.jpeg',
+    filename: 'packaging_premix.webp',
+    url: '/assets/images/catalogue/page2_img5.webp',
     alt: 'Lata Private Limited Vending Premix Packaging',
-    dimensions: { width: 909, height: 909 },
-    fileSize: '110 KB',
-    mediaType: 'image/jpeg',
+    dimensions: { width: 900, height: 900 },
+    fileSize: '53 KB',
+    mediaType: 'image/webp',
     uploadedAt: new Date().toISOString()
   }
 ];

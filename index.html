@@ -13,11 +13,15 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     
     <!-- Preload Critical Above-The-Fold Assets -->
-    <link rel="preload" as="image" href="/assets/images/hero_tea_panoramic.png" fetchpriority="high" />
-    <link rel="preload" as="image" href="/assets/images/logo-teamix.png" />
+    <link rel="preload" as="image" href="/assets/images/hero_tea_panoramic.webp" type="image/webp" fetchpriority="high" />
+    <link rel="preload" as="image" href="/assets/images/logo-teamix.png" fetchpriority="high" />
     
-    <!-- High-Performance Serif & Sans Fonts with font-display=swap -->
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Noto+Serif+Devanagari:wght@400;600;700&display=swap" rel="stylesheet" />
+    <!-- Non-Render-Blocking Typography with font-display=swap -->
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Noto+Serif+Devanagari:wght@400;600;700&display=swap" />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Noto+Serif+Devanagari:wght@400;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
+    <noscript>
+      <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Noto+Serif+Devanagari:wght@400;600;700&display=swap" rel="stylesheet" />
+    </noscript>
   </head>
   <body class="bg-brand-background text-brand-text antialiased selection:bg-[#F89E22] selection:text-white min-h-screen">
     <div id="root"></div>

@@ -1,17 +1,19 @@
-import React, { useState } from 'react';
+import React, { useState, Suspense, lazy } from 'react';
 import { useCMS } from '../../context/CMSContext';
 import { useRouter } from '../../router/Router';
 import { Navbar } from './Navbar';
 import { Footer } from './Footer';
 import { InquiryModal } from './InquiryModal';
 
-// Pages
+// Keep HomePage in primary bundle for instantaneous first paint
 import { HomePage } from '../../pages/HomePage';
-import { AboutPage } from '../../pages/AboutPage';
-import { ProductsPage } from '../../pages/ProductsPage';
-import { ProductDetailPage } from '../../pages/ProductDetailPage';
-import { ContactPage } from '../../pages/ContactPage';
-import { ProcessPage } from '../../pages/ProcessPage';
+
+// Lazy-load sub-routes on demand to keep initial bundle ultra-lean on slow 3G/4G
+const AboutPage = lazy(() => import('../../pages/AboutPage').then(m => ({ default: m.AboutPage })));
+const ProductsPage = lazy(() => import('../../pages/ProductsPage').then(m => ({ default: m.ProductsPage })));
+const ProductDetailPage = lazy(() => import('../../pages/ProductDetailPage').then(m => ({ default: m.ProductDetailPage })));
+const ContactPage = lazy(() => import('../../pages/ContactPage').then(m => ({ default: m.ContactPage })));
+const ProcessPage = lazy(() => import('../../pages/ProcessPage').then(m => ({ default: m.ProcessPage })));
 
 interface PublicWebsiteProps {
   isDraftPreview?: boolean;
@@ -89,7 +91,13 @@ export const PublicWebsite: React.FC<PublicWebsiteProps> = ({ isDraftPreview = f
 
       {/* Main Page Body */}
       <main className="flex-grow">
-        {renderActivePage()}
+        <Suspense fallback={
+          <div className="min-h-[40vh] flex items-center justify-center">
+            <div className="w-6 h-6 rounded-full border-2 border-brand-accent border-t-transparent animate-spin" />
+          </div>
+        }>
+          {renderActivePage()}
+        </Suspense>
       </main>
 
       {/* Corporate Compliance Minimal Footer */}

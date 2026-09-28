@@ -3,7 +3,6 @@ import { useCMS } from '../context/CMSContext';
 import { OrderingRoadmap } from '../components/public/OrderingRoadmap';
 import { RegistrationAndContact } from '../components/public/RegistrationAndContact';
 import { RecipeMethodsSection } from '../components/public/RecipeMethodsSection';
-import { HelpfulVideosSection } from '../components/public/HelpfulVideosSection';
 
 export const ProcessPage: React.FC = () => {
   const { language } = useCMS();
@@ -29,7 +28,6 @@ export const ProcessPage: React.FC = () => {
       </div>
 
       <RecipeMethodsSection />
-      <HelpfulVideosSection />
       <OrderingRoadmap />
       <RegistrationAndContact />
     </div>

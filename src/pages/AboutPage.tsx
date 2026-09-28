@@ -57,6 +57,8 @@ export const AboutPage: React.FC = () => {
                 alt={storyImage.alt || 'Lata Private Limited Blends'}
                 style={storyImage.style}
                 className="w-full h-full object-cover"
+                loading="lazy"
+                decoding="async"
               />
             </div>
           </div>
