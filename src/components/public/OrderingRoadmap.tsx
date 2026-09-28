@@ -101,7 +101,7 @@ export const OrderingRoadmap: React.FC = () => {
         </div>
 
         {/* Banner */}
-        <div className="mt-20 bg-brand-primary-dark rounded-xl overflow-hidden shadow-lg relative">
+        <div className="mt-20 bg-[#0A2318] rounded-xl overflow-hidden shadow-lg relative border border-white/10">
           <div className="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-white via-transparent to-transparent"></div>
           <div className="relative p-8 sm:p-12 text-center flex flex-col items-center">
             <h3 className="font-rajwada text-pub-section font-bold text-white mb-4">

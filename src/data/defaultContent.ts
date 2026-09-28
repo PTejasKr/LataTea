@@ -765,7 +765,7 @@ export const DEFAULT_STORY_CONTENT: EditorialStoryContent = {
     },
     copyrightText: {
       en: '© 2026 Lata Private Limited. All rights reserved.',
-      mr: '© २०२६ लता टीमिक्स. सर्व हक्क राखीव.'
+      mr: '© २०२६ लता प्रायव्हेट लिमिटेड. सर्व हक्क राखीव.'
     },
     legalLinks: [
       { label: { en: 'Privacy Policy', mr: 'गोपनीयता धोरण' }, url: '/privacy' },
@@ -776,7 +776,7 @@ export const DEFAULT_STORY_CONTENT: EditorialStoryContent = {
 };
 
 export const INITIAL_CMS_STATE: CMSState = {
-  version: 11,
+  version: 13,
   status: 'published',
   lastPublishedAt: new Date().toISOString(),
   lastSavedAt: new Date().toISOString(),
@@ -812,7 +812,7 @@ export const INITIAL_CMS_STATE: CMSState = {
       titleEn: 'How to prepare Gud Basundi Tea',
       titleMr: 'गूळ बासुंदी चहा कसा बनवायचा',
       descriptionEn: 'A quick guide to making the perfect cup of Lata Private Limited.',
-      descriptionMr: 'लता टीमिक्सचा उत्तम चहा बनवण्याची एक द्रुत मार्गदर्शक.',
+      descriptionMr: 'लता प्रायव्हेट लिमिटेडचा उत्तम चहा बनवण्याची एक द्रुत मार्गदर्शक.',
       displayOrder: 1,
       isVisible: true,
       thumbnailUrl: 'https://latatea.vercel.app/media_royal_bowl.jpg'
@@ -850,14 +850,14 @@ export const INITIAL_CMS_STATE: CMSState = {
   },
   contact: {
     companyName: 'Lata Private Limited',
-    address: '679/2, Chakan - Alandi Rd, Alandi Fata, Kurli, Maharashtra 410501',
+    address: '',
     email: 'info@latatea.com',
     phone1: '+91 7666953873',
     phone2: '+91 8483067383',
     phone3: '',
     whatsapp: '+91 7666953873',
     website: 'https://latatea.com',
-    googleMapsUrl: 'https://maps.google.com/?q=Chakan+Pune',
+    googleMapsUrl: '',
     socials: {
       instagram: 'https://instagram.com/latatea_official',
       facebook: 'https://facebook.com/latatea',

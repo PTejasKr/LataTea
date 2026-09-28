@@ -14,15 +14,18 @@ export const ProcessPage: React.FC = () => {
   }, []);
 
   return (
-    <div className="animate-fade-in pt-16 md:pt-20">
+    <div className="animate-fade-in">
       {/* Process Header */}
-      <div className="py-16 sm:py-24 bg-[#0a2318] text-center relative overflow-hidden">
+      <div className="pt-24 sm:pt-32 pb-14 sm:pb-20 bg-[#0A2318] text-center relative overflow-hidden">
         <div className="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-white via-transparent to-transparent"></div>
-        <div className="relative z-10 max-w-4xl mx-auto px-4">
-          <h1 className="text-pub-hero font-rajwada font-bold text-white mb-4">
+        <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6">
+          <span className="text-[11px] sm:text-xs font-sans font-semibold tracking-widest text-brand-accent uppercase mb-2 block">
+            {language === 'mr' ? 'लता टीमिक्स कार्यपद्धती' : 'HOW LATA TEAMIX WORKS'}
+          </span>
+          <h1 className="text-2xl sm:text-4xl md:text-5xl font-rajwada font-bold text-white mb-3 tracking-tight leading-tight">
             {language === 'mr' ? 'आमची प्रक्रिया' : 'Our Process'}
           </h1>
-          <p className="text-pub-body text-slate-200 max-w-2xl mx-auto">
+          <p className="text-sm sm:text-base text-slate-200 max-w-2xl mx-auto leading-relaxed">
             {language === 'mr' ? 'अस्सल पारंपारिक पाककृतींपासून ते सुरळीत B2B वितरण मॉडेलपर्यंत.' : 'From authentic heritage recipes to a seamless B2B distribution model.'}
           </p>
         </div>

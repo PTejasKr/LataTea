@@ -23,16 +23,19 @@ export const ContactPage: React.FC = () => {
   };
 
   return (
-    <div className="pt-20 bg-brand-background text-brand-primary min-h-screen font-sans">
+    <div className="bg-brand-background text-brand-primary min-h-screen font-sans">
       
       {/* Contact Hero */}
-      <section className="py-14 bg-brand-primary-dark text-white text-center">
+      <section className="pt-24 sm:pt-32 pb-12 sm:pb-16 bg-[#0A2318] text-white text-center relative overflow-hidden">
         <div className="max-w-4xl mx-auto px-4 sm:px-6">
-          <h1 className="font-rajwada text-3xl sm:text-5xl font-bold text-white tracking-tight">
-            Distributor & Wholesale Enquiries
+          <span className="text-[11px] sm:text-xs font-sans font-semibold tracking-widest text-brand-accent uppercase block mb-2">
+            {t('PARTNER WITH US')}
+          </span>
+          <h1 className="font-rajwada text-2xl sm:text-4xl md:text-5xl font-bold text-white tracking-tight leading-tight">
+            {t('Distributor & Wholesale Enquiries')}
           </h1>
-          <p className="mt-2 text-pub-body text-slate-200 max-w-xl mx-auto">
-            Direct supply chain solutions for corporate pantries, hotels, and FMCG distributors across India.
+          <p className="mt-2.5 text-sm sm:text-base text-slate-200 max-w-xl mx-auto leading-relaxed">
+            {t('Direct supply chain solutions for corporate pantries, hotels, and FMCG distributors across India.')}
           </p>
         </div>
       </section>
@@ -150,7 +153,7 @@ export const ContactPage: React.FC = () => {
 
           {/* Quick Info Column */}
           <div className="lg:col-span-5 space-y-6">
-            <div className="p-6 sm:p-8 rounded-xl bg-brand-primary-dark text-white shadow-xs space-y-5 border border-brand-border/20">
+            <div className="p-6 sm:p-8 rounded-xl bg-[#0A2318] text-white shadow-xs space-y-5 border border-white/10">
               <h3 className="font-rajwada text-xl font-bold text-white">
                 Head Office
               </h3>

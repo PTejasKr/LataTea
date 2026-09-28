@@ -58,7 +58,7 @@ Object.assign(UI_TRANSLATIONS, {
   'Explore Tea Catalogue': { en: 'Explore Tea Catalogue', mr: 'चहा कॅटलॉग पहा' },
   'The Process': { en: 'The Process', mr: 'प्रक्रिया' },
   'From Order to Delivery': { en: 'From Order to Delivery', mr: 'ऑर्डर ते वितरणापर्यंत' },
-  'Partner with Lata Teamix': { en: 'Partner with Lata Teamix', mr: 'लता टीमिक्स सोबत भागीदारी करा' },
+  'Partner with Lata Private Limited': { en: 'Partner with Lata Private Limited', mr: 'लता प्रायव्हेट लिमिटेड सोबत भागीदारी करा' },
   'Inquire Now': { en: 'Inquire Now', mr: 'आत्ता चौकशी करा' },
   'Details': { en: 'Details', mr: 'तपशील' },
   'Sample': { en: 'Sample', mr: 'नमुना' },
@@ -66,7 +66,7 @@ Object.assign(UI_TRANSLATIONS, {
   'Privacy Policy': { en: 'Privacy Policy', mr: 'गोपनीयता धोरण' },
   'Terms of Service': { en: 'Terms of Service', mr: 'सेवा अटी' },
   'Navigation': { en: 'Navigation', mr: 'नॅव्हिगेशन' },
-  'WHY LATA TEAMIX': { en: 'WHY LATA TEAMIX', mr: 'लता टीमिक्स का' },
+  'WHY LATA PRIVATE LIMITED': { en: 'WHY LATA PRIVATE LIMITED', mr: 'लता प्रायव्हेट लिमिटेड का' },
   'Why Business & Families Choose Us': { en: 'Why Business & Families Choose Us', mr: 'व्यावसायिक आणि कुटुंबे आम्हाला का निवडतात' }
 });
 
@@ -91,7 +91,9 @@ Object.assign(UI_TRANSLATIONS, {
 Object.assign(UI_TRANSLATIONS, {
   'Company / Establishment': { en: 'Company / Establishment', mr: 'कंपनी / संस्था' },
   'Business Sector': { en: 'Business Sector', mr: 'व्यावसायिक क्षेत्र' },
-  'Requirements & Delivery Address': { en: 'Requirements & Delivery Address', mr: 'आवश्यकता आणि वितरणाचा पत्ता' },
+  'Requirements & Delivery Address': { en: 'Requirements & Message', mr: 'आवश्यकता आणि संदेश' },
+  'Requirements & Message': { en: 'Requirements & Message', mr: 'आवश्यकता आणि संदेश' },
+  'Explore Lata Private Limited Blends': { en: 'Explore Lata Private Limited Blends', mr: 'सर्व लता उत्पादने पहा' },
   'Submit Enquiry': { en: 'Submit Enquiry', mr: 'चौकशी सबमिट करा' },
   'e.g. 100 kg / month': { en: 'e.g. 100 kg / month', mr: 'उदा. १०० किलो / महिना' },
   'Message Sent Successfully!': { en: 'Message Sent Successfully!', mr: 'संदेश यशस्वीरित्या पाठवला!' }
@@ -108,12 +110,12 @@ Object.assign(UI_TRANSLATIONS, {
 });
 
 Object.assign(UI_TRANSLATIONS, {
-  'ABOUT LATA TEAMIX': { en: 'ABOUT LATA TEAMIX', mr: 'लता टीमिक्स बद्दल' },
+  'ABOUT LATA PRIVATE LIMITED': { en: 'ABOUT LATA PRIVATE LIMITED', mr: 'लता प्रायव्हेट लिमिटेड बद्दल' },
   'Indian Tea & Jaggery Blends': { en: 'Indian Tea & Jaggery Blends', mr: 'भारतीय चहा आणि गुळाचे ब्लेंड्स' },
   'Manufactured with pride in Pune, Maharashtra.': { en: 'Manufactured with pride in Pune, Maharashtra.', mr: 'पुणे, महाराष्ट्र येथे अभिमानाने उत्पादित.' },
   'PURPOSE & STANDARDS': { en: 'PURPOSE & STANDARDS', mr: 'उद्देश आणि मानके' },
   'Unadulterated Tea in Every Boiling Cup': { en: 'Unadulterated Tea in Every Boiling Cup', mr: 'प्रत्येक उकळत्या कपात शुद्ध चहा' },
-  'Lata Teamix was established to solve an everyday challenge: giving families, cafes, and corporate workplaces access to authentic jaggery chai without curdling milk or burning sweetness.': { en: 'Lata Teamix was established to solve an everyday challenge: giving families, cafes, and corporate workplaces access to authentic jaggery chai without curdling milk or burning sweetness.', mr: 'दूध न फाटता किंवा गोडवा न जाळता कुटुंबे, कॅफे आणि कॉर्पोरेट कार्यालयांना अस्सल गुळाचा चहा उपलब्ध करून देण्याचे रोजचे आव्हान सोडवण्यासाठी लता टीमिक्सची स्थापना करण्यात आली.' },
+  'Lata Private Limited was established to solve an everyday challenge: giving families, cafes, and corporate workplaces access to authentic jaggery chai without curdling milk or burning sweetness.': { en: 'Lata Private Limited was established to solve an everyday challenge: giving families, cafes, and corporate workplaces access to authentic jaggery chai without curdling milk or burning sweetness.', mr: 'दूध न फाटता किंवा गोडवा न जाळता कुटुंबे, कॅफे आणि कॉर्पोरेट कार्यालयांना अस्सल गुळाचा चहा उपलब्ध करून देण्याचे रोजचे आव्हान सोडवण्यासाठी लता प्रायव्हेट लिमिटेडची स्थापना करण्यात आली.' },
   'Blended in a cleanroom in Pune, our products deliver consistent taste and aroma across homes, pantries, and vending machines.': { en: 'Blended in a cleanroom in Pune, our products deliver consistent taste and aroma across homes, pantries, and vending machines.', mr: 'पुण्यातील क्लिनरूममध्ये ब्लेंड केलेली आमची उत्पादने घरे, पॅन्ट्री आणि व्हेंडिंग मशीनमध्ये सातत्यपूर्ण चव आणि सुगंध देतात.' },
   'Retail & Pantry Partners': { en: 'Retail & Pantry Partners', mr: 'रिटेल आणि पॅन्ट्री भागीदार' },
   '100%': { en: '100%', mr: '१००%' },

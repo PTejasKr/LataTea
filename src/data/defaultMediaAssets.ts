@@ -39,8 +39,8 @@ export const LOGO_PRIMARY_SVG = `data:image/svg+xml;utf8,${encodeURIComponent(`
 
   <g transform="translate(200, 162)">
     <rect x="-85" y="-18" width="170" height="36" rx="18" fill="url(#goldGrad)" stroke="#FFFFFF" stroke-width="2" filter="url(#dropShadow)" />
-    <text x="0" y="6" font-family="'Cinzel', 'Playfair Display', serif" font-weight="700" font-size="18" fill="#FFFFFF" text-anchor="middle" letter-spacing="3">
-      TEAMIX
+    <text x="0" y="6" font-family="'Cinzel', 'Playfair Display', serif" font-weight="700" font-size="16" fill="#FFFFFF" text-anchor="middle" letter-spacing="2">
+      PVT LTD
     </text>
   </g>
 </svg>
@@ -68,8 +68,8 @@ export const LOGO_LIGHT_SVG = `data:image/svg+xml;utf8,${encodeURIComponent(`
 
   <g transform="translate(200, 162)">
     <rect x="-85" y="-18" width="170" height="36" rx="18" fill="url(#goldGradL)" stroke="#FFFFFF" stroke-width="2" />
-    <text x="0" y="6" font-family="'Cinzel', 'Playfair Display', serif" font-weight="700" font-size="18" fill="#1E3F20" text-anchor="middle" letter-spacing="3">
-      TEAMIX
+    <text x="0" y="6" font-family="'Cinzel', 'Playfair Display', serif" font-weight="700" font-size="16" fill="#1E3F20" text-anchor="middle" letter-spacing="2">
+      PVT LTD
     </text>
   </g>
 </svg>
@@ -90,7 +90,7 @@ export const DEFAULT_MEDIA_ITEMS: MediaItem[] = [
     id: 'media_royal_bowl',
     filename: 'royal_tea_bowl.jpg',
     url: ROYAL_BOWL_IMG,
-    alt: 'Carved Antique Copper Bowl with Premium Ground Lata Teamix and Whole Spices',
+    alt: 'Carved Antique Copper Bowl with Premium Ground Lata Tea and Whole Spices',
     dimensions: { width: 1024, height: 1024 },
     fileSize: '540 KB',
     mediaType: 'image/jpeg',
@@ -110,7 +110,7 @@ export const DEFAULT_MEDIA_ITEMS: MediaItem[] = [
     id: 'media_logo_primary',
     filename: 'lata-tea-logo-primary.svg',
     url: LOGO_PRIMARY_SVG,
-    alt: 'Lata Teamix Royal Rajwada Crest Logo',
+    alt: 'Lata Private Limited Crest Logo',
     dimensions: { width: 400, height: 240 },
     fileSize: '4.2 KB',
     mediaType: 'image/svg+xml',
@@ -120,7 +120,7 @@ export const DEFAULT_MEDIA_ITEMS: MediaItem[] = [
     id: 'media_logo_light',
     filename: 'lata-tea-logo-light.svg',
     url: LOGO_LIGHT_SVG,
-    alt: 'Lata Teamix Light Crest Logo',
+    alt: 'Lata Private Limited Light Crest Logo',
     dimensions: { width: 400, height: 240 },
     fileSize: '3.8 KB',
     mediaType: 'image/svg+xml',
@@ -130,32 +130,30 @@ export const DEFAULT_MEDIA_ITEMS: MediaItem[] = [
     id: 'media_packaging_gud',
     filename: 'packaging_gud.jpeg',
     url: '/assets/images/packaging_gud.jpeg',
-    alt: 'Lata Teamix Gud Tea Range Packaging',
+    alt: 'Lata Private Limited Gud Tea Range Packaging',
     dimensions: { width: 1414, height: 1414 },
     fileSize: '150 KB',
     mediaType: 'image/jpeg',
     uploadedAt: new Date().toISOString()
+  },
+  {
+    id: 'media_packaging_sugar',
+    filename: 'packaging_sugar.jpeg',
+    url: '/assets/images/catalogue/page2_img3.jpeg',
+    alt: 'Lata Private Limited Sugar Tea Range Packaging',
+    dimensions: { width: 918, height: 918 },
+    fileSize: '110 KB',
+    mediaType: 'image/jpeg',
+    uploadedAt: new Date().toISOString()
+  },
+  {
+    id: 'media_packaging_premix',
+    filename: 'packaging_premix.jpeg',
+    url: '/assets/images/catalogue/page2_img5.jpeg',
+    alt: 'Lata Private Limited Vending Premix Packaging',
+    dimensions: { width: 909, height: 909 },
+    fileSize: '110 KB',
+    mediaType: 'image/jpeg',
+    uploadedAt: new Date().toISOString()
   }
-,
-    {
-      id: 'media_packaging_sugar',
-      filename: 'packaging_sugar.jpeg',
-      url: '/assets/images/catalogue/page2_img3.jpeg',
-      alt: 'Lata Teamix Sugar Tea Range Packaging',
-      dimensions: { width: 918, height: 918 },
-      fileSize: '110 KB',
-      mediaType: 'image/jpeg',
-      uploadedAt: new Date().toISOString()
-    },
-    {
-      id: 'media_packaging_premix',
-      filename: 'packaging_premix.jpeg',
-      url: '/assets/images/catalogue/page2_img5.jpeg',
-      alt: 'Lata Teamix Vending Premix Packaging',
-      dimensions: { width: 909, height: 909 },
-      fileSize: '110 KB',
-      mediaType: 'image/jpeg',
-      uploadedAt: new Date().toISOString()
-    }
-  ];
-
+];
