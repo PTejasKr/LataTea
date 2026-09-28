@@ -112,8 +112,8 @@ export const Footer: React.FC = () => {
         <div className="pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-pub-small font-sans text-slate-400">
           <div>
             {language === 'en' 
-              ? '© 2026 Lata Private Limited. All rights reserved.' 
-              : '© २०२६ लता प्रायव्हेट लिमिटेड. सर्व हक्क राखीव.'}
+              ? '© 2026 Lata Private Limited. All rights reserved. [V14]' 
+              : '© २०२६ लता प्रायव्हेट लिमिटेड. सर्व हक्क राखीव. [V14]'}
           </div>
 
           <div className="flex items-center gap-5">
