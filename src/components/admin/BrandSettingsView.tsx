@@ -90,7 +90,7 @@ export const BrandSettingsView: React.FC = () => {
             <div className="p-4 rounded-sm bg-[#0a0a0a] border border-[#222] flex items-center justify-between">
               <div>
                 <div className="font-bold text-white">Accent Gold / Marigold</div>
-                <div className="text-cms-small text-neutral-400">Teamix pill badge, CTA buttons, highlights</div>
+                <div className="text-cms-small text-neutral-400">Brand pill badge, CTA buttons, highlights</div>
               </div>
               <div className="flex items-center gap-3">
                 <input

@@ -165,7 +165,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenInquiry, isDraftPreview = 
             <div className="flex items-center justify-between pb-3 border-b border-white/10">
               <div className="flex items-center gap-2">
                 <BrandLogo className="h-8 w-auto" />
-                <span className="text-xs font-mono uppercase tracking-widest text-brand-accent font-bold">Lata Teamix</span>
+                <span className="text-xs font-mono uppercase tracking-widest text-brand-accent font-bold">Lata Private Limited</span>
               </div>
               <button
                 type="button"

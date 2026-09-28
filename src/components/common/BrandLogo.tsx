@@ -14,7 +14,7 @@ export const BrandLogo: React.FC<BrandLogoProps> = ({ className = 'h-10 w-auto',
   
   const resolved = resolveSlotImage(slotKey, false, false);
   const logoSrc = resolved?.url || '/assets/images/logo-teamix.png';
-  const logoAlt = resolved?.alt || 'Lata Teamix Logo';
+  const logoAlt = resolved?.alt || 'Lata Private Limited Logo';
 
   return (
     <img 

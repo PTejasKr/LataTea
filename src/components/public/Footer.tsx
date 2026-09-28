@@ -23,8 +23,8 @@ export const Footer: React.FC = () => {
 
             <p className="text-pub-small text-slate-300 font-sans leading-relaxed max-w-sm">
               {language === 'en' 
-                ? 'Lata Teamix is manufactured in Pune, Maharashtra. Natural jaggery tea and basundi premixes.' 
-                : 'पुणे, महाराष्ट्र. नैसर्गिक गूळ चहा आणि बासुंदी प्रीमिक्स.'}
+                ? 'Lata Private Limited produces premium tea and natural jaggery blends.' 
+                : 'लता प्रायव्हेट लिमिटेड नैसर्गिक गूळ चहा आणि बासुंदी प्रीमिक्स.'}
             </p>
 
             {/* Language Switcher in Footer */}
@@ -95,8 +95,7 @@ export const Footer: React.FC = () => {
             </h4>
             
             <p className="text-slate-300 leading-relaxed">
-              <strong className="text-white block font-semibold">{contact.companyName}</strong>
-              {contact.address}
+              <strong className="text-white block font-semibold">{contact.companyName || 'Lata Private Limited'}</strong>
             </p>
 
             <div className="space-y-1 text-slate-300 pt-1">
@@ -113,8 +112,8 @@ export const Footer: React.FC = () => {
         <div className="pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-pub-small font-sans text-slate-400">
           <div>
             {language === 'en' 
-              ? '© 2026 Lata Teamix. All rights reserved. [V13]' 
-              : '© २०२६ लता टीमिक्स. सर्व हक्क राखीव. [V13]'}
+              ? '© 2026 Lata Private Limited. All rights reserved.' 
+              : '© २०२६ लता प्रायव्हेट लिमिटेड. सर्व हक्क राखीव.'}
           </div>
 
           <div className="flex items-center gap-5">

@@ -118,7 +118,7 @@ export const ContactManagerView: React.FC = () => {
             </label>
             <textarea
               rows={2}
-              placeholder="e.g. 679/2, Chakan - Alandi Rd, Alandi Fata, Kurli, Maharashtra 410501"
+              placeholder="Optional address details"
               value={contact.address}
               onChange={e => handleChange('address', e.target.value)}
               className="w-full px-3.5 py-2 rounded-sm border border-[#222] bg-[#0a0a0a] text-white font-sans text-cms-small focus:ring-1 focus:ring-[#333]"

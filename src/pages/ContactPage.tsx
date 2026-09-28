@@ -28,9 +28,6 @@ export const ContactPage: React.FC = () => {
       {/* Contact Hero */}
       <section className="pt-24 sm:pt-32 pb-12 sm:pb-16 bg-[#0A2318] text-white text-center relative overflow-hidden">
         <div className="max-w-4xl mx-auto px-4 sm:px-6">
-          <span className="text-[11px] sm:text-xs font-sans font-semibold tracking-widest text-brand-accent uppercase block mb-2">
-            {t('PARTNER WITH US')}
-          </span>
           <h1 className="font-rajwada text-2xl sm:text-4xl md:text-5xl font-bold text-white tracking-tight leading-tight">
             {t('Distributor & Wholesale Enquiries')}
           </h1>
@@ -130,7 +127,7 @@ export const ContactPage: React.FC = () => {
                 </div>
 
                 <div>
-                  <label className="block text-xs font-bold text-brand-primary uppercase mb-1">{t('Requirements & Delivery Address')}</label>
+                  <label className="block text-xs font-bold text-brand-primary uppercase mb-1">{t('Requirements & Message')}</label>
                   <textarea
                     rows={4}
                     value={formData.message}
@@ -159,9 +156,8 @@ export const ContactPage: React.FC = () => {
               </h3>
               
               <div className="space-y-3 text-pub-body font-sans">
-                <div className="flex items-start gap-2.5">
-                  <MapPin className="w-4 h-4 text-brand-accent shrink-0 mt-0.5" />
-                  <span>{contact.address}</span>
+                <div className="font-bold text-white tracking-wide">
+                  {contact.companyName || 'Lata Private Limited'}
                 </div>
                 <div className="flex items-center gap-3">
                   <Phone className="w-5 h-5 text-brand-accent shrink-0" />

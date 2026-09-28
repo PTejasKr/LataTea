@@ -96,10 +96,8 @@ export const cmsStore = {
   getPublishedState(): CMSState {
     try {
       // Clean up legacy keys
-      localStorage.removeItem('latatea_cms_v11_pub');
-      localStorage.removeItem('latatea_cms_v11_draft');
-      localStorage.removeItem('latatea_cms_story_v3_pub');
-      localStorage.removeItem('latatea_cms_story_v3_draft');
+      localStorage.removeItem('latatea_cms_v12_pub');
+      localStorage.removeItem('latatea_cms_v12_draft');
       localStorage.removeItem('latatea_cms_v11_pub');
       localStorage.removeItem('latatea_cms_v11_draft');
 

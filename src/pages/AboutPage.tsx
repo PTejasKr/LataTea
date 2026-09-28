@@ -14,9 +14,6 @@ export const AboutPage: React.FC = () => {
       {/* Page Hero Header */}
       <section className="pt-24 sm:pt-32 pb-12 sm:pb-16 bg-[#0A2318] text-white text-center relative overflow-hidden">
         <div className="max-w-4xl mx-auto px-4 sm:px-6">
-          <span className="text-[11px] sm:text-xs font-sans font-semibold tracking-widest text-brand-accent uppercase block mb-2">
-            {t('ABOUT LATA TEAMIX')}
-          </span>
           <h1 className="font-rajwada text-2xl sm:text-4xl md:text-5xl font-bold text-white tracking-tight leading-tight">
             {t('Indian Tea & Jaggery Blends')}
           </h1>
@@ -35,7 +32,7 @@ export const AboutPage: React.FC = () => {
               {t('Authentic Jaggery Chai for Every Kitchen')}
             </h2>
             <p className="text-pub-body text-brand-text-muted leading-relaxed font-sans">
-              Lata Teamix was established to solve an everyday challenge: giving families, cafés, and corporate workplaces access to authentic jaggery chai without curdling milk or burning sweetness.
+              Lata Private Limited was established to solve an everyday challenge: giving families, cafés, and corporate workplaces access to authentic jaggery chai without curdling milk or burning sweetness.
             </p>
             <p className="text-pub-body text-brand-text-muted leading-relaxed font-sans">
               {t('Blended in a cleanroom in Pune, our products deliver consistent taste and aroma across homes, pantries, and vending machines.')}
@@ -57,7 +54,7 @@ export const AboutPage: React.FC = () => {
             <div className="rounded-xl overflow-hidden border border-brand-border aspect-[4/3] bg-brand-surface shadow-xs">
               <img
                 src={storyImage.url || '/assets/images/royal_tea_bowl.jpg'}
-                alt={storyImage.alt || 'Lata Teamix Blends'}
+                alt={storyImage.alt || 'Lata Private Limited Blends'}
                 style={storyImage.style}
                 className="w-full h-full object-cover"
               />

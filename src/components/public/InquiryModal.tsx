@@ -1,4 +1,4 @@
-﻿import React, { useState } from 'react';
+import React, { useState } from 'react';
 import { useCMS } from '../../context/CMSContext';
 import { X, CheckCircle2, Send } from 'lucide-react';
 
@@ -55,7 +55,7 @@ export const InquiryModal: React.FC<InquiryModalProps> = ({ isOpen, onClose, def
           
           
           <h3 className="font-serif font-bold text-2xl text-white">
-            Request LataTea Samples
+            Request Lata Private Limited Samples
           </h3>
           <p className="text-xs text-slate-300 mt-1">
             Experience our authentic jaggery basundi blend and vending premixes.
