@@ -82,10 +82,6 @@ export const TeaStoryCollection: React.FC<TeaStoryCollectionProps> = ({
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                     loading="lazy"
                   />
-                  {/* Subtle Category Pill on Image */}
-                  <span className="absolute top-2 left-2 px-1.5 py-0.5 rounded bg-white/95 text-pub-small font-bold uppercase text-brand-accent shadow-xs">
-                    {t(tea.categoryName)}
-                  </span>
                 </Link>
 
                 {/* Compact Info Block */}
