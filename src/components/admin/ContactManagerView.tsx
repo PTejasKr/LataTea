@@ -2,7 +2,7 @@ import React from 'react';
 import { useCMS } from '../../context/CMSContext';
 import { ContactInfo } from '../../types/cms';
 import { BROCHURE_CONTACT_PRESET } from '../../data/defaultContent';
-import { Phone, Building2, MapPin, Mail, Globe, Trash2, CheckCircle2 } from 'lucide-react';
+import { Phone, Building2, Mail, Globe, Trash2, CheckCircle2 } from 'lucide-react';
 
 export const ContactManagerView: React.FC = () => {
   const { draftState, updateDraft } = useCMS();
