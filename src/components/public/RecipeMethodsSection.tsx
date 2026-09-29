@@ -21,9 +21,6 @@ export const RecipeMethodsSection: React.FC<Props> = ({ isDraftPreview = false }
         
         {/* Section Heading */}
         <div className="text-center max-w-2xl mx-auto mb-8 sm:mb-12">
-          <span className="text-pub-small font-sans font-semibold tracking-widest text-brand-accent uppercase block mb-1.5">
-            {language === 'mr' ? 'पाककृती व प्रात्यक्षिक' : 'BREWING & DEMONSTRATION'}
-          </span>
           <h2 className="font-rajwada text-2xl sm:text-3xl md:text-4xl font-bold text-brand-primary tracking-tight">
             {language === 'mr' ? 'आमचे चहा कसे बनवायचे' : 'How To Prepare Our Blends'}
           </h2>
@@ -55,9 +52,6 @@ export const RecipeMethodsSection: React.FC<Props> = ({ isDraftPreview = false }
                       <ChefHat className="w-5 h-5 text-brand-accent" />
                     </div>
                     <div>
-                      <span className="text-[11px] font-sans font-bold uppercase tracking-wider text-brand-accent block">
-                        {language === 'mr' ? 'रेसिपी पद्धत' : 'Recipe Method'}
-                      </span>
                       <h3 className="font-rajwada text-xl sm:text-2xl font-bold text-brand-primary leading-snug">
                         {language === 'mr' ? recipe.titleMr : recipe.titleEn}
                       </h3>
@@ -146,9 +140,6 @@ export const RecipeMethodsSection: React.FC<Props> = ({ isDraftPreview = false }
                   {/* Video Information */}
                   <div className="p-5 sm:p-6 flex flex-col justify-between flex-grow bg-brand-surface">
                     <div className="space-y-1.5 mb-4">
-                      <span className="text-[11px] font-sans font-bold uppercase tracking-wider text-brand-accent block">
-                        {language === 'mr' ? 'प्रात्यक्षिक व्हिडिओ' : 'Watch & Learn'}
-                      </span>
                       <h3 className="font-rajwada text-lg sm:text-xl font-bold text-brand-primary leading-snug">
                         {language === 'mr' ? video.titleMr : video.titleEn}
                       </h3>

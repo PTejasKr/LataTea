@@ -20,9 +20,6 @@ export const RegistrationAndContact: React.FC<RegistrationAndContactProps> = ({ 
         
         {/* Section Header */}
         <div className="text-center max-w-2xl mx-auto mb-12">
-          <span className="text-pub-small font-sans font-semibold tracking-widest text-brand-accent uppercase block mb-2">
-            {language === 'mr' ? 'थेट संपर्क' : 'COMMERCIAL & DISTRIBUTION'}
-          </span>
           <h2 className="font-rajwada text-pub-section font-bold text-brand-primary tracking-tight">
             {t('Business Inquiries')}
           </h2>
@@ -43,9 +40,6 @@ export const RegistrationAndContact: React.FC<RegistrationAndContactProps> = ({ 
               <Building2 className="w-6 h-6 text-brand-accent" />
             </div>
             <div>
-              <span className="text-[11px] font-sans font-bold text-brand-accent uppercase tracking-widest block">
-                {t('Head Office')}
-              </span>
               <h3 className="font-rajwada font-bold text-xl sm:text-2xl text-brand-primary tracking-tight">
                 {contact.companyName || 'Lata Private Limited'}
               </h3>
@@ -93,11 +87,7 @@ export const RegistrationAndContact: React.FC<RegistrationAndContactProps> = ({ 
           </div>
 
           {/* Action Row: WhatsApp + Prompt */}
-          <div className="pt-6 flex flex-col sm:flex-row items-center justify-between gap-4">
-            <div className="flex items-center gap-2 text-xs font-sans text-brand-text-muted text-center sm:text-left">
-              <Sparkles className="w-4 h-4 text-brand-accent shrink-0" />
-              <span>{language === 'mr' ? 'व्हॉट्सॲपवर त्वरित प्रतिसाद उपलब्ध' : 'Instant response available via WhatsApp'}</span>
-            </div>
+          <div className="pt-6 flex flex-col sm:flex-row items-center justify-end gap-4">
 
             <a
               href={whatsappUrl}

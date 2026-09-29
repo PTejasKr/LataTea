@@ -30,9 +30,6 @@ export const ContactPage: React.FC = () => {
       {/* Contact Hero */}
       <section className="pt-24 sm:pt-32 pb-12 sm:pb-16 bg-[#0A2318] text-white text-center relative overflow-hidden">
         <div className="max-w-4xl mx-auto px-4 sm:px-6">
-          <span className="text-pub-small font-sans font-semibold tracking-widest text-brand-accent uppercase block mb-2">
-            {language === 'mr' ? 'थेट संपर्क' : 'DIRECT COMMERCIAL CHANNELS'}
-          </span>
           <h1 className="font-rajwada text-2xl sm:text-4xl md:text-5xl font-bold text-white tracking-tight leading-tight">
             {t('Distributor & Wholesale Enquiries')}
           </h1>
@@ -168,9 +165,6 @@ export const ContactPage: React.FC = () => {
                   <Building2 className="w-5 h-5 text-brand-accent" />
                 </div>
                 <div>
-                  <span className="text-[11px] font-sans font-bold text-brand-accent uppercase tracking-widest block">
-                    {t('Head Office')}
-                  </span>
                   <h3 className="font-rajwada text-xl sm:text-2xl font-bold text-white tracking-tight">
                     {contact.companyName || 'Lata Private Limited'}
                   </h3>
@@ -227,10 +221,6 @@ export const ContactPage: React.FC = () => {
                   <MessageCircle className="w-4 h-4" />
                   <span>{language === 'mr' ? 'व्हॉट्सॲपवर संपर्क साधा' : 'Connect on WhatsApp'}</span>
                 </a>
-                <div className="flex items-center justify-center gap-1.5 text-[11px] text-slate-300">
-                  <Sparkles className="w-3.5 h-3.5 text-brand-accent shrink-0" />
-                  <span>{language === 'mr' ? 'त्वरित प्रतिसाद उपलब्ध' : 'Direct corporate desk support'}</span>
-                </div>
               </div>
             </div>
 
