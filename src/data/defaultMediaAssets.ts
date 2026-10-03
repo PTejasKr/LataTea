@@ -1,8 +1,8 @@
 import { MediaItem } from '../types/cms';
 
-export const ROYAL_PANORAMIC_IMG = '/assets/images/hero_tea_panoramic.webp';
-export const ROYAL_BOWL_IMG = '/assets/images/royal_tea_bowl.webp';
-export const TEA_LEAF_IMG = '/assets/images/logo-teamix.png';
+export const ROYAL_PANORAMIC_IMG = '/assets/images/hero_tea_panoramic.webp?v=16';
+export const ROYAL_BOWL_IMG = '/assets/images/royal_tea_bowl.webp?v=16';
+export const TEA_LEAF_IMG = '/assets/images/logo-teamix.png?v=16';
 
 export const LOGO_PRIMARY_SVG = `data:image/svg+xml;utf8,${encodeURIComponent(`
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 240" width="100%" height="100%">
@@ -90,11 +90,11 @@ export const DEFAULT_MEDIA_ITEMS: MediaItem[] = [
     id: 'media_royal_bowl',
     filename: 'royal_tea_bowl.webp',
     url: ROYAL_BOWL_IMG,
-    alt: 'Carved Antique Copper Bowl with Premium Ground Lata Tea and Whole Spices',
+    alt: 'Carved Antique Brass Bowl with Premium Ground Lata Tea and Whole Spices',
     dimensions: { width: 1024, height: 1024 },
-    fileSize: '9 KB',
+    fileSize: '120 KB',
     mediaType: 'image/webp',
-    uploadedAt: '2026-09-01T00:00:00.000Z'
+    uploadedAt: new Date().toISOString()
   },
   {
     id: 'media_tea_leaf',
@@ -129,30 +129,30 @@ export const DEFAULT_MEDIA_ITEMS: MediaItem[] = [
   {
     id: 'media_packaging_gud',
     filename: 'packaging_gud.webp',
-    url: '/assets/images/packaging_gud.webp',
+    url: '/assets/images/packaging_gud.webp?v=16',
     alt: 'Lata Private Limited Gud Tea Range Packaging',
-    dimensions: { width: 1200, height: 1200 },
-    fileSize: '46 KB',
+    dimensions: { width: 1024, height: 1024 },
+    fileSize: '140 KB',
     mediaType: 'image/webp',
     uploadedAt: new Date().toISOString()
   },
   {
     id: 'media_packaging_sugar',
     filename: 'packaging_sugar.webp',
-    url: '/assets/images/catalogue/page2_img3.webp',
+    url: '/assets/images/catalogue/page2_img3.webp?v=16',
     alt: 'Lata Private Limited Sugar Tea Range Packaging',
-    dimensions: { width: 900, height: 900 },
-    fileSize: '52 KB',
+    dimensions: { width: 1024, height: 1024 },
+    fileSize: '150 KB',
     mediaType: 'image/webp',
     uploadedAt: new Date().toISOString()
   },
   {
     id: 'media_packaging_premix',
     filename: 'packaging_premix.webp',
-    url: '/assets/images/catalogue/page2_img5.webp',
+    url: '/assets/images/catalogue/page2_img5.webp?v=16',
     alt: 'Lata Private Limited Vending Premix Packaging',
-    dimensions: { width: 900, height: 900 },
-    fileSize: '53 KB',
+    dimensions: { width: 1024, height: 1024 },
+    fileSize: '140 KB',
     mediaType: 'image/webp',
     uploadedAt: new Date().toISOString()
   }

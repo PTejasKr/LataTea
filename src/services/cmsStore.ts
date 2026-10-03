@@ -1,8 +1,8 @@
 import { CMSState, MediaItem, MediaSlot, TeaStoryItem, ValidationIssue } from '../types/cms';
 import { INITIAL_CMS_STATE } from '../data/defaultContent';
 
-const STORAGE_KEY_PUBLISHED = 'latatea_cms_v14_pub';
-const STORAGE_KEY_DRAFT = 'latatea_cms_v14_draft';
+const STORAGE_KEY_PUBLISHED = 'latatea_cms_v16_pub';
+const STORAGE_KEY_DRAFT = 'latatea_cms_v16_draft';
 
 type Listener = () => void;
 const listeners: Set<Listener> = new Set();
@@ -64,7 +64,10 @@ function mergeWithInitialState(parsed: Partial<CMSState> | null): CMSState {
     teaStories: parsed.teaStories && parsed.teaStories.length > 0 ? parsed.teaStories : INITIAL_CMS_STATE.teaStories,
     categories: parsed.categories && parsed.categories.length > 0 ? parsed.categories : INITIAL_CMS_STATE.categories,
     domains: parsed.domains || INITIAL_CMS_STATE.domains,
-    mediaLibrary: parsed.mediaLibrary || INITIAL_CMS_STATE.mediaLibrary,
+    mediaLibrary: [
+      ...INITIAL_CMS_STATE.mediaLibrary,
+      ...(parsed.mediaLibrary || []).filter(item => !INITIAL_CMS_STATE.mediaLibrary.some(def => def.id === item.id))
+    ],
     mediaSlots: {
       ...INITIAL_CMS_STATE.mediaSlots,
       ...(parsed.mediaSlots || {})
@@ -96,33 +99,18 @@ export const cmsStore = {
   getPublishedState(): CMSState {
     try {
       // Clean up legacy keys
+      localStorage.removeItem('latatea_cms_v15_pub');
+      localStorage.removeItem('latatea_cms_v15_draft');
+      localStorage.removeItem('latatea_cms_v14_pub');
+      localStorage.removeItem('latatea_cms_v14_draft');
+      localStorage.removeItem('latatea_cms_v13_pub');
+      localStorage.removeItem('latatea_cms_v13_draft');
       localStorage.removeItem('latatea_cms_v12_pub');
       localStorage.removeItem('latatea_cms_v12_draft');
       localStorage.removeItem('latatea_cms_v11_pub');
       localStorage.removeItem('latatea_cms_v11_draft');
 
       const data = localStorage.getItem(STORAGE_KEY_PUBLISHED);
-      
-      // Auto-migrate from v13 if v14 is empty
-      if (!data) {
-        const v13Data = localStorage.getItem('latatea_cms_v13_pub');
-        if (v13Data) {
-          localStorage.setItem(STORAGE_KEY_PUBLISHED, v13Data);
-          const v13Draft = localStorage.getItem('latatea_cms_v13_draft');
-          if (v13Draft) {
-            localStorage.setItem(STORAGE_KEY_DRAFT, v13Draft);
-          }
-          // Now it's safe to remove legacy v13
-          localStorage.removeItem('latatea_cms_v13_pub');
-          localStorage.removeItem('latatea_cms_v13_draft');
-          
-          return mergeWithInitialState(JSON.parse(v13Data));
-        }
-      }
-      
-      // Cleanup v13 if we didn't migrate (already had v14 data)
-      localStorage.removeItem('latatea_cms_v13_pub');
-      localStorage.removeItem('latatea_cms_v13_draft');
 
       if (data) {
         const parsed = JSON.parse(data);

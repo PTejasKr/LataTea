@@ -116,7 +116,7 @@ export const RecipeMethodsSection: React.FC<Props> = ({ isDraftPreview = false }
                     onClick={() => window.open(video.instagramUrl, '_blank')}
                   >
                     <img 
-                      src={video.thumbnailUrl || '/assets/images/royal_tea_bowl.webp'} 
+                      src={video.thumbnailUrl || '/assets/images/royal_tea_bowl.webp?v=16'} 
                       alt={video.titleEn} 
                       className="w-full h-full object-cover opacity-85 group-hover:opacity-95 group-hover:scale-105 transition-all duration-500 ease-out" 
                     />
