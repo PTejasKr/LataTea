@@ -74,12 +74,12 @@ export const TeaStoryCollection: React.FC<TeaStoryCollectionProps> = ({
                 className="bg-brand-surface rounded-lg border border-brand-border hover:border-brand-accent hover:shadow-md transition-all flex flex-col justify-between overflow-hidden group"
               >
                 {/* Product Image */}
-                <Link to={`/tea/${tea.slug}`} className="block relative aspect-[4/5] bg-brand-background overflow-hidden">
+                <Link to={`/tea/${tea.slug}`} className="block relative aspect-[4/5] bg-white overflow-hidden p-2 sm:p-3 flex items-center justify-center">
                   <img
                     src={teaImage.url}
                     alt={teaImage.alt}
                     style={teaImage.style}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                    className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300"
                     loading="lazy"
                     decoding="async"
                   />

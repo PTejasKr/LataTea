@@ -54,12 +54,12 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({ slug, onOp
           
           {/* 1. PRODUCT IMAGE */}
           <div className="md:col-span-5">
-            <div className="rounded-xl overflow-hidden border border-[#E2ECE3] bg-white aspect-square shadow-xs">
+            <div className="rounded-2xl overflow-hidden border border-[#E2ECE3] bg-white aspect-square shadow-sm p-4 sm:p-6 flex items-center justify-center">
               <img
                 src={teaImage.url}
                 alt={teaImage.alt}
                 style={teaImage.style}
-                className="w-full h-full object-cover"
+                className="w-full h-full object-contain"
                 loading="eager"
                 decoding="async"
               />
