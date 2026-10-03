@@ -96,8 +96,6 @@ export const cmsStore = {
   getPublishedState(): CMSState {
     try {
       // Clean up legacy keys
-      localStorage.removeItem('latatea_cms_v13_pub');
-      localStorage.removeItem('latatea_cms_v13_draft');
       localStorage.removeItem('latatea_cms_v12_pub');
       localStorage.removeItem('latatea_cms_v12_draft');
       localStorage.removeItem('latatea_cms_v11_pub');
@@ -114,9 +112,17 @@ export const cmsStore = {
           if (v13Draft) {
             localStorage.setItem(STORAGE_KEY_DRAFT, v13Draft);
           }
+          // Now it's safe to remove legacy v13
+          localStorage.removeItem('latatea_cms_v13_pub');
+          localStorage.removeItem('latatea_cms_v13_draft');
+          
           return mergeWithInitialState(JSON.parse(v13Data));
         }
       }
+      
+      // Cleanup v13 if we didn't migrate (already had v14 data)
+      localStorage.removeItem('latatea_cms_v13_pub');
+      localStorage.removeItem('latatea_cms_v13_draft');
 
       if (data) {
         const parsed = JSON.parse(data);
