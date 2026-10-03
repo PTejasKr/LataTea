@@ -96,12 +96,28 @@ export const cmsStore = {
   getPublishedState(): CMSState {
     try {
       // Clean up legacy keys
+      localStorage.removeItem('latatea_cms_v13_pub');
+      localStorage.removeItem('latatea_cms_v13_draft');
       localStorage.removeItem('latatea_cms_v12_pub');
       localStorage.removeItem('latatea_cms_v12_draft');
       localStorage.removeItem('latatea_cms_v11_pub');
       localStorage.removeItem('latatea_cms_v11_draft');
 
       const data = localStorage.getItem(STORAGE_KEY_PUBLISHED);
+      
+      // Auto-migrate from v13 if v14 is empty
+      if (!data) {
+        const v13Data = localStorage.getItem('latatea_cms_v13_pub');
+        if (v13Data) {
+          localStorage.setItem(STORAGE_KEY_PUBLISHED, v13Data);
+          const v13Draft = localStorage.getItem('latatea_cms_v13_draft');
+          if (v13Draft) {
+            localStorage.setItem(STORAGE_KEY_DRAFT, v13Draft);
+          }
+          return mergeWithInitialState(JSON.parse(v13Data));
+        }
+      }
+
       if (data) {
         const parsed = JSON.parse(data);
         if (parsed && parsed.version === INITIAL_CMS_STATE.version) {
