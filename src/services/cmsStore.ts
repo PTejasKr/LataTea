@@ -1,8 +1,8 @@
 import { CMSState, MediaItem, MediaSlot, TeaStoryItem, ValidationIssue } from '../types/cms';
 import { INITIAL_CMS_STATE } from '../data/defaultContent';
 
-const STORAGE_KEY_PUBLISHED = 'latatea_cms_v16_pub';
-const STORAGE_KEY_DRAFT = 'latatea_cms_v16_draft';
+const STORAGE_KEY_PUBLISHED = 'latatea_cms_v17_pub';
+const STORAGE_KEY_DRAFT = 'latatea_cms_v17_draft';
 
 type Listener = () => void;
 const listeners: Set<Listener> = new Set();
@@ -99,6 +99,8 @@ export const cmsStore = {
   getPublishedState(): CMSState {
     try {
       // Clean up legacy keys
+      localStorage.removeItem('latatea_cms_v16_pub');
+      localStorage.removeItem('latatea_cms_v16_draft');
       localStorage.removeItem('latatea_cms_v15_pub');
       localStorage.removeItem('latatea_cms_v15_draft');
       localStorage.removeItem('latatea_cms_v14_pub');

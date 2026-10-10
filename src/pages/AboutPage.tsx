@@ -53,7 +53,7 @@ export const AboutPage: React.FC = () => {
           <div className="md:col-span-5">
             <div className="rounded-xl overflow-hidden border border-brand-border aspect-[4/3] bg-brand-surface shadow-xs">
               <img
-                src={storyImage.url || '/assets/images/royal_tea_bowl.webp?v=16'}
+                src={storyImage.url || '/assets/images/royal_tea_bowl.webp?v=17'}
                 alt={storyImage.alt || 'Lata Private Limited Blends'}
                 style={storyImage.style}
                 className="w-full h-full object-cover"
