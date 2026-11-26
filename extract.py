@@ -1,4 +1,4 @@
-﻿import fitz
+import fitz
 import os
 
 pdf_path = 'Lata Company Brochure English.pdf'
