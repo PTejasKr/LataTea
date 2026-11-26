@@ -1,4 +1,4 @@
-﻿import os
+import os
 from PIL import Image
 
 input_dir = r"extracted_images"
